@@ -2,25 +2,21 @@ package com.yuankang.yk.service.news;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.armysoft.core.Pagination;
+import org.hibernate.SQLQuery;
 import org.springframework.stereotype.Service;
 
-import com.yuankang.yk.dao.news.news.NewsDao;
-import com.yuankang.yk.pojo.advert.Advert;
 import com.yuankang.yk.pojo.sys.News;
-import com.yuankang.yk.service.base.BaseService;
+import com.yuankang.yk.service.base.BaseSqlService;
 
 /**
  * 资讯service
  *
  */
 @Service
-public class NewsService extends BaseService<News> {
+public class NewsService extends BaseSqlService{
 
-	@Resource
-	private NewsDao newsDao;
+	
 
 	/**
 	 * 分页查询资讯
@@ -28,8 +24,11 @@ public class NewsService extends BaseService<News> {
 	 * @param advert
 	 * @return
 	 */
-	public List<News> getByPage(Pagination page, String adName) {
-		return newsDao.findAdvertsByPage(page, adName);
+	public List<Object[]> getByPage(Pagination page, Long categoryId) {
+		//return newsSqlDao.findAdvertsByPage(page, categoryId);
+		SQLQuery sq=getSession().createSQLQuery("select * from news where categoryId="+categoryId);
+		List<Object[]> list =sq.list();
+		return list;
 	}
 	
 	
