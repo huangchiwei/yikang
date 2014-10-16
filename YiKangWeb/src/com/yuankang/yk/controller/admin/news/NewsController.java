@@ -1,5 +1,9 @@
 package com.yuankang.yk.controller.admin.news;
 
+import java.beans.PropertyEditor;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -7,8 +11,11 @@ import javax.annotation.Resource;
 
 import org.armysoft.core.Pagination;
 import org.armysoft.springmvc.controller.BaseController;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -82,11 +89,19 @@ public class NewsController extends BaseController {
 
 	    return "admin/news/newsD_U";
 	  }
-	  @RequestMapping(value = SAVE)
+	  /**
+	 * @param model
+	 * @param viewType
+	 * @param news
+	 * @return
+	 */
+	@RequestMapping(value = SAVE)
 	  public String save(Model model,String viewType,News news)
 	  {
 		  if(viewType.endsWith("A")){
-			  
+			  news.setLastUpdateTime(new Date());
+			  news.setCreateTime(new Date());
+			  news.setRealTime(new Date());
 		  }else  if(viewType.endsWith("U")){
 			  
 		  }
@@ -94,4 +109,11 @@ public class NewsController extends BaseController {
 
 		  return "redirect:/admin/news/list/1.html";
 	  }
+
+	 @InitBinder  
+	    public void dataBinder(WebDataBinder binder) {  
+	       DateFormat dateFormat = new SimpleDateFormat( "yyyy-MM-dd" );  
+	       PropertyEditor propertyEditor = new CustomDateEditor(dateFormat, true ); // 第二个参数表示是否允许为空  
+	       binder.registerCustomEditor(Date. class , propertyEditor);  
+	    }  
 }

@@ -1,8 +1,11 @@
 package com.yuankang.yk.pojo.sys;
+import static javax.persistence.GenerationType.IDENTITY;
+
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -20,15 +23,15 @@ public class News implements java.io.Serializable {
 	private String title;
 	private String content;
 	private String digest;
-	private String from;
+	private String source;
 	private String author;
-	private String createTime;
-	private String realTime;
+	private Date createTime;
+	private Date realTime;
 	private Integer orderNo;
 	private String status;
 	private String createUser;
 	private String lastUpdateUser;
-	private String lastUpdateTime;
+	private Date lastUpdateTime;
 	private Integer isTop;
 	private Integer isRecommend;
 	private Integer clicks;
@@ -41,15 +44,15 @@ public class News implements java.io.Serializable {
 
 	/** full constructor */
 	public News(String categoryId, String title, String content, String digest,
-			String from, String author, String createTime, String realTime,
+			String source, String author, Date createTime, Date realTime,
 			Integer orderNo, String status, String createUser,
-			String lastUpdateUser, String lastUpdateTime, Integer isTop,
+			String lastUpdateUser, Date lastUpdateTime, Integer isTop,
 			Integer isRecommend, Integer clicks) {
 		this.categoryId = categoryId;
 		this.title = title;
 		this.content = content;
 		this.digest = digest;
-		this.from = from;
+		this.source = source;
 		this.author = author;
 		this.createTime = createTime;
 		this.realTime = realTime;
@@ -111,13 +114,13 @@ public class News implements java.io.Serializable {
 		this.digest = digest;
 	}
 
-	@Column(name = "From")
-	public String getFrom() {
-		return this.from;
+	@Column(name = "Source")
+	public String getSource() {
+		return this.source;
 	}
 
-	public void setFrom(String from) {
-		this.from = from;
+	public void setSource(String from) {
+		this.source = source;
 	}
 
 	@Column(name = "Author", length = 50)
@@ -130,20 +133,20 @@ public class News implements java.io.Serializable {
 	}
 
 	@Column(name = "CreateTime", length = 20)
-	public String getCreateTime() {
+	public Date getCreateTime() {
 		return this.createTime;
 	}
 
-	public void setCreateTime(String createTime) {
+	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
 
 	@Column(name = "RealTime", length = 20)
-	public String getRealTime() {
+	public Date getRealTime() {
 		return this.realTime;
 	}
 
-	public void setRealTime(String realTime) {
+	public void setRealTime(Date realTime) {
 		this.realTime = realTime;
 	}
 
@@ -184,11 +187,11 @@ public class News implements java.io.Serializable {
 	}
 
 	@Column(name = "LastUpdateTime", length = 20)
-	public String getLastUpdateTime() {
+	public Date getLastUpdateTime() {
 		return this.lastUpdateTime;
 	}
 
-	public void setLastUpdateTime(String lastUpdateTime) {
+	public void setLastUpdateTime(Date lastUpdateTime) {
 		this.lastUpdateTime = lastUpdateTime;
 	}
 

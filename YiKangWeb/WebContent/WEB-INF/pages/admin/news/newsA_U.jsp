@@ -30,22 +30,58 @@
      <option  value="${c.ID }" <c:if test="${c.ID==categoryId}">selected="selected"</c:if>>${c.Title }</option>
      </c:forEach>
      </td>
-     
-     <th>姓名：</th>
+        <th>来源：</th>
      <td>
-     	<input id="userName" name="userName" type="text" value="${user.userName}" maxlength="20"/>
+    	<input id="source" name="source" type="text" value="${news.Source}" maxlength="20"/>
      </td>
-     <th>性别：</th>
+      <th>作者：</th>
      <td>
-    	<input name="sex" type="radio" value="1" checked="checked" />
-    	<label>男</label>
-    	<input name="sex" type="radio" value="0" <c:if test="${user.sex == 0}">checked</c:if>/>
-    	<label>女</label>
+    	<input id="author" name="author" type="text" value="${news.Author}" maxlength="20"/>
+     </td>
+    
+    
+    </tr>
+   
+	   <tr>
+	  <th>标题：</th>
+     <td>
+     	<input id="title" name="title" type="text" value="${news.Title}" maxlength="20"/>
+     </td>
+      <th>文档原始时间：</th>
+     <td>
+     	<input id="realTime" name="realTime" type="text" value="${news.RealTime}" maxlength="20"/>
+     </td>
+	   </tr> 
+    <tr>
+	    <th>是否置顶：</th>
+     <td>
+    	<input name=isTop type="radio" value="1" checked="checked" />
+    	<label>是</label>
+    	<input name="isTop" type="radio" value="0" <c:if test="${news.IsTop}">checked</c:if>/>
+    	<label>否</label>
+     </td>
+      <th>是否推荐：</th>
+     <td>
+    	<input name=IsRecommend type="radio" value="1" checked="checked" />
+    	<label>是</label>
+    	<input name="IsRecommend" type="radio" value="0" <c:if test="${news.IsRecommend}">checked</c:if>/>
+    	<label>否</label>
+     </td>
+	   </tr> 
+	    <tr>
+     <th>内容：</th>
+     <td colspan="3">
+     	<input id="content" name="content" type="text" value="${news.Content}" maxlength="20"/>
      </td>
      
     </tr>
-	  
-   
+     <tr >
+    
+      <th>摘要：</th>
+     <td  colspan="3">
+     	<input id="digest" name="digest" type="text" value="${news.Digest}" maxlength="20"/>
+     </td>
+    </tr>
    </table>
  
     <table>
