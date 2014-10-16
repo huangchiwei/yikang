@@ -43,8 +43,7 @@ public class NewsController extends BaseController {
 	@RequestMapping(value = PAGE_LIST)
 	public ModelAndView getByPage(@PathVariable int currentPage,Long categoryId) {
 		ModelAndView mv = new ModelAndView("admin/news/newsList");
-	
-		//Map<String, Object> params = new HashMap<String, Object>();
+	try{
 		List<Map<String, Object>> listCate=newsService.getCategory();
 		if(categoryId==null){
 			if(listCate!=null&&listCate.size()>0){				
@@ -61,6 +60,11 @@ public class NewsController extends BaseController {
 		mv.addObject("listCate", listCate);
 		mv.addObject("page", page);
 		mv.addObject("categoryId", categoryId);
+	}catch(Exception e){
+		e.printStackTrace();
+	}
+		
+	
 		return mv;
 	}
 	 @RequestMapping(value = DELETE)
