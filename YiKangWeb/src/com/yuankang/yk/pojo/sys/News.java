@@ -119,7 +119,7 @@ public class News implements java.io.Serializable {
 		return this.source;
 	}
 
-	public void setSource(String from) {
+	public void setSource(String source) {
 		this.source = source;
 	}
 

@@ -8,10 +8,12 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.armysoft.core.Pagination;
 import org.armysoft.springmvc.controller.BaseController;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
@@ -21,6 +23,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.yuankang.yk.pojo.sys.News;
+import com.yuankang.yk.pojo.sys.User;
+import com.yuankang.yk.publics.Constants;
 import com.yuankang.yk.service.news.NewsService;
 
 /**
@@ -80,8 +84,9 @@ public class NewsController extends BaseController {
 		  List<Map<String, Object>> listCate=newsService.getCategory();
 		  model.addAttribute("listCate", listCate);
 		  model.addAttribute("viewType", "U");
-	    model.addAttribute("news", newsService.getById(key));
-
+		  Map<String, Object> news=newsService.getById(key);
+	    model.addAttribute("news", news);
+	    model.addAttribute("categoryId", news.get("CategoryId").toString());
 	    return "admin/news/newsA_U";
 	  }
 	  @RequestMapping(value = ADD)
@@ -101,15 +106,28 @@ public class NewsController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = SAVE)
-	  public String save(Model model,String viewType,News news)
+	  public String save(HttpServletRequest request,Model model,String viewType,News news)
 	  {
-		  if(viewType.endsWith("A")){
-			  news.setLastUpdateTime(new Date());
-			  news.setCreateTime(new Date());
-			  news.setRealTime(new Date());
-		  }else  if(viewType.endsWith("U")){
-			  
-		  }
+		try{
+			if(viewType.endsWith("A")){
+				  //news.setLastUpdateTime(new Date());
+				//  news.setCreateTime(new Date());
+				  User user=(User)request.getSession().getAttribute(Constants.SESSION_USER);
+				  news.setCreateUser(user.getLoginName());
+				  news.setLastUpdateUser(user.getLoginName());
+				  newsService.save(news);
+				 // news.setRealTime(new Date());
+			  }else  if(viewType.endsWith("U")){
+				  //news.setLastUpdateTime(new Date());
+				  User user=(User)request.getSession().getAttribute(Constants.SESSION_USER);			
+				  news.setLastUpdateUser(user.getLoginName());
+				 
+				  newsService.update(news);
+			  }
+		}catch(Exception e ){
+			e.printStackTrace();
+		}
+		  
 		 
 
 		  return "redirect:/admin/news/list/1.html";
@@ -117,7 +135,7 @@ public class NewsController extends BaseController {
 
 	 @InitBinder  
 	    public void dataBinder(WebDataBinder binder) {  
-	       DateFormat dateFormat = new SimpleDateFormat( "yyyy-MM-dd" );  
+	       DateFormat dateFormat = new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss" );  
 	       PropertyEditor propertyEditor = new CustomDateEditor(dateFormat, true ); // 第二个参数表示是否允许为空  
 	       binder.registerCustomEditor(Date. class , propertyEditor);  
 	    }  

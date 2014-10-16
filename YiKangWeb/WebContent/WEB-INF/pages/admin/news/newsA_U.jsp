@@ -18,6 +18,7 @@
   <input type="button" value="返回" class="initial" style="cursor:hand" onclick="javascript:location.href='${ctx}/admin/news/list/1.html'"/>
    </div>
 <form id="add_form" action="${ctx}/admin/news/save.html" method="post">
+<input type="hidden" name="id" value="${news.ID}"/>
  	<input type="hidden" name="viewType" value="${viewType}"/>
   <div class="add_info">
 
@@ -27,8 +28,9 @@
      <th class="w100">资讯类型：</th>
      <td>
      <select id="categoryId" name="categoryId" class="slectBox" >
-     	<c:forEach items="${listCate}" var="c">
-     <option  value="${c.ID }" >${c.CategoryName }</option>
+     
+     <c:forEach items="${listCate}" var="c">	
+     <option  value="${c.ID }" <c:if test="${c.ID==categoryId}">selected="selected"</c:if>>${c.CategoryName }</option>
      </c:forEach>
      </select>
      </td>
@@ -73,7 +75,7 @@
 	    <tr>
      <th>内容：</th>
      <td colspan="6">
-     <textarea id="content" name="content" rows="3" cols="100"></textarea>
+     <textarea id="content" name="content" rows="3" cols="100" >${news.Content }</textarea>
 <br/>
      </td>
      
@@ -82,7 +84,7 @@
     
       <th>摘要：</th>
      <td  colspan="6">
-      <textarea id="digest" name="digest" rows="3" cols="100"></textarea>
+      <textarea id="digest" name="digest" rows="3" cols="100" >${news.Digest }</textarea>
      	
      </td>
     </tr>

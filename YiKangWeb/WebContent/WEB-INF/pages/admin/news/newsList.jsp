@@ -71,7 +71,8 @@
         <td>${o.Title}</td>
         <td>${o.Source}</td>
         <td>${o.Author}</td>
-        <td>${o.RealTime}</td>
+        <td><fmt:formatDate value="${o.RealTime}"
+								pattern="yyyy-MM-dd HH:mm:ss" /></td>
         <td>${o.CreateUser}</td>
         
         <td>${o.IsTop}</td>
