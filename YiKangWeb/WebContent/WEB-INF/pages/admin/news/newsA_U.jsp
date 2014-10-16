@@ -26,9 +26,11 @@
     <tr>
      <th class="w100">资讯类型：</th>
      <td>
+     <select id="categoryId" name="categoryId" class="slectBox" >
      	<c:forEach items="${listCate}" var="c">
-     <option  value="${c.ID }" <c:if test="${c.ID==categoryId}">selected="selected"</c:if>>${c.Title }</option>
+     <option  value="${c.ID }" >${c.CategoryName }</option>
      </c:forEach>
+     </select>
      </td>
         <th>来源：</th>
      <td>
@@ -57,39 +59,38 @@
      <td>
     	<input name=isTop type="radio" value="1" checked="checked" />
     	<label>是</label>
-    	<input name="isTop" type="radio" value="0" <c:if test="${news.IsTop}">checked</c:if>/>
+    	<input name="isTop" type="radio" value="0" <c:if test="${news.IsTop==0}">checked</c:if>/>
     	<label>否</label>
      </td>
       <th>是否推荐：</th>
      <td>
     	<input name=IsRecommend type="radio" value="1" checked="checked" />
     	<label>是</label>
-    	<input name="IsRecommend" type="radio" value="0" <c:if test="${news.IsRecommend}">checked</c:if>/>
+    	<input name="IsRecommend" type="radio" value="0" <c:if test="${news.IsRecommend==0}">checked</c:if>/>
     	<label>否</label>
      </td>
 	   </tr> 
 	    <tr>
      <th>内容：</th>
-     <td colspan="3">
-     	<input id="content" name="content" type="text" value="${news.Content}" maxlength="20"/>
+     <td colspan="6">
+     <textarea id="content" name="content" rows="3" cols="100"></textarea>
+<br/>
      </td>
      
     </tr>
      <tr >
     
       <th>摘要：</th>
-     <td  colspan="3">
-     	<input id="digest" name="digest" type="text" value="${news.Digest}" maxlength="20"/>
+     <td  colspan="6">
+      <textarea id="digest" name="digest" rows="3" cols="100"></textarea>
+     	
      </td>
     </tr>
    </table>
  
-    <table>
-    	
-
-    	
-    	
-    </table>
+  <p class="div_submit">
+				    <input id="sumbit_bt" name="" type="image" src="${ctx}/theme/admin/default/images/submit.png"/>
+				</p>
 
   </div>
   </form>

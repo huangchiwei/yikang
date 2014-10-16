@@ -56,6 +56,7 @@ public class NewsController extends BaseController {
 			
 		// 初始化分页实体
 		Pagination page = initPage(currentPage);
+		page.setPageSize(4);
 		mv.addObject("list", newsService.getByPage(page,categoryId));
 		mv.addObject("listCate", listCate);
 		mv.addObject("page", page);
@@ -91,7 +92,7 @@ public class NewsController extends BaseController {
 		  model.addAttribute("viewType", "A");
 	   // model.addAttribute("news", newsService.getById(key));
 
-	    return "admin/news/newsD_U";
+	    return "admin/news/newsA_U";
 	  }
 	  /**
 	 * @param model

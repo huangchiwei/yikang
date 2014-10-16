@@ -8,7 +8,7 @@
 <link href="${ctx}/theme/admin/default/css/master.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/theme/admin/default/css/default.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/theme/admin/default/css/font.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="${ctx}/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="${ctx}/js/jquery-1.8.0.min.js"></script>
 <script type="text/javascript" src="${ctx}/js/layer/layer.min.js"></script>
 
 <script type="text/javascript">
@@ -38,11 +38,14 @@
 
 <body>
 <div class="content_box">
+  <div class="btn_box">
+ <a href="${ctx}/admin/news/add/new.html"> <input type="button" value="添加" class="initial" style="cursor:hand" /></a>
+   </div>
   <div class="list_info">
-  	<form id="search_form" action="${ctx}/admin/adminEduFeedback/list/1.html" method="post">
+  	<form id="search_form" action="${ctx}/admin/news/list/1.html" method="post">
     <h2>资讯类型：<select id="categoryId" name="categoryId" class="slectBox" onchange="submit();">
-     <c:forEach items="${listCate}" var="c">
-     <option  value="${c.ID }" <c:if test="${c.ID==categoryId}">selected="selected"</c:if>>${c.Title }</option>
+     <c:forEach items="${listCate}" var="c" >
+     <option  value="${c.ID }" <c:if test="${c.ID==categoryId}">selected="selected"</c:if>>${c.CategoryName }</option>
      </c:forEach>
 	 
             </select>
@@ -53,28 +56,30 @@
         <th>标题</th>
         <th>来源</th>
         <th>作者</th>
+           <th>文档原始时间</th>
         <th>创建用户</th>
-        <th>最后更新时间</th>
+     
         <th>是否置顶</th>
         <th>是否推荐</th>
         <th>阅读次数</th>
         <th>操作</th>
       </tr>
       
-      <c:forEach items="${list}" var="o">
+      <c:forEach items="${list}" var="o" varStatus="sta">
       	<tr onMouseOver="this.style.background='#ecf6ff'" onMouseOut="this.style.background='#FFFFFF'" >
-        <td>${o.id}</td>
+        <td>${sta.index + 1}</td>
         <td>${o.Title}</td>
         <td>${o.Source}</td>
         <td>${o.Author}</td>
+        <td>${o.RealTime}</td>
         <td>${o.CreateUser}</td>
-        <td>${o.LastUpdateUser}</td>
+        
         <td>${o.IsTop}</td>
         <td>${o.IsRecommend}</td>
         <td>${o.Clicks}</td>
-        <td><input type="image" src="${ctx}/theme/admin/default/images/file_icon.png" />&nbsp;
-           <input type="image" src="${ctx}/theme/admin/default/images/edit_icon.png" />&nbsp;
-          <input type="image" src="${ctx}/theme/admin/default/images/del_icon.png" /></td>
+        <td>
+           <a href="${ctx}/admin/news/update/${o.ID}.html"><img src="${ctx}/theme/admin/default/images/edit_icon.png" /></a>&nbsp;
+          <img  src="${ctx}/theme/admin/default/images/del_icon.png" onclick="delConfirm(${o.ID})"/></td>
       </tr>
       </c:forEach>
       <tr>
