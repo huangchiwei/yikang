@@ -36,7 +36,7 @@ function changeLeftMenu(url){
    <div class="user">Administrator</div>
    <div class="home"><a href="content.html" target="mainFrame">首页</a></div>
    <div class="set"><a href="#">设置</a></div>
-   <div class="quit"><a href="login.html" target="_blank">退出</a></div>
+   <div class="quit"><a href="${ctx}/admin/userLogout.shtml" target="_blank">退出</a></div>
   </div>
  </div>
 </div>

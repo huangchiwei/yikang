@@ -11,7 +11,7 @@
 	<link href="${ctx}/theme/default/css/master.css" rel="stylesheet" type="text/css" />
 	<link href="${ctx}/theme/default/css/font.css" rel="stylesheet" type="text/css" />
 	<link href="${ctx}/theme/default/css/default.css" rel="stylesheet" type="text/css" />
- 	<script type="text/javascript" src="${ctx}/static/js/jquery-1.8.0.min.js" ></script>
+ 	<script type="text/javascript" src="${ctx}/js/jquery-1.8.0.min.js" ></script>
  	<script type="text/javascript">
  		var flag = true;
  		$(function(){
@@ -56,7 +56,7 @@
   </head>
 
 <body>
-<form id="loginForm" action="${ctx}/userLogin.shtml" method="post">
+<form id="loginForm" action="${ctx}/admin/userLogin.shtml" method="post">
 <div class="login_bj">
   <div class="login">
    <div class="login_box">
@@ -67,7 +67,7 @@
        <input id="password" name="password" type="password" value="123456" style="width:190px;" class="input"/>
      </li>
      <li style="margin-top:9px;" class="relative">
-       <input id="vcode" name="vcode" maxlength="4" value="1234" style="width:60px;" class="input"/>
+       <input id="vcode" name="vcode" maxlength="4" style="width:60px;" class="input"/>
        <label>
        	<img src="${ctx}/verify/getVerifyCode.shtml" width="71" height="28" title="验证码" id="vimg"/>
        </label>

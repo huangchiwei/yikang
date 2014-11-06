@@ -9,7 +9,7 @@
 
 	<!--
 		使用 annotation 自动注册bean,并检查 @Service, @Repository注解已被注入-->
-	<context:component-scan base-package="com.wdd.shop">
+	<context:component-scan base-package="com.yuankang.yk">
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
@@ -68,15 +68,6 @@
 	<!-- 配置注解实现管理事务（cglib：proxy-target-class="true"） -->
 	<tx:annotation-driven transaction-manager="transactionManager"
 		proxy-target-class="true" />
-	<!-- aop -->
-	<bean id="permissionAop" class="com.yuankang.yk.security.aop.PermissionAop"/>
-	<bean id="pointcutAdvisor"  class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
-	     <!-- 定义切点 -->
-	     <property name="pattern">
-	        <value>com.yuankang.yk.controller.admin.*.*.*</value>
-	     </property>
-	     <!-- 通知 -->
-	     <property name="advice" ref="permissionAop"/>
-	</bean>
+		
 	
 </beans>

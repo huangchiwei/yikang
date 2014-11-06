@@ -17,12 +17,12 @@
 	
 	<mvc:annotation-driven />
 	<mvc:default-servlet-handler/>
-	<!-- 创建拦截器 
+	<!-- 创建拦截器 -->
 	<mvc:interceptors>
-		<mvc:interceptor>-->
-	  		<!-- 登录拦截的路径 
-	  		<mvc:mapping path="/gmc/**"/>
-	  		<bean class="com.wdd.shop.controller.interceptor.LoginInterceptor">
+		<mvc:interceptor>
+	  		<!-- 登录拦截的路径 -->
+	  		<mvc:mapping path="/admin/**"/>
+	  		<bean class="com.yuankang.yk.intercept.admin.LoginInterceptor">
 	  			<property name="uncheckUrls"> 
 	                 <list> 
 	                    <value>/verify</value>
@@ -31,7 +31,7 @@
 	               </property>
 	  		</bean>
 	  	</mvc:interceptor>
-	</mvc:interceptors>-->
+	</mvc:interceptors>
 	
 	<!-- 定义JSP --> 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
