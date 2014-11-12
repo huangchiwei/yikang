@@ -5,12 +5,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>亿康在线</title>
 
-<link href="theme/default/style/default.css" rel="stylesheet" type="text/css" />
-<link href="theme/default/style/master.css" rel="stylesheet" type="text/css" />
+<link href="${ctx}/theme/front/default/style/default.css" rel="stylesheet" type="text/css" />
+<link href="${ctx}/theme/front/default/style/master.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${ctx}/js/jquery-1.8.0.min.js" ></script>
-<script type="text/javascript" src="theme/default/js/topnav.js"></script>
-<script type="text/javascript" src="theme/default/js/pptBox.js"></script>
-<script type="text/javascript" src="theme/default/js/top_tab.js"></script>
+<script type="text/javascript" src="${ctx}/theme/front/default/js/topnav.js"></script>
+<script type="text/javascript" src="${ctx}/theme/front/default/js/pptBox.js"></script>
+<script type="text/javascript" src="${ctx}/theme/front/default/js/top_tab.js"></script>
 <script type="text/javascript">
 $(document).ready(function($){
 	//默认选项卡切换
@@ -38,7 +38,7 @@ $(document).ready(function($){
   </div>
   <!--top-->
   <div class="head">
-   <div class="logo"><img src="theme/default/images/logo.png" /></div>
+   <div class="logo"><img src="${ctx}/theme/front/default/images/logo.png" /></div>
    <div class="search">
     <div class="search_box">
       <input name="search_term" class="keywords" id="search_term" value="请输入关键字"/>
@@ -120,15 +120,15 @@ $(document).ready(function($){
      box.autoplayer = 3;//自动播放间隔时间
 
      //box.add({"url":"图片地址","title":"悬浮标题","href":"链接地址"})
-     box.add({"url":"theme/default/images/tu1.jpg","href":"#","title":"悬浮提示标题1"})
-     box.add({"url":"theme/default/images/tu2.jpg","href":"#","title":"悬浮提示标题2"})
-     box.add({"url":"theme/default/images/tu3.jpg","href":"#","title":"悬浮提示标题3"})
-     box.add({"url":"theme/default/images/tu4.jpg","href":"#","title":"悬浮提示标题4"})
+     box.add({"url":"${ctx}/theme/front/default/images/tu1.jpg","href":"#","title":"悬浮提示标题1"})
+     box.add({"url":"${ctx}/theme/front/default/images/tu2.jpg","href":"#","title":"悬浮提示标题2"})
+     box.add({"url":"${ctx}/theme/front/default/images/tu3.jpg","href":"#","title":"悬浮提示标题3"})
+     box.add({"url":"${ctx}/theme/front/default/images/tu4.jpg","href":"#","title":"悬浮提示标题4"})
      box.show();
     </script>
 </div></div>
      <div class="health_s">
-      <div class="img"><img src="theme/default/images/hearth.png" /></div>
+      <div class="img"><img src="${ctx}/theme/front/default/images/hearth.png" /></div>
       <h2>常见病</h2>
       <ul class="bing">
        <li><a href="#">手足口病</a></li>
@@ -247,12 +247,12 @@ $(document).ready(function($){
 		</div><!--tabcon end-->
 	</div>
 	<!--tabcon end-->
-    <div class="ad_220"><img src="theme/default/images/ad/ad_220.png" /></div>
+    <div class="ad_220"><img src="${ctx}/theme/front/default/images/ad/ad_220.png" /></div>
    </div>
   </div>
   <!--news_end-->
   <!--ad-->
-  <div class="ad_990"><img src="theme/default/images/ad/ad_990.png" /></div>
+  <div class="ad_990"><img src="${ctx}/theme/front/default/images/ad/ad_990.png" /></div>
   <!--ad_end-->
   <!--one-->
   <div class="one">
@@ -274,7 +274,7 @@ $(document).ready(function($){
        <div class="more"><a href="#">more</a></div>
       </div>
       <div class="new_a1">
-      <div class="fl"><img src="theme/default/images/index_001.png" /></div>
+      <div class="fl"><img src="${ctx}/theme/front/default/images/index_001.png" /></div>
       <dl class="dl">
        <dt><a href="#">人际交往9种异常心理不</a></dt>
        <dd>孩子咳嗽，发烧，家长最揪心，既担心孩子受罪，还要担......<a href="#">[详细]</a></dd>
@@ -328,7 +328,7 @@ $(document).ready(function($){
        <li><a href="#">夏季是治疗男性不育好时机</a></li>
      </ul>
       </div>
-      <div class="ad_220_a"><img src="theme/default/images/ad/ad_220_a.png" /></div>
+      <div class="ad_220_a"><img src="${ctx}/theme/front/default/images/ad/ad_220_a.png" /></div>
     </div>
    </div>
   </div> 
@@ -379,15 +379,15 @@ $(document).ready(function($){
        <div class="more"><a href="#">more</a></div>
       </div>
       <div class="ma"><dl class="dl">
-       <dt><a href="#"><img src="theme/default/images/index_002.png" /></a></dt>
+       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_002.png" /></a></dt>
        <dd><a href="#">林光</a></dd>
       </dl>
       <dl class="dl">
-       <dt><a href="#"><img src="theme/default/images/index_002.png" /></a></dt>
+       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_002.png" /></a></dt>
        <dd><a href="#">林光</a></dd>
       </dl>
       <dl class="dl">
-       <dt><a href="#"><img src="theme/default/images/index_002.png" /></a></dt>
+       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_002.png" /></a></dt>
        <dd><a href="#">林光</a></dd>
       </dl></div>
       </div>
@@ -423,15 +423,15 @@ $(document).ready(function($){
        <div class="more"><a href="#">more</a></div>
       </div>
       <div class="ma"><dl class="dl">
-       <dt><a href="#"><img src="theme/default/images/index_002.png" /></a></dt>
+       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_002.png" /></a></dt>
        <dd><a href="#">林光</a></dd>
       </dl>
       <dl class="dl">
-       <dt><a href="#"><img src="theme/default/images/index_002.png" /></a></dt>
+       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_002.png" /></a></dt>
        <dd><a href="#">林光</a></dd>
       </dl>
       <dl class="dl">
-       <dt><a href="#"><img src="theme/default/images/index_002.png" /></a></dt>
+       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_002.png" /></a></dt>
        <dd><a href="#">林光</a></dd>
       </dl></div>
       </div>
@@ -450,7 +450,7 @@ $(document).ready(function($){
        <li><a href="#">夏季是治疗男性不育好时机</a></li>
      </ul>
       </div>
-      <div class="ad_220_a"><img src="theme/default/images/ad/ad_220_b.png" /></div>
+      <div class="ad_220_a"><img src="${ctx}/theme/front/default/images/ad/ad_220_b.png" /></div>
     </div>
    </div>
   </div> 
@@ -460,21 +460,21 @@ $(document).ready(function($){
    <div class="hearth_gou"><h1><a href="#">促销活动</a>|<a href="#">女性保健</a>|<a href="#">男性保健</a>|<a href="#">儿童保健</a>|<a href="#">老人保健</a>|<a href="#">更多>></a></h1>
    </div>
    <div class="gou_box">
-    <div class="fl"><img src="theme/default/images/ad/ad_375.png" /></div>
+    <div class="fl"><img src="${ctx}/theme/front/default/images/ad/ad_375.png" /></div>
     <div class="gou_box_r">
     <ul class="ul">
      <li>
-      <p class="img"><img src="theme/default/images/index_003.png" width="170" height="150" /></p>
+      <p class="img"><img src="${ctx}/theme/front/default/images/index_003.png" width="170" height="150" /></p>
       <p class="p"><a href="#">葡萄籽芦荟软胶囊 护肤美白 抗氧化 抗衰老 2瓶*60粒 金康倍</a></p>
       <p class="yang">￥397.00</p>
      </li>
      <li>
-      <p class="img"><img src="theme/default/images/index_003.png" width="170" height="150" /></p>
+      <p class="img"><img src="${ctx}/theme/front/default/images/index_003.png" width="170" height="150" /></p>
       <p class="p"><a href="#">葡萄籽芦荟软胶囊 护肤美白 抗氧化 抗衰老 2瓶*60粒 金康倍</a></p>
       <p class="yang">￥397.00</p>
      </li>
      <li>
-      <p class="img"><img src="theme/default/images/index_003.png" width="170" height="150" /></p>
+      <p class="img"><img src="${ctx}/theme/front/default/images/index_003.png" width="170" height="150" /></p>
       <p class="p"><a href="#">葡萄籽芦荟软胶囊 护肤美白 抗氧化 抗衰老 2瓶*60粒 金康倍</a></p>
       <p class="yang">￥397.00</p>
      </li>
@@ -517,15 +517,15 @@ $(document).ready(function($){
        <div class="more"><a href="#">more</a></div>
       </div>
       <div class="ma"><dl class="dl3">
-       <dt><a href="#"><img src="theme/default/images/index_005.png" /></a></dt>
+       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_005.png" /></a></dt>
        <dd><a href="#">林光</a></dd>
       </dl>
       <dl class="dl3">
-       <dt><a href="#"><img src="theme/default/images/index_005.png" /></a></dt>
+       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_005.png" /></a></dt>
        <dd><a href="#">林光</a></dd>
       </dl>
       <dl class="dl3">
-       <dt><a href="#"><img src="theme/default/images/index_005.png" width="100" height="83" /></a></dt>
+       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_005.png" width="100" height="83" /></a></dt>
        <dd><a href="#">林光</a></dd>
       </dl></div>
       </div>
@@ -538,19 +538,19 @@ $(document).ready(function($){
       </div>
       <div class="ma">
       <dl class="dl2">
-       <dt><img src="theme/default/images/index_004.png" /></dt>
+       <dt><img src="${ctx}/theme/front/default/images/index_004.png" /></dt>
        <dd><a href="#">方俊</a></dd>
       </dl>
       <dl class="dl2">
-       <dt><img src="theme/default/images/index_004.png" /></dt>
+       <dt><img src="${ctx}/theme/front/default/images/index_004.png" /></dt>
        <dd><a href="#">方俊</a></dd>
       </dl>
       <dl class="dl2">
-       <dt><img src="theme/default/images/index_004.png" /></dt>
+       <dt><img src="${ctx}/theme/front/default/images/index_004.png" /></dt>
        <dd><a href="#">方俊</a></dd>
       </dl>
       <dl class="dl2">
-       <dt><img src="theme/default/images/index_004.png" /></dt>
+       <dt><img src="${ctx}/theme/front/default/images/index_004.png" /></dt>
        <dd><a href="3">方俊</a></dd>
       </dl>
       </div>
@@ -562,15 +562,15 @@ $(document).ready(function($){
       </div>
       <div class="ma">
       <dl class="dl3">
-       <dt><a href="#"><img src="theme/default/images/index_005.png" /></a></dt>
+       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_005.png" /></a></dt>
        <dd><a href="#">林光</a></dd>
       </dl>
       <dl class="dl3">
-       <dt><a href="#"><img src="theme/default/images/index_005.png" /></a></dt>
+       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_005.png" /></a></dt>
        <dd><a href="#">林光</a></dd>
       </dl>
       <dl class="dl3">
-       <dt><a href="#"><img src="theme/default/images/index_005.png" /></a></dt>
+       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_005.png" /></a></dt>
        <dd><a href="#">林光</a></dd>
       </dl></div>
       </div>
@@ -582,15 +582,15 @@ $(document).ready(function($){
       <div class="video_box">
       <h1>岭南健康大讲堂</h1>
       <dl class="dl">
-       <dt><a href="#"><img src="theme/default/images/index_006.png" /></a></dt>
+       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_006.png" /></a></dt>
        <dd><a href="#">马晓年</a></dd>
      </dl>
      <dl class="dl">
-       <dt><a href="#"><img src="theme/default/images/index_006.png" /></a></dt>
+       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_006.png" /></a></dt>
        <dd><a href="#">马晓年</a></dd>
      </dl>
      <dl class="dl">
-       <dt><a href="#"><img src="theme/default/images/index_006.png" /></a></dt>
+       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_006.png" /></a></dt>
        <dd><a href="#">马晓年</a></dd>
      </dl>
      </div>
@@ -645,19 +645,19 @@ $(document).ready(function($){
        <div class="more"><a href="#">more</a></div>
       </div>
       <div class="ma"><dl class="dl2">
-       <dt><a href="#"><img src="theme/default/images/index_004.png" /></a></dt>
+       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_004.png" /></a></dt>
        <dd><a href="#">林光</a></dd>
       </dl>
       <dl class="dl2">
-       <dt><a href="#"><img src="theme/default/images/index_004.png" /></a></dt>
+       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_004.png" /></a></dt>
        <dd><a href="#">林光</a></dd>
       </dl>
       <dl class="dl2">
-       <dt><a href="#"><img src="theme/default/images/index_004.png" width="75" height="75" /></a></dt>
+       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_004.png" width="75" height="75" /></a></dt>
        <dd><a href="#">林光</a></dd>
       </dl>
       <dl class="dl2">
-       <dt><a href="#"><img src="theme/default/images/index_004.png" width="75" height="75" /></a></dt>
+       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_004.png" width="75" height="75" /></a></dt>
        <dd><a href="#">林光</a></dd>
       </dl>
       </div>
@@ -702,9 +702,9 @@ $(document).ready(function($){
      <div class="one_b_r_b">
       <h1>行业活动</h1>
       <ul class="ul2">
-       <li><a href="#"><img src="theme/default/images/ad/ad_200.png" /></a></li>
-       <li><a href="#"><img src="theme/default/images/ad/ad_200.png" /></a></li>
-       <li><a href="#"><img src="theme/default/images/ad/ad_200.png" /></a></li>
+       <li><a href="#"><img src="${ctx}/theme/front/default/images/ad/ad_200.png" /></a></li>
+       <li><a href="#"><img src="${ctx}/theme/front/default/images/ad/ad_200.png" /></a></li>
+       <li><a href="#"><img src="${ctx}/theme/front/default/images/ad/ad_200.png" /></a></li>
      </ul>
     </div>
    </div>
