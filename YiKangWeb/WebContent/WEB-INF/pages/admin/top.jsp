@@ -5,11 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
-<link href="${ctx}/theme/default/css/master.css" rel="stylesheet" type="text/css" />
-<link href="${ctx}/theme/default/css/default.css" rel="stylesheet" type="text/css" />
+<link href="${ctx}/theme/admin/default/css/master.css" rel="stylesheet" type="text/css" />
+<link href="${ctx}/theme/admin/default/css/default.css" rel="stylesheet" type="text/css" />
 <script src="${ctx}/js/jquery-1.8.0.min.js" type="text/javascript"></script>
-<script src="${ctx}/theme/default/js/btn_move.js" type="text/javascript"></script>
-<script src="${ctx}/theme/default/js/time.js" type="text/javascript"></script>
+<script src="${ctx}/theme/admin/default/js/btn_move.js" type="text/javascript"></script>
+<script src="${ctx}/theme/admin/default/js/time.js" type="text/javascript"></script>
   <script type="text/javascript" >
 $(document).ready(function(){
   $("ul li").click(function(){

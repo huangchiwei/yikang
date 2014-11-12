@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>left</title>
-<link href="${ctx}/theme/default/css/master.css" rel="stylesheet" type="text/css" />
-<link href="${ctx}/theme/default/css/default.css" rel="stylesheet" type="text/css" />
+<link href="${ctx}/theme/admin/default/css/master.css" rel="stylesheet" type="text/css" />
+<link href="${ctx}/theme/admin/default/css/default.css" rel="stylesheet" type="text/css" />
 <script src="${ctx}/js/jquery-1.8.0.min.js" type="text/javascript"></script>
-<script src="${ctx}/theme/default/js/menu.js" type="text/javascript"></script>
+<script src="${ctx}/theme/admin/default/js/menu.js" type="text/javascript"></script>
 <style type="text/css">
 html { overflow:-moz-scrollbars-vertical;}
 </style>

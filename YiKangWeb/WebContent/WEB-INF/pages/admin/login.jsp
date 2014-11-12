@@ -8,9 +8,9 @@
     <meta http-equiv="pragma" content="no-cache"/>
 	<meta http-equiv="cache-control" content="no-cache"/>
 	<meta http-equiv="expires" content="0"/>
-	<link href="${ctx}/theme/default/css/master.css" rel="stylesheet" type="text/css" />
-	<link href="${ctx}/theme/default/css/font.css" rel="stylesheet" type="text/css" />
-	<link href="${ctx}/theme/default/css/default.css" rel="stylesheet" type="text/css" />
+	<link href="${ctx}/theme/admin/default/css/master.css" rel="stylesheet" type="text/css" />
+	<link href="${ctx}/theme/admin/default/css/font.css" rel="stylesheet" type="text/css" />
+	<link href="${ctx}/theme/admin/default/css/default.css" rel="stylesheet" type="text/css" />
  	<script type="text/javascript" src="${ctx}/js/jquery-1.8.0.min.js" ></script>
  	<script type="text/javascript">
  		var flag = true;
@@ -73,7 +73,7 @@
        </label>
      </li>
      <li style="margin-top:9px;">
-     	<input id="login_bt" type="image" src="${ctx}/theme/default/images/login_button.png" onmousemove="this.src='${ctx}/theme/default/images/login_button_move.png'" onmouseout="this.src='${ctx}/theme/default/images/login_button.png'"/>
+     	<input id="login_bt" type="image" src="${ctx}/theme/admin/default/images/login_button.png" onmousemove="this.src='${ctx}/theme/admin/default/images/login_button_move.png'" onmouseout="this.src='${ctx}/theme/admin/default/images/login_button.png'"/>
      </li>
      <li style="margin-top:9px;">
      	<font color="red">${msg}</font>
