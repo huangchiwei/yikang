@@ -34,15 +34,15 @@ public class AdvertController extends BaseController {
 	 * @param user
 	 * @return
 	 */
-	@RequestMapping("list")
-	public ModelAndView getByPage(@PathVariable int currentPage, Advert advert) {
-		ModelAndView mv = new ModelAndView("sys/SysUserQ");
+	@RequestMapping(value = PAGE_LIST)
+	public ModelAndView getByPage(@PathVariable int currentPage, String adName) {
+		ModelAndView mv = new ModelAndView("admin/advert/advertList");
 		// 初始化分页实体
-		Pagination pager = initPage(currentPage);
+		Pagination page = initPage(currentPage);
 		Map<String, Object> params = new HashMap<String, Object>();
-		mv.addObject("adverts", advertService.getByPage(pager,advert));
-		mv.addObject("page", pager);
-		mv.addObject("tempAdvert", advert);
+		mv.addObject("list", advertService.getByPage(page,adName));
+		mv.addObject("page", page);
+		mv.addObject("adName", adName);
 		return mv;
 	}
 }

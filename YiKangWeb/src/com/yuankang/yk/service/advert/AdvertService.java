@@ -1,13 +1,14 @@
 package com.yuankang.yk.service.advert;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.armysoft.core.Pagination;
 import org.springframework.stereotype.Service;
 
-import com.yuankang.yk.dao.sys.user.UserDao;
+import com.yuankang.yk.dao.advert.advert.AdvertDao;
 import com.yuankang.yk.pojo.advert.Advert;
-import com.yuankang.yk.pojo.sys.User;
 import com.yuankang.yk.service.base.BaseService;
 
 /**
@@ -19,7 +20,7 @@ import com.yuankang.yk.service.base.BaseService;
 public class AdvertService extends BaseService<Advert> {
 
 	@Resource
-	private UserDao userDao;
+	private AdvertDao advertDao;
 
 	/**
 	 * 分页查询广告
@@ -27,9 +28,8 @@ public class AdvertService extends BaseService<Advert> {
 	 * @param advert
 	 * @return
 	 */
-	public Object getByPage(Pagination pager, Advert advert) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Advert> getByPage(Pagination page, String adName) {
+		return advertDao.findAdvertsByPage(page, adName);
 	}
 	
 	

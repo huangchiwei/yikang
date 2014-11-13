@@ -39,7 +39,7 @@ public class LoginController {
 		try {
 			Object obj = request.getSession().getAttribute(Constants.SESSION_USER);
 			if(obj != null){
-				res.sendRedirect(request.getContextPath() + "/admin/index.shtml");
+				res.sendRedirect(request.getContextPath() + "/admin/index.html");
 				return;
 			}
 			String oldCode = (String) request.getSession().getAttribute(
@@ -57,7 +57,7 @@ public class LoginController {
 					HttpSession sessionNew = request.getSession(true);
 					// 将user存到session
 					sessionNew.setAttribute(Constants.SESSION_USER, user);
-					res.sendRedirect(request.getContextPath() + "/admin/index.shtml");
+					res.sendRedirect(request.getContextPath() + "/admin/index.html");
 					return;
 				} else {
 					request.setAttribute("msg", "用户名或密码不正确!");
@@ -82,7 +82,7 @@ public class LoginController {
 		try {
 			req.getSession().invalidate(); // 销毁session
 			//req.getRequestDispatcher("/WEB-INF/pages/admin/login.jsp").forward(req, res);
-			res.sendRedirect(req.getContextPath() + "/admin/index.shtml");
+			res.sendRedirect(req.getContextPath() + "/admin/index.html");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

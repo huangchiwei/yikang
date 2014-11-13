@@ -9,6 +9,6 @@ import com.yuankang.yk.pojo.advert.Advert;
 
 public interface AdvertDao extends BaseDao<Advert> {
 
-	List<Advert> findMcodesByPage(Pagination page,String adName);
+	List<Advert> findAdvertsByPage(Pagination page,String adName);
 
 }
