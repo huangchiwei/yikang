@@ -1,44 +1,32 @@
-package com.yuankang.yk.pojo.sys;
+package com.yuankang.yk.pojo.advert;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * AdPosition entity. @author MyEclipse Persistence Tools
+ * 广告位置
+ * wei
  */
 @Entity
 @Table(name = "ad_position", catalog = "yikang")
 public class AdPosition implements java.io.Serializable {
-
-	// Fields
-
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "ID", unique = true, nullable = false)
 	private Integer id;
+	@Column(name = "PosName")
 	private String posName;
+	@Column(name = "Width")
 	private Integer width;
+	@Column(name = "Height")
 	private Integer height;
+	@Column(name = "Des", length = 500)
 	private String des;
 
-	// Constructors
-
-	/** default constructor */
-	public AdPosition() {
-	}
-
-	/** full constructor */
-	public AdPosition(String posName, Integer width, Integer height, String des) {
-		this.posName = posName;
-		this.width = width;
-		this.height = height;
-		this.des = des;
-	}
-
-	// Property accessors
-	@Id
-	@GeneratedValue(strategy = IDENTITY)
-	@Column(name = "ID", unique = true, nullable = false)
 	public Integer getId() {
 		return this.id;
 	}
@@ -47,7 +35,6 @@ public class AdPosition implements java.io.Serializable {
 		this.id = id;
 	}
 
-	@Column(name = "PosName")
 	public String getPosName() {
 		return this.posName;
 	}
@@ -56,7 +43,6 @@ public class AdPosition implements java.io.Serializable {
 		this.posName = posName;
 	}
 
-	@Column(name = "Width")
 	public Integer getWidth() {
 		return this.width;
 	}
@@ -65,7 +51,6 @@ public class AdPosition implements java.io.Serializable {
 		this.width = width;
 	}
 
-	@Column(name = "Height")
 	public Integer getHeight() {
 		return this.height;
 	}
@@ -74,7 +59,6 @@ public class AdPosition implements java.io.Serializable {
 		this.height = height;
 	}
 
-	@Column(name = "Des", length = 500)
 	public String getDes() {
 		return this.des;
 	}

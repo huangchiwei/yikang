@@ -17,7 +17,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "t_hospital", catalog = "yikang")
-public class THospital implements java.io.Serializable {
+public class Hospital implements java.io.Serializable {
 
 	// Fields
 
@@ -32,11 +32,11 @@ public class THospital implements java.io.Serializable {
 	// Constructors
 
 	/** default constructor */
-	public THospital() {
+	public Hospital() {
 	}
 
 	/** full constructor */
-	public THospital(String TName, String TAddr, String TIntroduction,
+	public Hospital(String TName, String TAddr, String TIntroduction,
 			String TPicUrl, Integer isBlock, Set<TRelation> TRelations) {
 		this.TName = TName;
 		this.TAddr = TAddr;

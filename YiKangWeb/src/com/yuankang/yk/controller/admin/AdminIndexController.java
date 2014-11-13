@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("admin")
-public class AdIndexController {
+public class AdminIndexController {
 
 	@RequestMapping("{page}")
 	public String index(@PathVariable String page){

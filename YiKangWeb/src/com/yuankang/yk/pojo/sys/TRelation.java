@@ -20,9 +20,9 @@ public class TRelation implements java.io.Serializable {
 	// Fields
 
 	private String RId;
-	private TExpertInfo TExpertInfo;
-	private THospital THospital;
-	private TSpecialInfo TSpecialInfo;
+	private ExpertInfo TExpertInfo;
+	private Hospital THospital;
+	private SpecialInfo TSpecialInfo;
 
 	// Constructors
 
@@ -31,8 +31,8 @@ public class TRelation implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public TRelation(TExpertInfo TExpertInfo, THospital THospital,
-			TSpecialInfo TSpecialInfo) {
+	public TRelation(ExpertInfo TExpertInfo, Hospital THospital,
+			SpecialInfo TSpecialInfo) {
 		this.TExpertInfo = TExpertInfo;
 		this.THospital = THospital;
 		this.TSpecialInfo = TSpecialInfo;
@@ -52,31 +52,31 @@ public class TRelation implements java.io.Serializable {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "e_id")
-	public TExpertInfo getTExpertInfo() {
+	public ExpertInfo getTExpertInfo() {
 		return this.TExpertInfo;
 	}
 
-	public void setTExpertInfo(TExpertInfo TExpertInfo) {
+	public void setTExpertInfo(ExpertInfo TExpertInfo) {
 		this.TExpertInfo = TExpertInfo;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "t_id")
-	public THospital getTHospital() {
+	public Hospital getTHospital() {
 		return this.THospital;
 	}
 
-	public void setTHospital(THospital THospital) {
+	public void setTHospital(Hospital THospital) {
 		this.THospital = THospital;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "s_id")
-	public TSpecialInfo getTSpecialInfo() {
+	public SpecialInfo getTSpecialInfo() {
 		return this.TSpecialInfo;
 	}
 
-	public void setTSpecialInfo(TSpecialInfo TSpecialInfo) {
+	public void setTSpecialInfo(SpecialInfo TSpecialInfo) {
 		this.TSpecialInfo = TSpecialInfo;
 	}
 

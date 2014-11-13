@@ -17,7 +17,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "t_expert_info", catalog = "yikang")
-public class TExpertInfo implements java.io.Serializable {
+public class ExpertInfo implements java.io.Serializable {
 
 	// Fields
 
@@ -31,11 +31,11 @@ public class TExpertInfo implements java.io.Serializable {
 	// Constructors
 
 	/** default constructor */
-	public TExpertInfo() {
+	public ExpertInfo() {
 	}
 
 	/** full constructor */
-	public TExpertInfo(String EName, String EAvatar, String EIntroduction,
+	public ExpertInfo(String EName, String EAvatar, String EIntroduction,
 			Integer isBlock, Set<TRelation> TRelations) {
 		this.EName = EName;
 		this.EAvatar = EAvatar;

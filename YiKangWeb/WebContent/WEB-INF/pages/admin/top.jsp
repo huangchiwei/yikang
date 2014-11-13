@@ -40,13 +40,6 @@ function changeLeftMenu(url){
   </div>
  </div>
 </div>
-<div class="admin_nav">
-<ul>
-   <li onClick="changeLeftMenu('qualifiExamleft.html');"><a href="#" class="current">从业资格考试管理</a></li>
-   <li onClick="changeLeftMenu('businessLeft.html');"><a href="#">业务管理</a></li>
-   <li onClick="changeLeftMenu('contiEduLeft.html');"><a href="#">继续教育管理</a></li>
-   <li onClick="changeLeftMenu('sysLeft.html');"><a href="#">系统管理</a></li>
-  </ul>
-</div>
+
 </body>
 </html>

@@ -20,10 +20,10 @@ html { overflow:-moz-scrollbars-vertical;}
  <div class="submenu_box">
   <ul id="menu">
 		<li>
-			<a href="#">类别管理</a>
+			<a href="#">广告管理</a>
 			<ul>
-			  <li><a href="#" onclick="openNew('I2','add','add.html')">信息添加</a></li>
-			   <li><a href="#" onclick="openNew('I2','list','list.html')">信息列表</a></li>
+			  <li><a href="#" onclick="openNew('I2','add','add.html')">广告列表</a></li>
+			   <li><a href="#" onclick="openNew('I2','list','list.html')">位置列表</a></li>
 			 
 		  </ul>
 		</li>
