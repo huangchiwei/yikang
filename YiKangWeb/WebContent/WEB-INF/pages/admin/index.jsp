@@ -11,10 +11,10 @@
 </head>
 
 <frameset rows="110,*" cols="*" frameborder="no" border="0" framespacing="0">
-  <frame src="${ctx}/admin/top.shtml" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" />
+  <frame src="${ctx}/admin/top.html" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" />
   <frameset cols="243,*" frameborder="no" border="0" framespacing="0">
-    <frame src="${ctx}/admin/left.shtml" name="leftFrame"  scrolling="No" noresize="noresize" id="leftFrame" />
-    <frame src="${ctx}/admin/welcome.shtml" name="mainFrame" id="mainFrame" />
+    <frame src="${ctx}/admin/left.html" name="leftFrame"  scrolling="No" noresize="noresize" id="leftFrame" />
+    <frame src="${ctx}/admin/welcome.html" name="mainFrame" id="mainFrame" />
   </frameset>
 </frameset>
 <noframes>

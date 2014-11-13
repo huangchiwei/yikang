@@ -17,7 +17,7 @@
  		$(function(){
  			// 为验证码绑定事件
 			$("#vimg").click(function(){
-				$("#vimg").attr("src", "${ctx}/verify/getVerifyCode.shtml?random=" + Math.random());
+				$("#vimg").attr("src", "${ctx}/verify/getVerifyCode.html?random=" + Math.random());
 			});
 			
  			$("#login_bt").click(function(){
@@ -56,7 +56,7 @@
   </head>
 
 <body>
-<form id="loginForm" action="${ctx}/admin/userLogin.shtml" method="post">
+<form id="loginForm" action="${ctx}/admin/userLogin.html" method="post">
 <div class="login_bj">
   <div class="login">
    <div class="login_box">
@@ -69,7 +69,7 @@
      <li style="margin-top:9px;" class="relative">
        <input id="vcode" name="vcode" maxlength="4" style="width:60px;" class="input"/>
        <label>
-       	<img src="${ctx}/verify/getVerifyCode.shtml" width="71" height="28" title="验证码" id="vimg"/>
+       	<img src="${ctx}/verify/getVerifyCode.html" width="71" height="28" title="验证码" id="vimg"/>
        </label>
      </li>
      <li style="margin-top:9px;">

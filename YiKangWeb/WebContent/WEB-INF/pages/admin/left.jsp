@@ -22,8 +22,8 @@ html { overflow:-moz-scrollbars-vertical;}
 		<li>
 			<a href="#">广告管理</a>
 			<ul>
-			  <li><a href="#" onclick="openNew('I2','add','add.html')">广告列表</a></li>
-			   <li><a href="#" onclick="openNew('I2','list','list.html')">位置列表</a></li>
+			  <li><a href="${ctx}/admin/advert/list/1.html" target="mainFrame">广告列表</a></li>
+			   <li><a href="#" onclick="openNew('mainFrame','list','list.html')">位置列表</a></li>
 			 
 		  </ul>
 		</li>
