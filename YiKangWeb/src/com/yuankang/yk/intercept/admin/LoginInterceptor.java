@@ -59,7 +59,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 			out.println("<head><title>redirecting...</title></head>");
 			out.println("<body>");
 			out.println("<script language='javascript'>");
-			out.println("top.location.href='" + contextPath + "/admin/index.shtml'");
+			out.println("top.location.href='" + contextPath + "/admin/index.html'");
 			out.println("</script>");
 			out.println("</body>");
 			out.println("</html>");
