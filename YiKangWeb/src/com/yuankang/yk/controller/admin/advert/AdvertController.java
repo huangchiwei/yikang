@@ -39,6 +39,7 @@ public class AdvertController extends BaseController {
 		ModelAndView mv = new ModelAndView("admin/advert/advertList");
 		// 初始化分页实体
 		Pagination page = initPage(currentPage);
+		page.setPageSize(1);
 		Map<String, Object> params = new HashMap<String, Object>();
 		mv.addObject("list", advertService.getByPage(page,adName));
 		mv.addObject("page", page);
