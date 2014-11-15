@@ -19,7 +19,7 @@ import com.yuankang.yk.service.news.NewsService;
 
  */
 @Controller("adminNewsController")
-@RequestMapping("admin/newsdd")
+@RequestMapping("admin/news")
 public class NewsController extends BaseController {
 
 	@Resource
@@ -32,14 +32,16 @@ public class NewsController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = PAGE_LIST)
-	public ModelAndView getByPage(@PathVariable int currentPage) {
+	public ModelAndView getByPage(@PathVariable int currentPage,Long categoryId) {
 		ModelAndView mv = new ModelAndView("admin/news/newsList");
+		if(categoryId==null)
+			return mv;
 		// 初始化分页实体
 		Pagination page = initPage(currentPage);
-		/*Map<String, Object> params = new HashMap<String, Object>();
-		mv.addObject("list", newsService.getByPage(page,adName));
+		Map<String, Object> params = new HashMap<String, Object>();
+		mv.addObject("list", newsService.getByPage(page,categoryId));
 		mv.addObject("page", page);
-		mv.addObject("adName", adName);*/
+		mv.addObject("categoryId", categoryId);
 		return mv;
 	}
 }

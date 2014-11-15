@@ -28,10 +28,11 @@ html { overflow:-moz-scrollbars-vertical;}
 		  </ul>
 		</li>
 		<li>
-			<a href="#">类别管理</a>
+			<a href="#">资讯管理</a>
 			<ul>
-				<li><a href="add.html" target="I2">信息添加</a></li>
-			  <li><a href="list.html" target="I2">信息列表</a></li>
+				<li><a href="add.html" target="I2">资讯添加</a></li>
+				<li><a href="${ctx}/admin/news/list/1.html?categoryId=1" target="mainFrame">资讯列表</a></li>
+			  
 			</ul>
 		</li>
 		<li>
