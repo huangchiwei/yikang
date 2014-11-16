@@ -52,14 +52,14 @@ public class FinancingController extends BaseController {
 	
 	@RequestMapping(value = ADD)
 	public String toAdd(Model model){
-		model.addAttribute("regions", regionService.findByParentId(1));
+		model.addAttribute("provinces", regionService.findByParentId(1));
 		model.addAttribute("industrys", mcodeService.findMcodesByMcType("INDUSTRY"));
 		return "admin/financing/addOrUpdate";
 	}
 	
 	@RequestMapping(value = UPDATE)
 	public String toUpdate(@PathVariable Long id,Model model){
-		model.addAttribute("regions", regionService.findByParentId(1));
+		model.addAttribute("provinces", regionService.findByParentId(1));
 		model.addAttribute("industrys", mcodeService.findMcodesByMcType("INDUSTRY"));
 		model.addAttribute("entity", financingService.findById(id, Financing.class));
 		return "admin/financing/addOrUpdate";

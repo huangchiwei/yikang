@@ -39,7 +39,7 @@ html { overflow:-moz-scrollbars-vertical;}
         <a href="#">投融资管理</a>
 			<ul>
 				<li><a href="${ctx}/admin/investment/list/1.html" target="mainFrame">投资管理</a></li>
-			  <li><a href="list.html" target="I2">融资管理</a></li>
+			  <li><a href="${ctx}/admin/financing/list/1.html" target="mainFrame">融资管理</a></li>
 			</ul>
         </li>
 		<li>

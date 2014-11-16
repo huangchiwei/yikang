@@ -31,6 +31,9 @@
 			layer.alert(msg, 3);
 			return false;
 		});
+		$("#province").change(function(){
+			
+		});
 	});
 </script>
 </head>
@@ -55,10 +58,22 @@
    <tr>
    	<td class="w100">投资地区：</td>
      <td>
-     <select id="province" name="province.id">
-     	<option value="-1">--选择地区--</option>
-     	<c:forEach items="${regions}" var="o">
+     <select id="province" name="province.id" onchange="">
+     	<option value="-1">--省份--</option>
+     	<c:forEach items="${provinces}" var="o">
      		<option value="${o.id}" ${o.id == entity.province.id ? 'selected="selected"' : '' }>${o.name}</option>
+     	</c:forEach>
+     </select>
+     <select id="city" name="city.id">
+     	<option value="-1">--市--</option>
+     	<c:forEach items="${citys}" var="o">
+     		<option value="${o.id}" ${o.id == entity.city.id ? 'selected="selected"' : '' }>${o.name}</option>
+     	</c:forEach>
+     </select>
+     <select id="area" name="area.id">
+     	<option value="-1">--区/县--</option>
+     	<c:forEach items="${areas}" var="o">
+     		<option value="${o.id}" ${o.id == entity.area.id ? 'selected="selected"' : '' }>${o.name}</option>
      	</c:forEach>
      </select>
      </td>
