@@ -1,19 +1,16 @@
 package com.yuankang.yk.dao.base;
 
 import java.io.Serializable;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.QueryException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
-import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
@@ -75,7 +72,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 					query.setParameter(i, params[i]);
 			}
 		}
-		return query.setFirstResult(startRow).setMaxResults(pageSize).setCacheable(true).list();
+		return query.setFirstResult(startRow).setMaxResults(pageSize).list();
 	}
 
 	/**
@@ -132,7 +129,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 //				}
 //			}
 //		}		
-		return query.setCacheable(true).list();
+		return query.list();
 	}
 	
 	

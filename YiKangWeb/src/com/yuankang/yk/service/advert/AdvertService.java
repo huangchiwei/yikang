@@ -29,7 +29,7 @@ public class AdvertService extends BaseService<Advert> {
 	 * @return
 	 */
 	public List<Advert> getByPage(Pagination page, String adName) {
-		return advertDao.findAdvertsByPage(page, adName);
+		return advertDao.findByPage(page, adName);
 	}
 	
 	

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.yuankang.yk.pojo.advert.Advert;
 import com.yuankang.yk.service.advert.AdvertService;
 
 /**
@@ -28,7 +27,7 @@ public class AdvertController extends BaseController {
 	@Resource
 	private AdvertService advertService;
 	/**
-	 * 条件分页查询用户
+	 * 条件分页查询广告
 	 * 
 	 * @param currentPage
 	 * @param user
@@ -36,7 +35,7 @@ public class AdvertController extends BaseController {
 	 */
 	@RequestMapping(value = PAGE_LIST)
 	public ModelAndView getByPage(@PathVariable int currentPage, String adName) {
-		ModelAndView mv = new ModelAndView("admin/advert/advertList");
+		ModelAndView mv = new ModelAndView("admin/advert/list");
 		// 初始化分页实体
 		Pagination page = initPage(currentPage);
 		page.setPageSize(1);

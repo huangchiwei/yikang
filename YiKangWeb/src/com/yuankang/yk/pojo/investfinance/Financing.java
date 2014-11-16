@@ -1,6 +1,7 @@
 package com.yuankang.yk.pojo.investfinance;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +16,9 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.ForeignKey;
+
+import com.yuankang.yk.pojo.sys.Mcode;
+import com.yuankang.yk.pojo.sys.Region;
 
 /**
  * 类说明:融资
@@ -37,17 +41,25 @@ public class Financing implements Serializable{
 	@Column(name="Title")
 	private String title;
 	
-	@Column(name="Province")
-	private Integer province;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "Province", referencedColumnName = "REGION_ID")
+	@ForeignKey(name = "FK_FINANCING_PROVINCE")
+	private Region province;
 	
-	@Column(name="City")
-	private Integer city;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "City", referencedColumnName = "REGION_ID")
+	@ForeignKey(name = "FK_FINANCING_CITY")
+	private Region city;
 	
-	@Column(name="Area")
-	private Integer area;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "Area", referencedColumnName = "REGION_ID")
+	@ForeignKey(name = "FK_FINANCING_AREA")
+	private Region area;
 	
-	@Column(name="Industry")
-	private Integer industry;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "Industry", referencedColumnName = "ID")
+	@ForeignKey(name = "FK_FINANCING_INDUSTRY")
+	private Mcode industry;
 	
 	@Column(name="Amount")
 	private Integer amount;
@@ -59,9 +71,14 @@ public class Financing implements Serializable{
 	private Integer isSelf;
 	
 	@Column(name="Status")
-	private Integer status;
+	private Integer status = 0;
 	
-	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+	@Column(name="isTop")
+	private Integer isTop = 0;
+	
+	@Column(name="CreateDate")
+	private Date createDate;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "AccountId", referencedColumnName = "ID")
 	@ForeignKey(name = "FK_FINANCING_ACCOUNTID")
@@ -83,20 +100,12 @@ public class Financing implements Serializable{
 		this.title = title;
 	}
 
-	public Integer getProvince() {
+	public Region getProvince() {
 		return province;
 	}
 
-	public void setProvince(Integer province) {
+	public void setProvince(Region province) {
 		this.province = province;
-	}
-
-	public Integer getIndustry() {
-		return industry;
-	}
-
-	public void setIndustry(Integer industry) {
-		this.industry = industry;
 	}
 
 	public Integer getAmount() {
@@ -115,19 +124,19 @@ public class Financing implements Serializable{
 		this.overview = overview;
 	}
 
-	public Integer getCity() {
+	public Region getCity() {
 		return city;
 	}
 
-	public void setCity(Integer city) {
+	public void setCity(Region city) {
 		this.city = city;
 	}
 
-	public Integer getArea() {
+	public Region getArea() {
 		return area;
 	}
 
-	public void setArea(Integer area) {
+	public void setArea(Region area) {
 		this.area = area;
 	}
 
@@ -154,6 +163,29 @@ public class Financing implements Serializable{
 	public void setAccount(Account account) {
 		this.account = account;
 	}
-	
+
+	public Mcode getIndustry() {
+		return industry;
+	}
+
+	public void setIndustry(Mcode industry) {
+		this.industry = industry;
+	}
+
+	public Integer getIsTop() {
+		return isTop;
+	}
+
+	public void setIsTop(Integer isTop) {
+		this.isTop = isTop;
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
 	
 }

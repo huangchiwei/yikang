@@ -36,10 +36,10 @@ html { overflow:-moz-scrollbars-vertical;}
 			</ul>
 		</li>
 		<li>
-        <a href="#">类别管理</a>
+        <a href="#">投融资管理</a>
 			<ul>
-				<li><a href="add.html" target="I2">信息添加</a></li>
-			  <li><a href="list.html" target="I2">信息列表</a></li>
+				<li><a href="${ctx}/admin/investment/list/1.html" target="mainFrame">投资管理</a></li>
+			  <li><a href="${ctx}/admin/financing/list/1.html" target="mainFrame">融资管理</a></li>
 			</ul>
         </li>
 		<li>
