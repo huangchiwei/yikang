@@ -59,16 +59,16 @@
     <tr>
 	    <th>是否置顶：</th>
      <td>
-    	<input name=isTop type="radio" value="1" checked="checked" />
+    	<input name=isTop type="radio" value="1" <c:if test="${news.IsTop==1}">checked</c:if>/>
     	<label>是</label>
-    	<input name="isTop" type="radio" value="0" <c:if test="${news.IsTop==0}">checked</c:if>/>
+    	<input name="isTop" type="radio" value="0" checked="checked" />
     	<label>否</label>
      </td>
       <th>是否推荐：</th>
      <td>
-    	<input name=IsRecommend type="radio" value="1" checked="checked" />
+    	<input name=IsRecommend type="radio" value="1" <c:if test="${news.IsRecommend==0}">checked</c:if>/>
     	<label>是</label>
-    	<input name="IsRecommend" type="radio" value="0" <c:if test="${news.IsRecommend==0}">checked</c:if>/>
+    	<input name="IsRecommend" type="radio" value="0" checked="checked" />
     	<label>否</label>
      </td>
 	   </tr> 

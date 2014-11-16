@@ -1,4 +1,4 @@
-package com.yuankang.yk.controller.admin.news;
+package com.yuankang.yk.controller.front.news;
 
 import java.beans.PropertyEditor;
 import java.text.DateFormat;
@@ -31,9 +31,9 @@ import com.yuankang.yk.service.news.NewsService;
  * 类说明:资讯controller
 
  */
-@Controller("adminNewsController")
-@RequestMapping("admin/news")
-public class NewsController extends BaseController {
+@Controller("frontNewsController")
+@RequestMapping("front/news")
+public class NewsFrontController extends BaseController {
 
 	@Resource
 	private NewsService newsService;
