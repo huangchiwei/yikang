@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@taglib uri="/WEB-INF/tag.tld" prefix="p" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"  %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -78,7 +79,10 @@ $(function(){
      <c:forEach items="${industryNews}" var="i" varStatus="sta">
      <c:if test="${sta.index ==0}">
       <h1><a href="#">${i.Title }</a></h1>
-       <p class="p">${i.Digest}</p>
+       <p class="p">
+       <c:if test="${fn:length(i.Digest)>75}">${fn:substring(i.Digest, 0, 75)}......</c:if>
+       <c:if test="${fn:length(i.Digest)<75}">${i.Digest}</c:if>
+       </p>
       <p class="p2">[<a href="#">查看详细</a>]</p>
      </c:if>
           </c:forEach>
@@ -89,7 +93,7 @@ $(function(){
     <ul class="ul2">
       <c:forEach items="${industryNews}" var="c" varStatus="sta">
      <c:if test="${sta.index >0}">
-       <li><a href="#">${c.Title }</a></li>
+       <li><a href="#">${fn:substring(c.Title, 0, 19) }</a></li>
      </c:if>
           </c:forEach>
     
@@ -103,23 +107,31 @@ $(function(){
     <div class="n_b_box">
      <div class="n_b_box_l"><img src="${ctx}/js/front/news/images/index_001.png" /></div>
      <div class="n_b_box_r">
-      <h1><a href="#">防近视课桌作用有限 护眼灯防近视没证据</a></h1>
-      <p class="p">近年来，“小眼镜”有增无减，除了部分父母有高度近视的遗传外，大部分与课业负担重、沉迷电子产品有关。防近视课桌是一种特别制作的课桌，在课桌上加了护栏......</p>
+     
+          <c:forEach items="${industryFocus}" var="f" varStatus="sta">
+     <c:if test="${sta.index ==0}">
+      <h1><a href="#">${f.Title }</a></h1>
+       <p class="p">
+       <c:if test="${fn:length(f.Digest)>75}">${fn:substring(f.Digest, 0, 75)}......</c:if>
+       <c:if test="${fn:length(f.Digest)<75}">${f.Digest}</c:if>
+       </p>
       <p class="p2">[<a href="#">查看详细</a>]</p>
+     </c:if>
+          </c:forEach>
+     
+     
      </div>
     </div>
     <ul class="ul2">
-     <li><a href="#">体内现12根钢针女婴康复出院 没有大的后</a></li>
-     <li><a href="#">体内现12根钢针女婴康复出院 没有大的后</a></li>
-     <li><a href="#">体内现12根钢针女婴康复出院 没有大的后</a></li>
-     <li><a href="#">体内现12根钢针女婴康复出院 没有大的后</a></li>
-     <li><a href="#">体内现12根钢针女婴康复出院 没有大的后</a></li>
-     <li><a href="#">体内现12根钢针女婴康复出院 没有大的后</a></li>
-     <li><a href="#">体内现12根钢针女婴康复出院 没有大的后</a></li>
-     <li><a href="#">体内现12根钢针女婴康复出院 没有大的后</a></li>
+      <c:forEach items="${industryFocus}" var="f" varStatus="sta">
+     <c:if test="${sta.index >0}">
+       <li><a href="#">${fn:substring(f.Title, 0, 19) }</a></li>
+     </c:if>
+          </c:forEach>
+    
     </ul>
    </div>
-   <div class="ad_650"><img src="../theme/default/images/ad/ad_650.png" /></div>
+   <div class="ad_650"><img src="${ctx}/theme/front/default/images/ad/ad_650.png" /></div>
   </div>
   <div class="n_one_r">
     <div class="n_one_top">
@@ -192,11 +204,12 @@ $(function(){
       <div class="more"><a href="#">more</a></div>
      </div>
      <ul class="n_gj_b">
-      <li><a href="#">食药监：织纹螺抽检含河鲀毒素可致死 </a></li>
-      <li><a href="#">每天掉多少头发应就医</a></li>
-      <li><a href="#">英媒：埃博拉致西非民众握手亲吻受限</a></li>
-      <li><a href="#">常喝蜂蜜水排毒又养颜 5个时间喝效果最</a></li>
-      <li><a href="#">美味红薯的6种创意吃法 秋季减肥就靠它</a></li>
+       <c:forEach items="${countyLaw}" var="f" varStatus="sta">
+     <c:if test="${sta.index >0}">
+       <li><a href="#">${fn:substring(f.Title, 0, 18) }</a></li>
+     </c:if>
+          </c:forEach>
+     
      </ul>
     </div>
     <div class="r_box">
@@ -205,11 +218,11 @@ $(function(){
       <div class="more"><a href="#">more</a></div>
     </div>
      <ul class="n_gj_b">
-      <li><a href="#">食药监：织纹螺抽检含河鲀毒素可致死 </a></li>
-      <li><a href="#">每天掉多少头发应就医</a></li>
-      <li><a href="#">英媒：埃博拉致西非民众握手亲吻受限</a></li>
-      <li><a href="#">常喝蜂蜜水排毒又养颜 5个时间喝效果最</a></li>
-      <li><a href="#">美味红薯的6种创意吃法 秋季减肥就靠它</a></li>
+      <c:forEach items="${localLaw}" var="f" varStatus="sta">
+     <c:if test="${sta.index >0}">
+       <li><a href="#">${fn:substring(f.Title, 0, 18) }</a></li>
+     </c:if>
+          </c:forEach>
      </ul>
     </div>
     </div>
