@@ -18,7 +18,7 @@ import com.yuankang.yk.service.base.BaseSqlService;
 public class NewsService extends BaseSqlService{
 
 	
-
+//后台
 	/**
 	 * 分页查询资讯
 	 * @param pager
@@ -75,6 +75,38 @@ public class NewsService extends BaseSqlService{
 			return null;
 		}
 	  }
-
+//前台
+	public String initSql(String CategoryName,int size){
+		String sql="select n.ID,n.Title,n.Digest from news n,news_category nc where n.CategoryId=nc.ID "
+				+ "and nc.CategoryName='"+CategoryName+"' order by n.RealTime desc limit 0,"+size+"";
+				return sql;
+	}
+	public List<Map<String, Object>> getIndustryNews() {
+		String sql=initSql("行业新闻",9);
+				List<Map<String, Object>> list=getQuery(sql);
+				return list;
+	}	
+	public List<Map<String, Object>> getIndustryFocus() {
+		String sql=initSql("行业焦点",9);
+		List<Map<String, Object>> list=getQuery(sql);
+		return list;
+		
+	}	
+	public List<Map<String, Object>> getCountyLaw() {
+		String sql=initSql("国家法律法规",5);
+		List<Map<String, Object>> list=getQuery(sql);
+		return list;
 	
+	}	
+	public List<Map<String, Object>> getLocalLaw() {
+		String sql=initSql("地方法律法规",5);
+		List<Map<String, Object>> list=getQuery(sql);
+		return list;
+		
+	}	
+	public List<Map<String, Object>> getImportantActi() {
+		String sql=initSql("重要活动",9);
+		List<Map<String, Object>> list=getQuery(sql);
+		return list;
+	}
 }

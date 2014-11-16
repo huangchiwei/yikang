@@ -5,10 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
-
-<script type="text/javascript" src="${ctx}/js/jquery-1.8.2.min.js"></script>
+<link href="${ctx}/theme/front/default/style/master.css" rel="stylesheet" type="text/css" />
+<link href="${ctx}/theme/front/default/style/default.css" rel="stylesheet" type="text/css" />
+<link href="${ctx}/js/front/news/css/list.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${ctx}/js/jquery-1.8.0.min.js"></script>
 <script src="${ctx}/js/front/news/js/flash.js"></script>
-<script src="${ctx}/js/front/news/js//jquery.carouFredSel-6.0.4-packed.js"></script>
+<script src="${ctx}/js/front/news/js/jquery.carouFredSel-6.0.4-packed.js"></script>
 <script>
 $(function(){
 	var lanren = $(".lanren a");
@@ -23,7 +25,7 @@ $(function(){
 
 <div class="news_top">
  <div class="index_nav">
-  <div class="logo"><img src="images/logo.png" /></div>
+  <div class="logo"><img src="${ctx}/js/front/news/images/logo.png" /></div>
   <div class="index_nav_b"><a href="#">行业资讯</a>|<a href="#">行业活动</a>|<a href="#">健康服务</a>|<a href="#">健康购</a>|<a href="#">健康数据库</a>|<a href="#">健康培训</a>|<a href="#">投融资服务</a></div>
  </div>
  <div class="index_reg"><a href="#">登录</a>|<a href="#">注册</a></div>
@@ -32,7 +34,7 @@ $(function(){
 <div class="n">
  <div class="news_nav">
   <div class="n_box">
-   <div class="new_logo"><img src="images/news_logo.png" /></div>
+   <div class="new_logo"><img src="${ctx}/js/front/news/images/news_logo.png" /></div>
    <div class="lanren">
     <a href='javascript:' class="thisclass">行业新闻</a>
     <a href='javascript:'>法律法规</a>
@@ -71,7 +73,7 @@ $(function(){
      <div class="more"><a href="#">more</a></div>
     </div>
     <div class="n_b_box">
-     <div class="n_b_box_l"><img src="images/index_001.png" /></div>
+     <div class="n_b_box_l"><img src="${ctx}/js/front/news/images/index_001.png" /></div>
      <div class="n_b_box_r">
       <h1><a href="#">防近视课桌作用有限 护眼灯防近视没证据</a></h1>
       <p class="p">近年来，“小眼镜”有增无减，除了部分父母有高度近视的遗传外，大部分与课业负担重、沉迷电子产品有关。防近视课桌是一种特别制作的课桌，在课桌上加了护栏......</p>
@@ -95,7 +97,7 @@ $(function(){
      <div class="more"><a href="#">more</a></div>
     </div>
     <div class="n_b_box">
-     <div class="n_b_box_l"><img src="images/index_001.png" /></div>
+     <div class="n_b_box_l"><img src="${ctx}/js/front/news/images/index_001.png" /></div>
      <div class="n_b_box_r">
       <h1><a href="#">防近视课桌作用有限 护眼灯防近视没证据</a></h1>
       <p class="p">近年来，“小眼镜”有增无减，除了部分父母有高度近视的遗传外，大部分与课业负担重、沉迷电子产品有关。防近视课桌是一种特别制作的课桌，在课桌上加了护栏......</p>
