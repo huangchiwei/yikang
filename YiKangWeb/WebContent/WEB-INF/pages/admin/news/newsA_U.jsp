@@ -8,7 +8,10 @@
 <link href="${ctx}/theme/admin/default/css/master.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/theme/admin/default/css/default.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/theme/admin/default/css/font.css" rel="stylesheet" type="text/css" />
-
+<script type="text/javascript" src="${ctx }/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="${ctx }/js/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="${ctx }/js/ckfinder/ckfinder.js"></script>
+<script type="text/javascript" src="${ctx}/js/My97DatePicker/WdatePicker.js"></script>
 </head>
 
 <body>
@@ -52,7 +55,8 @@
      </td>
       <th>文档原始时间：</th>
      <td>
-     	<input id="realTime" name="realTime" type="text" value="${news.RealTime}" maxlength="20"/>
+     	<input id="realTime" name="realTime" size="22" class="Wdate" onfocus="WdatePicker({skin:'whyGreen',dateFmt:'yyyy-MM-dd HH:mm:ss'})" type="text" 
+     	value="<fmt:formatDate value="${news.RealTime}" pattern="yyyy-MM-dd HH:mm:ss"/>" maxlength="20"/>
      </td>
 	   </tr> 
     <tr>
@@ -96,6 +100,21 @@
   </div>
   </form>
 </div>
+<script type="text/javascript">
+	var editor;
+	editor= CKEDITOR.replace("content"); 
+	CKFinder.setupCKEditor(editor, '${ctx}/js/ckfinder/');
+	
+
+	function BrowseServer()
+{
+	var finder = new CKFinder();
+	finder.basePath = '${ctx}/js/ckfinder/';
+	finder.selectActionFunction = SetFileField;
+	finder.popup();
+}
+
+</script>
 </body>
 </html>
 
