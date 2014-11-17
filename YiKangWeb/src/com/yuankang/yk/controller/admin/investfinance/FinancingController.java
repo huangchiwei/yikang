@@ -20,7 +20,7 @@ import com.yuankang.yk.service.sys.McodeService;
 import com.yuankang.yk.service.sys.RegionService;
 
 /**
- * 类说明:投资
+ * 类说明:融资
  * @author wei
  * @date 2014年11月15日 下午11:36:49
  * @version V1.0
@@ -61,7 +61,14 @@ public class FinancingController extends BaseController {
 	public String toUpdate(@PathVariable Long id,Model model){
 		model.addAttribute("provinces", regionService.findByParentId(1));
 		model.addAttribute("industrys", mcodeService.findMcodesByMcType("INDUSTRY"));
-		model.addAttribute("entity", financingService.findById(id, Financing.class));
+		Financing finance = financingService.findById(id, Financing.class);
+		model.addAttribute("entity", finance);
+		if(finance.getProvince() != null){
+			model.addAttribute("citys", regionService.findByParentId(finance.getProvince().getId()));
+		}
+		if(finance.getCity() != null){
+			model.addAttribute("areas", regionService.findByParentId(finance.getCity().getId()));
+		}
 		return "admin/financing/addOrUpdate";
 	}
 

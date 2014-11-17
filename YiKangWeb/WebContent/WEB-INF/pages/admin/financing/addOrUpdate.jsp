@@ -31,10 +31,43 @@
 			layer.alert(msg, 3);
 			return false;
 		});
+		
 		$("#province").change(function(){
+			$("#city").html('<option value="-1">--市--</option>');
+			$("#area").html('<option value="-1">--区/县--</option>');
+			if(this.value == -1){
+				return;
+			}
+			loadData(this,$("#city"));
+		});
+		
+		$("#city").change(function(){
 			
+			$("#area").html('<option value="-1">--区/县--</option>');
+			if($(this).val() == -1){
+				return;
+			}
+			loadData(this,$("#area"));
 		});
 	});
+	function loadData(obj,toObj){
+		
+		$.ajax({
+			url : "${ctx}/region/getByParentId.json?random=" + Math.random(),
+			type : "get",
+			data : "parentId=" + obj.value,
+			dataType : "json",
+			async : false,
+			success : function(data){
+				$.each(data,function(i,item){
+					$('<option/>').val(item.id).html(item.name).appendTo(toObj);
+				});
+			},
+			error : function(){
+				alert("加载失败！");
+			}
+		});
+	}
 </script>
 </head>
 
