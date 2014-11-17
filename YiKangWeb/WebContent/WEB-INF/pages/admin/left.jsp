@@ -20,14 +20,6 @@ html { overflow:-moz-scrollbars-vertical;}
  <div class="submenu_box">
   <ul id="menu">
 		<li>
-			<a href="#">广告管理</a>
-			<ul>
-			  <li><a href="${ctx}/admin/advert/list/1.html" target="mainFrame">广告列表</a></li>
-			   <li><a href="#" onclick="openNew('mainFrame','list','list.html')">位置列表</a></li>
-			 
-		  </ul>
-		</li>
-		<li>
 			<a href="#">资讯管理</a>
 			<ul>
 				
@@ -43,18 +35,12 @@ html { overflow:-moz-scrollbars-vertical;}
 			</ul>
         </li>
 		<li>
-			<a href="#">类别管理</a>
+			<a href="#">广告管理</a>
 			<ul>
-				<li><a href="add.html" target="I2">信息添加</a></li>
-			  <li><a href="list.html" target="I2">信息列表</a></li>
-			</ul>
-		</li>
-		<li>
-			<a href="#">类别管理</a>
-			<ul>
-				<li><a href="add.html" target="I2">信息添加</a></li>
-			  <li><a href="list.html" target="I2">信息列表</a></li>
-			</ul>
+			  <li><a href="${ctx}/admin/advert/list/1.html" target="mainFrame">广告列表</a></li>
+			   <li><a href="#" onclick="openNew('mainFrame','list','list.html')">位置列表</a></li>
+			 
+		  </ul>
 		</li>
 	</ul>
     <div class="clear"></div>
