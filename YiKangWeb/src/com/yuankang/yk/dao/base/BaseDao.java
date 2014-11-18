@@ -62,5 +62,4 @@ public interface BaseDao<T>
 	 */
 	List<T> findAll(Class<T> cls);
 	
-	
 }

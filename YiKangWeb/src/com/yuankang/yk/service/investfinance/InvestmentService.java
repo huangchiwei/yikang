@@ -32,7 +32,9 @@ public class InvestmentService extends BaseService<Investment> {
 		return investmentDao.findByPage(page, title);
 	}
 	
-	
+	public List<Investment> getByPage(Pagination page) {
+		return investmentDao.findByPage(page, null);
+	}
 
 	
 }

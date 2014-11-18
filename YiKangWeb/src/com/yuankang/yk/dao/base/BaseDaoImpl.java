@@ -139,7 +139,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	 * @param params 需要设置的HQL参数
 	 * @return 返回查询出的记录数
 	 */
-	public Integer isHaveCount_HQL(final String hql, final Map<String, Object> params) {
+	protected Integer isHaveCount_HQL(final String hql, final Map<String, Object> params) {
 		if (StringUtils.isEmpty(hql)) {
 			return null;
 		}

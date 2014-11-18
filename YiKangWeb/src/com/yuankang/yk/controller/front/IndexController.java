@@ -1,7 +1,10 @@
 package com.yuankang.yk.controller.front;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.yuankang.yk.service.QuartzJob;
 
 /**
  * 类说明:
@@ -14,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexController {
 
 	@RequestMapping("index")
-	public String index(){
-		
+	public String index(Model model){
+		model.addAttribute("investList", QuartzJob.indexData.get("investList"));
 		return "front/index/index";
 	}
 }

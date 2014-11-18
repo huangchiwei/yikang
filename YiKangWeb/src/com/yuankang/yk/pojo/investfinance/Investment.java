@@ -60,6 +60,7 @@ public class Investment implements Serializable{
 	@Column(name="IsSelf")
 	private Integer isSelf;
 	
+	//1:通过 2审核中 3不通过
 	@Column(name="Status")
 	private Integer status = 0;
 	
