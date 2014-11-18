@@ -20,11 +20,9 @@
        <div class="more"><a href="#">more</a></div>
       </div>
       <ul class="ul5">
-       <li><a href="#">中国人民解放军总医院</a></li>
-       <li><a href="#">广东省人民医院</a></li>
-       <li><a href="#">中山大学附属第一医院</a></li>
-       <li><a href="#">中山大学孙逸仙纪念医院</a></li>
-       <li><a href="#">中山大学孙逸仙纪念医院</a></li>
+      <c:forEach items="${investList}" var="o">
+      	<li><a href="#">${o.title}</a></li>
+      </c:forEach>
       </ul>
       </div>
       <div class="one_b_l_r_b pt_10">

@@ -11,7 +11,7 @@
   </div>
   <!--top-->
   <div class="head">
-   <div class="logo"><img src="theme/default/images/logo.png" /></div>
+   <div class="logo"><img src="${ctx}/theme/front/default/images/logo.png" /></div>
    <div class="search">
     <div class="search_box">
       <input name="search_term" class="keywords" id="search_term" value="请输入关键字"/>
