@@ -269,7 +269,6 @@ $(document).ready(function($){
      <li><a href="#">症状查询</a></li>
      <li><a href="#">医生查询</a></li>
      <li><a href="#">疾病查询</a></li>
-     <li><a href="#">专家查询</a></li>
     </ul>
    </div>
    <div class="one_box">
@@ -300,53 +299,54 @@ $(document).ready(function($){
       </div>
       <div class="one_b_l_r_b pt_10">
        <div class="title">
-       <h1>医生查询</h1>
-       <div class="more"><a href="#">more</a></div>
-      </div>
-      <div class="ma"><dl class="dl">
-       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_002.png" /></a></dt>
-       <dd><a href="#">林光</a></dd>
-      </dl>
-      <dl class="dl">
-       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_002.png" /></a></dt>
-       <dd><a href="#">林光</a></dd>
-      </dl>
-      <dl class="dl">
-       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_002.png" /></a></dt>
-       <dd><a href="#">林光</a></dd>
-      </dl></div>
-      </div>
-     </div>
-     <div class="one_b_l_r">
-       <div class="one_b_l_r_b">
-       <div class="title">
        <h1>疾病查询</h1>
        <div class="more"><a href="#">more</a></div>
       </div>
-      <ul class="ul4">
-       <li><a href="#">肾虚</a></li>
-       <li><a href="#">阴囊潮湿</a></li>
-       <li><a href="#">感冒</a></li>
-       <li><a href="#">肾炎</a></li>
-       <li><a href="#">便秘</a></li>
-       <li><a href="#">胃癌</a></li>
-       <li><a href="#">子宫肌瘤</a></li>
-       <li><a href="#">淋病</a></li>
-       <li><a href="#">咽炎</a></li>
-       <li><a href="#">哮喘</a></li>
-       <li><a href="#">高血压</a></li>
-       <li><a href="#">阴道炎</a></li>
+      <ul class="ul3">
+       <li><a href="#">艾滋病</a></li>
+       <li><a href="#">白癜风</a></li>
+       <li><a href="#">狐臭</a></li>
+       <li><a href="#">股癣</a></li>
+       <li><a href="#">湿疹</a></li>
+       <li><a href="#">水痘</a></li>
+       <li><a href="#">荨麻疹</a></li>
+       <li><a href="#">慢性咽炎</a></li>
+       <li><a href="#">鼻窦炎</a></li>
+       <li><a href="#">股癣</a></li>
+       <li><a href="#">湿疹</a></li>
+       <li><a href="#">水痘</a></li>
+       <li><a href="#">荨麻疹</a></li>
+       <li><a href="#">慢性咽炎</a></li>
+       <li><a href="#">鼻窦炎</a></li>
       </ul>
-      <div class="search_box3">
-      <input name="search_term" class="keywords" id="search_term" value="请输入关键字"/>
-      <input type="button" onclick="form_search();" value="搜索" class="rssclick" />
-    </div>
       </div>
-      <div class="one_b_l_r_b pt_10">
+     </div>
+     <div class="one_b_l_r">
+       <div class="one_b_l_r_b pt_10">
        <div class="title">
-       <h1>专家查询</h1>
+       <h1>医生查询</h1>
        <div class="more"><a href="#">more</a></div>
       </div>
+      <ul class="ul3">
+       <li><a href="#">陈医生</a></li>
+       <li><a href="#">陈医生</a></li>
+       <li><a href="#">陈医生</a></li>
+       <li><a href="#">陈医生</a></li>
+       <li><a href="#">陈医生</a></li>
+       <li><a href="#">陈医生</a></li>
+       <li><a href="#">陈医生</a></li>
+       <li><a href="#">陈医生</a></li>
+       <li><a href="#">陈医生</a></li>
+       <li><a href="#">陈医生</a></li>
+       <li><a href="#">陈医生</a></li>
+       <li><a href="#">陈医生</a></li>
+       <li><a href="#">陈医生</a></li>
+       <li><a href="#">陈医生</a></li>
+       <li><a href="#">陈医生</a></li>
+       <li><a href="#">陈医生</a></li>
+       <li><a href="#">陈医生</a></li>
+       <li><a href="#">陈医生</a></li>
+      </ul>
       <div class="ma"><dl class="dl">
        <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_002.png" /></a></dt>
        <dd><a href="#">林光</a></dd>
@@ -385,9 +385,27 @@ $(document).ready(function($){
    <div class="hearth_gou"><h1><a href="#">促销活动</a>|<a href="#">女性保健</a>|<a href="#">男性保健</a>|<a href="#">儿童保健</a>|<a href="#">老人保健</a>|<a href="#">更多>></a></h1>
    </div>
    <div class="gou_box">
-    <div class="fl"><img src="${ctx}/theme/front/default/images/ad/ad_375.png" /></div>
+    <div class="fl">
+      <div class="ma"><img src="${ctx}/theme/front/default/images/ad/ad_375.png" /></div>
+      <div class="ma pt_10"><img src="${ctx}/theme/front/default/images/ad/ad_375.png" /></div>
+    </div>
     <div class="gou_box_r">
     <ul class="ul">
+     <li>
+      <p class="img"><img src="${ctx}/theme/front/default/images/index_003.png" width="170" height="150" /></p>
+      <p class="p"><a href="#">葡萄籽芦荟软胶囊 护肤美白 抗氧化 抗衰老 2瓶*60粒 金康倍</a></p>
+      <p class="yang">￥397.00</p>
+     </li>
+     <li>
+      <p class="img"><img src="${ctx}/theme/front/default/images/index_003.png" width="170" height="150" /></p>
+      <p class="p"><a href="#">葡萄籽芦荟软胶囊 护肤美白 抗氧化 抗衰老 2瓶*60粒 金康倍</a></p>
+      <p class="yang">￥397.00</p>
+     </li>
+     <li>
+      <p class="img"><img src="${ctx}/theme/front/default/images/index_003.png" width="170" height="150" /></p>
+      <p class="p"><a href="#">葡萄籽芦荟软胶囊 护肤美白 抗氧化 抗衰老 2瓶*60粒 金康倍</a></p>
+      <p class="yang">￥397.00</p>
+     </li>
      <li>
       <p class="img"><img src="${ctx}/theme/front/default/images/index_003.png" width="170" height="150" /></p>
       <p class="p"><a href="#">葡萄籽芦荟软胶囊 护肤美白 抗氧化 抗衰老 2瓶*60粒 金康倍</a></p>
@@ -416,7 +434,6 @@ $(document).ready(function($){
     <div class="english_s"></div>
     <ul class="ti4">
      <li><a href="#">医院库</a></li>
-     <li><a href="#">专家库</a></li>
      <li><a href="#">药品库</a></li>
      <li><a href="#">保健品库</a></li>
     </ul>
@@ -430,57 +447,50 @@ $(document).ready(function($){
       </div>
       <ul class="ul5">
        <li><a href="#">中国人民解放军总医院</a></li>
+       <li><a href="#">中国人民解放军总医院</a></li>
        <li><a href="#">广东省人民医院</a></li>
        <li><a href="#">中山大学附属第一医院</a></li>
        <li><a href="#">中山大学孙逸仙纪念医院</a></li>
        <li><a href="#">中山大学孙逸仙纪念医院</a></li>
+       <li><a href="#">中山大学孙逸仙纪念医院</a></li>
       </ul>
       </div>
-      <div class="one_b_l_r_b2 pt_10">
-       <div class="title">
-       <h1>药品库</h1>
-       <div class="more"><a href="#">more</a></div>
-      </div>
+      <div class="one_b_l_r_b2">
       <div class="ma"><dl class="dl3">
-       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_005.png" /></a></dt>
-       <dd><a href="#">林光</a></dd>
+       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_007.png" /></a></dt>
+       <dd><a href="#">中国人民解放军</a></dd>
       </dl>
       <dl class="dl3">
-       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_005.png" /></a></dt>
-       <dd><a href="#">林光</a></dd>
+       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_007.png" /></a></dt>
+       <dd><a href="#">中国人民解放军</a></dd>
       </dl>
       <dl class="dl3">
-       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_005.png" width="100" height="83" /></a></dt>
-       <dd><a href="#">林光</a></dd>
+       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_007.png" width="100" height="83" /></a></dt>
+       <dd><a href="#">中国人民解放军</a></dd>
       </dl></div>
       </div>
      </div>
      <div class="one_b_l_r">
        <div class="one_b_l_r_b2">
        <div class="title">
-       <h1>专家库</h1>
+       <h1>药品库</h1>
        <div class="more"><a href="#">more</a></div>
       </div>
       <div class="ma">
-      <dl class="dl2">
-       <dt><img src="${ctx}/theme/front/default/images/index_004.png" /></dt>
-       <dd><a href="#">方俊</a></dd>
+      <dl class="dl3">
+       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_005.png" /></a></dt>
+       <dd><a href="#">板蓝根</a></dd>
       </dl>
-      <dl class="dl2">
-       <dt><img src="${ctx}/theme/front/default/images/index_004.png" /></dt>
-       <dd><a href="#">方俊</a></dd>
+      <dl class="dl3">
+       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_005.png" /></a></dt>
+       <dd><a href="#">板蓝根</a></dd>
       </dl>
-      <dl class="dl2">
-       <dt><img src="${ctx}/theme/front/default/images/index_004.png" /></dt>
-       <dd><a href="#">方俊</a></dd>
-      </dl>
-      <dl class="dl2">
-       <dt><img src="${ctx}/theme/front/default/images/index_004.png" /></dt>
-       <dd><a href="3">方俊</a></dd>
-      </dl>
+      <dl class="dl3">
+       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_005.png" /></a></dt>
+       <dd><a href="#">板蓝根</a></dd>
+      </dl></div>
       </div>
-      </div>
-      <div class="one_b_l_r_b2 pt_10">
+      <div class="one_b_l_r_b2 pt_15">
        <div class="title">
        <h1>保健品库</h1>
        <div class="more"><a href="#">more</a></div>
@@ -488,15 +498,15 @@ $(document).ready(function($){
       <div class="ma">
       <dl class="dl3">
        <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_005.png" /></a></dt>
-       <dd><a href="#">林光</a></dd>
+       <dd><a href="#">保健品</a></dd>
       </dl>
       <dl class="dl3">
        <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_005.png" /></a></dt>
-       <dd><a href="#">林光</a></dd>
+       <dd><a href="#">保健品</a></dd>
       </dl>
       <dl class="dl3">
        <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_005.png" /></a></dt>
-       <dd><a href="#">林光</a></dd>
+       <dd><a href="#">保健品</a></dd>
       </dl></div>
       </div>
      </div>
@@ -543,9 +553,9 @@ $(document).ready(function($){
     <div class="h1">投融资服务</div>
     <div class="english_t"></div>
     <ul class="ti5">
-     <li><a href="#">项目库</a></li>
-     <li><a href="#">资金库</a></li>
-     <li><a href="#">行业专家</a></li>
+     <li><a href="#">投资</a></li>
+     <li><a href="#">融资</a></li>
+     <li><a href="#">行业资讯</a></li>
      <li><a href="#">行业机构</a></li>
     </ul>
    </div>
@@ -553,7 +563,7 @@ $(document).ready(function($){
      <div class="one_b_l_l">
       <div class="one_b_l_r_b">
        <div class="title">
-       <h1>项目库</h1>
+       <h1>投资</h1>
        <div class="more"><a href="#">more</a></div>
       </div>
       <ul class="ul5">
@@ -564,34 +574,24 @@ $(document).ready(function($){
        <li><a href="#">中山大学孙逸仙纪念医院</a></li>
       </ul>
       </div>
-      <div class="one_b_l_r_b2 pt_10">
+      <div class="one_b_l_r_b pt_10">
        <div class="title">
-       <h1>行业专家</h1>
+       <h1>行业资讯</h1>
        <div class="more"><a href="#">more</a></div>
       </div>
-      <div class="ma"><dl class="dl2">
-       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_004.png" /></a></dt>
-       <dd><a href="#">林光</a></dd>
-      </dl>
-      <dl class="dl2">
-       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_004.png" /></a></dt>
-       <dd><a href="#">林光</a></dd>
-      </dl>
-      <dl class="dl2">
-       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_004.png" width="75" height="75" /></a></dt>
-       <dd><a href="#">林光</a></dd>
-      </dl>
-      <dl class="dl2">
-       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_004.png" width="75" height="75" /></a></dt>
-       <dd><a href="#">林光</a></dd>
-      </dl>
-      </div>
+      <ul class="ul5">
+       <li><a href="#">中国人民解放军总医院</a></li>
+       <li><a href="#">广东省人民医院</a></li>
+       <li><a href="#">中山大学附属第一医院</a></li>
+       <li><a href="#">中山大学孙逸仙纪念医院</a></li>
+       <li><a href="#">中山大学孙逸仙纪念医院</a></li>
+      </ul>
       </div>
      </div>
      <div class="one_b_l_r">
        <div class="one_b_l_r_b">
        <div class="title">
-       <h1>资金库</h1>
+       <h1>融资</h1>
        <div class="more"><a href="#">more</a></div>
       </div>
       <ul class="ul5">
@@ -657,7 +657,7 @@ $(document).ready(function($){
     <li><a href="#">医药观察家</a></li>
     <li><a href="#">39健康网</a></li>
     <li><a href="#">好大夫在线</a></li>
-    <li><a href="#">爱康国宾</li>
+    <li><a href="#">爱康国宾</a></li>
     <li><a href="#">卫生和计划生育委员会</a></li>
    </ul>
   </div>
