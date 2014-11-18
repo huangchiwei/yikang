@@ -29,7 +29,7 @@ public class RollPicService extends BaseSqlService{
 		//return newsSqlDao.findAdvertsByPage(page, categoryId);
 		//SQLQuery sq=getSession().createSQLQuery("select * from news where categoryId="+categoryId);
 		initCount("select count(*) from roll_pic ",page);
-		List<Map<String, Object>> list=getQuery("select * from roll_pic  order by id desc",page);
+		List<Map<String, Object>> list=getQuery("select * from roll_pic  order by id asc",page);
 		//List<Object[]> list =sq.list();
 		return list;
 	}

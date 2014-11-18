@@ -10,8 +10,7 @@
 <link href="${ctx}/theme/admin/default/css/default.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/theme/admin/default/css/font.css" rel="stylesheet" type="text/css" />
 
-
-<script type="text/javascript" src="${ctx}/js/jquery-1.8.0.js"></script>
+<script type="text/javascript" src="${ctx}/js/jquery-1.8.0.min.js"></script>
 <script type="text/javascript" src="${ctx}/js/layer/layer.min.js"></script>
 <script type="text/javascript">
 var contractCount=0;
@@ -35,7 +34,7 @@ function removeContract(contractNum){
 function assertTrue(){
 	for (var i=0;i<contractArray.length;i++){
 	if(contractArray[i].status=="error"){
-		alert("有种文件类型不允许上传！\r\n只允许上传这几种文件：jpg、gif、bmp、png、doc、docx、ppt、xls、xlsx、txt\r\n请选择别的文件。");
+		alert("有种文件类型不允许上传！\r\n只允许上传这几种文件：jpg、gif、bmp、png、\r\n请选择别的文件。");
 			return false;
 		}
 }
@@ -77,31 +76,21 @@ function getFileSuffix(contractNum){
 		return true;
 		}else{
 			setStatus(contractNum,"error");
-			alert("这种文件类型不允许上传！\r\n只允许上传这几种文件：jpg、gif、bmp、png、doc、docx、ppt、xls、xlsx、txt\r\n请选择别的文件。");
+			alert("这种文件类型不允许上传！\r\n只允许上传这几种文件：jpg、gif、bmp、png\r\n请选择别的文件。");
 			}
 }
 function addNew() 
 { 
-	if(contractArray.length>=5){
-		$("#add_bt").attr("value","已满");
-	alert("一次同时最多添加5个附件.");
-	return;
-		}
-	var status=assertTrue();
-	if(status==false){
-		return;
-		}
+	
+
 	contractCount=contractCount+1;
 //var table1 = $('#readyIn'); 
 //var tbody = table1.find('tbody'); 
 var newRow="   <tr id='trContract"+contractCount+"'> ";
 
 
-newRow=newRow.concat("<td>选择文件: <input type='file' name='files' id='files"+contractCount+"' onchange='getFileSuffix("+contractCount+")' /><span style='color:red;'>&nbsp;&nbsp;&nbsp;格式:jpg,gif,png,bmp,txt,doc,docx,xls,xlsx,ppt</span><input type='hidden' name='suffix' id='suffix"+contractCount+"' /><input type='hidden' name='fullName' id='fullName"+contractCount+"' /></td> ");
-newRow=newRow.concat("<td> <select name='type'><option value='contract'>合同</option><option value='other'>其它</option></select> </td> ");
-//newRow=newRow.concat("<td><input type='checkbox'  name='fit' value='no' /></td> ");
-newRow=newRow.concat("<td >  <img src='${ctx}/theme/default/images/del_icon.png' title='删除' onclick='deleteContract("+contractCount+");' /> </td>");
-
+newRow=newRow.concat("<td>选择文件: <input type='file' name='files' id='files"+contractCount+"' onchange='getFileSuffix("+contractCount+")' /><span style='color:red;'>&nbsp;&nbsp;&nbsp;格式:jpg,gif,png,bmp</span></td> ");
+newRow=newRow.concat("<td >  <img src='${ctx}/theme/admin/default/images/del_icon.png' title='删除' onclick='deleteContract("+contractCount+");' /> </td>");
 newRow=newRow.concat("<tr/>");
 //tbody.html(tbody.html().concat(newRow)); 
 $("#readyIn tr:last").after(newRow);
@@ -136,15 +125,15 @@ function delConfirm(id){
 <body>
 
 
-	<form action="${ctx}/xlc/xlcCorpContract/filesUpload.html" method="post" enctype="multipart/form-data" onsubmit="return assertTrue()">
+	<form action="${ctx}/admin/rollPic/filesUpload.html" method="post" enctype="multipart/form-data" onsubmit="return assertTrue()">
 		<input id="id" name="id" type="hidden" value="${id}"/>
 		<div class="content_box">
 		  
 		<div class="list_info relative">
         <div class="btn_box">
-		  <pm:hasPermission permValue="${params.corp_contract_add}"> 
+		
 		  <input id="add_bt" type="button" value="添加附件" class="initial" style="cursor:hand;background:#E0E0E0;" onclick="addNew();"/>&nbsp;&nbsp;
-  </pm:hasPermission>
+  
   <input  type="button" value="返回" class="initial" style="cursor:hand;background:#E8E8E8" onclick="javascript:location.href='${ctx}/xlc/xlcCorp/list/1.html'"/></div>
 		 <h2>&nbsp;</h2>
 		 <div class="content_box" style="display:none;" id="content_box">
@@ -155,14 +144,14 @@ function delConfirm(id){
 	  	<tr>
 	  		
 	  		  <th>选择附件</th>
-	        <th>附件类型</th>       
+	              
 	         <th>操作</th>
 	  	</tr>
 	  </thead>
 	  <tbody id="tbodyid">
 	  </tbody>
  </table><br/>
-  <p class="div_submit"  id="div_sumbit"><span id="buttonSpan">  <input id="sumbit_bt" name="" type="image" src="${ctx}/theme/default/images/submit.png"/></span>
+  <p class="div_submit"  id="div_sumbit"><span id="buttonSpan">  <input id="sumbit_bt" name="" type="image" src="${ctx}/theme/admin/default/images/submit.png"/></span>
 				</p>
   </div>
   </div>
@@ -172,33 +161,28 @@ function delConfirm(id){
 <div class="content_box">
  
   <div class="list_info">
-  <h2>${corpName}---附件列表</h2>
+  <h2>轮播图片列表</h2>
   <br/>
     <table width="98%" border="0" cellpadding="0" cellspacing="1">
 	  <thead>
 	  	<tr>
-	  		<th>序号</th>
-	  		 <th>文件名</th>
-	  		 <th>类型</th>
-	  		<th>附件查看</th>       
+	  		<th>ID</th>
+	  		 <th>图片</th>     
 	       <th width="5%;">删除</th>
 	      
 	  	</tr>
 	  </thead>
 	  <tbody>
-	<c:forEach items="${corpContractList}" var="corpContract" varStatus="sta">
+	<c:forEach items="${AllPic}" var="pic" varStatus="sta">
 	      <tr>
 	      	<td>${sta.index + 1}</td>
-	      	 <td>${corpContract.FULL_NAME}</td>
-	      	    <td>  	<c:if test="${corpContract.TYPE=='contract'}">合同</c:if><c:if test="${corpContract.TYPE=='other'}">其它</c:if> </td>
-	      	<td><a href="${ctx}/xlc/xlcCorpContract/fileDownload.html?id=${corpContract.ID}&type=${corpContract.TYPE}&fullName=${corpContract.FULL_NAME}">下载</a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-
-	        <td>
-	        <pm:hasPermission permValue="${params.corp_contract_delete}"> 
+	      	 <td><a href="${ctx}/xlc/xlcCorpContract/fileDownload.html?">${pic}</a></td>
+	      		        <td>
+	      
 		          		<div class="btn_icon">
 		          	 <input type="image" src="${ctx}/theme/default/images/del_icon.png" title="删除" onclick="delConfirm('${corpContract.ID}')"/>
 		         	</div>
-		         	</pm:hasPermission>
+		         	
 	         </td>
 	      </tr>
       </c:forEach>

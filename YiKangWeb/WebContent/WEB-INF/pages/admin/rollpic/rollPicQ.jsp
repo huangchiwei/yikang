@@ -36,7 +36,7 @@
         <td>${o.menuName}</td>
         
         <td>
-           <a href="${ctx}/admin/rollpic/update/${o.ID}.html"><img src="${ctx}/theme/admin/default/images/edit_icon.png" /></a>&nbsp;
+           <a href="${ctx}/admin/rollPic/update/${o.ID}.html"><img src="${ctx}/theme/admin/default/images/edit_icon.png" /></a>&nbsp;
           </td>
       </tr>
       </c:forEach>
