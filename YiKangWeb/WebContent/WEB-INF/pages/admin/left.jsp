@@ -42,14 +42,7 @@ html { overflow:-moz-scrollbars-vertical;}
 			 
 		  </ul>
 		</li>
-			<li>
-			<a href="#">轮播图片管理</a>
-			<ul>
-			  <li><a href="${ctx}/admin/rollPic/list/1.html" target="mainFrame">图片列表</a></li>
-			 
-			 
-		  </ul>
-		</li>
+		
 	</ul>
     <div class="clear"></div>
  </div>
