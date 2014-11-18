@@ -790,7 +790,7 @@
 .one .one_title .ti2 {
 	color: #666666;
 	font-size: 14px;
-	width: 593px;
+	width: 495px;
 	margin-left: auto;
 }
 .one .one_title .ti2 li {
@@ -1023,7 +1023,7 @@
 .four_title .ti4 {
 	color: #666666;
 	font-size: 14px;
-	width: 350px;
+	width: 260px;
 	margin-left: auto;
 }
 .four_title .ti4 li {
@@ -1098,7 +1098,7 @@
 	color: #666666;
 	font-size: 14px;
 }
-.one_b_l_r_b2    .dl3 {
+.one_b_l_r_b2 .dl3 {
 	float: left;
 	overflow: hidden;
 	width: 102px;
@@ -1118,12 +1118,10 @@
 }
 .one_b_l_r_b2  .dl3  dd  a {
 	color: #666666;
-	font-size: 14px;
 
 }
 .one_b_l_r_b2  .dl3  dd  a:hover {
 	color: #336600;
-	font-size: 14px;
 	text-decoration: underline;
 }
 .four_r .one_b_r_b {
@@ -1305,8 +1303,11 @@
 	padding: 20px;
 	margin-right: 5px;
 	margin-left: 5px;
-	background-color: #f8f8f8;
 	text-align: center;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #CCCCCC;
+	margin-top: 15px;
 }
 .bot .p {
 	text-align: center;
