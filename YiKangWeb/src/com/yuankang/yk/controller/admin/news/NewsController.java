@@ -45,7 +45,7 @@ public class NewsController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = PAGE_LIST)
-	public ModelAndView getByPage(@PathVariable int currentPage,Long categoryId) {
+	public ModelAndView getByPage(@PathVariable int currentPage,Long categoryId,int hasImage) {
 		ModelAndView mv = new ModelAndView("admin/news/newsList");
 	try{
 		List<Map<String, Object>> listCate=newsService.getCategory();
@@ -61,10 +61,11 @@ public class NewsController extends BaseController {
 		// 初始化分页实体
 		Pagination page = initPage(currentPage);
 		//page.setPageSize(4);
-		mv.addObject("list", newsService.getByPage(page,categoryId));
+		mv.addObject("list", newsService.getByPage(page,categoryId,hasImage));
 		mv.addObject("listCate", listCate);
 		mv.addObject("page", page);
 		mv.addObject("categoryId", categoryId);
+		mv.addObject("hasImage", hasImage);
 	}catch(Exception e){
 		e.printStackTrace();
 	}

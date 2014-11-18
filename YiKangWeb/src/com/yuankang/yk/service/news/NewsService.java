@@ -25,11 +25,17 @@ public class NewsService extends BaseSqlService{
 	 * @param advert
 	 * @return
 	 */
-	public List<Map<String, Object>> getByPage(Pagination page, Long categoryId) {
-		//return newsSqlDao.findAdvertsByPage(page, categoryId);
-		//SQLQuery sq=getSession().createSQLQuery("select * from news where categoryId="+categoryId);
-		initCount("select count(*) from news where categoryId="+categoryId,page);
-		List<Map<String, Object>> list=getQuery("select * from news where categoryId="+categoryId+" order by id desc",page);
+	public List<Map<String, Object>> getByPage(Pagination page, Long categoryId,int hasImage) {
+		List<Map<String, Object>> list=null;
+		if(hasImage==-1){
+			initCount("select count(*) from news where categoryId="+categoryId,page);
+			list=getQuery("select * from news where categoryId="+categoryId+" order by id desc",page);
+		}else{
+			initCount("select count(*) from news where categoryId="+categoryId+" and HasImage="+hasImage,page);
+			list=getQuery("select * from news where categoryId="+categoryId+" and HasImage="+hasImage+" order by id desc",page);
+		}
+			
+		
 		//List<Object[]> list =sq.list();
 		return list;
 	}

@@ -50,8 +50,9 @@
 	 
             </select>
      资讯图片：       <select id="hasImage" name="hasImage" class="slectBox" onchange="submit();">
-      <option  value="1" <c:if test="${hasImage==1}">selected="selected"</c:if>>有</option>
-       <option  value="0" <c:if test="${hasImage==0}">selected="selected"</c:if>>无</option>
+     <option  value="-1" <c:if test="${hasImage==-1}">selected="selected"</c:if>>所有</option>
+      <option  value="1" <c:if test="${hasImage==1}">selected="selected"</c:if>>有图片</option>
+       <option  value="0" <c:if test="${hasImage==0}">selected="selected"</c:if>>无图片</option>
      </select>
             </h2>
     <table border="0" cellpadding="0" cellspacing="0" class="table">
