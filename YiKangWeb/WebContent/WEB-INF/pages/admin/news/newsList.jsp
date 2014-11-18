@@ -49,6 +49,10 @@
      </c:forEach>
 	 
             </select>
+     资讯图片：       <select id="hasImage" name="hasImage" class="slectBox" onchange="submit();">
+      <option  value="1" <c:if test="${hasImage==1}">selected="selected"</c:if>>有</option>
+       <option  value="0" <c:if test="${hasImage==0}">selected="selected"</c:if>>无</option>
+     </select>
             </h2>
     <table border="0" cellpadding="0" cellspacing="0" class="table">
 <tr>
@@ -57,7 +61,7 @@
         <th>来源</th>
         <th>作者</th>
            <th>文档原始时间</th>
-        <th>创建用户</th>
+        <th>资讯图片</th>
      
         <th>是否置顶</th>
         <th>是否推荐</th>
@@ -73,7 +77,9 @@
         <td>${o.Author}</td>
         <td><fmt:formatDate value="${o.RealTime}"
 								pattern="yyyy-MM-dd HH:mm:ss" /></td>
-        <td>${o.CreateUser}</td>
+        <td><c:if test="${not empty o.HasImage && o.HasImage==1}">有</c:if>
+        <c:if test="${ empty o.HasImage || o.HasImage==0}">无</c:if>
+        </td>
         
         <td>${o.IsTop}</td>
         <td>${o.IsRecommend}</td>

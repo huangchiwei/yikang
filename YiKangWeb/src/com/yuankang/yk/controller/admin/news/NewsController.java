@@ -109,6 +109,11 @@ public class NewsController extends BaseController {
 	  public String save(HttpServletRequest request,Model model,String viewType,News news)
 	  {
 		try{
+			if(news.getContent().indexOf("<img")>=0){
+				news.setHasImage(1);
+			}else{
+				news.setHasImage(0);
+			}
 			if(viewType.endsWith("A")){
 				  //news.setLastUpdateTime(new Date());
 				//  news.setCreateTime(new Date());

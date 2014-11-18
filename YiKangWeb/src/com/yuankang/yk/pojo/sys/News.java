@@ -35,7 +35,7 @@ public class News implements java.io.Serializable {
 	private Integer isTop;
 	private Integer isRecommend;
 	private Integer clicks;
-
+	private Integer hasImage;
 	// Constructors
 
 	/** default constructor */
@@ -47,7 +47,7 @@ public class News implements java.io.Serializable {
 			String source, String author, Date createTime, Date realTime,
 			Integer orderNo, String status, String createUser,
 			String lastUpdateUser, Date lastUpdateTime, Integer isTop,
-			Integer isRecommend, Integer clicks) {
+			Integer isRecommend, Integer clicks,Integer hasImage) {
 		this.categoryId = categoryId;
 		this.title = title;
 		this.content = content;
@@ -64,6 +64,7 @@ public class News implements java.io.Serializable {
 		this.isTop = isTop;
 		this.isRecommend = isRecommend;
 		this.clicks = clicks;
+		this.hasImage = hasImage;
 	}
 
 	// Property accessors
@@ -220,6 +221,14 @@ public class News implements java.io.Serializable {
 
 	public void setClicks(Integer clicks) {
 		this.clicks = clicks;
+	}
+	@Column(name = "HasImage")
+	public Integer getHasImage() {
+		return hasImage;
+	}
+
+	public void setHasImage(Integer hasImage) {
+		this.hasImage = hasImage;
 	}
 
 }

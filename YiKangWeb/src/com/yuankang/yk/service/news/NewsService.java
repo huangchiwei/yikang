@@ -49,11 +49,11 @@ public class NewsService extends BaseSqlService{
 	public void save(News news)
 	  {
 		String sql="insert into news(CategoryId,Title,Content,Digest,Source,Author,CreateTime"
-				+ ",RealTime,CreateUser,LastUpdateUser,LastUpdateTime,IsTop,IsRecommend) values("+news.getCategoryId()+",'"
+				+ ",RealTime,CreateUser,LastUpdateUser,LastUpdateTime,IsTop,IsRecommend,HasImage) values("+news.getCategoryId()+",'"
 						+ news.getTitle()+"','"+news.getContent()+"','"+news.getDigest()
 						+"','"+news.getSource()+"','"+news.getAuthor()+"',now()"
 						+",str_to_date('"+DateUtil.formatDate(news.getRealTime())+"','%Y-%m-%d %H:%i:%s')"+",'"+news.getCreateUser()+"','"+news.getLastUpdateUser()
-						+"',now()"+","+news.getIsTop()+","+news.getIsRecommend()+")";
+						+"',now()"+","+news.getIsTop()+","+news.getIsRecommend()+","+news.getHasImage()+")";
 		up_del(sql);
 	  }
 	public void update(News news)
@@ -62,7 +62,7 @@ public class NewsService extends BaseSqlService{
 						+"Title='"+ news.getTitle()+"',"+"Content='"+news.getContent()+"',"+"Digest='"+news.getDigest()
 						+"',"+"Source='"+news.getSource()+"',"+"Author='"+news.getAuthor()
 						+"',RealTime=str_to_date('"+DateUtil.formatDate(news.getRealTime())+"','%Y-%m-%d %H:%i:%s')"+",LastUpdateUser='"+news.getLastUpdateUser()
-						+"',LastUpdateTime=now()"+",IsTop="+news.getIsTop()+",IsRecommend="+news.getIsRecommend()+" where ID="+news.getId();
+						+"',LastUpdateTime=now()"+",IsTop="+news.getIsTop()+",IsRecommend="+news.getIsRecommend()+",HasImage="+news.getHasImage()+" where ID="+news.getId();
 		up_del(sql);
 	  }
 	public Map<String, Object> getById(Long id)
