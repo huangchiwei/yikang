@@ -17,7 +17,7 @@
 <body>
 <div class="content_box">
     <div class="btn_box">
-  <input type="button" value="返回" class="initial" style="cursor:hand" onclick="javascript:location.href='${ctx}/admin/news/list/1.html'"/>
+  <input type="button" value="返回" class="initial" style="cursor:hand" onclick="javascript:location.href='${ctx}/admin/news/list/1.html?categoryId=1&hasImage=-1'"/>
    </div>
 <form id="add_form" action="${ctx}/admin/news/save.html" method="post">
 <input type="hidden" name="id" value="${news.ID}"/>
@@ -51,7 +51,7 @@
 	   <tr>
 	  <th>标题：</th>
      <td>
-     	<input id="title" name="title" type="text" value="${news.Title}" maxlength="20"/>
+     	<input id="title" name="title" type="text" value="${news.Title}" maxlength="200" size="25"/>
      </td>
       <th>文档原始时间：</th>
      <td>

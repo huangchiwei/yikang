@@ -27,21 +27,41 @@ public class NewsFrontController extends BaseController {
 	  {
 		 //行业新闻9条
 		 List<Map<String, Object>> industryNews=newsService.getIndustryNews();
+		 model.addAttribute("industryNews", industryNews);
 		 //行业焦点9条
 		 List<Map<String, Object>> industryFocus=newsService.getIndustryFocus();
+		 model.addAttribute("industryFocus", industryFocus);
 		 //国家法律法规5条
 		 List<Map<String, Object>> countyLaw=newsService.getCountyLaw();
+		 model.addAttribute("countyLaw", countyLaw);
 		 //地方法律法规5条
 		 List<Map<String, Object>> localLaw=newsService.getLocalLaw();
-		 //重要活动9条
-		 List<Map<String, Object>> importActi=newsService.getImportantActi();
-		 
-		 model.addAttribute("industryNews", industryNews);
-		 model.addAttribute("industryFocus", industryFocus);
-		 model.addAttribute("countyLaw", countyLaw);
 		 model.addAttribute("localLaw", localLaw);
-		 model.addAttribute("importActi", importActi);
-		 
+		 //重要活动图片3条，剩下再来6条
+		 List<Map<String, Object>> hasImageList=newsService.getHasImageActi();
+		 if(hasImageList.size()>0){
+			 model.addAttribute("oneImage", hasImageList.get(0));
+			 if(hasImageList.size()>=2)
+			 model.addAttribute("twoImage", hasImageList.get(1));
+			 if(hasImageList.size()>=3)
+			 model.addAttribute("thirdImage", hasImageList.get(2));
+		 }
+	
+		 List<Map<String, Object>> otherSixActList=newsService.getOtherSixActi(hasImageList);
+		 //model.addAttribute("hasImageList", hasImageList);
+		 model.addAttribute("otherSixActList", otherSixActList);
+		 //头条新闻
+		 List<Map<String, Object>> firstInfo=newsService.getFirstInfo();
+		 model.addAttribute("firstInfo", firstInfo);
+		//热文推荐
+		 List<Map<String, Object>> hotInfo=newsService.getHotInfo();
+		 model.addAttribute("hotInfo", hotInfo);
+		 //热文排行
+		 List<Map<String, Object>> fList= newsService.getHotOrderFirstHasImage();
+		 model.addAttribute("hotOrderImage", fList.get(0));
+		 List<Map<String, Object>> hotOrderInfo=newsService.getOtherHotOrderInfo(fList.get(0));
+		 model.addAttribute("hotOrderInfo", hotOrderInfo);
+		
 	    return "front/news/index";
 	  }
 

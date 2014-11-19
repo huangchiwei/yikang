@@ -2,12 +2,15 @@ package com.yuankang.yk.service.news;
 
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.armysoft.core.Pagination;
 import org.springframework.stereotype.Service;
 
 import com.yuankang.yk.pojo.sys.News;
 import com.yuankang.yk.publics.tools.DateUtil;
+import com.yuankang.yk.publics.tools.StringUtil;
 import com.yuankang.yk.service.base.BaseSqlService;
 
 /**
@@ -29,10 +32,10 @@ public class NewsService extends BaseSqlService{
 		List<Map<String, Object>> list=null;
 		if(hasImage==-1){
 			initCount("select count(*) from news where categoryId="+categoryId,page);
-			list=getQuery("select * from news where categoryId="+categoryId+" order by id desc",page);
+			list=getQuery("select * from news where categoryId="+categoryId+" order by RealTime desc",page);
 		}else{
 			initCount("select count(*) from news where categoryId="+categoryId+" and HasImage="+hasImage,page);
-			list=getQuery("select * from news where categoryId="+categoryId+" and HasImage="+hasImage+" order by id desc",page);
+			list=getQuery("select * from news where categoryId="+categoryId+" and HasImage="+hasImage+" order by RealTime desc",page);
 		}
 			
 		
@@ -110,9 +113,63 @@ public class NewsService extends BaseSqlService{
 		return list;
 		
 	}	
-	public List<Map<String, Object>> getImportantActi() {
-		String sql=initSql("重要活动",9);
+	
+	public List<Map<String, Object>> getHasImageActi() {
+		String sql="select n.Content,n.Title,n.ID from news n,news_category nc where n.CategoryId=nc.ID and nc.CategoryName='重要活动' and n.HasImage='1' order by RealTime desc  limit 0,3";
+		List<Map<String, Object>> list=getQuery(sql);
+		if(list!=null&&list.size()>0){
+			for(Map<String, Object> h:list){
+				h.put("src", StringUtil.getImageSrc(h.get("Content").toString()));		
+			}
+		}
+		return list;
+	}
+	public List<Map<String, Object>> getOtherSixActi(List<Map<String, Object>> hasImageList) {
+		String temp="";
+		String sql="";
+		for(Map<String, Object> h:hasImageList){
+			temp+=h.get("ID").toString()+",";
+		}
+		if(temp!=""){
+			temp=temp.substring(0, temp.length()-1);
+			 sql="select ID,Title from news where ID not IN ("+temp+") order by RealTime desc limit 0,6";
+		} else{
+			 sql="select ID,Title from news  order by RealTime desc limit 0,6";
+		}
+		
 		List<Map<String, Object>> list=getQuery(sql);
 		return list;
 	}
+	public List<Map<String, Object>> getFirstInfo() {
+		String sql="select Title,ID from news order by RealTime desc limit 0,10";
+		List<Map<String, Object>> list=getQuery(sql);
+		return list;
+	}
+	public List<Map<String, Object>> getHotInfo() {
+		String sql="select Title,ID from news where IsRecommend=1  order by Clicks desc limit 0,10";
+		List<Map<String, Object>> list=getQuery(sql);
+		return list;
+	}
+	public List<Map<String, Object>> getHotOrderFirstHasImage() {
+		String sql="select Title,ID,Content,Digest from news  where HasImage='1' order by Clicks desc limit 0,1";
+		List<Map<String, Object>> list=getQuery(sql);
+		if(list!=null&&list.size()>0){
+			for(Map<String, Object> h:list){
+				h.put("src", StringUtil.getImageSrc(h.get("Content").toString()));		
+			}
+		}
+		return list;
+	}
+	public List<Map<String, Object>> getOtherHotOrderInfo(Map<String, Object> oi) {
+		String sql="";
+		if(oi!=null){
+			sql="select Title,ID from news where ID NOT IN ("+oi.get("ID").toString()+")  order by Clicks desc limit 0,9";
+		}else{
+			sql="select Title,ID from news order by Clicks desc limit 0,9";
+		}
+		
+		List<Map<String, Object>> list=getQuery(sql);
+		return list;
+	}
+	
 }

@@ -140,16 +140,10 @@ $(function(){
       <span>NEWS TOP</span>
       </div>
       <ul class="ul3">
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
+       <c:forEach items="${firstInfo}" var="f" varStatus="sta">
+         <li><a href="#">${fn:substring(f.Title, 0, 17) }</a></li>
+       </c:forEach>
+       
       </ul>
     </div>
     <div class="n_one_top">
@@ -157,14 +151,10 @@ $(function(){
       <h1>热文推荐</h1>
      </div>
       <ul class="ul3">
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
+      <c:forEach items="${hotInfo}" var="h" varStatus="sta">
+         <li><a href="#">${fn:substring(h.Title, 0, 17) }</a></li>
+       </c:forEach>
+        
       </ul>
     </div>
     <div class="n_one_top">
@@ -174,9 +164,11 @@ $(function(){
       <div class="a_right_b1">
        <dl>
 <dt>
-<a href="#" title="" target="_blank">男子与女友亲热时掰伤生殖器</a></dt>
-<dd><p><a href="#" title="" target="_blank"><img src="http://img003.21cnimg.com/photos/album/20141107/s99x95/4A634ABDC6F74E8C027846E6FB6007DF.jpeg" title="男子与女友亲热时掰伤生殖器" alt="男子与女友亲热时掰伤生殖器"></a></p>
-<span>“突然间，就听到下面一声响，就听到下面一声响，它.........<a href="#" title="" target="_blank">查看详细</a></span>
+<a href="#" title="" target="_blank">${fn:substring(hotOrderImage.Title, 0, 18) }</a></dt>
+<dd><p><a href="#" title="" target="_blank"><img src="${hotOrderImage.src}" width="100" height="100"></a></p>
+<span> <c:if test="${fn:length(hotOrderImage.Digest)>35}">${fn:substring(hotOrderImage.Digest, 0, 35) }.....</c:if>
+<c:if test="${fn:length(hotOrderImage.Digest)<37}">${ hotOrderImage.Digest}</c:if>
+<a href="#" title="" target="_blank">查看详细</a></span>
 </dd>
 </dl>
 <ul>
@@ -246,32 +238,39 @@ $(function(){
     <div class="n_three_b">
      <div class="l_box">
       <dl>
-       <dt><img src="images/index_002.png" /></dt>
-       <dd><a href="#">每天掉多少头发应就医</a></dd>
+       <dt><img src="${oneImage.src}" width="200" height="100"/></dt>
+       <dd><a href="#">${fn:substring(oneImage.Title, 0, 14) }</a></dd>
       </dl>
       <ul class="ul">
-       <li><a href="#">每天掉多少头发应就医</a></li>
-       <li><a href="3">每天掉多少头发应就医</a></li>
+      <c:forEach items="${otherSixActList}" var="o" varStatus="sta">
+      <c:if test="${sta.index ==0}"><li><a href="#">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
+       <c:if test="${sta.index ==1}"><li><a href="#">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
+      </c:forEach>
+      
       </ul>
      </div>
      <div class="l_box">
       <dl>
-       <dt><img src="images/index_002.png" /></dt>
-       <dd><a href="#">每天掉多少头发应就医</a></dd>
+       <dt><img src="${twoImage.src}" width="100" height="100"/></dt>
+       <dd><a href="#">${fn:substring(twoImage.Title, 0, 14) }</a></dd>
       </dl>
       <ul class="ul">
-       <li><a href="#">每天掉多少头发应就医</a></li>
-       <li><a href="3">每天掉多少头发应就医</a></li>
+        <c:forEach items="${otherSixActList}" var="o" varStatus="sta">
+      <c:if test="${sta.index ==2}"><li><a href="#">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
+       <c:if test="${sta.index ==3}"><li><a href="#">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
+      </c:forEach>
       </ul>
      </div>
      <div class="l_box">
       <dl>
-       <dt><img src="images/index_002.png" /></dt>
-       <dd><a href="#">每天掉多少头发应就医</a></dd>
+       <dt><img src="${thirdImage.src}" width="100" height="100"/></dt>
+       <dd><a href="#">${fn:substring(thirdImage.Title, 0, 14) }</a></dd>
       </dl>
       <ul class="ul">
-       <li><a href="#">每天掉多少头发应就医</a></li>
-       <li><a href="3">每天掉多少头发应就医</a></li>
+        <c:forEach items="${otherSixActList}" var="o" varStatus="sta">
+      <c:if test="${sta.index ==4}"><li><a href="#">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
+       <c:if test="${sta.index ==5}"><li><a href="#">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
+      </c:forEach>
       </ul>
      </div>
     </div>

@@ -1,6 +1,7 @@
 package com.yuankang.yk.controller.admin.news;
 
 import java.beans.PropertyEditor;
+import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.armysoft.core.Pagination;
 import org.armysoft.springmvc.controller.BaseController;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
@@ -25,6 +25,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.yuankang.yk.pojo.sys.News;
 import com.yuankang.yk.pojo.sys.User;
 import com.yuankang.yk.publics.Constants;
+import com.yuankang.yk.publics.tools.StringUtil;
+import com.yuankang.yk.publics.tools.ThumbsUtil;
 import com.yuankang.yk.service.news.NewsService;
 
 /**
@@ -77,7 +79,7 @@ public class NewsController extends BaseController {
 	  public String delete(@PathVariable("id") Long key)
 	  {
 		 newsService.delete(key);
-	    return "redirect:/admin/news/list/1.html";
+	    return "redirect:/admin/news/list/1.html?categoryId=1&hasImage=-1";
 	  }
 	  @RequestMapping(value = UPDATE)
 	  public String update(@PathVariable("id") Long key, Model model)
@@ -130,13 +132,22 @@ public class NewsController extends BaseController {
 				 
 				  newsService.update(news);
 			  }
+			//保存缩略图
+			if(news.getContent().indexOf("<img")>=0){
+				String src=StringUtil.getImageSrc(news.getContent()).replace("/YiKangWeb","");
+				String pre=src.substring(0, src.lastIndexOf("/")+1);
+				String des_src=src.replace(pre, pre+"thumbs/120/");
+				String des_src2=src.replace(pre, pre+"thumbs/650/");
+				ThumbsUtil.getInstance().init(request.getSession().getServletContext().getRealPath(src), request.getSession().getServletContext().getRealPath(des_src)).resizeFix(120, 120);
+				ThumbsUtil.getInstance().init(request.getSession().getServletContext().getRealPath(src), request.getSession().getServletContext().getRealPath(des_src2)).resizeFix(650, 310);
+			}
 		}catch(Exception e ){
 			e.printStackTrace();
 		}
 		  
 		 
 
-		  return "redirect:/admin/news/list/1.html";
+		  return "redirect:/admin/news/list/1.html?categoryId=1&hasImage=-1";
 	  }
 
 	 @InitBinder  
