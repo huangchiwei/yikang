@@ -25,6 +25,9 @@ public class NewsFrontController extends BaseController {
 	 @RequestMapping(value = "/index.html")
 	  public String index(Model model)
 	  {
+		//四张图片
+		 List<Map<String, Object>> fourPicList=newsService.getSecLevShowPic();
+		 model.addAttribute("fourPicList", fourPicList);
 		 //行业新闻9条
 		 List<Map<String, Object>> industryNews=newsService.getIndustryNews();
 		 model.addAttribute("industryNews", industryNews);

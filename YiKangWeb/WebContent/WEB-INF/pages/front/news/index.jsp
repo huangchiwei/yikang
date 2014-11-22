@@ -55,10 +55,13 @@ $(function(){
    <div class="n_flash">
     <div id="wrappers">
 	<div id="carousels">
-		<img src="http://demo.lanrenzhijia.com/2014/banner1029/images/cars.jpg" width="650" height="310" />
+	<c:forEach items="${fourPicList}" var="p" varStatus="sta">
+			<img src="${ctx}/${p.src}" width="650" height="310" />
+	</c:forEach>
+		<!-- <img src="http://demo.lanrenzhijia.com/2014/banner1029/images/cars.jpg" width="650" height="310" />
 		<img src="http://demo.lanrenzhijia.com/2014/banner1029/images/rat.jpg" width="650" height="310" />
 		<img src="http://demo.lanrenzhijia.com/2014/banner1029/images/toystory.jpg" width="650" height="310" />
-		<img src="http://demo.lanrenzhijia.com/2014/banner1029/images/walle.jpg" width="650" height="310" class="last" />
+		<img src="http://demo.lanrenzhijia.com/2014/banner1029/images/walle.jpg" width="650" height="310" class="last" /> -->
 	</div>
 	<div id="pagers">
 		<a href="#"><span></span></a>
@@ -165,7 +168,7 @@ $(function(){
        <dl>
 <dt>
 <a href="#" title="" target="_blank">${fn:substring(hotOrderImage.Title, 0, 18) }</a></dt>
-<dd><p><a href="#" title="" target="_blank"><img src="${hotOrderImage.src}" width="100" height="100"></a></p>
+<dd><p><a href="#" title="" target="_blank"><img src="${ctx}/${hotOrderImage.src}" width="100" height="100"></a></p>
 <span> <c:if test="${fn:length(hotOrderImage.Digest)>35}">${fn:substring(hotOrderImage.Digest, 0, 35) }.....</c:if>
 <c:if test="${fn:length(hotOrderImage.Digest)<37}">${ hotOrderImage.Digest}</c:if>
 <a href="#" title="" target="_blank">查看详细</a></span>
@@ -238,7 +241,7 @@ $(function(){
     <div class="n_three_b">
      <div class="l_box">
       <dl>
-       <dt><img src="${oneImage.src}" width="200" height="100"/></dt>
+       <dt><img src="${ctx }/${oneImage.src}" width="200"/></dt>
        <dd><a href="#">${fn:substring(oneImage.Title, 0, 14) }</a></dd>
       </dl>
       <ul class="ul">
@@ -251,7 +254,7 @@ $(function(){
      </div>
      <div class="l_box">
       <dl>
-       <dt><img src="${twoImage.src}" width="100" height="100"/></dt>
+       <dt><img src="${ctx }/${twoImage.src}" width="200"/></dt>
        <dd><a href="#">${fn:substring(twoImage.Title, 0, 14) }</a></dd>
       </dl>
       <ul class="ul">
@@ -263,7 +266,7 @@ $(function(){
      </div>
      <div class="l_box">
       <dl>
-       <dt><img src="${thirdImage.src}" width="100" height="100"/></dt>
+       <dt><img src="${ctx }/${thirdImage.src}" width="200"/></dt>
        <dd><a href="#">${fn:substring(thirdImage.Title, 0, 14) }</a></dd>
       </dl>
       <ul class="ul">
