@@ -13,6 +13,14 @@
 <script src="${ctx}/js/front/news/js/flash.js"></script>
 <script src="${ctx}/js/front/news/js/jquery.carouFredSel-6.0.4-packed.js"></script>
 <script>
+function jump(id,newWindow){
+	if(newWindow!=null){
+		window.open("${ctx}/front/news/detail/"+id+".html","_blank");
+	}else{
+		location.href="${ctx}/front/news/detail/"+id+".html";
+	}
+	
+}
 $(function(){
 	var lanren = $(".lanren a");
 	lanren.click(function(){
@@ -38,10 +46,10 @@ $(function(){
   <div class="n_box">
    <div class="new_logo"><img src="${ctx}/js/front/news/images/news_logo.png" /></div>
    <div class="lanren">
-    <a href='javascript:' class="thisclass">行业新闻</a>
-    <a href='javascript:'>法律法规</a>
-    <a href='javascript:'>行业焦点</a>
-    <a href='javascript:'>重要活动</a>
+      <a href="${ctx}/front/news/list/1.html?cateCode=industryNews" <c:if test="${cateCode=='industryNews'}">class="thisclass"</c:if>>行业新闻</a>
+    <a  href="${ctx}/front/news/list/1.html?cateCode=law" <c:if test="${cateCode=='countyLaw'||cateCode=='localLaw'||cateCode=='law'}">class="thisclass"</c:if>>法律法规</a>
+    <a href="${ctx}/front/news/list/1.html?cateCode=industryFocus" <c:if test="${cateCode=='industryFocus'}">class="thisclass"</c:if>>行业焦点</a>
+    <a href="${ctx}/front/news/list/1.html?cateCode=acti" <c:if test="${cateCode=='acti'}">class="thisclass"</c:if>>重要活动</a>
    </div>
   </div>
   <div class="search">
@@ -69,18 +77,24 @@ $(function(){
  <h3>相关推荐</h3>
  <div class="d_box_tj">
   <div class="sgtj">
-  <div class="fl"><a href="#"><img src="images/index_pic.png" /></a></div>
+  <c:if test="${not empty relatedImageNews }">
+   <div class="fl"><a href="#"><img src="${ctx}/${relatedImageNews.src}" width="150"/></a></div>
   <dl class="extend_page_dl">
-   <dt class="extend_page_dt"><a href="#">精卵相吻四大良机</a></dt>
-   <dd class="extend_page_dd">刚排出的卵子最新鲜，活力最强，如果立即与精子如果立即与精子如果立即与精子“相吻”...[<a href="#">详细</a>]</dd>
+   <dt class="extend_page_dt"><a href="javascript:void(0);" onclick="jump(${relatedImageNews.ID})">${relatedImageNews.Title}</a></dt>
+   <dd class="extend_page_dd">
+   <c:if test="${fn:length(relatedImageNews.Digest)>55}">${fn:substring(relatedImageNews.Digest, 0, 55)}......</c:if>
+       <c:if test="${fn:length(relatedImageNews.Digest)<55}">${relatedImageNews.Digest}</c:if>
+   [<a href="#">详细</a>]</dd>
   </dl>
+  </c:if>
+ 
   </div>
   <div class="extend_page_d">
      <ul>
-      <li class="li"><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li class="li"><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li class="li"><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li class="li"><a href="#">眼保健操并非国人近视"祸害"</a></li>
+      <c:forEach items="${relatedOtherNews}" var="o" varStatus="sta">
+       <li class="li"><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 15) }</a></li>
+      </c:forEach>
+      
      </ul>
   </div>
  </div>
@@ -105,7 +119,7 @@ $(function(){
     <div class="list_r_rank">
      <ul class="ul">
        <c:forEach items="${hotOrderInfoList}" var="o" varStatus="sta">
-        <li><span>${o.Clicks }</span><a href="#">${fn:substring(o.Title, 0, 17)}</a></li>
+        <li><span>${o.Clicks }</span><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 17)}</a></li>
        </c:forEach>
      
      </ul>
@@ -117,7 +131,7 @@ $(function(){
     </div>
      <ul class="ul2">
      <c:forEach items="${hotRecomInfoList}" var="o" varStatus="sta">
-       <li><a href="#">${fn:substring(o.Title, 0, 23)}</a></li>
+       <li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 23)}</a></li>
       </c:forEach>
      </ul>
    </div>

@@ -13,6 +13,14 @@
 <%-- <script src="${ctx}/js/front/news/js/flash.js"></script> --%>
 <script src="${ctx}/js/front/news/js/jquery.carouFredSel-6.0.4-packed.js"></script>
 <script>
+function jump(id,newWindow){
+	if(newWindow!=null){
+		window.open("${ctx}/front/news/detail/"+id+".html","_blank");
+	}else{
+		location.href="${ctx}/front/news/detail/"+id+".html";
+	}
+	
+}
 $(function(){
 	var lanren = $(".lanren a");
 	lanren.click(function(){
@@ -38,10 +46,10 @@ $(function(){
   <div class="n_box">
    <div class="new_logo"><img src="${ctx}/js/front/news/images/news_logo.png" /></div>
    <div class="lanren">
-    <a href='javascript:' <c:if test="${categoryName=='industryNews'}">class="thisclass"</c:if>>行业新闻</a>
-    <a href='javascript:' <c:if test="${cateCode=='countyLaw'||cateCode=='localLaw'}">class="thisclass"</c:if>>法律法规</a>
-    <a href='javascript:' <c:if test="${cateCode=='industryFocus'}">class="thisclass"</c:if>>行业焦点</a>
-    <a href='javascript:' <c:if test="${cateCode=='acti'}">class="thisclass"</c:if>>重要活动</a>
+    <a href="${ctx}/front/news/list/1.html?cateCode=industryNews" <c:if test="${cateCode=='industryNews'}">class="thisclass"</c:if>>行业新闻</a>
+    <a  href="${ctx}/front/news/list/1.html?cateCode=law" <c:if test="${cateCode=='countyLaw'||cateCode=='localLaw'||cateCode=='law'}">class="thisclass"</c:if>>法律法规</a>
+    <a href="${ctx}/front/news/list/1.html?cateCode=industryFocus" <c:if test="${cateCode=='industryFocus'}">class="thisclass"</c:if>>行业焦点</a>
+    <a href="${ctx}/front/news/list/1.html?cateCode=acti" <c:if test="${cateCode=='acti'}">class="thisclass"</c:if>>重要活动</a>
    </div>
   </div>
   <div class="search">
@@ -52,17 +60,18 @@ $(function(){
   </div>
  </div>
 <div class="location"><a href="#">首页</a> > <a href="#">行业资讯</a> &gt; 
-<c:if test="${categoryName=='industryNews'}">行业新闻</c:if>
-<c:if test="${cateCode=='countyLaw'||cateCode=='localLaw'}">法律法规</c:if>
+<c:if test="${cateCode=='industryNews'}">行业新闻</c:if>
+<c:if test="${cateCode=='countyLaw'||cateCode=='localLaw'||cateCode=='law'}">法律法规</c:if>
 <c:if test="${cateCode=='industryFocus'}">行业焦点</c:if>
 <c:if test="${cateCode=='acti'}">重要活动</c:if>
 </div>
 <div class="n_list">
   <div class="n_fl_670">
     <div class="n_list_title"><h1>
-    <c:if test="${categoryName=='industryNews'}">行业新闻</c:if>
+    <c:if test="${cateCode=='industryNews'}">行业新闻</c:if>
 <c:if test="${cateCode=='countyLaw'}">国家法律法规</c:if>
 <c:if test="${cateCode=='localLaw'}">地方法律法规</c:if>
+<c:if test="${cateCode=='law'}">法律法规</c:if>
 <c:if test="${cateCode=='industryFocus'}">行业焦点</c:if>
 <c:if test="${cateCode=='acti'}">重要活动</c:if>
     </h1>
@@ -92,7 +101,7 @@ $(function(){
     <div class="list_r_rank">
      <ul class="ul">
        <c:forEach items="${hotOrderInfoList}" var="o" varStatus="sta">
-        <li><span>${o.Clicks }</span><a href="#">${fn:substring(o.Title, 0, 17)}</a></li>
+        <li><span>${o.Clicks }</span><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 17)}</a></li>
        </c:forEach>
      
         </ul>
@@ -104,7 +113,7 @@ $(function(){
     </div>
      <ul class="ul2">
       <c:forEach items="${hotRecomInfoList}" var="o" varStatus="sta">
-       <li><a href="#">${fn:substring(o.Title, 0, 23)}</a></li>
+       <li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 23)}</a></li>
       </c:forEach>
      
      

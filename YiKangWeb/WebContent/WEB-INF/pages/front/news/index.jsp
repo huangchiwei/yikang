@@ -46,10 +46,10 @@ $(function(){
    <div class="new_logo"><img src="${ctx}/js/front/news/images/news_logo.png" /></div>
    <div class="lanren">
   <!--   <a href='javascript:' class="thisclass">行业新闻</a> -->
-  <a href='javascript:' >行业新闻</a>
-    <a href='javascript:'>法律法规</a>
-    <a href='javascript:'>行业焦点</a>
-    <a href='javascript:'>重要活动</a>
+  <a href="${ctx}/front/news/list/1.html?cateCode=industryNews" >行业新闻</a>
+    <a href="${ctx}/front/news/list/1.html?cateCode=law">法律法规</a>
+    <a href="${ctx}/front/news/list/1.html?cateCode=industryFocus">行业焦点</a>
+    <a href="${ctx}/front/news/list/1.html?cateCode=acti">重要活动</a>
    </div>
   </div>
   <div class="search">
