@@ -13,6 +13,14 @@
 <script src="${ctx}/js/front/news/js/flash.js"></script>
 <script src="${ctx}/js/front/news/js/jquery.carouFredSel-6.0.4-packed.js"></script>
 <script>
+function jump(id,newWindow){
+	if(newWindow!=null){
+		window.open("${ctx}/front/news/detail/"+id+".html","_blank");
+	}else{
+		location.href="${ctx}/front/news/detail/"+id+".html";
+	}
+	
+}
 $(function(){
 	var lanren = $(".lanren a");
 	lanren.click(function(){
@@ -37,7 +45,8 @@ $(function(){
   <div class="n_box">
    <div class="new_logo"><img src="${ctx}/js/front/news/images/news_logo.png" /></div>
    <div class="lanren">
-    <a href='javascript:' class="thisclass">行业新闻</a>
+  <!--   <a href='javascript:' class="thisclass">行业新闻</a> -->
+  <a href='javascript:' >行业新闻</a>
     <a href='javascript:'>法律法规</a>
     <a href='javascript:'>行业焦点</a>
     <a href='javascript:'>重要活动</a>
@@ -56,7 +65,7 @@ $(function(){
     <div id="wrappers">
 	<div id="carousels">
 	<c:forEach items="${fourPicList}" var="p" varStatus="sta">
-			<img src="${ctx}/${p.src}" width="650" height="310" />
+			<img src="${ctx}/${p.src}" width="650" height="310" onclick="jump(${p.ID})" style="cursor:pointer;"/>
 	</c:forEach>
 		<!-- <img src="http://demo.lanrenzhijia.com/2014/banner1029/images/cars.jpg" width="650" height="310" />
 		<img src="http://demo.lanrenzhijia.com/2014/banner1029/images/rat.jpg" width="650" height="310" />
@@ -74,19 +83,19 @@ $(function(){
    <div class="n_new_b">
     <div class="n_n_b_t">
      <h1>行业新闻</h1>
-     <div class="more"><a href="#">more</a></div>
+     <div class="more"><a href="${ctx}/front/news/list/1.html?cateCode=industryNews">more</a></div>
     </div>
     <div class="n_b_box">
      <div class="n_b_box_l"><img src="${ctx}/js/front/news/images/index_001.png" /></div>
      <div class="n_b_box_r">
      <c:forEach items="${industryNews}" var="i" varStatus="sta">
      <c:if test="${sta.index ==0}">
-      <h1><a href="#">${i.Title }</a></h1>
+      <h1><a href="javascript:void(0);" onclick="jump(${i.ID})">${i.Title }</a></h1>
        <p class="p">
        <c:if test="${fn:length(i.Digest)>75}">${fn:substring(i.Digest, 0, 75)}......</c:if>
        <c:if test="${fn:length(i.Digest)<75}">${i.Digest}</c:if>
        </p>
-      <p class="p2">[<a href="#">查看详细</a>]</p>
+      <p class="p2">[<a href="javascript:void(0);" onclick="jump(${i.ID})">查看详细</a>]</p>
      </c:if>
           </c:forEach>
      
@@ -96,7 +105,7 @@ $(function(){
     <ul class="ul2">
       <c:forEach items="${industryNews}" var="c" varStatus="sta">
      <c:if test="${sta.index >0}">
-       <li><a href="#">${fn:substring(c.Title, 0, 19) }</a></li>
+       <li><a href="javascript:void(0);" onclick="jump(${c.ID})">${fn:substring(c.Title, 0, 19) }</a></li>
      </c:if>
           </c:forEach>
     
@@ -105,7 +114,7 @@ $(function(){
    <div class="n_new_b">
     <div class="n_n_b_t">
      <h1>行业焦点</h1>
-     <div class="more"><a href="#">more</a></div>
+     <div class="more"><a href="${ctx}/front/news/list/1.html?cateCode=industryFocus">more</a></div>
     </div>
     <div class="n_b_box">
      <div class="n_b_box_l"><img src="${ctx}/js/front/news/images/index_001.png" /></div>
@@ -113,12 +122,12 @@ $(function(){
      
           <c:forEach items="${industryFocus}" var="f" varStatus="sta">
      <c:if test="${sta.index ==0}">
-      <h1><a href="#">${f.Title }</a></h1>
+      <h1><a href="javascript:void(0);" onclick="jump(${f.ID})">${f.Title }</a></h1>
        <p class="p">
        <c:if test="${fn:length(f.Digest)>75}">${fn:substring(f.Digest, 0, 75)}......</c:if>
        <c:if test="${fn:length(f.Digest)<75}">${f.Digest}</c:if>
        </p>
-      <p class="p2">[<a href="#">查看详细</a>]</p>
+      <p class="p2">[<a href="javascript:void(0);" onclick="jump(${f.ID})">查看详细</a>]</p>
      </c:if>
           </c:forEach>
      
@@ -128,7 +137,7 @@ $(function(){
     <ul class="ul2">
       <c:forEach items="${industryFocus}" var="f" varStatus="sta">
      <c:if test="${sta.index >0}">
-       <li><a href="#">${fn:substring(f.Title, 0, 19) }</a></li>
+       <li><a href="javascript:void(0);" onclick="jump(${f.ID})">${fn:substring(f.Title, 0, 19) }</a></li>
      </c:if>
           </c:forEach>
     
@@ -144,7 +153,7 @@ $(function(){
       </div>
       <ul class="ul3">
        <c:forEach items="${firstInfo}" var="f" varStatus="sta">
-         <li><a href="#">${fn:substring(f.Title, 0, 17) }</a></li>
+         <li><a href="javascript:void(0);" onclick="jump(${f.ID})">${fn:substring(f.Title, 0, 17) }</a></li>
        </c:forEach>
        
       </ul>
@@ -155,7 +164,7 @@ $(function(){
      </div>
       <ul class="ul3">
       <c:forEach items="${hotInfo}" var="h" varStatus="sta">
-         <li><a href="#">${fn:substring(h.Title, 0, 17) }</a></li>
+         <li><a href="javascript:void(0);" onclick="jump(${h.ID})">${fn:substring(h.Title, 0, 17) }</a></li>
        </c:forEach>
         
       </ul>
@@ -167,20 +176,18 @@ $(function(){
       <div class="a_right_b1">
        <dl>
 <dt>
-<a href="#" title="" target="_blank">${fn:substring(hotOrderImage.Title, 0, 18) }</a></dt>
-<dd><p><a href="#" title="" target="_blank"><img src="${ctx}/${hotOrderImage.src}" width="100" height="100"></a></p>
+<a href="javascript:void(0);" onclick="jump(${hotOrderImage.ID},1)">${fn:substring(hotOrderImage.Title, 0, 18) }</a></dt>
+<dd><p><a href="javascript:void(0);" onclick="jump(${hotOrderImage.ID},1)"><img src="${ctx}/${hotOrderImage.src}" width="100" height="100"/></a></p>
 <span> <c:if test="${fn:length(hotOrderImage.Digest)>35}">${fn:substring(hotOrderImage.Digest, 0, 35) }.....</c:if>
 <c:if test="${fn:length(hotOrderImage.Digest)<37}">${ hotOrderImage.Digest}</c:if>
-<a href="#" title="" target="_blank">查看详细</a></span>
+<a href="javascript:void(0);" onclick="jump(${hotOrderImage.ID},1)">查看详细</a></span>
 </dd>
 </dl>
 <ul>
-<li><a href="#" title="" target="_blank">两岁宝宝被亲后面部僵硬 被诊断为亲吻病</a></li>
-<li><a href="#" title="" target="_blank">少年患“怪病” 身体不能自控剧烈扭动6年(图)</a></li>
-<li><a href="#" title="" target="_blank">麦当劳召回250万颗口哨棒棒糖 恐引起儿童窒息</a></li>
-<li><a href="#" title="" target="_blank">韩国6旬老人涉非法行医被查 用1米长针医治病人</a></li>
-<li><a href="#" title="" target="_blank">山东打掉毒腐竹工厂 7千斤产品已流入市场</a></li>
-<li><a href="#" title="" target="_blank">应战中医宣布退出切脉验孕挑战 称参赛违法</a></li>
+ <c:forEach items="${hotOrderInfo}" var="h" varStatus="sta">
+ <li><a href="javascript:void(0);" onclick="jump(${h.ID},1)">${fn:substring(h.Title, 0, 20) }</a></li>
+ </c:forEach>
+
 </ul>
       </div>
     </div>
@@ -196,12 +203,12 @@ $(function(){
     <div class="l_box">
      <div class="n_gj_t">
       <h1>国家法律法规</h1>
-      <div class="more"><a href="#">more</a></div>
+      <div class="more"><a href="${ctx}/front/news/list/1.html?cateCode=countyLaw">more</a></div>
      </div>
      <ul class="n_gj_b">
        <c:forEach items="${countyLaw}" var="f" varStatus="sta">
      <c:if test="${sta.index >0}">
-       <li><a href="#">${fn:substring(f.Title, 0, 18) }</a></li>
+       <li><a href="javascript:void(0);" onclick="jump(${f.ID})">${fn:substring(f.Title, 0, 18) }</a></li>
      </c:if>
           </c:forEach>
      
@@ -210,12 +217,12 @@ $(function(){
     <div class="r_box">
     <div class="n_gj_t">
      <h1>地方法律法规</h1>
-      <div class="more"><a href="#">more</a></div>
+      <div class="more"><a href="${ctx}/front/news/list/1.html?cateCode=localLaw">more</a></div>
     </div>
      <ul class="n_gj_b">
       <c:forEach items="${localLaw}" var="f" varStatus="sta">
      <c:if test="${sta.index >0}">
-       <li><a href="#">${fn:substring(f.Title, 0, 18) }</a></li>
+       <li><a  href="javascript:void(0);" onclick="jump(${f.ID})">${fn:substring(f.Title, 0, 18) }</a></li>
      </c:if>
           </c:forEach>
      </ul>
@@ -236,18 +243,18 @@ $(function(){
     <div class="n_three_l">
      <div class="n_n_b_t">
      <h1>重要活动</h1>
-     <div class="more"><a href="#">more</a></div>
+     <div class="more"><a href="${ctx}/front/news/list/1.html?cateCode=acti">more</a></div>
     </div>
     <div class="n_three_b">
      <div class="l_box">
       <dl>
        <dt><img src="${ctx }/${oneImage.src}" width="200"/></dt>
-       <dd><a href="#">${fn:substring(oneImage.Title, 0, 14) }</a></dd>
+       <dd><a  href="javascript:void(0);" onclick="jump(${oneImage.ID})">${fn:substring(oneImage.Title, 0, 14) }</a></dd>
       </dl>
       <ul class="ul">
       <c:forEach items="${otherSixActList}" var="o" varStatus="sta">
-      <c:if test="${sta.index ==0}"><li><a href="#">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
-       <c:if test="${sta.index ==1}"><li><a href="#">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
+      <c:if test="${sta.index ==0}"><li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
+       <c:if test="${sta.index ==1}"><li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
       </c:forEach>
       
       </ul>
@@ -255,24 +262,24 @@ $(function(){
      <div class="l_box">
       <dl>
        <dt><img src="${ctx }/${twoImage.src}" width="200"/></dt>
-       <dd><a href="#">${fn:substring(twoImage.Title, 0, 14) }</a></dd>
+       <dd><a href="javascript:void(0);" onclick="jump(${twoImage.ID})">${fn:substring(twoImage.Title, 0, 14) }</a></dd>
       </dl>
       <ul class="ul">
         <c:forEach items="${otherSixActList}" var="o" varStatus="sta">
-      <c:if test="${sta.index ==2}"><li><a href="#">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
-       <c:if test="${sta.index ==3}"><li><a href="#">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
+      <c:if test="${sta.index ==2}"><li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
+       <c:if test="${sta.index ==3}"><li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
       </c:forEach>
       </ul>
      </div>
      <div class="l_box">
       <dl>
        <dt><img src="${ctx }/${thirdImage.src}" width="200"/></dt>
-       <dd><a href="#">${fn:substring(thirdImage.Title, 0, 14) }</a></dd>
+       <dd><a href="javascript:void(0);" onclick="jump(${thirdImage.ID})">${fn:substring(thirdImage.Title, 0, 14) }</a></dd>
       </dl>
       <ul class="ul">
         <c:forEach items="${otherSixActList}" var="o" varStatus="sta">
-      <c:if test="${sta.index ==4}"><li><a href="#">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
-       <c:if test="${sta.index ==5}"><li><a href="#">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
+      <c:if test="${sta.index ==4}"><li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
+       <c:if test="${sta.index ==5}"><li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
       </c:forEach>
       </ul>
      </div>

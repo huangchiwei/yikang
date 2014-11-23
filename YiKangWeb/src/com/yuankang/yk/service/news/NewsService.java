@@ -37,18 +37,22 @@ public class NewsService extends BaseSqlService{
 			initCount("select count(*) from news where categoryId="+categoryId+" and HasImage="+hasImage,page);
 			list=getQuery("select * from news where categoryId="+categoryId+" and HasImage="+hasImage+" order by RealTime desc",page);
 		}
-			
-		
-		//List<Object[]> list =sq.list();
 		return list;
 	}
-	public List<Map<String, Object>> getCategory() {
-		//return newsSqlDao.findAdvertsByPage(page, categoryId);
-		//SQLQuery sq=getSession().createSQLQuery("select * from news where categoryId="+categoryId);
-		//initCount("select count(*) from news where categoryId="+categoryId,page);
-		List<Map<String, Object>> list=getQuery("select * from news_category ");
-		//List<Object[]> list =sq.list();
+	public List<Map<String, Object>> getByPage(Pagination page, String cateCode) {
+		List<Map<String, Object>> list=null;
+			initCount("select count(*) from news n,news_category nc where n.CategoryId=nc.ID and nc.CateCode='"+cateCode+"'",page);
+			list=getQuery("select n.ID,n.Title,n.RealTime from news n,news_category nc where n.CategoryId=nc.ID and nc.CateCode='"+cateCode+"' order by n.RealTime desc",page);
+	
 		return list;
+	}
+	public List<Map<String, Object>> getByCateCode(String cateCode) {
+		List<Map<String, Object>> list=getQuery("select CategoryName from news_category where CateCode='"+cateCode+"'");
+		return list;
+}
+	public List<Map<String, Object>> getCategory() {
+			List<Map<String, Object>> list=getQuery("select * from news_category ");
+			return list;
 	}
 	public void delete(Long id)
 	  {
@@ -76,7 +80,7 @@ public class NewsService extends BaseSqlService{
 	  }
 	public Map<String, Object> getById(Long id)
 	  {
-		String sql="select * from news where ID="+id;
+		String sql="select n.*,nc.CateCode,nc.CategoryName from news n,news_category nc where n.CategoryId=nc.ID and n.ID="+id;
 		List<Map<String, Object>> list=getQuery(sql);
 		if(list!=null&&list.size()>0)
 		return list.get(0);
@@ -162,8 +166,8 @@ public class NewsService extends BaseSqlService{
 		List<Map<String, Object>> list=getQuery(sql);
 		return list;
 	}
-	public List<Map<String, Object>> getHotInfo() {
-		String sql="select Title,ID from news where IsRecommend=1  order by Clicks desc limit 0,10";
+	public List<Map<String, Object>> getHotRecommendInfo(int pageSize) {
+		String sql="select Title,ID from news where IsRecommend=1  order by Clicks desc limit 0,"+pageSize;
 		List<Map<String, Object>> list=getQuery(sql);
 		return list;
 	}
@@ -190,6 +194,13 @@ public class NewsService extends BaseSqlService{
 		List<Map<String, Object>> list=getQuery(sql);
 		return list;
 	}
+	public List<Map<String, Object>> getHotOrderInfo(int pageSize) {
+		String sql="";
+		sql="select Title,ID,Clicks from news order by Clicks desc limit 0,"+pageSize;
+		List<Map<String, Object>> list=getQuery(sql);
+		return list;
+	}
+	
 	//三级(详细与列表)	
 	
 }

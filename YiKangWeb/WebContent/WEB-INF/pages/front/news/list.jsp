@@ -10,7 +10,7 @@
 <link href="${ctx}/theme/front/default/style/default.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/js/front/news/css/list.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${ctx}/js/jquery-1.8.0.min.js"></script>
-<script src="${ctx}/js/front/news/js/flash.js"></script>
+<%-- <script src="${ctx}/js/front/news/js/flash.js"></script> --%>
 <script src="${ctx}/js/front/news/js/jquery.carouFredSel-6.0.4-packed.js"></script>
 <script>
 $(function(){
@@ -26,7 +26,7 @@ $(function(){
 
 <div class="news_top">
  <div class="index_nav">
-  <div class="logo"><img src="images/logo.png" /></div>
+  <div class="logo"><img src="${ctx}/js/front/news/images/logo.png" /></div>
   <div class="index_nav_b"><a href="#">行业资讯</a>|<a href="#">行业活动</a>|<a href="#">健康服务</a>|<a href="#">健康购</a>|<a href="#">健康数据库</a>|<a href="#">健康培训</a>|<a href="#">投融资服务</a></div>
  </div>
  <div class="index_reg"><a href="#">登录</a>|<a href="#">注册</a></div>
@@ -36,12 +36,12 @@ $(function(){
 <div class="n">
 <div class="news_nav">
   <div class="n_box">
-   <div class="new_logo"><img src="images/news_logo.png" /></div>
+   <div class="new_logo"><img src="${ctx}/js/front/news/images/news_logo.png" /></div>
    <div class="lanren">
-    <a href='javascript:' class="thisclass">行业新闻</a>
-    <a href='javascript:'>法律法规</a>
-    <a href='javascript:'>行业焦点</a>
-    <a href='javascript:'>重要活动</a>
+    <a href='javascript:' <c:if test="${categoryName=='industryNews'}">class="thisclass"</c:if>>行业新闻</a>
+    <a href='javascript:' <c:if test="${cateCode=='countyLaw'||cateCode=='localLaw'}">class="thisclass"</c:if>>法律法规</a>
+    <a href='javascript:' <c:if test="${cateCode=='industryFocus'}">class="thisclass"</c:if>>行业焦点</a>
+    <a href='javascript:' <c:if test="${cateCode=='acti'}">class="thisclass"</c:if>>重要活动</a>
    </div>
   </div>
   <div class="search">
@@ -51,69 +51,51 @@ $(function(){
     </div>
   </div>
  </div>
-<div class="location"><a href="#">首页</a> > <a href="#">行业资讯</a> > 行业新闻</div>
+<div class="location"><a href="#">首页</a> > <a href="#">行业资讯</a> &gt; 
+<c:if test="${categoryName=='industryNews'}">行业新闻</c:if>
+<c:if test="${cateCode=='countyLaw'||cateCode=='localLaw'}">法律法规</c:if>
+<c:if test="${cateCode=='industryFocus'}">行业焦点</c:if>
+<c:if test="${cateCode=='acti'}">重要活动</c:if>
+</div>
 <div class="n_list">
   <div class="n_fl_670">
-    <div class="n_list_title"><h1>行业新闻</h1>
+    <div class="n_list_title"><h1>
+    <c:if test="${categoryName=='industryNews'}">行业新闻</c:if>
+<c:if test="${cateCode=='countyLaw'}">国家法律法规</c:if>
+<c:if test="${cateCode=='localLaw'}">地方法律法规</c:if>
+<c:if test="${cateCode=='industryFocus'}">行业焦点</c:if>
+<c:if test="${cateCode=='acti'}">重要活动</c:if>
+    </h1>
     </div>
+    <form id="search_form" action="${ctx}/front/news/list/1.html" method="post">
+    <input type="hidden" name="cateCode" value="${cateCode}"/>
     <div class="p_20">
       <ul>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
-        <li class="li"><span>2012-06-07</span><a href="#">玉石床垫是真保健还是大忽悠？</a></li>
+      <c:forEach items="${list}" var="o" varStatus="sta">
+       <li class="li"><span><fmt:formatDate value="${o.RealTime}" pattern="yyyy-MM-dd" /></span><a href="${ctx}/front/news/detail/${o.ID}.html">${o.Title}</a></li>
+      </c:forEach>
+       
       </ul>
       <div class="page">
 					<p:pager/>
 				</div>
       <!-- <div class="scott"><span class="disabled"> 上一页 </span><span class="current">1</span><a href="#?page=2">2</a><a href="#?page=3">3</a><a href="#?page=4">4</a><a href="#?page=5">5</a><a href="#?page=6">6</a><a href="#?page=7">7</a>...<a href="#?page=199">199</a><a href="#?page=200">下一页</a><a href="#?page=2"> 尾页 </a></div> -->
     </div>
+    </form>
   </div>
   <div class="n_fr_280">
-   <div class="ad_280"><img src="../theme/default/images/ad/ad_280.png" /></div>
+   <div class="ad_280"><img src="${ctx}/theme/front/default/images/ad/ad_280.png" /></div>
    <div class="list_r_box">
     <div class="list_r_box_bj">
      <h1>热文排行</h1>
     </div>
     <div class="list_r_rank">
      <ul class="ul">
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-     </ul>
+       <c:forEach items="${hotOrderInfoList}" var="o" varStatus="sta">
+        <li><span>${o.Clicks }</span><a href="#">${fn:substring(o.Title, 0, 17)}</a></li>
+       </c:forEach>
+     
+        </ul>
     </div>
    </div>
    <div class="list_r_box mt_15">
@@ -121,16 +103,11 @@ $(function(){
      <h1>热文推荐</h1>
     </div>
      <ul class="ul2">
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
+      <c:forEach items="${hotRecomInfoList}" var="o" varStatus="sta">
+       <li><a href="#">${fn:substring(o.Title, 0, 23)}</a></li>
+      </c:forEach>
+     
+     
      </ul>
    </div>
    <div class="list_r_box mt_10">

@@ -28,21 +28,42 @@ public class NewsFrontController extends BaseController {
 	 public String detail(@PathVariable("id") Long key,Model model)
 	 {
 		Map<String, Object> news=newsService.getById(key);
-		model.addAttribute("news", news);
+		if(news!=null){
+			
+			model.addAttribute("news", news);
+		}
+		//前10条热文排行
+		 List<Map<String, Object>> hotOrderInfoList=newsService.getHotOrderInfo(10);
+		 model.addAttribute("hotOrderInfoList", hotOrderInfoList);
+		//前10条热文推荐
+		 List<Map<String, Object>> hotRecomInfoList=newsService.getHotRecommendInfo(10);
+		 model.addAttribute("hotRecomInfoList", hotRecomInfoList);
 		 return "front/news/detail";
 	 }
 	@RequestMapping(value =PAGE_LIST)
-	 public String list(@PathVariable int currentPage,Model model, Long categoryId)
+	 public String list(@PathVariable int currentPage,Model model,String cateCode)
 	 {
 		// 初始化分页实体
 				Pagination page = initPage(currentPage);
-				model.addAttribute("list", newsService.getByPage(page,categoryId,-1));
+				//page.setPageSize(3);
+				model.addAttribute("list", newsService.getByPage(page,cateCode));
 				model.addAttribute("page", page);
+				model.addAttribute("cateCode", cateCode);
+				//前10条热文排行
+				 List<Map<String, Object>> hotOrderInfoList=newsService.getHotOrderInfo(10);
+				 model.addAttribute("hotOrderInfoList", hotOrderInfoList);
+				//前10条热文推荐
+				 List<Map<String, Object>> hotRecomInfoList=newsService.getHotRecommendInfo(10);
+				 model.addAttribute("hotRecomInfoList", hotRecomInfoList);
+				//String categoryName=newsService.getByCateCode(cateCode).get(0).get("CategoryName").toString();
+				//model.addAttribute("categoryName", categoryName);
 		 return "front/news/list";
 	 }
 	 @RequestMapping(value = "/index.html")
 	  public String index(Model model)
 	  {
+		// List<Map<String, Object>> listCate=newsService.getCategory();
+		 
 		//四张图片
 		 List<Map<String, Object>> fourPicList=newsService.getSecLevShowPic();
 		 model.addAttribute("fourPicList", fourPicList);
@@ -75,7 +96,7 @@ public class NewsFrontController extends BaseController {
 		 List<Map<String, Object>> firstInfo=newsService.getFirstInfo();
 		 model.addAttribute("firstInfo", firstInfo);
 		//热文推荐
-		 List<Map<String, Object>> hotInfo=newsService.getHotInfo();
+		 List<Map<String, Object>> hotInfo=newsService.getHotRecommendInfo(10);
 		 model.addAttribute("hotInfo", hotInfo);
 		 //热文排行
 		 List<Map<String, Object>> fList= newsService.getHotOrderFirstHasImage();

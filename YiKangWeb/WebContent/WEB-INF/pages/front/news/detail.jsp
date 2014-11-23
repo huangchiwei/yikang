@@ -26,7 +26,7 @@ $(function(){
 
 <div class="news_top">
  <div class="index_nav">
-  <div class="logo"><img src="images/logo.png" /></div>
+  <div class="logo"><img src="${ctx}/js/front/news/images/logo.png" /></div>
   <div class="index_nav_b"><a href="#">行业资讯</a>|<a href="#">行业活动</a>|<a href="#">健康服务</a>|<a href="#">健康购</a>|<a href="#">健康数据库</a>|<a href="#">健康培训</a>|<a href="#">投融资服务</a></div>
  </div>
  <div class="index_reg"><a href="#">登录</a>|<a href="#">注册</a></div>
@@ -36,7 +36,7 @@ $(function(){
 <div class="n">
 <div class="news_nav">
   <div class="n_box">
-   <div class="new_logo"><img src="images/news_logo.png" /></div>
+   <div class="new_logo"><img src="${ctx}/js/front/news/images/news_logo.png" /></div>
    <div class="lanren">
     <a href='javascript:' class="thisclass">行业新闻</a>
     <a href='javascript:'>法律法规</a>
@@ -51,20 +51,19 @@ $(function(){
     </div>
   </div>
  </div>
-<div class="location"><a href="#">首页</a> > <a href="#">行业资讯</a> > <a href="#">行业新闻</a> > 正文</div>
+<div class="location"><a href="#">首页</a> > <a href="#">行业资讯</a> > <a href="#">${news.CategoryName}</a> > 正文</div>
 <div class="n_list">
   <div class="n_fl_670">
     <div class="detail_title">
-      <h1>10位高龄国医大师的长寿秘方</h1>
-      <p>2012-07-04 &nbsp;&nbsp;南方日报&nbsp;&nbsp;作者：依娃&nbsp;&nbsp;评论数（<span class="c_f07700">0</span>）</p>
+      <h1>${news.Title}</h1>
+      <p><fmt:formatDate value="${news.RealTime}" pattern="yyyy-MM-dd" /> &nbsp;&nbsp;${news.Source}&nbsp;&nbsp;作者：${news.Author}&nbsp;&nbsp;评论数（<span class="c_f07700"></span>）</p>
     </div>
     <div class="p_20">
-    <p class="summary">核心提示：乳腺增生令不少女生受到困扰，如何有效的防治乳腺增生呢？中医提出4种按摩法，建议患有乳腺增生的女性坚持做好按摩。</p>
+    <p class="summary">核心提示：${news.CoreTip}</p>
     </div>
     <div class="art_con">
-            	<p>常说“10女9增生”，随着生活工作压力的增大，令不少女性都有乳腺增生的问题，特别是在每次例假期前后，常感觉到乳房就像是个炸弹一样涨疼不适。虽说，乳腺增生并不会直接导致乳癌，但若不注意预防和护理，乳腺增生很容易成为困扰女性的大问题。在日常生活中，女性怎样预防乳腺增生呢？小编为39健康网广大网友介绍四种可以有效预防或辅助治疗乳腺增生的<a href="http://ksk.39.net/th/bumen/3674d.html" target="_blank" keycmd="null">按摩</a>方法。</p><p><strong>揉捏法。</strong>用右手五指着力，揉捏乳房，一抓一松，反复按摩10～15次。左手轻轻将乳头揪动数次，以扩张乳头部的输乳管。</p> <p><strong>振荡法。</strong>女性朋友可以用右手小鱼际部着力，从乳房边缘，沿乳根向乳头<a href="http://ysk.39.net/sh/yisheng/9c072.html" target="_blank" keycmd="null">方向</a>作高速振荡推赶，反复3～5遍。局部出现微热感时，效果更佳。</p><p><strong>推抚法。</strong>乳腺疾病患者坐或侧卧，充分暴露胸部。在患侧乳房撒上<a href="http://ypk.39.net/yaopin/zyc/xsy/af27f.html" target="_blank" keycmd="null">滑石粉</a>或涂抹少许<a href="http://ypk.39.net/yaopin/xhxt/qita/7b781.html" target="_blank" keycmd="null">石蜡油</a>，然后全掌由乳房四周沿乳腺管轻轻向乳头方向推抚50～100次。</p><div class="hzh_botleft"></div>
-<p><strong>揉压法。</strong>乳腺疾病患者可用手掌上的小鱼际或大鱼际着力于患部，在红<a href="http://jbk.39.net/keshi/zxy/zhongyi/bc8d8.html" target="_blank" keycmd="bindJbkUi">肿胀</a>痛处施以轻揉手法，有硬块的地方反复揉压数次，直至肿块柔软为止。</p><p>这四种按摩方法对已有乳腺增生的网友而言，可以缓解疾病。同时，没有乳腺疾病的女性每天坚持按摩，一是有效预防乳房疾病，维护乳房的健康；二是可以帮助胸小的女性朋友丰胸。建议每位女性朋友每天选择一种按摩方法坚持按摩下去。</p>
-<div class="d_bj">（责任编辑：韩晶）</div>
+            ${news.Content}
+<div class="d_bj">（责任编辑：${news.CreateUser}）</div>
 </div>
 <div class="extend_page">
  <h3>相关推荐</h3>
@@ -105,16 +104,10 @@ $(function(){
     </div>
     <div class="list_r_rank">
      <ul class="ul">
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
+       <c:forEach items="${hotOrderInfoList}" var="o" varStatus="sta">
+        <li><span>${o.Clicks }</span><a href="#">${fn:substring(o.Title, 0, 17)}</a></li>
+       </c:forEach>
+     
      </ul>
     </div>
    </div>
@@ -123,16 +116,9 @@ $(function(){
      <h1>热文推荐</h1>
     </div>
      <ul class="ul2">
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
+     <c:forEach items="${hotRecomInfoList}" var="o" varStatus="sta">
+       <li><a href="#">${fn:substring(o.Title, 0, 23)}</a></li>
+      </c:forEach>
      </ul>
    </div>
    <div class="list_r_box mt_10">
