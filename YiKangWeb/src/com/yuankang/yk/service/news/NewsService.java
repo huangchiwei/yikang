@@ -85,7 +85,7 @@ public class NewsService extends BaseSqlService{
 		}
 	  }
 //前台
-	
+//二级	
 	public List<Map<String, Object>> getSecLevShowPic() {
 		String sql="select ID,Content from news where HasImage=1 order by RealTime desc limit 0,4";
 				List<Map<String, Object>> list=getQuery(sql);
@@ -190,5 +190,6 @@ public class NewsService extends BaseSqlService{
 		List<Map<String, Object>> list=getQuery(sql);
 		return list;
 	}
+	//三级(详细与列表)	
 	
 }
