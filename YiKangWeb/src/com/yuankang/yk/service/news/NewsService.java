@@ -85,6 +85,21 @@ public class NewsService extends BaseSqlService{
 		}
 	  }
 //前台
+//二级	
+	public List<Map<String, Object>> getSecLevShowPic() {
+		String sql="select ID,Content from news where HasImage=1 order by RealTime desc limit 0,4";
+				List<Map<String, Object>> list=getQuery(sql);
+				String des_src="";
+				if(list!=null&&list.size()>0){
+					for(Map<String, Object> h:list){
+						des_src=StringUtil.getThumb(h.get("Content").toString(),650);
+						h.put("src",des_src );		
+					}
+				}
+				return list;
+	}	
+	
+	
 	public String initSql(String CategoryName,int size){
 		String sql="select n.ID,n.Title,n.Digest from news n,news_category nc where n.CategoryId=nc.ID "
 				+ "and nc.CategoryName='"+CategoryName+"' order by n.RealTime desc limit 0,"+size+"";
@@ -117,9 +132,11 @@ public class NewsService extends BaseSqlService{
 	public List<Map<String, Object>> getHasImageActi() {
 		String sql="select n.Content,n.Title,n.ID from news n,news_category nc where n.CategoryId=nc.ID and nc.CategoryName='重要活动' and n.HasImage='1' order by RealTime desc  limit 0,3";
 		List<Map<String, Object>> list=getQuery(sql);
+		String des_src="";
 		if(list!=null&&list.size()>0){
 			for(Map<String, Object> h:list){
-				h.put("src", StringUtil.getImageSrc(h.get("Content").toString()));		
+				des_src=StringUtil.getThumb(h.get("Content").toString(),200);
+				h.put("src", des_src);		
 			}
 		}
 		return list;
@@ -153,9 +170,11 @@ public class NewsService extends BaseSqlService{
 	public List<Map<String, Object>> getHotOrderFirstHasImage() {
 		String sql="select Title,ID,Content,Digest from news  where HasImage='1' order by Clicks desc limit 0,1";
 		List<Map<String, Object>> list=getQuery(sql);
+		String des_src="";
 		if(list!=null&&list.size()>0){
 			for(Map<String, Object> h:list){
-				h.put("src", StringUtil.getImageSrc(h.get("Content").toString()));		
+				des_src=StringUtil.getThumb(h.get("Content").toString(),200);
+				h.put("src", des_src);		
 			}
 		}
 		return list;
@@ -171,5 +190,6 @@ public class NewsService extends BaseSqlService{
 		List<Map<String, Object>> list=getQuery(sql);
 		return list;
 	}
+	//三级(详细与列表)	
 	
 }

@@ -136,10 +136,10 @@ public class NewsController extends BaseController {
 			if(news.getContent().indexOf("<img")>=0){
 				String src=StringUtil.getImageSrc(news.getContent()).replace("/YiKangWeb","");
 				String pre=src.substring(0, src.lastIndexOf("/")+1);
-				String des_src=src.replace(pre, pre+"thumbs/120/");
+				String des_src=src.replace(pre, pre+"thumbs/200/");
 				String des_src2=src.replace(pre, pre+"thumbs/650/");
-				ThumbsUtil.getInstance().init(request.getSession().getServletContext().getRealPath(src), request.getSession().getServletContext().getRealPath(des_src)).resizeFix(120, 120);
-				ThumbsUtil.getInstance().init(request.getSession().getServletContext().getRealPath(src), request.getSession().getServletContext().getRealPath(des_src2)).resizeFix(650, 310);
+				ThumbsUtil.getInstance().init(request.getSession().getServletContext().getRealPath(src), request.getSession().getServletContext().getRealPath(des_src)).resizeByWidth(200);
+				ThumbsUtil.getInstance().init(request.getSession().getServletContext().getRealPath(src), request.getSession().getServletContext().getRealPath(des_src2)).resizeByWidth(650);
 			}
 		}catch(Exception e ){
 			e.printStackTrace();
