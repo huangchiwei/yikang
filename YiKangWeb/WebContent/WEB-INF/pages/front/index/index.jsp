@@ -28,7 +28,7 @@ $(document).ready(function($){
 <div class="w_990">
     
   <!--top-->
-  <jsp:include page="/WEB-INF/pages/front/head.jsp" />
+  <jsp:include page="/WEB-INF/pages/front/index/head.jsp" />
   <!--top_end-->
   <!--news_one-->
   <div class="news_box">
