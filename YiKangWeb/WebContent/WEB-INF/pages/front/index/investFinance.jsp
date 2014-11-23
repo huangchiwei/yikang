@@ -6,8 +6,8 @@
     <div class="h1">投融资服务</div>
     <div class="english_t"></div>
     <ul class="ti5">
-     <li><a href="#">投资</a></li>
-     <li><a href="#">融资</a></li>
+     <li><a href="${ctx}/investment/list/1.html" target="_blank">投资</a></li>
+     <li><a href="${ctx}/financing/list/1.html" target="_blank">融资</a></li>
      <li><a href="#">行业资讯</a></li>
      <li><a href="#">行业机构</a></li>
     </ul>

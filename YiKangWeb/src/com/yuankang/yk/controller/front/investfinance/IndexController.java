@@ -12,9 +12,9 @@ import com.yuankang.yk.quartz.QuartzJob;
  * @date 2014年11月22日 下午11:36:49
  * @version V1.0
  */
-@Controller
+@Controller("investFinanceIndexController")
 @RequestMapping("investFinance")
-public class InvestFinanceIndexController {
+public class IndexController {
 
 	@RequestMapping("index")
 	public String index(Model model){
