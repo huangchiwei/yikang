@@ -41,7 +41,8 @@
         <td>${o.isShow}</td>
         <td>${o.orderNo}</td>
         <td>${o.creater.userName}</td>
-        <td>${o.creatDate}</td>
+        <td><fmt:formatDate value="${o.createDate}"
+								pattern="yyyy-MM-dd" /></td>
         <td><input type="image" src="${ctx}/theme/admin/default/images/file_icon.png" />&nbsp;
            <input type="image" src="${ctx}/theme/admin/default/images/edit_icon.png" />&nbsp;
           <input type="image" src="${ctx}/theme/admin/default/images/del_icon.png" /></td>

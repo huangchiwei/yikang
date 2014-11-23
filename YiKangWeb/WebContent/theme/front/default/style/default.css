@@ -32,6 +32,7 @@
 .fr_top .head_ul li {
 	float: right;
 	line-height: 34px;
+	height: 34px;
 
 }
 .fr_top .head_ul li a {
@@ -192,6 +193,7 @@
 	background-color: #5AA304;
 	background-image: none;
 	text-align: center;
+	z-index:9999;
 }
 .nav li .submenu li a{
 	padding:0;
@@ -298,16 +300,14 @@
 	overflow: hidden;
 
 }
-.news_box .news_b_l .news_b_l_l .health_s .bing li {
-	padding: 3px;
-	float: left;
-
-}
-.news_box .news_b_l .news_b_l_l .health_s .bing li a {
+.news_box  .news_b_l  .news_b_l_l  .health_s  .bing  a  {
 	color: #666666;
+	margin-right: 3px;
+	line-height: 24px;
+	margin-left: 3px;
 
 }
-.news_box .news_b_l .news_b_l_l .health_s .bing li a:hover {
+.news_box  .news_b_l  .news_b_l_l  .health_s  .bing  a:hover  {
 	color: #339900;
 }
 
@@ -316,7 +316,8 @@
 	background-repeat: no-repeat;
 	height: 34px;
 	width: 294px;
-	margin-left: 15px;
+	padding-left: 15px;
+	background-position: 15px;
 }
 .search_box2 input{
 	border:0;
@@ -351,16 +352,17 @@
 
 }
 .news_box  .news_b_l  .news_b_l_r  .news_t  .title_box {
-	padding-bottom: 10px;
 	border-bottom-width: 1px;
 	border-bottom-style: dotted;
 	border-bottom-color: #CCCCCC;
+	height: 64px;
 }
 .news_box  .news_b_l  .news_b_l_r  .news_t  .title_box  h1 {
 	font-size: 18px;
 	line-height: 35px;
 	text-align: center;
 	color: #333333;
+	height: 35px;
 
 }
 .news_box .news_b_l .news_b_l_r .news_t .title_box h1 a {
@@ -541,7 +543,6 @@
 .one .one_title .english_m {
 	width: 200px;
 	float: left;
-	margin-left: 150px;
 	height: 43px;
 	background-image: url(../images/icon.png);
 	background-repeat: no-repeat;
@@ -766,31 +767,31 @@
 	padding-left: 15px;
 
 }
-.one_b_r     .ad_220_a   {
+.one_b_r .ad_220_a   {
 	padding-top: 10px;
 }
 .one .one_title .english_m {
 	width: 200px;
 	float: left;
-	margin-left: 150px;
 	height: 43px;
 	background-image: url(../images/icon.png);
 	background-repeat: no-repeat;
-	background-position: 0px -150px;
+	background-position: 150px -150px;
+	padding-left: 150px;
 }
 .one .one_title .english_n {
 	width: 200px;
 	float: left;
-	margin-left: 150px;
 	height: 43px;
 	background-image: url(../images/icon.png);
 	background-repeat: no-repeat;
-	background-position: 0px -205px;
+	background-position: 150px -205px;
+	padding-left: 150px;
 }
 .one .one_title .ti2 {
 	color: #666666;
 	font-size: 14px;
-	width: 495px;
+	width: 500px;
 	margin-left: auto;
 }
 .one .one_title .ti2 li {
@@ -805,25 +806,24 @@
 .one_b_l_r_b .ul3  {
 	padding-top: 10px;
 	overflow: hidden;
+	height: 135px;
 
 }
-.one_b_l_r_b .ul3  li  {
-	padding-left: 15px;
-	background-image: url(../images/dian.png);
-	background-repeat: no-repeat;
-	background-position: 0px;
-	line-height: 24px;
-	height: 24px;
-	width: 23%;
-	float: left;
-	padding-right: 15px;
-}
-.one_b_l_r_b .ul3 li a {
+.one_b_l_r_b  .ul3  a  {
 	color: #333333;
 	font-size: 14px;
+	padding-left: 20px;
+	background-image: url(../images/dian.png);
+	background-repeat: no-repeat;
+	background-position: 10px;
+	width: 94px;
+	line-height: 24px;
+	height: 24px;
+	display: inline;
+	float: left;
 
 }
-.one_b_l_r_b  .ul3  li  a:hover {
+.one_b_l_r_b   .ul3   a:hover   {
 	color: #5AA304;
 	font-size: 14px;
 }
@@ -894,7 +894,7 @@
 }
 .one_b_l_r_b .dl dd {
 	text-align: center;
-	padding-top: 5px;
+	padding-top: 10px;
 	padding-right: 5px;
 	padding-left: 5px;
 }
@@ -1014,16 +1014,16 @@
 .four_title .english_s {
 	width: 200px;
 	float: left;
-	margin-left: 150px;
 	height: 43px;
 	background-image: url(../images/icon.png);
 	background-repeat: no-repeat;
-	background-position: 0px -260px;
+	background-position: 150px -260px;
+	padding-left: 150px;
 }
 .four_title .ti4 {
 	color: #666666;
 	font-size: 14px;
-	width: 260px;
+	width: 275px;
 	margin-left: auto;
 }
 .four_title .ti4 li {
@@ -1185,11 +1185,11 @@
 .four_title .english_t {
 	width: 200px;
 	float: left;
-	margin-left: 150px;
 	height: 43px;
 	background-image: url(../images/icon.png);
 	background-repeat: no-repeat;
-	background-position: 0px -315px;
+	background-position: 150px -315px;
+	padding-left: 150px;
 }
 .ti5 {
 	color: #666666;
@@ -1244,6 +1244,7 @@
 	padding-top: 10px;
 	overflow: hidden;
 	padding-left: 10px;
+	height: 120px;
 }
 .one_b_l_r_b .ul6 li {
 	padding-left: 15px;
@@ -1288,15 +1289,10 @@
 	overflow: hidden;
 	padding-top: 15px;
 }
-.links .ul li {
-	float: left;
-	display: block;
-	padding-top: 5px;
-	padding-right: 18px;
-	padding-bottom: 5px;
-}
-.links .ul li a {
+.links  .ul  a  {
 	color: #333333;
+	padding-right: 10px;
+	line-height: 24px;
 
 }
 .bot {

@@ -1,10 +1,16 @@
 package com.yuankang.yk.controller.front.investfinance;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.annotation.Resource;
 
+import org.armysoft.core.Pagination;
+import org.armysoft.springmvc.controller.BaseController;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.yuankang.yk.pojo.investfinance.Investment;
+import com.yuankang.yk.service.investfinance.InvestmentService;
 
 /**
  * 类说明:投资
@@ -14,23 +20,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("investment")
-public class InvestmentController {
+public class InvestmentController extends BaseController{
 
-
+	@Resource
+	private InvestmentService investmentService;
+	
 	/**
-	 * 退出
-	 * @param req
-	 * @param res
+	 * 投资详情
+	 * @param model
 	 */
-	@RequestMapping("userLogout")
-	public void logout(HttpServletRequest req,HttpServletResponse res) {
+	@RequestMapping(value = DETAIL)
+	public String detail(Model model,@PathVariable Long id) {
 		try {
-			req.getSession().invalidate(); // 销毁session
-			//req.getRequestDispatcher("/WEB-INF/pages/admin/login.jsp").forward(req, res);
-			res.sendRedirect(req.getContextPath() + "/admin/index.html");
+			model.addAttribute("entity", investmentService.findById(id, Investment.class));
+			model.addAttribute("flag", "1");
+			model.addAttribute("location", "投资信息");
+			return "front/investfinance/detail";
 		} catch (Exception e) {
 			e.printStackTrace();
+			return "";
 		}
+	}
+	
+	@RequestMapping(value = PAGE_LIST)
+	public String list(@PathVariable Integer currentPage,Model model){
+		Pagination page = initPage(currentPage);
+		page.setPageSize(30);
+		model.addAttribute("list", investmentService.getByPage(page,null));
+		model.addAttribute("page", page);
+		model.addAttribute("flag", "1");
+		model.addAttribute("location", "投资信息");
+		return "front/investfinance/list";
 	}
 
 }

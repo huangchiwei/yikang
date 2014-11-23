@@ -1,6 +1,7 @@
 package com.yuankang.yk.service.investfinance;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -31,8 +32,19 @@ public class FinancingService extends BaseService<Financing> {
 	public List<Financing> getByPage(Pagination page, String title) {
 		return financingDao.findByPage(page, title);
 	}
+
 	
 	
+	/*-----------------------前台--------------------*/
+	
+	/**
+	 * 定时器执行查询
+	 * @param page
+	 * @return
+	 */
+	public List<Map<String,Object>> getListByPage(Pagination page) {
+		return financingDao.getListByPage(page);
+	}
 
 	
 }

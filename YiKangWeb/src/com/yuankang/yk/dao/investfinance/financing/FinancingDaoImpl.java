@@ -2,6 +2,7 @@ package com.yuankang.yk.dao.investfinance.financing;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.armysoft.core.Pagination;
 import org.springframework.stereotype.Repository;
@@ -31,6 +32,12 @@ public class FinancingDaoImpl extends BaseDaoImpl<Financing> implements Financin
 		System.out.println(hql_2.toString());
 		return findByPage(hql_2.toString(), page.getStartRowNumber(), page.getPageSize(), params.toArray());
 
+	}
+
+	@Override
+	public List<Map<String, Object>> getListByPage(Pagination page) {
+		String hql = "select new map(t.id as id,t.title as title,t.industry.mcName as industry,t.amount as amount) from Financing t where t.status = 1 order by t.id desc";
+		 return findByPage(hql, page.getStartRowNumber(), page.getPageSize());
 	}
 
 

@@ -39,7 +39,7 @@
 <form action="${ctx}/admin/financing/list/1.html" method="post">
 <div class="content_box">
 <div class="btn_box">
- <a href="${ctx}/admin/financing/add/new.html"> <input type="button" value="添加" class="initial" style="cursor:hand" /></a>
+ <input onclick="javascript:location.href='${ctx}/admin/financing/add/new.html'" type="button" value="添加" class="initial" style="cursor:hand" />
    </div>
   <div class="list_info">
     <h2>融资管理</h2>
@@ -64,7 +64,8 @@
         <td>${o.industry.mcName}</td>
         <td>${o.amount} 万元</td>
         <td><c:if test="${o.isSelf == 1}">后台发布</c:if><c:if test="${o.isSelf == 0}">${o.account.contactName}</c:if></td>
-        <td>${o.createDate}</td>
+        <td><fmt:formatDate value="${o.createDate}"
+								pattern="yyyy-MM-dd" /></td>
         <td>
         	<c:choose>
         		<c:when test="${o.status == 1}">审核通过</c:when>

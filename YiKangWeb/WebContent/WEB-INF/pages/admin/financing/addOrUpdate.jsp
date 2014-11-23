@@ -21,9 +21,9 @@
 			}else if($("#industry").val() == -1){
 				msg = '请选择行业';
 			}else if($("#amount").val() == ''){
-				msg = '请填写投资金额';
+				msg = '请填写融资金额';
 			}else if($.trim($("#overview").val()) == ''){
-				msg = '请填写投资要求概述';
+				msg = '请填写融资要求概述';
 			}
 			if(msg == ''){
 				return true;
@@ -80,16 +80,16 @@
  	<input type="hidden" name="id" value="${entity.id}"/>
   <div class="add_info">
 
-   <h2>${entity == null ? '发布投资' : '修改投资'}</h2>
+   <h2>${entity == null ? '发布融资' : '修改融资'}</h2>
    <table width="98%" border="0" cellspacing="0" cellpadding="0">
     <tr>
      <td class="w100">标题：</td>
      <td>
-     	<input id="title" name="title" type="text" value="${entity.title}" maxlength="20"/>
+     	<input id="title" name="title" type="text" value="${entity.title}"/>
      </td>
     </tr>
    <tr>
-   	<td class="w100">投资地区：</td>
+   	<td class="w100">融资地区：</td>
      <td>
      <select id="province" name="province.id" onchange="">
      	<option value="-1">--省份--</option>
@@ -113,7 +113,7 @@
    </tr>
    
 	<tr>
-	 <td>投资行业：</td>
+	 <td>融资行业：</td>
      <td>
      	<select id="industry" name="industry.id">
 	     	<option value="-1">--选择行业--</option>
@@ -124,7 +124,7 @@
      </td>
 	</tr>
 	<tr>
-	 <td>投资金额：</td>
+	 <td>融资金额：</td>
      <td>
      	<input id="amount" name="amount" type="text" value="${entity.amount}" maxlength="20"/> 万元
      </td>
@@ -137,7 +137,7 @@
 	</tr>
 	
 	<tr>
-		<td>投资要求概述：</td>
+		<td>融资要求概述：</td>
 		<td><textarea id="overview" rows="10" cols="90" name="overview">${entity.overview}</textarea></td>
 	</tr>
    </table>
