@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.armysoft.core.Pagination;
 import org.armysoft.springmvc.controller.BaseController;
@@ -13,6 +14,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.yuankang.yk.pojo.sys.NewsComment;
+import com.yuankang.yk.service.news.NewsCommentService;
 import com.yuankang.yk.service.news.NewsService;
 
 /**
@@ -25,6 +28,8 @@ public class NewsFrontController extends BaseController {
 
 	@Resource
 	private NewsService newsService;
+	@Resource
+	private NewsCommentService newsCommentService;
 	@RequestMapping(value =DETAIL)
 	 public String detail(@PathVariable("id") Long key,Model model)
 	 {
@@ -119,6 +124,13 @@ public class NewsFrontController extends BaseController {
 		 model.addAttribute("hotOrderInfo", hotOrderInfo);
 		
 	    return "front/news/index";
+	  }
+	 @RequestMapping(value = SAVE)
+	  public String save(HttpServletRequest request,Model model,NewsComment newsComment)
+	  {
+		 //newsComment.setCreateDate(new Date());
+		 newsCommentService.save(newsComment);
+		 return "redirect:/front/news/detail/"+newsComment.getNewsId()+".html";
 	  }
 
 }

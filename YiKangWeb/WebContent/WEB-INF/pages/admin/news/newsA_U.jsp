@@ -90,6 +90,15 @@
       <textarea id="digest" name="digest" rows="3" cols="100" >${news.Digest }</textarea>
      	
      </td>
+      
+     
+    </tr>
+    <tr>
+    <th>核心提示：</th>
+    <td  colspan="6">
+      <textarea id="coreTip" name="coreTip" rows="3" cols="100" >${news.CoreTip }</textarea>
+     	
+     </td>
     </tr>
    </table>
  

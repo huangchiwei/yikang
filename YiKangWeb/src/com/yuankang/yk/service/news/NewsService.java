@@ -95,11 +95,11 @@ public class NewsService extends BaseSqlService{
 	public void save(News news)
 	  {
 		String sql="insert into news(CategoryId,Title,Content,Digest,Source,Author,CreateTime"
-				+ ",RealTime,CreateUser,LastUpdateUser,LastUpdateTime,IsTop,IsRecommend,HasImage) values("+news.getCategoryId()+",'"
+				+ ",RealTime,CreateUser,LastUpdateUser,LastUpdateTime,IsTop,IsRecommend,HasImage,CoreTip) values("+news.getCategoryId()+",'"
 						+ news.getTitle()+"','"+news.getContent()+"','"+news.getDigest()
 						+"','"+news.getSource()+"','"+news.getAuthor()+"',now()"
 						+",str_to_date('"+DateUtil.formatDate(news.getRealTime())+"','%Y-%m-%d %H:%i:%s')"+",'"+news.getCreateUser()+"','"+news.getLastUpdateUser()
-						+"',now()"+","+news.getIsTop()+","+news.getIsRecommend()+","+news.getHasImage()+")";
+						+"',now()"+","+news.getIsTop()+","+news.getIsRecommend()+","+news.getHasImage()+",'"+news.getCoreTip()+"')";
 		up_del(sql);
 	  }
 	public void update(News news)
@@ -108,12 +108,12 @@ public class NewsService extends BaseSqlService{
 						+"Title='"+ news.getTitle()+"',"+"Content='"+news.getContent()+"',"+"Digest='"+news.getDigest()
 						+"',"+"Source='"+news.getSource()+"',"+"Author='"+news.getAuthor()
 						+"',RealTime=str_to_date('"+DateUtil.formatDate(news.getRealTime())+"','%Y-%m-%d %H:%i:%s')"+",LastUpdateUser='"+news.getLastUpdateUser()
-						+"',LastUpdateTime=now()"+",IsTop="+news.getIsTop()+",IsRecommend="+news.getIsRecommend()+",HasImage="+news.getHasImage()+" where ID="+news.getId();
+						+"',LastUpdateTime=now()"+",IsTop="+news.getIsTop()+",IsRecommend="+news.getIsRecommend()+",HasImage="+news.getHasImage()+",CoreTip='"+news.getCoreTip()+"' where ID="+news.getId();
 		up_del(sql);
 	  }
 	public Map<String, Object> getById(Long id)
 	  {
-		String sql="select n.*,nc.CateCode,nc.CategoryName from news n,news_category nc where n.CategoryId=nc.ID and n.ID="+id;
+		String sql="select n.*,nc.CateCode,nc.CategoryName,nco.NumCount from news n,news_category nc,(select count(*) NumCount from news_comment  where NewsId="+id+") nco where n.CategoryId=nc.ID  and n.ID="+id;
 		List<Map<String, Object>> list=getQuery(sql);
 		if(list!=null&&list.size()>0)
 		return list.get(0);

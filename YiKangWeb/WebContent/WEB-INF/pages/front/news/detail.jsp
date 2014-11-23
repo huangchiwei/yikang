@@ -64,7 +64,7 @@ $(function(){
   <div class="n_fl_670">
     <div class="detail_title">
       <h1>${news.Title}</h1>
-      <p><fmt:formatDate value="${news.RealTime}" pattern="yyyy-MM-dd" /> &nbsp;&nbsp;${news.Source}&nbsp;&nbsp;作者：${news.Author}&nbsp;&nbsp;评论数（<span class="c_f07700"></span>）</p>
+      <p><fmt:formatDate value="${news.RealTime}" pattern="yyyy-MM-dd" /> &nbsp;&nbsp;${news.Source}&nbsp;&nbsp;作者：${news.Author}&nbsp;&nbsp;评论数（<span class="c_f07700">${news.NumCount}</span>）</p>
     </div>
     <div class="p_20">
     <p class="summary">核心提示：${news.CoreTip}</p>
@@ -100,15 +100,19 @@ $(function(){
  </div>
 </div>
 <div class="share">
- <div class="fl_wy"><span class="span">网友评论</span>&nbsp;(共<span class="c_f07700">&nbsp;0&nbsp;</span>条)</div>
+ <div class="fl_wy"><span class="span">网友评论</span>&nbsp;(共<span class="c_f07700">&nbsp;${news.NumCount}&nbsp;</span>条)</div>
  <div class="fr_ck"><a href="#">查看所有评论>></a></div>
 </div>
+<form id="add_form" action="${ctx}/front/news/save.html" method="post">
+<input type="hidden" name="NewsId" value="${news.ID}"/>
 <div class="comment_cn">
- <div class="text"><textarea id="Content" name="Content" class="textarea">我来评两句</textarea>
+ <div class="text"><textarea id="Comments" name="Comments" class="textarea">我来评两句</textarea>
  </div>
- <div class="d_t_box">请先登录或，<a href="#">注册</a>后再发表评论，[<a href="#">登录</a>]&nbsp;&nbsp;<input type="button" id="submitcomment" name="submitcomment" value="提交评论" class="issue">
+ <div class="d_t_box"><!-- 请先登录或，<a href="#">注册</a>后再发表评论，[<a href="#">登录</a>] &nbsp;&nbsp;-->
+ <input type="submit" id="submitcomment" name="submitcomment" value="提交评论" class="issue"/>
  </div>
  </div>
+ </form>
 </div>
   <div class="n_fr_280">
    <div class="ad_280"><img src="../theme/default/images/ad/ad_280.png" /></div>
