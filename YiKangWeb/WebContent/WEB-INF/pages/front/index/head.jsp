@@ -65,7 +65,7 @@
           <li><a href="#">技能培训</a></li>
         </ul>
         </li>
-      <li class="drop-menu-effect"><a href="${ctx}/investFinance/index.html" target="_blanck"><span>投融资服务</span></a>
+      <li class="drop-menu-effect"><a href="${ctx}/investFinance/index.html" target="_blank"><span>投融资服务</span></a>
       <ul class="submenu">
           <li><a href="${ctx}/investment/list/1.html" target="_blank">投资</a></li>
           <li><a href="${ctx}/financing/list/1.html" target="_blank">融资</a></li>
