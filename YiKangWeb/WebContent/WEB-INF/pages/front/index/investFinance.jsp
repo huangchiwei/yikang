@@ -6,8 +6,8 @@
     <div class="h1">投融资服务</div>
     <div class="english_t"></div>
     <ul class="ti5">
-     <li><a href="#">投资</a></li>
-     <li><a href="#">融资</a></li>
+     <li><a href="${ctx}/investment/list/1.html" target="_blank">投资</a></li>
+     <li><a href="${ctx}/financing/list/1.html" target="_blank">融资</a></li>
      <li><a href="#">行业资讯</a></li>
      <li><a href="#">行业机构</a></li>
     </ul>
@@ -17,11 +17,11 @@
       <div class="one_b_l_r_b">
        <div class="title">
        <h1>投资</h1>
-       <div class="more"><a href="#">more</a></div>
+       <div class="more"><a href="${ctx}/investment/list/1.html" target="_blank">more</a></div>
       </div>
       <ul class="ul5">
-      <c:forEach items="${investList}" var="o">
-      	<li><a href="#">${o.title}</a></li>
+      <c:forEach items="${investList1}" var="o">
+      	<li><a href="${ctx}/investment/detail/${o.id}.html" target="_blank">${o.title}</a></li>
       </c:forEach>
       </ul>
       </div>
@@ -43,14 +43,12 @@
        <div class="one_b_l_r_b">
        <div class="title">
        <h1>融资</h1>
-       <div class="more"><a href="#">more</a></div>
+       <div class="more"><a href="${ctx}/financing/list/1.html" target="_blank">more</a></div>
       </div>
       <ul class="ul5">
-       <li><a href="#">中企高达（北京）投资基金管理有限公司(5000万)</a></li>
-       <li><a href="#">中汇集团10亿资金寻优质项目投资（100000万）</a></li>
-        <li><a href="#">中企高达（北京）投资基金管理有限公司(5000万)</a></li>
-       <li><a href="#">中汇集团10亿资金寻优质项目投资（100000万）</a></li>
-       <li><a href="#">中汇集团10亿资金寻优质项目投资（100000万）</a></li>
+      <c:forEach items="${financeList1}" var="o">
+      	<li><a href="${ctx}/financing/detail/${o.id}.html" target="_blank">${o.title}</a></li>
+      </c:forEach>
       </ul>
       </div>
       <div class="one_b_l_r_b pt_10">

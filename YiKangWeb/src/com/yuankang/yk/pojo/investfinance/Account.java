@@ -80,7 +80,7 @@ public class Account implements Serializable{
 	private String QQ;
 	
 	@Column(name = "Company")
-	private String  company;
+	private String company;
 	
 	@Column(name = "Industry")
 	private Integer industry;

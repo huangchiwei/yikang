@@ -2,6 +2,7 @@ package com.yuankang.yk.dao.investfinance.investment;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.armysoft.core.Pagination;
 import org.springframework.stereotype.Repository;
@@ -21,6 +22,7 @@ public class InvestmentDaoImpl extends BaseDaoImpl<Investment> implements Invest
 	 */
 	@Override
 	public List<Investment> findByPage(Pagination page, String title) {
+		StringBuilder hql_1 = new StringBuilder("select count(t.id) ");
 		StringBuilder hql_2 = new StringBuilder();
 		StringBuilder hql = new StringBuilder("from Investment t where 1 = 1");
 		List<Object> params = new ArrayList<Object>();
@@ -28,24 +30,25 @@ public class InvestmentDaoImpl extends BaseDaoImpl<Investment> implements Invest
 			hql.append(" and t.title like ? ");
 			params.add("%" + title + "%");
 		}
+		hql_1.append(hql);
 		hql_2.append(hql);
 		hql_2.append(" order by t.isTop desc, t.id desc");
+		page.setTotalRowCount(count(hql_1.toString(), params.toArray()));
+		page.init();
 		System.out.println(hql_2.toString());
 		return findByPage(hql_2.toString(), page.getStartRowNumber(), page.getPageSize(), params.toArray());
 
 	}
 
-	public void count(Pagination page, String title){
-		StringBuilder hql_1 = new StringBuilder("select count(t.id) ");
-		StringBuilder hql = new StringBuilder("from Investment t where 1 = 1");
-		List<Object> params = new ArrayList<Object>();
-		if(StringUtils.hasText(title)){
-			hql.append(" and t.title like ? ");
-			params.add("%" + title + "%");
-		}
-		hql_1.append(hql);
-		page.setTotalRowCount(count(hql_1.toString(), params.toArray()));
-		page.init();
-	}
 	
+	
+	
+	
+/***********************************前台*********************************************************************************************/	
+
+	@Override
+	public List<Map<String,Object>> findListByPage(Pagination page){
+		String hql = "select new map(t.id as id,t.title as title,t.industry.mcName as industry) from Investment t where t.status = 1 order by t.id desc";
+		 return findByPage(hql, page.getStartRowNumber(), page.getPageSize());
+	}
 }

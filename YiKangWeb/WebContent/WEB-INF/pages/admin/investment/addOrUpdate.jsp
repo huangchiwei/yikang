@@ -49,7 +49,7 @@
     <tr>
      <td class="w100">标题：</td>
      <td>
-     	<input id="title" name="title" type="text" value="${entity.title}" maxlength="20"/>
+     	<input id="title" name="title" type="text" value="${entity.title}"/>
      </td>
     </tr>
    <tr>

@@ -1,6 +1,7 @@
 package com.yuankang.yk.dao.investfinance.investment;
 
 import java.util.List;
+import java.util.Map;
 
 import org.armysoft.core.Pagination;
 
@@ -17,4 +18,5 @@ public interface InvestmentDao extends BaseDao<Investment> {
 	 */
 	List<Investment> findByPage(Pagination page,String title);
 
+	List<Map<String,Object>> findListByPage(Pagination page);
 }

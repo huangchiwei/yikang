@@ -45,7 +45,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	@Override
 	public List<T> findAll(Class<T> cls) throws QueryException {
 		List<T> objList = getSession().createCriteria(cls)
-				.addOrder(Order.asc("id")).setCacheable(true).list();
+				.addOrder(Order.asc("id")).list();
 		return objList;
 	}
 
@@ -92,7 +92,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 					query.setParameter(i, params[i]);
 			}
 		}
-		return ((Long) query.setCacheable(true).uniqueResult()).intValue();
+		return ((Long) query.uniqueResult()).intValue();
 	}
 	
 	
@@ -109,7 +109,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 				}
 			}
 		}		
-		return query.setCacheable(true).list();
+		return query.list();
 	}
 	
 	

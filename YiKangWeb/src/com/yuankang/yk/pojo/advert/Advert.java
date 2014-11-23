@@ -54,9 +54,9 @@ public class Advert implements java.io.Serializable {
 	@JoinColumn(name = "Creater", nullable = true, referencedColumnName = "ID")
 	@ForeignKey(name = "FK_ADVERT_CREATER")
 	private User creater;
-	@Column(name = "CreatDate")
+	@Column(name = "CreateDate")
 	@Temporal(TemporalType.DATE)
-	private Date creatDate;
+	private Date createDate;
 
 	public Long getId() {
 		return this.id;
@@ -123,12 +123,12 @@ public class Advert implements java.io.Serializable {
 		this.creater = creater;
 	}
 
-	public Date getCreatDate() {
-		return this.creatDate;
+	public Date getCreateDate() {
+		return this.createDate;
 	}
 
-	public void setCreatDate(Date creatDate) {
-		this.creatDate = creatDate;
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
 	}
 
 }

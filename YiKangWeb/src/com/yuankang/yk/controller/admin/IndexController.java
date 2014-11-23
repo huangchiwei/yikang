@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @date 2014年11月2日 下午9:53:35
  * @version V1.0
  */
-@Controller
+@Controller("adminIndexController")
 @RequestMapping("admin")
-public class AdminIndexController {
+public class IndexController {
 
 	@RequestMapping("{page}")
 	public String index(@PathVariable String page){
