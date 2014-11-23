@@ -109,6 +109,11 @@ public class NewsService extends BaseSqlService{
 				+ "and nc.CategoryName='"+CategoryName+"' order by n.RealTime desc limit 0,"+size+"";
 				return sql;
 	}
+	public List<Map<String, Object>> getNews(String categoryName,int pageSize) {
+		String sql=initSql(categoryName,pageSize);
+				List<Map<String, Object>> list=getQuery(sql);
+				return list;
+	}
 	public List<Map<String, Object>> getIndustryNews() {
 		String sql=initSql("行业新闻",9);
 				List<Map<String, Object>> list=getQuery(sql);
