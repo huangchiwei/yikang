@@ -1,0 +1,215 @@
+ .login_box{
+	padding: 15px;
+	width: 970px;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #FFFFFF;
+}
+.login_box .login_t {
+	margin-right: auto;
+	margin-left: auto;
+	background-image: url(../images/icon.png);
+	height: 58px;
+	background-position: 0px -533px;
+}
+.login_box .login_t .logo {
+	height: 54px;
+	margin-left: 10px;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #49a252;
+	float: left;
+	width: 250px;
+}
+.login_box .login_t .r_box {
+	height: 55px;
+	width: 150px;
+	margin-left: auto;
+	line-height: 55px;
+	color: #CCCCCC;
+}
+.login_box .login_t .r_box a {
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.login_box .login_t .r_box a:hover {
+	color: #49A252;
+}
+.login_box .login_b {
+	margin-right: auto;
+	margin-left: auto;
+	background-image: url(../images/login_bj.png);
+	background-repeat: no-repeat;
+	background-position: 80px 80px;
+	padding-top: 70px;
+	padding-right: 70px;
+	padding-bottom: 100px;
+	padding-left: 70px;
+}
+.login_box .login_b .login_b_r {
+	width: 450px;
+	margin-left: auto;
+}
+.login_box  .login_b  .login_b_r  .li .span {
+	width: 70px;
+	display: block;
+	font-size: 14px;
+	padding-right: 10px;
+	text-align: right;
+	float: left;
+}
+.login_box .login_b .login_b_r .li {
+	line-height: 40px;
+	height: 40px;
+	overflow: hidden;
+	padding-bottom: 15px;
+}
+.login_box .login_b .login_b_r .li .input {
+	float: left;
+	border: 1px solid #d1d1d1;
+	padding: 9px;
+	font-size: 14px;
+	color: #49A252;
+}
+.login_box .login_b .login_b_r .li em {
+	border: 1px solid #d1d1d1;
+	padding: 3px;
+	margin-left: 10px;
+	float: left;
+}
+.login_box .login_b .login_b_r .li .passport {
+	width: 120px;
+	text-align: left;
+	float: left;
+	padding-left: 105px;
+}
+.login_box .login_b .login_b_r .li .passport .div_float {
+	position: absolute;
+	top: 11px;
+	left: 80px;
+}
+.login_box .login_b .login_b_r .li label {
+	padding-left: 10px;
+}
+.login_box .login_b .login_b_r .li label a {
+	color: #003399;
+}
+.login_box .login_b .login_b_r .li .passport a {
+	color: #003399;
+	padding-left: 20px;
+}
+.login_box .login_b .login_b_r .li .btn_box {
+	float: left;
+	padding-left: 80px;
+}
+.login_box .login_b .login_b_r .li .btn_box .login {
+	width: 220px;
+	padding: 10px;
+	background-color: #49a252;
+	font-size: 18px;
+	color: #FFFFFF;
+	border: 1px none #FFFFFF;
+	border-radius:5px;
+}
+/*登录样式end*/
+.bot {
+	padding: 20px;
+	margin-right: 5px;
+	margin-left: 5px;
+	text-align: center;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #CCCCCC;
+	margin-top: 15px;
+}
+.bot .p {
+	text-align: center;
+	color: #CCCCCC;
+}
+.bot .p a {
+	text-align: center;
+	color: #333333;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.bot .copyright  {
+	text-align: center;
+	color: #666666;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	line-height: 24px;
+}
+/*注册样式end*/.login_box .reg_b {
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 70px;
+	padding-right: 70px;
+	padding-bottom: 100px;
+	padding-left: 70px;
+}
+.login_box .reg_b .reg_b_r {
+	height: 40px;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #CCCCCC;
+	line-height: 40px;
+
+}
+.login_box    .reg_b    .ul   {
+	overflow: hidden;
+	padding-top: 50px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+	padding-left: 80px;
+}
+.login_box .reg_b .ul .li {
+	overflow: hidden;
+	line-height: 40px;
+	height: 40px;
+	padding-bottom: 15px;
+}
+.login_box .reg_b .ul .li .span {
+	width: 90px;
+	display: block;
+	font-size: 14px;
+	padding-right: 10px;
+	text-align: right;
+	float: left;
+}
+.login_box .reg_b .ul .li .input {
+	float: left;
+	border: 1px solid #d1d1d1;
+	padding: 9px;
+	font-size: 14px;
+	color: #49A252;
+}
+.login_box .reg_b .ul .li em {
+	padding-left: 10px;
+	color: #999999;
+	font-size: 14px;
+
+}
+.login_box  .reg_b  .ul  .li  .passport {
+	width: 150px;
+	text-align: left;
+	float: left;
+	padding-left: 120px;
+}
+.login_box .reg_b .ul .li .passport .div_float {
+	position: absolute;
+	top: 11px;
+	left: 100px;
+}
+.login_box .reg_b .ul .li .btn_box {
+	float: left;
+	padding-left: 80px;
+}
+.login_box .reg_b .ul .li .btn_box .login {
+	width: 220px;
+	padding: 10px;
+	background-color: #49a252;
+	font-size: 18px;
+	color: #FFFFFF;
+	border: 1px none #FFFFFF;
+	border-radius:5px;
+}

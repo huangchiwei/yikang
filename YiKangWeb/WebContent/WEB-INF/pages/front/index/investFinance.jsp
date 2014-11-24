@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!--five-->
   <div class="four">
    <div class="four_l">
@@ -21,7 +22,8 @@
       </div>
       <ul class="ul5">
       <c:forEach items="${investList1}" var="o">
-      	<li><a href="${ctx}/investment/detail/${o.id}.html" target="_blank">${o.title}</a></li>
+      	<li><a href="${ctx}/investment/detail/${o.id}.html" target="_blank" title="${o.title}">
+      	${fn:length(o.title)>22?fn:substring(o.title,0,22):o.title}${fn:length(o.title)>22?'...':''}</a></li>
       </c:forEach>
       </ul>
       </div>
@@ -47,7 +49,8 @@
       </div>
       <ul class="ul5">
       <c:forEach items="${financeList1}" var="o">
-      	<li><a href="${ctx}/financing/detail/${o.id}.html" target="_blank">${o.title}</a></li>
+      	<li><a href="${ctx}/financing/detail/${o.id}.html" target="_blank" title="${o.title}">
+		${fn:length(o.title)>22?fn:substring(o.title,0,22):o.title}${fn:length(o.title)>22?'...':''}</a></li>
       </c:forEach>
       </ul>
       </div>

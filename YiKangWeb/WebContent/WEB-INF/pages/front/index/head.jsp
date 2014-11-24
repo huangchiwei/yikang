@@ -4,8 +4,8 @@
       <ul class="head_ul">
         <li><a href="#">设为首页</a></li>
         <li><a href="#">帮助中心</a></li>
-        <li><a href="#">登&nbsp;&nbsp;录</a></li>
-        <li><a href="#">注&nbsp;&nbsp;册</a></li>
+        <li><a href="${ctx}/account/toLogin.html">登&nbsp;&nbsp;录</a></li>
+        <li><a href="${ctx}/account/toRegist.html">注&nbsp;&nbsp;册</a></li>
       </ul>
     </div>
   </div>

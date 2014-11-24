@@ -34,17 +34,18 @@ function hrefTo(id){
 </head>
 <body>
 <jsp:include page="/WEB-INF/pages/front/investfinance/head.jsp"/>
-
+<form action="${ctx}/${flag == 1 ? 'investment' : 'financing'}/list/1.html"></form>
 <!--位置-->
 <div class="n">
 <div class="news_nav">
   <div class="n_box">
    <div class="new_logo"><img src="${ctx}/theme/front/investfinance/images/news_logo.png" /></div>
    <div class="lanren">
+    <a href='#' onclick='javascript:location.href="${ctx}/investFinance/index.html"'>首页-投融资</a>
     <a href='#' onclick='javascript:location.href="${ctx}/investment/list/1.html"' class="${flag == 1 ? 'thisclass' : ''}">投资信息</a>
     <a href='#' onclick='javascript:location.href="${ctx}/financing/list/1.html"' class="${flag == 2 ? 'thisclass' : ''}">融资信息</a>
     <a href='javascript:' class="${flag == 3 ? 'thisclass' : ''}">行业资讯</a>
-    <a href='javascript:' class="${flag == 4 ? 'thisclass' : ''}">行业机构</a>
+    <!-- <a href='javascript:' class="${flag == 4 ? 'thisclass' : ''}">行业机构</a> -->
     <!-- <a href='javascript:' class="">政策法规</a> -->
    </div>
   </div>
@@ -66,7 +67,7 @@ function hrefTo(id){
       	<li class="li"><span><fmt:formatDate value="${o.createDate}"
 								pattern="yyyy-MM-dd" /></span>
 				<a title="${o.title}" href="#" onclick="hrefTo(${o.id})">
-				${fn:length(o.title)>25?fn:substring(o.title,0,25):o.title}${fn:length(o.title)>25?'...':''}</a></li>
+				${fn:length(o.title)>30?fn:substring(o.title,0,30):o.title}${fn:length(o.title)>30?'...':''}</a></li>
       </c:forEach>
       </ul>
       <div class="scott"><p:pager /></div>

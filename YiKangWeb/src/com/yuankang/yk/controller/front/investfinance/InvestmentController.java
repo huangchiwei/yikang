@@ -45,7 +45,7 @@ public class InvestmentController extends BaseController{
 	@RequestMapping(value = PAGE_LIST)
 	public String list(@PathVariable Integer currentPage,Model model){
 		Pagination page = initPage(currentPage);
-		page.setPageSize(30);
+		page.setPageSize(5);
 		model.addAttribute("list", investmentService.getByPage(page,null));
 		model.addAttribute("page", page);
 		model.addAttribute("flag", "1");
