@@ -20,6 +20,8 @@ public class IndexController {
 	public String index(Model model){
 		model.addAttribute("investList2", QuartzJob.indexData.get("investList2"));
 		model.addAttribute("financeList2", QuartzJob.indexData.get("financeList2"));
+		model.addAttribute("hangyezixun", QuartzJob.indexData.get("hangyezixun"));
+		model.addAttribute("zhengcefagui", QuartzJob.indexData.get("zhengcefagui"));
 		return "front/investfinance/index";
 	}
 }

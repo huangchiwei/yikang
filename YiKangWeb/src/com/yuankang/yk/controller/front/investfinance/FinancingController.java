@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.yuankang.yk.pojo.investfinance.Financing;
-import com.yuankang.yk.pojo.investfinance.Investment;
 import com.yuankang.yk.service.investfinance.FinancingService;
 
 /**
@@ -29,7 +28,7 @@ public class FinancingController extends BaseController {
 	@RequestMapping(value = PAGE_LIST)
 	public String list(@PathVariable Integer currentPage,Model model){
 		Pagination page = initPage(currentPage);
-		page.setPageSize(30);
+		page.setPageSize(5);
 		model.addAttribute("list", financingService.getByPage(page,null));
 		model.addAttribute("page", page);
 		model.addAttribute("flag", "2");

@@ -22,10 +22,11 @@
   <div class="n_box">
    <div class="new_logo"><img src="${ctx}/theme/front/investfinance/images/news_logo.png" /></div>
    <div class="lanren">
+   <a href='#' class="${flag == null ? 'thisclass' : ''}">首页-投融资</a>
     <a href='#' onclick='javascript:location.href="${ctx}/investment/list/1.html"'>投资信息</a>
     <a href='#' onclick='javascript:location.href="${ctx}/financing/list/1.html"'>融资信息</a>
     <a href='javascript:'>行业资讯</a>
-    <a href='javascript:'>行业机构</a>
+    <!-- <a href='javascript:'>行业机构</a> -->
     <!-- <a href='javascript:'>政策法规</a> -->
    </div>
   </div>
@@ -111,12 +112,9 @@
       <dd class="dd"><a href="#">昨日的互联网大会“中外互联网领袖高峰对话”上，众多互联网大佬</a></dd>
      </dl>
       <ul class="ul3">
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
+      	<c:forEach items="${hangyezixun}" var="o">
+      		<li><a href="#" title="${o.Title}">${fn:length(o.Title)>16?fn:substring(o.Title,0,16):o.title}${fn:length(o.Title)>16?'...':''}</a></li>
+      	</c:forEach>
       </ul>
     </div>
     <div class="n_one_top">
@@ -125,12 +123,9 @@
       <div class="more"><a href="#">more</a></div>
      </div>
       <ul class="ul3">
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
-        <li><a href="#">体内现12根钢针女婴康复出院 没有大的</a></li>
+       <c:forEach items="${zhengcefagui}" var="o">
+      		<li><a href="#" title="${o.Title}">${fn:length(o.Title)>16?fn:substring(o.Title,0,16):o.title}${fn:length(o.Title)>16?'...':''}</a></li>
+      	</c:forEach>
       </ul>
     </div>
     <div class="ad_290"><img src="${ctx}/theme/front/investfinance/images/contact.png" /></div>

@@ -10,9 +10,9 @@ import org.armysoft.core.Pagination;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import com.yuankang.yk.dao.investfinance.financing.FinancingDao;
 import com.yuankang.yk.service.investfinance.FinancingService;
 import com.yuankang.yk.service.investfinance.InvestmentService;
+import com.yuankang.yk.service.news.NewsService;
 
 /**
  * 类说明:定时任务
@@ -29,7 +29,7 @@ public class QuartzJob {
 	@Resource
 	private FinancingService financingService;
 	@Resource
-	private FinancingDao financingDao;
+	private NewsService newsService;
 
 	public static ConcurrentMap<String, Object> indexData = new ConcurrentHashMap<String, Object>();
 
@@ -49,6 +49,10 @@ public class QuartzJob {
 			// 投融资首页8条融资
 			page.setPageSize(8);
 			indexData.put("financeList2", financingService.getListByPage(page));
+			//投融资首页6条投融资行业资讯
+			indexData.put("hangyezixun", newsService.getNews("行业新闻", 6));
+			//投融资首页6条投融资政策法规
+			indexData.put("zhengcefagui", newsService.getNews("国家法律法规", 6));
 			System.out.println("456*****");
 		} catch (Exception e) {
 			e.printStackTrace();
