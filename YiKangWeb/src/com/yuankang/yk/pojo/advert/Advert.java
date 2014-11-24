@@ -35,7 +35,7 @@ public class Advert implements java.io.Serializable {
 	@Column(name = "ID", unique = true, nullable = false)
 	private Long id;
 	@Column(name = "AdName")
-	private String name;
+	private String adName;
 	/** 广告位置*/
 	@ManyToOne(fetch = FetchType.LAZY, targetEntity = AdPosition.class, cascade = {CascadeType.REFRESH})
 	@JoinColumn(name = "AdPositionId", referencedColumnName = "id")
@@ -66,12 +66,14 @@ public class Advert implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public String getName() {
-		return this.name;
+	
+
+	public String getAdName() {
+		return adName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setAdName(String adName) {
+		this.adName = adName;
 	}
 
 	public AdPosition getAdPosition() {
