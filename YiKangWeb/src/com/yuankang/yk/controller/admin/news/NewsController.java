@@ -117,19 +117,13 @@ public class NewsController extends BaseController {
 			}else{
 				news.setHasImage(0);
 			}
-			if(viewType.endsWith("A")){
-				  //news.setLastUpdateTime(new Date());
-				//  news.setCreateTime(new Date());
-				  User user=(User)request.getSession().getAttribute(Constants.SESSION_USER);
+			 User user=(User)request.getSession().getAttribute(Constants.SESSION_USER);
+			 news.setLastUpdateUser(user.getLoginName());
+			if(viewType.equals("A")){
 				  news.setCreateUser(user.getLoginName());
-				  news.setLastUpdateUser(user.getLoginName());
 				  newsService.save(news);
-				 // news.setRealTime(new Date());
-			  }else  if(viewType.endsWith("U")){
-				  //news.setLastUpdateTime(new Date());
-				  User user=(User)request.getSession().getAttribute(Constants.SESSION_USER);			
+			  }else  if(viewType.equals("U")){						
 				  news.setLastUpdateUser(user.getLoginName());
-				 
 				  newsService.update(news);
 			  }
 			//保存缩略图

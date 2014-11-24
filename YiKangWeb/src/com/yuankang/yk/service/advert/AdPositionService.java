@@ -10,17 +10,16 @@ import org.springframework.stereotype.Service;
 
 import com.yuankang.yk.dao.advert.advert.AdvertDao;
 import com.yuankang.yk.pojo.advert.Advert;
-import com.yuankang.yk.pojo.sys.News;
 import com.yuankang.yk.service.base.BaseService;
 import com.yuankang.yk.service.base.BaseSqlService;
 
 /**
- * 广告service
+ * 广告位service
  * @author wei
  *
  */
 @Service
-public class AdvertService extends BaseSqlService {
+public class AdPositionService extends BaseSqlService {
 	/**
 	 * 分页查询广告
 	 * @param pager
@@ -45,26 +44,12 @@ public class AdvertService extends BaseSqlService {
 		String sql="delete from advert where ID="+id;
 		up_del(sql);
 	  }
-	public Map<String, Object> getById(Long id) {
-		String sql = "select * from advert";
+	public List<Map<String, Object>> getAllAdPosition() {
+		
+		String sql = "select * from ad_position order by PosName desc ";
 		List<Map<String, Object>> list = getQuery(sql);
-		if (list != null && list.size() > 0)
-			return list.get(0);
-		else {
-			return null;
-		}
+		return list;
 	}
-	public void save(Advert advert) {
-		String sql="insert into advert(AdPositionId,Url,Img,IsShow,Creater,AdName,LastUpdateTime) "
-				+ "values("+advert.getAdPositionId()+",'"+advert.getUrl()+"','"+advert.getImg()+"',"
-						+ advert.getIsShow()+",'"+advert.getLastUpdateUser()+"','"+advert.getAdName()+"',now())";
-		up_del(sql);
-	}
-	public void update(Advert advert) {
-		String sql="update advert set AdPositionId="+advert.getAdPositionId()+",Url='"+advert.getUrl()+"',Img='"+advert.getImg()+"',"
-				+ "IsShow="+advert.getIsShow()+",Creater='"+advert.getLastUpdateUser()+"',AdName='"+advert.getAdName()+"',LastUpdateTime=now()";
 
-		up_del(sql);
-	}
 	
 }

@@ -37,10 +37,8 @@ public class Advert implements java.io.Serializable {
 	@Column(name = "AdName")
 	private String adName;
 	/** 广告位置*/
-	@ManyToOne(fetch = FetchType.LAZY, targetEntity = AdPosition.class, cascade = {CascadeType.REFRESH})
-	@JoinColumn(name = "AdPositionId", referencedColumnName = "id")
-	@ForeignKey(name = "FK_ADVERT_ADPOSITIONID")
-	private AdPosition adPosition;
+	@Column(name = "AdPositionId")
+	private Long adPositionId;
 	@Column(name = "Url", length = 500)
 	private String url;
 	@Column(name = "Img")
@@ -49,14 +47,12 @@ public class Advert implements java.io.Serializable {
 	private Integer isShow;
 	@Column(name = "OrderNo")
 	private Integer orderNo;
-	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "Creater", nullable = true, referencedColumnName = "ID")
-	@ForeignKey(name = "FK_ADVERT_CREATER")
-	private User creater;
+
+	@Column(name = "LastUpdateUser")
+	private String lastUpdateUser;
 	@Column(name = "CreateDate")
 	@Temporal(TemporalType.DATE)
-	private Date createDate;
+	private Date lastUpdateTime;
 
 	public Long getId() {
 		return this.id;
@@ -76,12 +72,14 @@ public class Advert implements java.io.Serializable {
 		this.adName = adName;
 	}
 
-	public AdPosition getAdPosition() {
-		return this.adPosition;
+
+
+	public Long getAdPositionId() {
+		return adPositionId;
 	}
 
-	public void setAdPosition(AdPosition adPosition) {
-		this.adPosition = adPosition;
+	public void setAdPositionId(Long adPositionId) {
+		this.adPositionId = adPositionId;
 	}
 
 	public String getUrl() {
@@ -117,20 +115,24 @@ public class Advert implements java.io.Serializable {
 	}
 
 	
-	public User getCreater() {
-		return this.creater;
+	
+
+	public String getLastUpdateUser() {
+		return lastUpdateUser;
 	}
 
-	public void setCreater(User creater) {
-		this.creater = creater;
+	public void setLastUpdateUser(String lastUpdateUser) {
+		this.lastUpdateUser = lastUpdateUser;
 	}
 
-	public Date getCreateDate() {
-		return this.createDate;
+	public Date getLastUpdateTime() {
+		return lastUpdateTime;
 	}
 
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
+	public void setLastUpdateTime(Date lastUpdateTime) {
+		this.lastUpdateTime = lastUpdateTime;
 	}
+
+	
 
 }

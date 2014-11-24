@@ -17,8 +17,8 @@
     <div class="btn_box">
   <input type="button" value="返回" class="initial" style="cursor:hand" onclick="javascript:location.href='${ctx}/admin/news/list/1.html?categoryId=1&hasImage=-1'"/>
    </div>
-<form id="add_form" action="${ctx}/admin/news/save.html" method="post">
-<input type="hidden" name="id" value="${news.ID}"/>
+<form id="add_form" action="${ctx}/admin/advert/save.html" method="post">
+<input type="hidden" name="id" value="${advert.ID}"/>
  	<input type="hidden" name="viewType" value="${viewType}"/>
   <div class="add_info">
 
@@ -27,68 +27,42 @@
     <tr>
      <th class="w100">广告位置：</th>
      <td>
-    
+      <select id="categoryId" name="categoryId" class="slectBox" >
+     
+     <c:forEach items="${positionList}" var="p">	
+     <option  value="${p.ID }" <c:if test="${p.ID==advert.AdPositionId}">selected="selected"</c:if>>${p.PosName}</option>
+     </c:forEach>
+     </select>
      </td>
-        <th>链接网址：</th>
+      <th>广告名称：</th>
      <td>
-    	<input id="source" name="source" type="text" value="${news.Source}" maxlength="20"/>
+     	<input id="adName" name="adName" type="text" value="${advert.AdName}" maxlength="200" size="25"/>
      </td>
-      <th>显示图片：</th>
-     <td>
-    	<input id="author" name="author" type="text" value="${news.Author}" maxlength="20"/>
-     </td>
-    
-    
     </tr>
    
 	   <tr>
-	  <th>广告名称：</th>
+	   <th>链接网址：</th>
      <td>
-     	<input id="title" name="title" type="text" value="${news.Title}" maxlength="200" size="25"/>
+    	<input id="url" name="url" type="text" value="${advert.Url}" maxlength="20"/>
      </td>
+        <th>是否显示：</th>
+     <td>
+    	<input name="isShow" type="radio" value="1" <c:if test="${advert.IsShow==1}">checked</c:if>/>
+    	<label>是</label>
+    	<input name="isShow" type="radio" value="0" checked="checked" />
+    	<label>否</label>
+     </td>
+     
      
 	   </tr> 
     <tr>
-	    <th>是否显示：</th>
+	  <th>显示图片：</th>
      <td>
-    	<input name=isTop type="radio" value="1" <c:if test="${news.IsTop==1}">checked</c:if>/>
-    	<label>是</label>
-    	<input name="isTop" type="radio" value="0" checked="checked" />
-    	<label>否</label>
+    	<input id="img" name="img" type="file" value="${advert.Img}" maxlength="20"/>
      </td>
-      <th>是否推荐：</th>
-     <td>
-    	<input name=IsRecommend type="radio" value="1" <c:if test="${news.IsRecommend==0}">checked</c:if>/>
-    	<label>是</label>
-    	<input name="IsRecommend" type="radio" value="0" checked="checked" />
-    	<label>否</label>
-     </td>
+     
 	   </tr> 
-	    <tr>
-     <th>内容：</th>
-     <td colspan="6">
-     <textarea id="content" name="content" rows="3" cols="100" >${news.Content }</textarea>
-<br/>
-     </td>
-     
-    </tr>
-     <tr >
-    
-      <th>摘要：</th>
-     <td  colspan="6">
-      <textarea id="digest" name="digest" rows="3" cols="100" >${news.Digest }</textarea>
-     	
-     </td>
-      
-     
-    </tr>
-    <tr>
-    <th>核心提示：</th>
-    <td  colspan="6">
-      <textarea id="coreTip" name="coreTip" rows="3" cols="100" >${news.CoreTip }</textarea>
-     	
-     </td>
-    </tr>
+
    </table>
  
   <p class="div_submit">

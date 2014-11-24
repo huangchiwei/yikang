@@ -1,6 +1,5 @@
 package com.yuankang.yk.controller.admin.advert;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,7 +14,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.yuankang.yk.pojo.sys.News;
+import com.yuankang.yk.pojo.advert.Advert;
+import com.yuankang.yk.pojo.sys.User;
+import com.yuankang.yk.publics.Constants;
+import com.yuankang.yk.service.advert.AdPositionService;
 import com.yuankang.yk.service.advert.AdvertService;
 
 /**
@@ -30,6 +32,8 @@ public class AdvertController extends BaseController {
 
 	@Resource
 	private AdvertService advertService;
+	@Resource
+	private AdPositionService adPositionService;
 	/**
 	 * 条件分页查询广告
 	 * 
@@ -58,19 +62,31 @@ public class AdvertController extends BaseController {
 	 @RequestMapping(value = UPDATE)
 	  public String update(@PathVariable("id") Long key, Model model)
 	  {
-		 
+		 Map<String, Object> advert= advertService.getById(key);
+		 List<Map<String, Object>> positionList=  adPositionService.getAllAdPosition();
+		 model.addAttribute("positionList", positionList);
+		 model.addAttribute("advert", advert);
+		 model.addAttribute("viewType", "U");
 	    return "admin/advert/advertA_U";
 	  }
 	 @RequestMapping(value = ADD)
 	  public String toAdd(Model model)
 	  {
-		  
-
+		 List<Map<String, Object>> positionList=  adPositionService.getAllAdPosition();
+		 model.addAttribute("positionList", positionList);
+		 model.addAttribute("viewType", "A");
 	    return "admin/advert/newsA_U";
 	  }
 	 @RequestMapping(value = SAVE)
-	  public String save(HttpServletRequest request,Model model,String viewType)
+	  public String save(HttpServletRequest request,Model model,String viewType,Advert advert)
 	  {
+		 User user=(User)request.getSession().getAttribute(Constants.SESSION_USER);
+		 advert.setLastUpdateUser(user.getLoginName());
+		 if(viewType.equals("A")){
+			 advertService.save(advert);
+		 }else  if(viewType.equals("U")){
+			 advertService.update(advert);
+		 }
 		 return "redirect:/admin/advert/list/1.html";
 	  }
 }
