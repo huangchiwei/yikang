@@ -38,7 +38,7 @@ function getFileSuffix(){
 
    <h2>${viewType == 'A' ? '添加广告' : '修改广告'}</h2>
    <table width="98%" border="0" cellspacing="0" cellpadding="0">
-<%--     <tr>
+    <tr>
      <th class="w100">广告位置：</th>
      <td>
       <select id="adPositionId" name="adPositionId" class="slectBox" >
@@ -63,13 +63,13 @@ function getFileSuffix(){
     
       <th>是否显示：</th>
      <td>
-    	<input name="isShow" type="radio" value="1" <c:if test="${advert.IsShow==1}">checked</c:if>/>
+    	<input name="isShow" type="radio" value="1" checked="checked" />
     	<label>是</label>
-    	<input name="isShow" type="radio" value="0" checked="checked" />
+    	<input name="isShow" type="radio" value="0" <c:if test="${advert.IsShow==0}">checked</c:if>/>
     	<label>否</label>
      </td>
      
-	   </tr>  --%>
+	   </tr> 
     <tr>
 	  <th>选择图片：</th>
      <td colspan="3">

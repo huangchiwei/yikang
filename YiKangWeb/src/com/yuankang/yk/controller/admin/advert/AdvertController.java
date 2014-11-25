@@ -22,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.yuankang.yk.pojo.advert.Advert;
 import com.yuankang.yk.pojo.sys.User;
 import com.yuankang.yk.publics.Constants;
+import com.yuankang.yk.publics.tools.ThumbsUtil;
 import com.yuankang.yk.service.advert.AdPositionService;
 import com.yuankang.yk.service.advert.AdvertService;
 
@@ -83,20 +84,24 @@ public class AdvertController extends BaseController {
 	    return "admin/advert/advertA_U";
 	  }
 	 @RequestMapping(value = SAVE)
-	  public String save(HttpServletRequest request,Model model)
+	  public String save(HttpServletRequest request,Model model,Advert advert,String viewType)
 	  {
 		 String imgPath="";
+		 String realPath="";
 		// 转型为MultipartHttpRequest：     
 	        MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request; 
 	     // 获得文件：     
 	        MultipartFile file = multipartRequest.getFile("file");    
 		// if ((img != null) && (img.length > 0)){
 			 //MultipartFile file = //img[0];
-		/*	   if (!file.isEmpty()) {
+			   if (!file.isEmpty()) {
 				   Map<String, Object> adPosition=adPositionService.getById(advert.getAdPositionId());
-				   imgPath="/userfiles/"+adPosition.get("levelPage").toString()+"/"+file.getName();
-						   try {
-							file.transferTo(new File(imgPath));
+				   
+				   imgPath="/userfiles/advert/"+adPosition.get("LevelPage").toString()+"/"+file.getOriginalFilename();
+					realPath=request.getSession().getServletContext().getRealPath(imgPath);
+				   try {
+					   //ThumbsUtil.getInstance().init(file.,realPath).resizeByWidth(200);
+							file.transferTo(new File(realPath));
 						} catch (IllegalStateException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -113,7 +118,8 @@ public class AdvertController extends BaseController {
 			 advertService.save(advert);
 		 }else  if(viewType.equals("U")){
 			 advertService.update(advert);
-		 }*/
+		 }
+		 
 		 return "redirect:/admin/advert/list/1.html";
 	  }
 }

@@ -50,14 +50,14 @@ public class AdvertService extends BaseSqlService {
 		}
 	}
 	public void save(Advert advert) {
-		String sql="insert into advert(AdPositionId,Url,Img,IsShow,Creater,AdName,LastUpdateTime) "
+		String sql="insert into advert(AdPositionId,Url,Img,IsShow,LastUpdateUser,AdName,LastUpdateTime) "
 				+ "values("+advert.getAdPositionId()+",'"+advert.getUrl()+"','"+advert.getImg()+"',"
 						+ advert.getIsShow()+",'"+advert.getLastUpdateUser()+"','"+advert.getAdName()+"',now())";
 		up_del(sql);
 	}
 	public void update(Advert advert) {
 		String sql="update advert set AdPositionId="+advert.getAdPositionId()+",Url='"+advert.getUrl()+"',Img='"+advert.getImg()+"',"
-				+ "IsShow="+advert.getIsShow()+",Creater='"+advert.getLastUpdateUser()+"',AdName='"+advert.getAdName()+"',LastUpdateTime=now()";
+				+ "IsShow="+advert.getIsShow()+",LastUpdateUser='"+advert.getLastUpdateUser()+"',AdName='"+advert.getAdName()+"',LastUpdateTime=now()";
 
 		up_del(sql);
 	}
