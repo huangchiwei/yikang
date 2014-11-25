@@ -3,15 +3,10 @@ package com.yuankang.yk.service.advert;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Resource;
-
 import org.armysoft.core.Pagination;
 import org.springframework.stereotype.Service;
 
-import com.yuankang.yk.dao.advert.advert.AdvertDao;
 import com.yuankang.yk.pojo.advert.Advert;
-import com.yuankang.yk.pojo.sys.News;
-import com.yuankang.yk.service.base.BaseService;
 import com.yuankang.yk.service.base.BaseSqlService;
 
 /**
@@ -46,7 +41,7 @@ public class AdvertService extends BaseSqlService {
 		up_del(sql);
 	  }
 	public Map<String, Object> getById(Long id) {
-		String sql = "select * from advert";
+		String sql = "select * from advert where ID="+id;
 		List<Map<String, Object>> list = getQuery(sql);
 		if (list != null && list.size() > 0)
 			return list.get(0);

@@ -26,6 +26,8 @@ public class AdPosition implements java.io.Serializable {
 	private Integer height;
 	@Column(name = "Des", length = 500)
 	private String des;
+	@Column(name = "LevelPage")
+	private String levelPage;
 
 	public Integer getId() {
 		return this.id;
@@ -65,6 +67,14 @@ public class AdPosition implements java.io.Serializable {
 
 	public void setDes(String des) {
 		this.des = des;
+	}
+
+	public String getLevelPage() {
+		return levelPage;
+	}
+
+	public void setLevelPage(String levelPage) {
+		this.levelPage = levelPage;
 	}
 
 }

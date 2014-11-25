@@ -1,5 +1,7 @@
 package com.yuankang.yk.controller.admin.advert;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +14,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.yuankang.yk.pojo.advert.Advert;
@@ -75,18 +80,40 @@ public class AdvertController extends BaseController {
 		 List<Map<String, Object>> positionList=  adPositionService.getAllAdPosition();
 		 model.addAttribute("positionList", positionList);
 		 model.addAttribute("viewType", "A");
-	    return "admin/advert/newsA_U";
+	    return "admin/advert/advertA_U";
 	  }
 	 @RequestMapping(value = SAVE)
-	  public String save(HttpServletRequest request,Model model,String viewType,Advert advert)
+	  public String save(HttpServletRequest request,Model model)
 	  {
+		 String imgPath="";
+		// 转型为MultipartHttpRequest：     
+	        MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request; 
+	     // 获得文件：     
+	        MultipartFile file = multipartRequest.getFile("file");    
+		// if ((img != null) && (img.length > 0)){
+			 //MultipartFile file = //img[0];
+		/*	   if (!file.isEmpty()) {
+				   Map<String, Object> adPosition=adPositionService.getById(advert.getAdPositionId());
+				   imgPath="/userfiles/"+adPosition.get("levelPage").toString()+"/"+file.getName();
+						   try {
+							file.transferTo(new File(imgPath));
+						} catch (IllegalStateException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+			   }
+		// }
 		 User user=(User)request.getSession().getAttribute(Constants.SESSION_USER);
 		 advert.setLastUpdateUser(user.getLoginName());
+		 advert.setImg(imgPath);
 		 if(viewType.equals("A")){
 			 advertService.save(advert);
 		 }else  if(viewType.equals("U")){
 			 advertService.update(advert);
-		 }
+		 }*/
 		 return "redirect:/admin/advert/list/1.html";
 	  }
 }

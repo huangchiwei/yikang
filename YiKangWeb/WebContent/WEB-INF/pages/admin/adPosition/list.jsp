@@ -22,7 +22,7 @@
 		      type : 4,
 		      btn : ['是','否'],
 		      yes : function(){
-		          location.href='${ctx}/admin/advert/delete/' + id + '.html';
+		          location.href='${ctx}/admin/adPosition/delete/' + id + '.html';
 		      },
 		      no : function(index){
 		         layer.close(index);
@@ -35,39 +35,37 @@
 </head>
 
 <body>
-<form action="${ctx}/admin/advert/list/1.html" method="post">
+<form action="${ctx}/admin/adPosition/list/1.html" method="post">
 <div class="content_box">
 <div class="btn_box">
- <a href="${ctx}/admin/advert/add/new.html"> <input type="button" value="添加" class="initial" style="cursor:hand" /></a>
+ <a href="${ctx}/admin/adPosition/add/new.html"> <input type="button" value="添加" class="initial" style="cursor:hand" /></a>
    </div>
   <div class="list_info">
-    <h2> 广告名称：<input name="adName" value="${adName}"/> <input type="submit" value="&nbsp;查&nbsp;询&nbsp;"/></h2>
+    <h2> 所属级别：<input name="levelPage" value="${levelPage}"/> <input type="submit" value="&nbsp;查&nbsp;询&nbsp;"/></h2>
    
     <table border="0" cellpadding="0" cellspacing="0" class="table">
 <tr>
-        <th>广告名称</th>
-        <th>位置</th>
-       
-       
-        <th>是否显示</th>
+		<th>所属级别</th>
+        <th>位置名称</th>
         
-        <th>最后修改用户</th>
-        <th>最后修改时间</th>
+        <th>宽(px)</th>
+        <th>高(px)</th>
         <th>操作</th>
       </tr>
       
       <c:forEach items="${list}" var="o">
       	<tr onMouseOver="this.style.background='#ecf6ff'" onMouseOut="this.style.background='#FFFFFF'" >
-        <td>${o.AdName}</td>
+         <td><c:if test="${o.LevelPage=='one'}">一级首页</c:if>
+         <c:if test="${o.LevelPage=='two'}">二级列表页</c:if>
+          <c:if test="${o.LevelPage=='third'}">三级详细页</c:if>
+         </td>
         <td>${o.PosName}</td>
+        <td>${o.Width}</td>
        
-        <td>${o.IsShow}</td>
- 
-        <td>${o.LastUpdateUser}</td>
-        <td><fmt:formatDate value="${o.LastUpdateTime}"
-								pattern="yyyy-MM-dd HH:mm:ss" /></td>
+        <td>${o.Height}</td>
+       
         <td>
-           <a href="${ctx}/admin/advert/update/${o.ID}.html"><img src="${ctx}/theme/admin/default/images/edit_icon.png" /></a>&nbsp;
+           <a href="${ctx}/admin/adPosition/update/${o.ID}.html"><img src="${ctx}/theme/admin/default/images/edit_icon.png" /></a>&nbsp;
           <img src="${ctx}/theme/admin/default/images/del_icon.png" onclick="delConfirm(${o.ID})"/></td>
       </tr>
       </c:forEach>
