@@ -43,11 +43,11 @@
       <li class="drop-menu-effect"><a href="#"><span>行业活动</span></a></li>
       <li class="drop-menu-effect"><a href="#"><span>健康服务</span></a>
       <ul class="submenu">
-          <li><a href="health_sevser/category.html">症状查询</a></li>
-          <li><a href="health_sevser/doctor.html">医生查询</a></li>
-          <li><a href="health_sevser/disease.html">疾病查询</a></li>
-          <li><a href="#">就医指南</a></li>
-          <li><a href="#">预约挂号</a></li>
+          <li><a href="${ctx}/healthService/index.html?type=1" target="_blank">症状查询</a></li>
+          <li><a href="${ctx}/healthService/index.html?type=2" target="_blank">医生查询</a></li>
+          <li><a href="${ctx}/healthService/index.html?type=3" target="_blank">疾病查询</a></li>
+          <li><a href="#?type=4">就医指南</a></li>
+          <li><a href="#?type=5">预约挂号</a></li>
         </ul>
       </li>
       <li class="drop-menu-effect"><a href="#"><span>健康购</span></a></li>
