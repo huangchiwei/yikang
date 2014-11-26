@@ -45,12 +45,9 @@ public class Advert implements java.io.Serializable {
 	private String img;
 	@Column(name = "IsShow")
 	private Integer isShow;
-	@Column(name = "OrderNo")
-	private Integer orderNo;
-
 	@Column(name = "LastUpdateUser")
 	private String lastUpdateUser;
-	@Column(name = "CreateDate")
+	@Column(name = "lastUpdateTime")
 	@Temporal(TemporalType.DATE)
 	private Date lastUpdateTime;
 
@@ -105,17 +102,6 @@ public class Advert implements java.io.Serializable {
 	public void setIsShow(Integer isShow) {
 		this.isShow = isShow;
 	}
-
-	public Integer getOrderNo() {
-		return this.orderNo;
-	}
-
-	public void setOrderNo(Integer orderNo) {
-		this.orderNo = orderNo;
-	}
-
-	
-	
 
 	public String getLastUpdateUser() {
 		return lastUpdateUser;

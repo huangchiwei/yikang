@@ -57,9 +57,16 @@ public class AdvertService extends BaseSqlService {
 	}
 	public void update(Advert advert) {
 		String sql="update advert set AdPositionId="+advert.getAdPositionId()+",Url='"+advert.getUrl()+"',Img='"+advert.getImg()+"',"
-				+ "IsShow="+advert.getIsShow()+",LastUpdateUser='"+advert.getLastUpdateUser()+"',AdName='"+advert.getAdName()+"',LastUpdateTime=now()";
+				+ "IsShow="+advert.getIsShow()+",LastUpdateUser='"+advert.getLastUpdateUser()+"',AdName='"+advert.getAdName()+"',LastUpdateTime=now()"+""
+				+" where ID="+advert.getId();
 
 		up_del(sql);
+	}
+	public List<Map<String, Object>> getByPosCode(String posCode) {
+		List<Map<String, Object>> list=null;
+		list=getQuery("select a.*,ap.Width,ap.Height from advert a,ad_position ap where a.AdPositionId=ap.ID  and ap.PosCode='"+posCode+"' order by ID desc");
+				
+		return list;
 	}
 	
 }

@@ -12,7 +12,7 @@
 <script type="text/javascript" src="${ctx}/js/My97DatePicker/WdatePicker.js"></script>
 <script type="text/javascript" >
 function getFileSuffix(){
-	var f = document.getElementById("img");
+	var f = document.getElementById("file");
 	var fullFile=f.value;
 	var suffixName=fullFile.substring(fullFile.lastIndexOf(".")+1,fullFile.length);
 	//var fullName=fullFile.substring(fullFile.lastIndexOf("\\")+1);;
@@ -21,7 +21,10 @@ function getFileSuffix(){
 		f.value="";
 		alert("这种文件类型不允许上传！\r\n只允许上传这几种文件：jpg、gif、png\r\n请选择别的文件。");
 		 
-			}
+	}else{
+		//alert(fullFile);
+		$("#selectedPath").html(fullFile);
+	}
 }
 </script>
 </head>
@@ -74,7 +77,7 @@ function getFileSuffix(){
 	  <th>选择图片：</th>
      <td colspan="3">
    
-    	 <input  name="file" type="file" /><font color="red">后缀格式为：jpg,gif,png</font> 
+    	 <input  id="file" name="file" type="file" onchange="getFileSuffix()" value="${advert.Img }"/><font color="red">已选择:<span id="selectedPath">${advert.Img }</span>(限jpg,gif,png)</font> 
      </td>
         
 	   </tr> 

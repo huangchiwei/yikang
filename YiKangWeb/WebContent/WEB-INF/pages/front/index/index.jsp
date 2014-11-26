@@ -43,12 +43,29 @@ $(document).ready(function($){
      box.width = 340; //宽度
      box.height = 255;//高度
      box.autoplayer = 3;//自动播放间隔时间
-
+     if("${pic0.Img}"!="")
+     box.add({"url":"${ctx}${pic0.Img}","href":"${pic0.Url}"});
+     if("${pic1.Img}"!="")
+     box.add({"url":"${ctx}${pic1.Img}","href":"${pic1.Url}"});
+     if("${pic2.Img}"!="")
+     box.add({"url":"${ctx}${pic2.Img}","href":"${pic2.Url}"});
+     if("${pic3.Img}"!="")
+     box.add({"url":"${ctx}${pic3.Img}","href":"${pic3.Url}"});
+  /*   if(list1!=null){
+    	//box.width = list1[0].Width; //宽度
+       // box.height = list1[0].Height;//高度
+        for (var i=0;i<list1.length;i++)
+        {
+        	 
+        	
+        }
+    } */
+   
      //box.add({"url":"图片地址","title":"悬浮标题","href":"链接地址"})
-     box.add({"url":"${ctx}/theme/front/default/images/tu1.jpg","href":"#","title":"悬浮提示标题1"})
+   /*   box.add({"url":"${ctx}/theme/front/default/images/tu1.jpg","href":"#","title":"悬浮提示标题1"})
      box.add({"url":"${ctx}/theme/front/default/images/tu2.jpg","href":"#","title":"悬浮提示标题2"})
      box.add({"url":"${ctx}/theme/front/default/images/tu3.jpg","href":"#","title":"悬浮提示标题3"})
-     box.add({"url":"${ctx}/theme/front/default/images/tu4.jpg","href":"#","title":"悬浮提示标题4"})
+     box.add({"url":"${ctx}/theme/front/default/images/tu4.jpg","href":"#","title":"悬浮提示标题4"}) */
      box.show();
     </script>
 </div></div>
@@ -172,12 +189,12 @@ $(document).ready(function($){
 		</div><!--tabcon end-->
 	</div>
 	<!--tabcon end-->
-    <div class="ad_220"><img src="${ctx}/theme/front/default/images/ad/ad_220.png" /></div>
+    <div class="ad_220"><img src="${ctx}${advert2.Img}" width="${advert2.Width}" height="${advert2.Height }"/></div>
    </div>
   </div>
   <!--news_end-->
   <!--ad-->
-  <div class="ad_990"><img src="${ctx}/theme/front/default/images/ad/ad_990.png" /></div>
+  <div class="ad_990"><img src="${ctx}${advert3.Img}" width="${advert3.Width}" height="${advert3.Height }"/></div>
   <!--ad_end-->
   <!--one-->
   <div class="one">
