@@ -83,7 +83,7 @@ public class NewsFrontController extends BaseController {
 	  {
 		// List<Map<String, Object>> listCate=newsService.getCategory();
 		 
-		//四张图片
+		//四张图片,现在换成四张广告
 		 List<Map<String, Object>> fourPicList=newsService.getSecLevShowPic();
 		 model.addAttribute("fourPicList", fourPicList);
 		 //行业新闻9条

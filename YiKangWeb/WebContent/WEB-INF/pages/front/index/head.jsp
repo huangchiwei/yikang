@@ -32,7 +32,7 @@
   <div class="nav">
     <ul class="nav_list">
       <li class="drop-menu-effect"><a href="#" class="selected2"><span>首页</span></a></li>
-      <li class="drop-menu-effect"><a href="${ctx}/front/news/list/1.html?cateCode=industryNews"><span>行业资讯</span></a>
+      <li class="drop-menu-effect"><a href="${ctx}/front/news/index.html"><span>行业资讯</span></a>
         <ul class="submenu">
           <li><a href="${ctx}/front/news/list/1.html?cateCode=law">法律法规</a></li>
           <li><a href="${ctx}/front/news/list/1.html?cateCode=industryNews">行业新闻</a></li>

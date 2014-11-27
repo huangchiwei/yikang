@@ -69,7 +69,15 @@ public class NewsService extends BaseSqlService {
 
 		return list;
 	}
-
+	public List<Map<String, Object>> getByLaw(int pageSize,Boolean isRecomend){
+		String sql="";
+		if(isRecomend){
+			sql=" and n.IsRecommend=1";
+		}
+		List<Map<String, Object>> list = getQuery(
+				"select n.ID,n.Title,n.RealTime from news n,news_category nc where n.CategoryId=nc.ID and (nc.CateCode='countyLaw' or nc.CateCode='localLaw')"+sql+" order by n.RealTime desc limit 0,"+pageSize);
+		return list;
+	}
 	public List<Map<String, Object>> getByCateCode(String cateCode,
 			List<String> withoutIdList, Boolean hasImage, int pageSize) {
 		String imageSql = "", idSql = "";
@@ -319,7 +327,12 @@ public class NewsService extends BaseSqlService {
 		List<Map<String, Object>> list = getQuery(sql);
 		return list;
 	}
-
-	// 三级(详细与列表)
+	public List<Map<String, Object>> getNewestLaw(int pageSize) {
+		String sql = "select n.ID,n.Title,n.Digest from news n,news_category nc where n.CategoryId=nc.ID "
+				+ "and nc.CategoryName in('国家法律法规','地方法律法规') order by n.RealTime desc limit 0," + pageSize + "";
+		List<Map<String, Object>> list = getQuery(sql);
+		return list;
+	}
+	
 
 }

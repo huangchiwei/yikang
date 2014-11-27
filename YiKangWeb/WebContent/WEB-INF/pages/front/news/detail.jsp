@@ -84,7 +84,7 @@ $(function(){
    <dd class="extend_page_dd">
    <c:if test="${fn:length(relatedImageNews.Digest)>55}">${fn:substring(relatedImageNews.Digest, 0, 55)}......</c:if>
        <c:if test="${fn:length(relatedImageNews.Digest)<55}">${relatedImageNews.Digest}</c:if>
-   [<a href="#">详细</a>]</dd>
+   [<a href="javascript:void(0);" onclick="jump(${relatedImageNews.ID})">详细</a>]</dd>
   </dl>
   </c:if>
  

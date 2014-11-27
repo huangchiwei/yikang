@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"  %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -12,6 +13,14 @@
 <script type="text/javascript" src="${ctx}/theme/front/default/js/pptBox.js"></script>
 <script type="text/javascript" src="${ctx}/theme/front/default/js/top_tab.js"></script>
 <script type="text/javascript">
+function jump(id,newWindow){
+	if(newWindow!=null){
+		window.open("${ctx}/front/news/detail/"+id+".html","_blank");
+	}else{
+		location.href="${ctx}/front/news/detail/"+id+".html";
+	}
+	
+}
 $(document).ready(function($){
 	//默认选项卡切换
 	$("#normaltab").tabso({
@@ -104,44 +113,39 @@ $(document).ready(function($){
     <div class="news_b_l_r">
      <div class="news_t">
       <div class="title_box">
-       <h1><a href="#">灭蚊要注重细节——广州市爱卫办发出灭蚊</a></h1>
+       <h1><a href="${ctx}/front/news/list/${lawList1.ID}.html">${lawList1.Title }</a></h1>
        <ul>
-        <li><div class="r">[&nbsp;<a href="#">灭蚊要注重细节</a>&nbsp;]</div></li>
-        <li><div class="l">[&nbsp;<a href="#">灭蚊要注重细节</a>&nbsp;]</div></li>
+        <li><div class="r">[&nbsp;<a href="${ctx}/front/news/detail/${lawList2.ID}.html">${lawList2.Title }</a>&nbsp;]</div></li>
+        <li><div class="l">[&nbsp;<a href="${ctx}/front/news/detail/${lawList3.ID}.html">${lawList3.Title }</a>&nbsp;]</div></li>
        </ul>
       </div>
       <div class="title_box">
-       <h1><a href="#">灭蚊要注重细节——广州市爱卫办发出灭蚊</a></h1>
+       <h1><a href="${ctx}/front/news/list/${newsList1.ID}.html">${newsList1.Title }</a></h1>
        <ul>
-        <li><div class="r">[&nbsp;<a href="#">灭蚊要注重细节</a>&nbsp;]</div></li>
-        <li><div class="l">[&nbsp;<a href="#">灭蚊要注重细节</a>&nbsp;]</div></li>
+        <li><div class="r">[&nbsp;<a href="${ctx}/front/news/detail/${newsList2.ID}.html">${newsList2.Title }</a>&nbsp;]</div></li>
+        <li><div class="l">[&nbsp;<a href="${ctx}/front/news/detail/${newsList3.ID}.html">${newsList3.Title }</a>&nbsp;]</div></li>
        </ul>
       </div>
       <div class="title_box">
-       <h1><a href="#">灭蚊要注重细节——广州市爱卫办发出灭蚊</a></h1>
+       <h1><a href="${ctx}/front/news/list/${focusList1.ID}.html">${focusList1.Title }</a></h1>
        <ul>
-        <li><div class="r">[&nbsp;<a href="#">灭蚊要注重细节</a>&nbsp;]</div></li>
-        <li><div class="l">[&nbsp;<a href="#">灭蚊要注重细节</a>&nbsp;]</div></li>
+        <li><div class="r">[&nbsp;<a href="${ctx}/front/news/detail/${focusList2.ID}.html">${focusList2.Title }</a>&nbsp;]</div></li>
+        <li><div class="l">[&nbsp;<a href="${ctx}/front/news/detail/${focusList3.ID}.html">${focusList3.Title }</a>&nbsp;]</div></li>
        </ul>
       </div>
       <div class="title_box">
-       <h1><a href="#">灭蚊要注重细节——广州市爱卫办发出灭蚊</a></h1>
+       <h1><a href="${ctx}/front/news/list/${actiList1.ID}.html">${actiList1.Title }</a></h1>
        <ul>
-        <li><div class="r">[&nbsp;<a href="#">灭蚊要注重细节</a>&nbsp;]</div></li>
-        <li><div class="l">[&nbsp;<a href="#">灭蚊要注重细节</a>&nbsp;]</div></li>
+        <li><div class="r">[&nbsp;<a href="${ctx}/front/news/detail/${actiList2.ID}.html">${actiList2.Title }</a>&nbsp;]</div></li>
+        <li><div class="l">[&nbsp;<a href="${ctx}/front/news/detail/${actiList3.ID}.html">${actiList3.Title }</a>&nbsp;]</div></li>
        </ul>
       </div>
      </div>
       <ul class="news_t2">
-       <li><a href="#">灭蚊要注重细节——广州市爱卫办发出灭蚊技术..</a></li>
-       <li><a href="#">身边的蚊媒密度是否超过登革热的警戒线？——..</a></li>
-       <li><a href="#">母乳喂养技巧讲座</a></li>
-       <li><a href="#">三龄童低头即流“鼻水” 原来是脑脊液</a></li>
-       <li><a href="#">机采血小板血液不会和机器直接接触</a></li>
-       <li><a href="#">灭蚊要注重细节——广州市爱卫办发出灭蚊技术..</a></li>
-       <li><a href="#">身边的蚊媒密度是否超过登革热的警戒线？——..</a></li>
-       <li><a href="#">母乳喂养技巧讲座</a></li>
-      </ul>
+      <c:forEach items="${hotList}" var="o">
+      <li><a href="${ctx}/front/news/detail/${o.ID}.html">${o.Title}</a></li>
+      </c:forEach>
+       </ul>
     </div>
    </div>
    <div class="news_b_r">
@@ -189,92 +193,15 @@ $(document).ready(function($){
 		</div><!--tabcon end-->
 	</div>
 	<!--tabcon end-->
-    <div class="ad_220"><img src="${ctx}${advert2.Img}" width="${advert2.Width}" height="${advert2.Height }"/></div>
+    <div class="ad_220"><a href="${advert2.Url}" target="_blank"><img src="${ctx}${advert2.Img}" width="${advert2.Width}" height="${advert2.Height }"/></a></div>
    </div>
   </div>
   <!--news_end-->
   <!--ad-->
-  <div class="ad_990"><img src="${ctx}${advert3.Img}" width="${advert3.Width}" height="${advert3.Height }"/></div>
+  <div class="ad_990"><a href="${advert3.Url}" target="_blank"><img src="${ctx}${advert3.Img}" width="${advert3.Width}" height="${advert3.Height }"/></a></div>
   <!--ad_end-->
-  <!--one-->
-  <div class="one">
-   <div class="one_title relative">
-    <div class="h1">行业资讯</div>
-    <div class="english_m"></div>
-    <ul class="ti">
-     <li><a href="#">行业新闻</a></li>
-     <li><a href="#">行业焦点</a></li>
-     <li><a href="#">重要活动</a></li>
-     <li><a href="#">法律法规</a></li>
-    </ul>
-   </div>
-   <div class="one_box">
-    <div class="one_b_l">
-     <div class="one_b_l_l">
-      <div class="title">
-       <h1>行业新闻</h1>
-       <div class="more"><a href="#">more</a></div>
-      </div>
-      <div class="new_a1">
-      <div class="fl"><img src="${ctx}/theme/front/default/images/index_001.png" /></div>
-      <dl class="dl">
-       <dt><a href="#">人际交往9种异常心理不</a></dt>
-       <dd>孩子咳嗽，发烧，家长最揪心，既担心孩子受罪，还要担......<a href="#">[详细]</a></dd>
-      </dl>
-      </div>
-      <ul class="ul2">
-       <li><a href="#">小儿肺炎不是“烧”出来的</a></li>
-       <li><a href="#">小儿肺炎不是“烧”出来的</a></li>
-       <li><a href="#">小儿肺炎不是“烧”出来的</a></li>
-       <li><a href="#">小儿肺炎不是“烧”出来的</a></li>
-       <li><a href="#">小儿肺炎不是“烧”出来的</a></li>
-       <li><a href="#">小儿肺炎不是“烧”出来的</a></li>
-      </ul>
-     </div>
-     <div class="one_b_l_r">
-       <div class="one_b_l_r_b">
-       <div class="title">
-       <h1>行业焦点</h1>
-       <div class="more"><a href="#">more</a></div>
-      </div>
-      <ul class="ul">
-       <li><a href="#">小儿肺炎不是“烧”出来的</a></li>
-       <li><a href="#">小儿肺炎不是“烧”出来的</a></li>
-       <li><a href="#">小儿肺炎不是“烧”出来的</a></li>
-       <li><a href="#">小儿肺炎不是“烧”出来的</a></li>
-      </ul>
-      </div>
-      <div class="one_b_l_r_b pt_10">
-       <div class="title">
-       <h1>法律法规</h1>
-       <div class="more"><a href="#">more</a></div>
-      </div>
-      <ul class="ul">
-       <li><a href="#">小儿肺炎不是“烧”出来的</a></li>
-       <li><a href="#">小儿肺炎不是“烧”出来的</a></li>
-       <li><a href="#">小儿肺炎不是“烧”出来的</a></li>
-       <li><a href="#">小儿肺炎不是“烧”出来的</a></li>
-      </ul>
-      </div>
-     </div>
-    </div>
-    <div class="one_b_r">
-      <div class="one_b_r_b">
-      <h1>重要活动</h1>
-      <ul class="ul">
-       <li><a href="#">羊胎素有抗衰老作用 价格几何？</a></li>
-       <li><a href="#">罗布麻茶：心血管天然保健佳品</a></li>
-       <li><a href="#">破壁灵芝孢子粉为何能抗癌</a></li>
-       <li><a href="#">大豆异黄酮 抗衰防癌好助手</a></li>
-       <li><a href="#">夏季是治疗男性不育好时机</a></li>
-       <li><a href="#">夏季是治疗男性不育好时机</a></li>
-     </ul>
-      </div>
-      <div class="ad_220_a"><img src="${ctx}/theme/front/default/images/ad/ad_220_a.png" /></div>
-    </div>
-   </div>
-  </div> 
-  <!--one_end-->
+    <jsp:include page="/WEB-INF/pages/front/index/news.jsp" />
+
   <!--two-->
   <div class="one">
    <div class="one_title relative">
@@ -392,7 +319,7 @@ $(document).ready(function($){
        <li><a href="#">夏季是治疗男性不育好时机</a></li>
      </ul>
       </div>
-      <div class="ad_220_a"><img src="${ctx}/theme/front/default/images/ad/ad_220_b.png" /></div>
+      <div class="ad_220_a"><a href="${advert5.Url}" target="_blank"><img src="${ctx}${advert5.Img}" width="${advert5.Width}" height="${advert5.Height }"/></a></div>
     </div>
    </div>
   </div> 
@@ -403,8 +330,8 @@ $(document).ready(function($){
    </div>
    <div class="gou_box">
     <div class="fl">
-      <div class="ma"><img src="${ctx}/theme/front/default/images/ad/ad_375.png" /></div>
-      <div class="ma pt_10"><img src="${ctx}/theme/front/default/images/ad/ad_375.png" /></div>
+      <div class="ma"><a href="${advert6_1.Url}" target="_blank"><img src="${ctx}${advert6_1.Img}" width="${advert6_1.Width}" height="${advert6_1.Height }"/></a></div>
+      <div class="ma pt_10"><a href="${advert6_2.Url}" target="_blank"><img src="${ctx}${advert6_2.Img}" width="${advert6_2.Width}" height="${advert6_2.Height }"/></a></div>
     </div>
     <div class="gou_box_r">
     <ul class="ul">

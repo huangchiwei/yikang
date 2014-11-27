@@ -69,9 +69,9 @@
      </td>
       <th>是否推荐：</th>
      <td>
-    	<input name=IsRecommend type="radio" value="1" <c:if test="${news.IsRecommend==0}">checked</c:if>/>
+    	<input name=IsRecommend type="radio" value="1" checked="checked"/>
     	<label>是</label>
-    	<input name="IsRecommend" type="radio" value="0" checked="checked" />
+    	<input name="IsRecommend" type="radio" value="0"  <c:if test="${news.IsRecommend==0}">checked</c:if>/>
     	<label>否</label>
      </td>
 	   </tr> 
