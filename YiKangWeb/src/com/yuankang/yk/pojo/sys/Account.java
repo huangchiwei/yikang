@@ -1,4 +1,4 @@
-package com.yuankang.yk.pojo.investfinance;
+package com.yuankang.yk.pojo.sys;
 
 import java.io.Serializable;
 import java.util.Date;

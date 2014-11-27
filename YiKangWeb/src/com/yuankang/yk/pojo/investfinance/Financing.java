@@ -17,6 +17,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.ForeignKey;
 
+import com.yuankang.yk.pojo.sys.Account;
 import com.yuankang.yk.pojo.sys.Mcode;
 import com.yuankang.yk.pojo.sys.Region;
 

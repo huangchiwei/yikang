@@ -3,7 +3,7 @@ package com.yuankang.yk.controller.admin.investfinance;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.yuankang.yk.pojo.investfinance.Account;
+import com.yuankang.yk.pojo.sys.Account;
 
 /**
  * 类说明:账号
