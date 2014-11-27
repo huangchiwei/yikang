@@ -1,8 +1,5 @@
 package com.yuankang.yk.quartz;
 
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
-
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
@@ -10,6 +7,8 @@ import org.armysoft.core.Pagination;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import com.yuankang.yk.publics.Constants;
+import com.yuankang.yk.publics.tools.RemoteRequestUtil;
 import com.yuankang.yk.service.investfinance.FinancingService;
 import com.yuankang.yk.service.investfinance.InvestmentService;
 import com.yuankang.yk.service.news.NewsService;
@@ -31,8 +30,13 @@ public class QuartzJob {
 	@Resource
 	private NewsService newsService;
 
-	public static ConcurrentMap<String, Object> indexData = new ConcurrentHashMap<String, Object>();
 
+	@PostConstruct
+	public void init() {
+		updateIndexData();
+		updatehealthData();
+	}
+	
 	@Scheduled(cron = "0 0/5 * * * ?")
 	public void updateIndexData() {
 		try {
@@ -40,27 +44,31 @@ public class QuartzJob {
 			Pagination page = new Pagination(1);
 			page.setPageSize(5);
 			// 首页5条投资
-			indexData.put("investList1", investmentService.getListByPage(page));
+			Constants.indexData.put("investList1", investmentService.getListByPage(page));
 			// 首页5条融资
-			indexData.put("financeList1", financingService.getListByPage(page));
+			Constants.indexData.put("financeList1", financingService.getListByPage(page));
 			// 投融资首页8条投资
 			page.setPageSize(8);
-			indexData.put("investList2", investmentService.getListByPage(page));
+			Constants.indexData.put("investList2", investmentService.getListByPage(page));
 			// 投融资首页8条融资
 			page.setPageSize(8);
-			indexData.put("financeList2", financingService.getListByPage(page));
+			Constants.indexData.put("financeList2", financingService.getListByPage(page));
 			//投融资首页6条投融资行业资讯
-			indexData.put("hangyezixun", newsService.getNews("行业新闻", 6));
+			Constants.indexData.put("hangyezixun", newsService.getNews("行业新闻", 6));
 			//投融资首页6条投融资政策法规
-			indexData.put("zhengcefagui", newsService.getNews("国家法律法规", 6));
-			System.out.println("456*****");
+			Constants.indexData.put("zhengcefagui", newsService.getNews("国家法律法规", 6));
+			System.out.println("初始化首页信息...");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	@PostConstruct
-	public void init() {
-		this.updateIndexData();
+	@Scheduled(cron = "0 0 2 * * ?")
+	public void updatehealthData(){
+		//外部地区
+		Constants.indexData.put("areas", RemoteRequestUtil.requestArea());
+		//外部科室
+		Constants.indexData.put("categorys", RemoteRequestUtil.requestCategory());
+		System.out.println("健康库数据...");
 	}
 }

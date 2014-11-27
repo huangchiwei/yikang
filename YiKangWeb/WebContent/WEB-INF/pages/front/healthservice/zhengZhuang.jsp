@@ -3,10 +3,7 @@
         <div class="mainTitle">
             <h2>所有症状</h2>
       </div>
-        <div class="ksInfo">
-          <p>内科是一个涉及多个学科的科室，是综合医院和诊所最基础的科室。一般内科包括了普通内科、消化内科、呼吸内科、心血管内科、肾内科、神经内科、内分泌科、血液病科、风湿免疫科等学科。广义的内科学更包含了皮肤科、...<a href="http://jbk.familydoctor.com.cn/categoryinfo_1.html" class="actionA">[详细]</a></p>
-      </div>
-        <div class="kulist">
+                <div class="kulist">
             <div class="itemListContent">
             <div class="diseaseItem">
                 <div class="itemTitle">

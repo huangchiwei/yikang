@@ -1,10 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@taglib uri="/WEB-INF/tag.tld" prefix="p" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="typeName" value="${type == 1 ? '症状查询' : (type == 2 ? '医生查询' : (type == 3 ? '疾病查询' : ''))}"/>
-<title>健康服务-${typeName}--按科室找</title>
+<c:choose>
+    	<c:when test="${type == 1}">
+    		<c:set var="typeName" value="症状"/>
+    	</c:when>
+    	<c:when test="${type == 2}">
+    		<c:set var="typeName" value="医生"/>
+    	</c:when>
+    	<c:when test="${type == 3}">
+    		<c:set var="typeName" value="疾病"/>
+    	</c:when>
+    </c:choose>
+<title>健康服务-${typeName}查询--按科室找</title>
 <link href="${ctx}/theme/front/default/style/master.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/theme/front/default/style/default.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/theme/front/healthservice/css/list.css" rel="stylesheet" type="text/css" />
@@ -35,9 +46,9 @@ $(function(){
   <div class="n_box">
    <div class="new_logo"><img src="${ctx}/theme/front/healthservice/images/health_logo.png" /></div>
    <div class="lanren">
-    <a href='${ctx}/healthService/index.html?type=1' class="${type ==1 ? 'thisclass' : ''}">症状查询</a>
-    <a href='${ctx}/healthService/index.html?type=2' class="${type ==2 ? 'thisclass' : ''}">医生查询</a>
-    <a href='${ctx}/healthService/index.html?type=3' class="${type ==3 ? 'thisclass' : ''}">疾病查询</a>
+    <a href='${ctx}/healthService/zzk/1.html' class="${type ==1 ? 'thisclass' : ''}">症状查询</a>
+    <a href='${ctx}/healthService/ysk/1.html' class="${type ==2 ? 'thisclass' : ''}">医生查询</a>
+    <a href='${ctx}/healthService/jbk/1.html' class="${type ==3 ? 'thisclass' : ''}">疾病查询</a>
     <a href='javascript:' class="${type ==4 ? 'thisclass' : ''}">就医指南</a>
     <a href='javascript:' class="${type ==5 ? 'thisclass' : ''}">预约挂号</a>
    </div>
@@ -52,11 +63,11 @@ $(function(){
  <!--二级头部_end-->
   <!--search_one-->
   <div class="s_header">
-      <h1><a href="#">症状查找</a></h1>
+      <h1><a href="#">${typeName}查找</a></h1>
   </div>
   <div class="s_brumbs">
     当前位置：<a href="http://www.familydoctor.com.cn/">首页</a>&nbsp;&gt;&nbsp;<a href="http://zzk.familydoctor.com.cn/">
-	${typeName}</a></div>
+	查${typeName}</a></div>
     <div class="s_one">
     <div class="colL">
         <!--科室类别 开始-->
@@ -74,7 +85,6 @@ $(function(){
     	<c:when test="${type == 3}">
     		<jsp:include page="/WEB-INF/pages/front/healthservice/jiBing.jsp" />
     	</c:when>
-    	
     </c:choose>
     	
     </div>
