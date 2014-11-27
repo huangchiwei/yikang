@@ -113,37 +113,37 @@ $(document).ready(function($){
     <div class="news_b_l_r">
      <div class="news_t">
       <div class="title_box">
-       <h1><a href="${ctx}/front/news/list/${lawList1.ID}.html">${lawList1.Title }</a></h1>
+       <h1><a href="${ctx}/front/news/list/${lawList1.ID}.html">${fn:substring(lawList1.Title , 0, 20) }</a></h1>
        <ul>
-        <li><div class="r">[&nbsp;<a href="${ctx}/front/news/detail/${lawList2.ID}.html">${lawList2.Title }</a>&nbsp;]</div></li>
-        <li><div class="l">[&nbsp;<a href="${ctx}/front/news/detail/${lawList3.ID}.html">${lawList3.Title }</a>&nbsp;]</div></li>
+        <li><div class="r">[&nbsp;<a href="${ctx}/front/news/detail/${lawList2.ID}.html">${fn:substring(lawList2.Title , 0, 10) }</a>&nbsp;]</div></li>
+        <li><div class="l">[&nbsp;<a href="${ctx}/front/news/detail/${lawList3.ID}.html">${fn:substring(lawList3.Title , 0, 10) }</a>&nbsp;]</div></li>
        </ul>
       </div>
       <div class="title_box">
-       <h1><a href="${ctx}/front/news/list/${newsList1.ID}.html">${newsList1.Title }</a></h1>
+       <h1><a href="${ctx}/front/news/list/${newsList1.ID}.html">${fn:substring(newsList1.Title , 0, 20) }</a></h1>
        <ul>
-        <li><div class="r">[&nbsp;<a href="${ctx}/front/news/detail/${newsList2.ID}.html">${newsList2.Title }</a>&nbsp;]</div></li>
-        <li><div class="l">[&nbsp;<a href="${ctx}/front/news/detail/${newsList3.ID}.html">${newsList3.Title }</a>&nbsp;]</div></li>
+        <li><div class="r">[&nbsp;<a href="${ctx}/front/news/detail/${newsList2.ID}.html">${fn:substring(newsList2.Title , 0, 10) }</a>&nbsp;]</div></li>
+        <li><div class="l">[&nbsp;<a href="${ctx}/front/news/detail/${newsList3.ID}.html">${fn:substring(newsList3.Title , 0, 10) }</a>&nbsp;]</div></li>
        </ul>
       </div>
       <div class="title_box">
-       <h1><a href="${ctx}/front/news/list/${focusList1.ID}.html">${focusList1.Title }</a></h1>
+       <h1><a href="${ctx}/front/news/list/${focusList1.ID}.html">${fn:substring(focusList1.Title , 0, 20) }</a></h1>
        <ul>
-        <li><div class="r">[&nbsp;<a href="${ctx}/front/news/detail/${focusList2.ID}.html">${focusList2.Title }</a>&nbsp;]</div></li>
-        <li><div class="l">[&nbsp;<a href="${ctx}/front/news/detail/${focusList3.ID}.html">${focusList3.Title }</a>&nbsp;]</div></li>
+        <li><div class="r">[&nbsp;<a href="${ctx}/front/news/detail/${focusList2.ID}.html">${fn:substring(focusList2.Title , 0, 10) }</a>&nbsp;]</div></li>
+        <li><div class="l">[&nbsp;<a href="${ctx}/front/news/detail/${focusList3.ID}.html">${fn:substring(focusList3.Title , 0, 10) }</a>&nbsp;]</div></li>
        </ul>
       </div>
       <div class="title_box">
-       <h1><a href="${ctx}/front/news/list/${actiList1.ID}.html">${actiList1.Title }</a></h1>
+       <h1><a href="${ctx}/front/news/list/${actiList1.ID}.html">${fn:substring(actiList1.Title , 0, 20) }</a></h1>
        <ul>
-        <li><div class="r">[&nbsp;<a href="${ctx}/front/news/detail/${actiList2.ID}.html">${actiList2.Title }</a>&nbsp;]</div></li>
-        <li><div class="l">[&nbsp;<a href="${ctx}/front/news/detail/${actiList3.ID}.html">${actiList3.Title }</a>&nbsp;]</div></li>
+        <li><div class="r">[&nbsp;<a href="${ctx}/front/news/detail/${actiList2.ID}.html">${fn:substring(actiList2.Title , 0, 10) }</a>&nbsp;]</div></li>
+        <li><div class="l">[&nbsp;<a href="${ctx}/front/news/detail/${actiList3.ID}.html">${fn:substring(actiList3.Title , 0, 10) }</a>&nbsp;]</div></li>
        </ul>
       </div>
      </div>
       <ul class="news_t2">
       <c:forEach items="${hotList}" var="o">
-      <li><a href="${ctx}/front/news/detail/${o.ID}.html">${o.Title}</a></li>
+      <li><a href="${ctx}/front/news/detail/${o.ID}.html">${fn:substring(o.Title , 0,35)}</a></li>
       </c:forEach>
        </ul>
     </div>

@@ -31,7 +31,7 @@
       </div>
       <ul class="ul2">
        <c:forEach items="${otherIndustryNews}" var="o" varStatus="sta">
-        <li><a href="javascript:void(0);" onclick="jump(${o.ID},1)">${fn:substring(o.Title, 0, 15) }</a></li>
+        <li><a href="javascript:void(0);" onclick="jump(${o.ID},1)">${fn:substring(o.Title, 0, 30) }</a></li>
        </c:forEach>
       
       </ul>
@@ -44,7 +44,7 @@
       </div>
       <ul class="ul">
        <c:forEach items="${industryFocusList}" var="o" varStatus="sta">
-        <li><a href="javascript:void(0);" onclick="jump(${o.ID},1)">${fn:substring(o.Title, 0, 15) }</a></li>
+        <li><a href="javascript:void(0);" onclick="jump(${o.ID},1)">${fn:substring(o.Title, 0, 30) }</a></li>
        </c:forEach>
       
       </ul>
@@ -56,7 +56,7 @@
       </div>
       <ul class="ul">
       <c:forEach items="${allLawList}" var="o" varStatus="sta">
-        <li><a href="javascript:void(0);" onclick="jump(${o.ID},1)">${fn:substring(o.Title, 0, 15) }</a></li>
+        <li><a href="javascript:void(0);" onclick="jump(${o.ID},1)">${fn:substring(o.Title, 0, 30) }</a></li>
        </c:forEach>
       
       </ul>
