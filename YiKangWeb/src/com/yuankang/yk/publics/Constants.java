@@ -6,6 +6,8 @@ import java.net.URL;
 import java.util.HashSet;
 import java.util.Properties;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 /**
  * 常量定义
@@ -87,5 +89,6 @@ public abstract class Constants
 	/** 广告保存路径*/
 	public static final String UPLOAD_AD_URL = "ad/";
 	
-	
+	public static ConcurrentMap<String, Object> indexData = new ConcurrentHashMap<String, Object>();
+	public static ConcurrentMap<String, Object> healthData = new ConcurrentHashMap<String, Object>();
 }

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.yuankang.yk.quartz.QuartzJob;
+import com.yuankang.yk.publics.Constants;
 import com.yuankang.yk.service.advert.AdvertService;
 import com.yuankang.yk.service.news.NewsService;
 
@@ -30,9 +30,11 @@ public class IndexController {
 	private NewsService newsService;
 	@RequestMapping("index")
 	public String index(Model model){
-		model.addAttribute("investList1", QuartzJob.indexData.get("investList1"));
-		model.addAttribute("financeList1", QuartzJob.indexData.get("financeList1"));
-		////////////////////////////////广告////////////////////////////////////////////
+
+		model.addAttribute("investList1", Constants.indexData.get("investList1"));
+		model.addAttribute("financeList1", Constants.indexData.get("financeList1"));
+		
+
 		//轮播广告indexCarousel
 		List<Map<String, Object>>  advert1=advertService.getByPosCode("1");
 		if(advert1!=null && advert1.size()>0){
