@@ -31,8 +31,8 @@
      <td>
      	<select id="levelPage" name="levelPage" class="slectBox" >
      	  <option  value="one" <c:if test="${adPosition.LevelPage=='one'}">selected="selected"</c:if>>一级首页</option>
-     	  <option  value="two" <c:if test="${adPosition.LevelPage=='two'}">selected="selected"</c:if>>二级列表页</option>
-     	  <option  value="third" <c:if test="${adPosition.LevelPage=='third'}">selected="selected"</c:if>>三级详细页</option>
+     	  <option  value="two" <c:if test="${adPosition.LevelPage=='two'}">selected="selected"</c:if>>二级页</option>
+     	  <option  value="third" <c:if test="${adPosition.LevelPage=='third'}">selected="selected"</c:if>>三级详细列表页</option>
      	</select>
      </td>
 	     <th>位置名称：</th>

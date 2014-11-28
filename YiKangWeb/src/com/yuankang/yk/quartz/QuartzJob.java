@@ -33,8 +33,8 @@ public class QuartzJob {
 
 	@PostConstruct
 	public void init() {
-		updateIndexData();
-		updatehealthData();
+		/*updateIndexData();
+		updatehealthData();*/
 	}
 	
 	@Scheduled(cron = "0 0/5 * * * ?")
