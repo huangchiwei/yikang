@@ -22,14 +22,19 @@ public class HealthServiceController extends BaseController{
 
 	@RequestMapping("zzk/{currentPage}")
 	public String zhengZhuangKu(@PathVariable Integer currentPage,Model model,Integer categoryId){
-		Pagination page = initPage(currentPage);
-		page.setPageSize(32);
-		model.addAttribute("type", 1);
-		model.addAttribute("categorys", Constants.healthData.get("categorys"));
-		model.addAttribute("list", RemoteRequestUtil.requestSymptomByPage(page, categoryId));
-		model.addAttribute("page", page);
-		model.addAttribute("categoryId", categoryId);
-		return "front/healthservice/index";
+		try {
+			Pagination page = initPage(currentPage);
+			page.setPageSize(32);
+			model.addAttribute("type", 1);
+			model.addAttribute("categorys", Constants.healthData.get("categorys"));
+			model.addAttribute("list", RemoteRequestUtil.requestSymptomByPage(page, 1));
+			model.addAttribute("page", page);
+			model.addAttribute("categoryId", categoryId);
+			return "front/healthservice/index";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "";
+		}
 	}
 	
 	@RequestMapping("ysk/{currentPage}")

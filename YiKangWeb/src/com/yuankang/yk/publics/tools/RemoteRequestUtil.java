@@ -54,7 +54,7 @@ public class RemoteRequestUtil {
 	 * @param parameters
 	 * @return
 	 */
-	private static String sendRequest(String url, String method,
+	public static String sendRequest(String url, String method,
 			String parameters) {
 		StringBuilder response = new StringBuilder();
 		try {
@@ -62,6 +62,7 @@ public class RemoteRequestUtil {
 				if (StringUtils.hasText(parameters))
 					url += "?" + parameters;
 			}
+			System.out.println("url:" + url);
 			URL httpurl = new URL(url);
 			HttpURLConnection hc = (HttpURLConnection) httpurl.openConnection();
 			hc.setRequestMethod(method);
@@ -116,11 +117,12 @@ public class RemoteRequestUtil {
 				ins.close();
 			}
 			hc.disconnect();
+			return response.toString();
 		} catch (Exception e) {
 			System.out.println("发送" + method + "请求出现异常！");
 			e.printStackTrace();
 		}
-		return response.toString();
+		return "";
 	}
 
 	/**
@@ -130,8 +132,10 @@ public class RemoteRequestUtil {
 	 */
 	public static JSONArray parseJsonList(String jsonStr){
 		try {
-			JSONObject json = JSONObject.fromObject(jsonStr);
-			return JSONArray.fromObject(json.get("List"));
+			if(StringUtils.hasText(jsonStr)){
+				JSONObject json = JSONObject.fromObject(jsonStr);
+				return JSONArray.fromObject(json.get("List"));
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -158,11 +162,17 @@ public class RemoteRequestUtil {
 	 * 分页查询症状库
 	 * @return
 	 */
-	public static JSONArray requestSymptomByPage(Pagination page,int categoryId){
-		String parameters = "id=" + categoryId + "&page=" + page.getCurrentPage() + "&size=" + page.getPageSize();
-		String str =  sendRequest(CATEGORY_URL, RequestMethod.GET.name(), parameters);
+	public static JSONArray requestSymptomByPage(Pagination page,Integer categoryId){
+		String parameters = "";
+		parameters += "page=" + page.getCurrentPage() + "&size=" + page.getPageSize() + "&pid=0&cid=0";
+		if(categoryId != null){
+			parameters += "&id=" + categoryId;
+		}else{
+			parameters += "&id=0";
+		}
+		String str =  sendRequest(SYMPTOM_URL, RequestMethod.GET.name(), parameters);
 		JSONObject json = JSONObject.fromObject(str);
-		page.setTotalRowCount(json.getInt("count"));
+		page.setTotalRowCount(Integer.parseInt(json.get("Count") + ""));
 		page.init();
 		return JSONArray.fromObject(json.get("List"));
 	}

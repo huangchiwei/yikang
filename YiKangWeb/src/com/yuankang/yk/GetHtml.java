@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import com.yuankang.yk.publics.tools.RemoteRequestUtil;
+
 /**
  * 类说明:
  * @author wei
@@ -17,7 +19,7 @@ public class GetHtml {
 	public static void main(String[] args) {
 		//System.out.println(getHtmlContent("http://zzk.familydoctor.com.cn/"));
 		System.out.println("********-");
-		//System.out.println(RemoteRequestUtil.parseJsonList(RemoteRequestUtil.requestArea()));
+		System.out.println(RemoteRequestUtil.sendRequest("http://gdbjxh.apko.familydoctor.com.cn/datacenter/area/_get", "GET", null));
 	}
 	
 	/** 

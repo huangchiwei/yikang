@@ -66,9 +66,9 @@ public class QuartzJob {
 	@Scheduled(cron = "0 0 2 * * ?")
 	public void updatehealthData(){
 		//外部地区
-		Constants.indexData.put("areas", RemoteRequestUtil.requestArea());
+		Constants.healthData.put("areas", RemoteRequestUtil.requestArea());
 		//外部科室
-		Constants.indexData.put("categorys", RemoteRequestUtil.requestCategory());
+		Constants.healthData.put("categorys", RemoteRequestUtil.requestCategory());
 		System.out.println("健康库数据...");
 	}
 }
