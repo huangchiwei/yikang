@@ -23,10 +23,31 @@
 <script src="${ctx}/theme/front/healthservice/js/jquery.carouFredSel-6.0.4-packed.js"></script>
 <script>
 $(function(){
-	var lanren = $(".lanren a");
-	lanren.click(function(){
-		$(this).addClass("thisclass").siblings().removeClass("thisclass");
+	$('#provinceid').change(function(){
+		if(this.value == -1){
+			$("#cityid").html('<option value="-1">选择城市</option>');
+			return;
+		}
+		$.ajax({
+			url : "${ctx}/healthService/getCitysByProvince.json",
+			type : "get",
+			data : "pid=" + this.value,
+			dataType : "json",
+			async : false,
+			success : function(data){
+				$("#cityid").html('<option value="-1">选择城市</option>');
+				$.each(data,function(i,item){
+					$("<option/>").val(item.Id).attr("selected",item.Id == '${cid}').html(item.Name).appendTo("#cityid");
+				});
+			},
+			error : function(){
+				
+			}
+		});
 	});
+	if('${pid}' != '' && '${pid}' != -1){
+		$('#provinceid').trigger('change');
+	}
 });
 </script>
 </head>

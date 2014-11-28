@@ -41,6 +41,6 @@
             
             
             </div>
-           <div class="scott"><p:pager/></div></p>
+           <div class="scott"><p:pager/></div>
         </div>
     </div>
