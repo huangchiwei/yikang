@@ -25,6 +25,8 @@ public abstract class Constants
 	/** 定义存放在Session中的用户 */
 	public static final String SESSION_USER = "session_user";
 	
+	public static final String FRONT_KEY = "front_key";
+	
 	/** 角色停用状态 */
 	public final static int ROLE_STOP_STATUS = -1;
 	/** 角色启用状态  */
