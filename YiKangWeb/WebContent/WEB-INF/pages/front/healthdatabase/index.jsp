@@ -4,20 +4,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <c:choose>
-    	<c:when test="${type == 1}">
-    		<c:set var="typeName" value="症状"/>
-    	</c:when>
-    	<c:when test="${type == 2}">
-    		<c:set var="typeName" value="医生"/>
-    	</c:when>
-    	<c:when test="${type == 3}">
-    		<c:set var="typeName" value="疾病"/>
-    	</c:when>
-    </c:choose>
-<title>健康服务-${typeName}查询</title>
+        	<c:when test="${type == 6}">
+        		<c:set var="typeName" value="医院"/>
+        	</c:when>
+        	<c:when test="${type == 7}">
+        		 <c:set var="typeName" value="药品"/>
+        	</c:when>
+        </c:choose>
+<title>健康数据库---${typeName}库</title>
 <link href="${ctx}/theme/front/default/style/master.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/theme/front/default/style/default.css" rel="stylesheet" type="text/css" />
-<link href="${ctx}/theme/front/healthservice/css/list.css" rel="stylesheet" type="text/css" />
+<link href="${ctx}/theme/front/healthdatabase/css/list.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${ctx}/js/jquery-1.8.0.min.js"></script>
 <script>
 $(function(){
@@ -55,13 +52,11 @@ $(function(){
 <div class="n">
  <div class="news_nav">
   <div class="n_box">
-   <div class="new_logo"><img src="${ctx}/theme/front/healthservice/images/health_logo.png" /></div>
+   <div class="new_logo"><img src="${ctx}/theme/front/healthdatabase/images/health_logo.png" /></div>
    <div class="lanren">
-    <a href='${ctx}/healthService/zzk/1.html' class="${type ==1 ? 'thisclass' : ''}">症状查询</a>
-    <a href='${ctx}/healthService/ysk/1.html' class="${type ==2 ? 'thisclass' : ''}">医生查询</a>
-    <a href='${ctx}/healthService/jbk/1.html' class="${type ==3 ? 'thisclass' : ''}">疾病查询</a>
-    <a href='javascript:' class="${type ==4 ? 'thisclass' : ''}">就医指南</a>
-    <a href='javascript:' class="${type ==5 ? 'thisclass' : ''}">预约挂号</a>
+    <a href='${ctx}/healthDatabase/yyk/1.html' class="${type == 6 ? 'thisclass' : ''}">医院库</a>
+    <a href='${ctx}/healthDatabase/ypk/1.html' class="${type == 7 ? 'thisclass' : ''}">药品库</a>
+    <a href='#'>保健品库</a>
    </div>
   </div>
   <div class="search">
@@ -74,34 +69,36 @@ $(function(){
  <!--二级头部_end-->
   <!--search_one-->
   <div class="s_header">
-      <h1><a href="#">${typeName}查找</a></h1>
+      <h1>${typeName}查询</h1>
   </div>
   <div class="s_brumbs">
-    当前位置：<a href="${ctx}">首页</a>&nbsp;&gt;&nbsp;
-	查${typeName}</div>
+    当前位置：<a href="${ctx}">首页</a>&nbsp;&gt;&nbsp;查${typeName}</div>
     <div class="s_one">
     <div class="colL">
         <!--科室类别 开始-->
-          <jsp:include page="/WEB-INF/pages/front/healthservice/category.jsp" />
-
+        <c:choose>
+        	<c:when test="${type == 6}">
+        		<jsp:include page="/WEB-INF/pages/front/healthservice/category.jsp" />
+        	</c:when>
+        	<c:when test="${type == 7}">
+        		 <jsp:include page="/WEB-INF/pages/front/healthdatabase/medicineEfficacy.jsp" />
+        	</c:when>
+        </c:choose>
+         
         <!--科室类别 结束-->
     </div>
     <c:choose>
-    	<c:when test="${type == 1}">
-    		<jsp:include page="/WEB-INF/pages/front/healthservice/zhengZhuang.jsp" />
+    	<c:when test="${type == 6}">
+    		<jsp:include page="/WEB-INF/pages/front/healthdatabase/yiYuan.jsp" />
     	</c:when>
-    	<c:when test="${type == 2}">
-    		<jsp:include page="/WEB-INF/pages/front/healthservice/yiSheng.jsp" />
-    	</c:when>
-    	<c:when test="${type == 3}">
-    		<jsp:include page="/WEB-INF/pages/front/healthservice/jiBing.jsp" />
+    	<c:when test="${type == 7}">
+    		<jsp:include page="/WEB-INF/pages/front/healthdatabase/yaoPin.jsp" />
     	</c:when>
     </c:choose>
-    	
     </div>
   <!--search_one_end-->
   <!--bot-->
-	<jsp:include page="/WEB-INF/pages/front/index/bottom.jsp" />  
+  <jsp:include page="/WEB-INF/pages/front/index/bottom.jsp" />  
   <!--bot_end--> 
 </div>
 

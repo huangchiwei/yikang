@@ -1,5 +1,6 @@
 package com.yuankang.yk.dao.investfinance.investment;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -19,4 +20,7 @@ public interface InvestmentDao extends BaseDao<Investment> {
 	List<Investment> findByPage(Pagination page,String title);
 
 	List<Map<String,Object>> findListByPage(Pagination page);
+
+	List<Map<String, Object>> findListByPage(Pagination page,
+			Long industryId, Integer provinceId, Date time);
 }

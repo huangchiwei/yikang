@@ -98,7 +98,7 @@
 	padding: 10px;
 }
 .n .news_nav .n_box .lanren {
-	width: 400px;
+	width: 350px;
 	height:50px;
 	line-height:32px;
 	margin-top: 0;
@@ -113,9 +113,9 @@
 	display:block;
 	float:left;
 	padding-top: 0px;
-	padding-right: 12px;
+	padding-right: 20px;
 	padding-bottom: 0px;
-	padding-left: 12px;
+	padding-left: 20px;
 	font-size: 14px;
 }
 .lanren a:hover{
@@ -307,7 +307,7 @@ line-height: 50px;
 	font-family: Arial;
 	font-size: 12px;
 	font-style: normal;
-	line-height: 40px;
+	line-height: 50px;
 	font-weight: normal;
 	font-variant: normal;
 }
@@ -547,23 +547,23 @@ white-space: nowrap;
 	border-bottom-color: #CCCCCC;
 	margin-bottom: 15px;
 	padding-bottom: 15px;
+	overflow: hidden;
 
 }
 .listcontent  .listItem  .photo {
 	float: left;
-	width: 110px;
+	width: 206px;
 }
 .listcontent  .listItem  .photo  img {
-	height: 125px;
-	width: 100px;
+	width: 200px;
 	padding: 2px;
 	border: 1px solid #CCCCCC;
+	height: 150px;
 
 }
 .listcontent .listItem .info_box {
-	width: 570px;
+	width: 480px;
 	margin-left: auto;
-	height: 135px;
 }
 .listcontent .listItem .info_box .level {
 	padding-top: 5px;
@@ -585,7 +585,8 @@ white-space: nowrap;
 	color: #666666;
 }
 .listcontent .listItem .info_box .attribute .dw {
-	padding-bottom: 10px;
+	padding-bottom: 5px;
+	line-height: 24px;
 }
 .listcontent .listItem .info_box .attribute .dw a {
 	color: #336600;
@@ -596,328 +597,13 @@ white-space: nowrap;
 	color: #336600;
 	font-weight: bold;
 }
-.d {
-	margin-right: auto;
-	margin-left: auto;
-	background-color: #FFFFFF;
-	padding: 15px;
-	border: 1px solid #e0e0e0;
-}
-.d  .subLogo {
-	zoom: 1;
-	overflow: hidden;
-	font-family: "Microsoft YaHei";
-	padding: 0px 0 0 10px;
-	margin-bottom: 11px;
-	overflow: hidden;
-	font-size: 18px;
-}
- .subLogo h1 {
-display: block;
-float: left;
-font: normal 24px/50px Microsoft Yahei,SimHei;
-color: #529325;
-}
-.d_nav  {
-	margin-right: auto;
-	margin-left: auto;
-	background-color: #FFFFFF;
-	padding: 15px;
-	border-top-width: 2px;
-	border-bottom-width: 1px;
-	border-top-style: solid;
-	border-bottom-style: solid;
-	border-top-color: #529325;
-	border-bottom-color: #e0e0e0;
-}
-.subNav {
-background: #f9f9f9;
-height: 40px;
-border-bottom: 1px solid #e3e3e3;
-border-top: 2px solid #529325;
-}
-.subNav li.cur {
-background: #7bbd44;
-border-right: 1px solid #7bbd44;
-}
-.subNav ul li {
+.listcontent .listItem .photo2 {
 	float: left;
-	_display: inline;
-	border-right: 1px solid #e3e3e3;
-	height: 40px;
-	padding: 0 34px 0 33px;
+	width: 186px;
 }
-.subNav li a {
-font: normal 18px/40px Microsoft Yahei,SimHei;
-}
-.subNav ul li.end {
-border-right: none;
-}
-.subNav li.cur a {
-color: #fff;
-}
-.clearfix {
-	zoom: 1;
-	overflow: hidden;
-	padding-top: 15px;
-}
-.content  {
-	float: left;
-	width: 670px;
-	padding: 0;
-	border: none;
-}
-.module  {
-margin: 0 0 15px 0;
-background: #fff;
-}
-.module  .titleBar  {
-	background: #f9f9f9;
-	height: 45px;
-	overflow: hidden;
-	zoom: 1;
-	line-height: 45px;
-	border-bottom: 1px solid #ececec;
-}
-.module  .titleBar  h2  {
-float: left;
-_display: inline;
-text-indent: 10px;
-font: normal 18px/40px Microsoft Yahei,SimHei;
-color: #360;
-}.module  .moduleContent  {
-	padding: 15px;
-	font-size: 14px;
-	line-height: 30px;
-	color: #333333;
-
-}
-.module  .moduleContent  .dl {
-	line-height: 30px;
-	overflow: hidden;
-}
-.module   .moduleContent   .dl  .dt {
-	color: #666666;
-	text-align: right;
-	float: left;
-	width: 200px;
-}
-.module .moduleContent .dl .dd {
-	margin-left: auto;
-	width: 410px;
-}
-
-
-.doctor_box {
-	padding: 15px;
-	margin-bottom: 15px;
-	border: 1px solid #e0e0e0;
-}
-.doctor_box .js {
-	width: 450px;
-	margin-left: auto;
-	font-size: 14px;
-	height: 210px;
-}
-.doctor_box .js .li {
-	line-height: 30px;
-	height: 30px;
-}
-.doctor_box   .js   .li   span       {
-	color: #999999;
-}
-
-.doctor_box .js .photo {
-	position: absolute;
-	left: -180px;
-	top: 5px;
-}
-
-.doctor_box .js .li a {
-	color: #529325;
-}
-
-
-
-
-.module  .moduleContent  p  {
-	padding-bottom: 15px;
-	text-indent: 2em;
-}
-.moduleContent .textList li {
-	font-size: 14px;
-	height: 30px;
-	line-height: 30px;
-	text-indent: 0;
-	padding-left: 10px;
-}
-.textList li a {
-	display: inline-block;
-	width: 540px;
-}
-.textList li .date {
-color: #999;
-font-size: 12px;
-}
-.textList li {
-	background-repeat: no-repeat;
-	background-image: url(../images/dian.png);
-	background-position: 0px 10px;
-}
-.sideBar  {
-	width: 250px;
-	float: right;
-}
-.titleBar h4 {
-float: left;
-_display: inline;
-text-indent: 10px;
-font: normal 18px/40px Microsoft Yahei,SimHei;
-color: #360;
-}
-.titleBar h4 a {
-color: #360;
-}
-.titleBar .englishTitle {
-float: left;
-_display: inline;
-text-indent: 10px;
-color: #aaa;
-font: normal 14px/45px Arial;
-}
-.imgText_60_75 {
-	zoom: 1;
-	margin-bottom: 15px;
-}
-.imgText_60_75 .imgText_img {
-width: 60px;
-height: 75px;
-border: 1px solid #ccc;
-float: left;
-margin-right: 10px;
-padding: 2px;
-}
-.imgText_60_75 .text {
-	width: 140px;
-	margin-left: auto;
-
-}
-.module2  .moduleContent2 {
-	font-size: 14px;
-	line-height: 21px;
-	color: #333333;
-	padding-top: 15px;
-	padding-right: 15px;
-	padding-left: 15px;
-}
-.imgText_60_75 .text a {
-	color: #336600;
-
-}
-.imgText_60_75 .text .zc {
-	font-size: 12px;
-
-}
-.imgText_60_75 .text .sc {
-	font-size: 12px;
-}
-.content .ad_670 {
-	margin-bottom: 15px;
-
-}
-.module2  .moduleContent2  li {
-	padding-left: 15px;
-	background-image: url(../images/icon2.png);
-	line-height: 24px;
-	height: 24px;
-	background-repeat: no-repeat;
-
-}
-.module2  .moduleContent2  li  a {
-	font-size: 12px;
-
-}
-.module2  .moduleContent2  li  a:hover {
-	color: #358902;
-
-}
-.module2  .moduleContent3 {
-	font-size: 14px;
-	line-height: 21px;
-	color: #333333;
-	padding: 15px;
-}
-.module2  .moduleContent3  li {
-	padding-left: 15px;
-	background-image: url(../images/icon2.png);
-	line-height: 24px;
-	height: 24px;
-	background-repeat: no-repeat;
-}
-.module2  .moduleContent3  li  a {
-	font-size: 12px;
-}
-.module2  .moduleContent3  li  a:hover {
-	color: #358902;
-}
-.subNav2 {
-	height: 10px;
-	border-top: 2px solid #529325;
-}
-.module2 {
-	margin: 0 0 15px 0;
-	background: #fff;
-	border: 1px solid #e0e0e0;
-}
-.module2 .titleBar {
-	background: #f9f9f9;
-	height: 40px;
-	overflow: hidden;
-	zoom: 1;
-	line-height: 40px;
-	border-bottom: 1px solid #ececec;
-}
-.module3 {
-	margin: 0 0 15px 0;
-	background: #fff;
-	border: 1px solid #e0e0e0;
-}
-.module3 .titleBar {
-	background: #f9f9f9;
-	height: 40px;
-	overflow: hidden;
-	zoom: 1;
-	line-height: 40px;
-	border-bottom: 1px solid #ececec;
-}
-.module3 .titleBar h2 {
-	float: left;
-	_display: inline;
-	text-indent: 10px;
-	font: normal 18px/40px Microsoft Yahei,SimHei;
-	color: #360;
-}
-.module3 .moduleContent {
-	padding: 15px;
-	font-size: 14px;
-	line-height: 30px;
-	color: #333333;
-}
-.module3 .moduleContent p {
-	padding-bottom: 15px;
-	text-indent: 2em;
-}
-.module3 .moduleContent .dl {
-	line-height: 30px;
-	overflow: hidden;
-}
-.module3 .moduleContent .dl .dt {
-	color: #666666;
-	text-align: right;
-	float: left;
-	width: 150px;
-}
-.module3 .moduleContent .dl .dd {
-	width: 470px;
-	float: right;
+.listcontent .listItem .photo2 img {
+	width: 180px;
+	padding: 2px;
+	border: 1px solid #CCCCCC;
+	height: 141px;
 }

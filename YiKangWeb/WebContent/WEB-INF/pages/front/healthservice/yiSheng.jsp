@@ -22,18 +22,19 @@
 	        </div>
         </div>
        <div class="viewZj">
-            <!-- 查看 -->
+            <span>查看：</span>
+            <span>共有专家（共<b class="c_ff0000">${page.totalRowCount}</b>人）</span>
         </div>
       <div class="listcontent">
       <c:forEach items="${list}" var="o">
       	<div class="listItem">
 	       <div class="photo"><img src="${o.ImgUrl}" width="100" height="125" /></div>
 	       <div class="info_box">
-	        <div class="level"><h1><a href="#">${o.Name}</a></h1>
+	        <div class="level"><h1><a href="${ctx}/healthService/ysDetail/${o.Id}.html">${o.Name}</a></h1>
 	        ${o.ClinicTitle} &nbsp; ${TeachTitle}</div>
 	        <div class="attribute">
-	        <p class="dw">所属单位：<a href="http://yyk.familydoctor.com.cn/27/" target="_blank">${o.HospitalName}</a> &nbsp; 
-	        <a href="http://yyk.familydoctor.com.cn/27/schedule_654/" target="_blank">${o.DepartmentName}</a></p>
+	        <p class="dw">所属单位：<a href="#" target="_blank">${o.HospitalName}</a> &nbsp; 
+	        ${o.DepartmentName}</p>
 	        <p class="sc">擅长疾病：${o.Good != 'null' ? o.Good : ''}</p>
 	    </div>
 	       </div>
