@@ -5,6 +5,10 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -54,7 +58,7 @@ public class RemoteRequestUtil {
 	 * @param parameters
 	 * @return
 	 */
-	private static String sendRequest(String url, String method,
+	public static String sendRequest(String url, String method,
 			String parameters) {
 		StringBuilder response = new StringBuilder();
 		try {
@@ -62,6 +66,7 @@ public class RemoteRequestUtil {
 				if (StringUtils.hasText(parameters))
 					url += "?" + parameters;
 			}
+			System.out.println("url:" + url);
 			URL httpurl = new URL(url);
 			HttpURLConnection hc = (HttpURLConnection) httpurl.openConnection();
 			hc.setRequestMethod(method);
@@ -116,11 +121,12 @@ public class RemoteRequestUtil {
 				ins.close();
 			}
 			hc.disconnect();
+			return response.toString();
 		} catch (Exception e) {
 			System.out.println("发送" + method + "请求出现异常！");
 			e.printStackTrace();
 		}
-		return response.toString();
+		return "";
 	}
 
 	/**
@@ -130,8 +136,10 @@ public class RemoteRequestUtil {
 	 */
 	public static JSONArray parseJsonList(String jsonStr){
 		try {
-			JSONObject json = JSONObject.fromObject(jsonStr);
-			return JSONArray.fromObject(json.get("List"));
+			if(StringUtils.hasText(jsonStr)){
+				JSONObject json = JSONObject.fromObject(jsonStr);
+				return JSONArray.fromObject(json.get("List"));
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -142,27 +150,97 @@ public class RemoteRequestUtil {
 	 * 获取外部系统地区集合
 	 * @return
 	 */
-	public static JSONArray requestArea(){
-		return parseJsonList(sendRequest(AREA_URL, RequestMethod.GET.name(), null));
+	public static List<Map<String,Object>> requestArea(){
+		JSONArray arr = parseJsonList(sendRequest(AREA_URL, RequestMethod.GET.name(), null));
+		List<Map<String,Object>> result = new ArrayList<Map<String,Object>>();
+		int len = arr.size();
+		Map<String,Object> map = null;
+		JSONObject obj = null;
+		for(int i = 0; i < len; i++){
+			map = new HashMap<String, Object>();
+			obj = (JSONObject) arr.get(i);
+			map.put("Id", obj.get("Id"));
+			map.put("ParentId", obj.get("ParentId"));
+			map.put("Name", obj.get("Name"));
+			result.add(map);
+		}
+		return result;
 	}
 	
 	/**
 	 * 获取外部系统科室集合
 	 * @return
 	 */
-	public static JSONArray requestCategory(){
-		return parseJsonList(sendRequest(CATEGORY_URL, RequestMethod.GET.name(), null));
+	public static List<Map<String,Object>> requestCategory(){
+		JSONArray arr = parseJsonList(sendRequest(CATEGORY_URL, RequestMethod.GET.name(), null));
+		List<Map<String,Object>> result = new ArrayList<Map<String,Object>>();
+		int len = arr.size();
+		Map<String,Object> map = null;
+		JSONObject obj = null;
+		for(int i = 0; i < len; i++){
+			map = new HashMap<String, Object>();
+			obj = (JSONObject) arr.get(i);
+			map.put("Id", obj.get("Id"));
+			map.put("ParentId", obj.get("ParentId"));
+			map.put("Name", obj.get("Name"));
+			result.add(map);
+		}
+		return result;
 	}
 	
 	/**
 	 * 分页查询症状库
 	 * @return
 	 */
-	public static JSONArray requestSymptomByPage(Pagination page,int categoryId){
-		String parameters = "id=" + categoryId + "&page=" + page.getCurrentPage() + "&size=" + page.getPageSize();
-		String str =  sendRequest(CATEGORY_URL, RequestMethod.GET.name(), parameters);
+	public static JSONArray requestSymptomByPage(Pagination page,Integer categoryId){
+		String parameters = "";
+		parameters += "page=" + page.getCurrentPage() + "&size=" + page.getPageSize();
+		if(categoryId != null){
+			parameters += "&id=" + categoryId;
+		}
+		String str =  sendRequest(SYMPTOM_URL, RequestMethod.GET.name(), parameters);
 		JSONObject json = JSONObject.fromObject(str);
-		page.setTotalRowCount(json.getInt("count"));
+		page.setTotalRowCount(Integer.parseInt(json.get("Count") + ""));
+		page.init();
+		return JSONArray.fromObject(json.get("List"));
+	}
+
+	/**
+	 * 分页查询医生库
+	 * @return
+	 */
+	public static JSONArray requestDoctorByPage(Pagination page, Integer categoryId,Integer pid,Integer cid) {
+		String parameters = "";
+		parameters += "page=" + page.getCurrentPage() + "&size=" + page.getPageSize();
+		if(categoryId != null){
+			parameters += "&id=" + categoryId;
+		}
+		if(pid != null && pid != -1){
+			parameters += "&pid=" + pid;
+		}
+		if(cid != null && cid != -1){
+			parameters += "&cid=" + cid;
+		}
+		String str =  sendRequest(DOCTOR_URL, RequestMethod.GET.name(), parameters);
+		JSONObject json = JSONObject.fromObject(str);
+		page.setTotalRowCount(Integer.parseInt(json.get("Count") + ""));
+		page.init();
+		return JSONArray.fromObject(json.get("List"));
+	}
+	
+	/**
+	 * 分页查询疾病库
+	 * @return
+	 */
+	public static JSONArray requestDiseaseByPage(Pagination page,Integer categoryId){
+		String parameters = "";
+		parameters += "page=" + page.getCurrentPage() + "&size=" + page.getPageSize();
+		if(categoryId != null){
+			parameters += "&id=" + categoryId;
+		}
+		String str =  sendRequest(DISEEASE_URL, RequestMethod.GET.name(), parameters);
+		JSONObject json = JSONObject.fromObject(str);
+		page.setTotalRowCount(Integer.parseInt(json.get("Count") + ""));
 		page.init();
 		return JSONArray.fromObject(json.get("List"));
 	}
