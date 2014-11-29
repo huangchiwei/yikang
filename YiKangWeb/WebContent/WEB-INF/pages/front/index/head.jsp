@@ -46,15 +46,15 @@
           <li><a href="${ctx}/healthService/zzk/1.html" target="_blank">症状查询</a></li>
           <li><a href="${ctx}/healthService/ysk/1.html" target="_blank">医生查询</a></li>
           <li><a href="${ctx}/healthService/jbk/1.html" target="_blank">疾病查询</a></li>
-          <li><a href="#?type=4">就医指南</a></li>
-          <li><a href="#?type=5">预约挂号</a></li>
+          <li><a href="#">就医指南</a></li>
+          <li><a href="#">预约挂号</a></li>
         </ul>
       </li>
       <li class="drop-menu-effect"><a href="#"><span>健康购</span></a></li>
       <li class="drop-menu-effect"><a href="#"><span>健康数据库</span></a>
       <ul class="submenu">
-          <li><a href="health_database/hospital.html">医院库</a></li>
-          <li><a href="health_database/drug.html">药品库</a></li>
+          <li><a href="${ctx}/healthDatabase/yyk/1.html">医院库</a></li>
+          <li><a href="${ctx}/healthDatabase/ypk/1.html">药品库</a></li>
           <li><a href="#">保健品库</a></li>
         </ul>
       </li>
