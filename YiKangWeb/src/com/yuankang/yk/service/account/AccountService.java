@@ -34,7 +34,7 @@ public class AccountService extends BaseSqlService {
 	 * 激活用户
 	 * @param accountNo
 	 */
-	public void activation(String accountNo) {
+	public void updateStatus(String accountNo) {
 		
 		String sql = "update account set Status=1 where AccountNo='"+accountNo+"'";		
 		up_del(sql);

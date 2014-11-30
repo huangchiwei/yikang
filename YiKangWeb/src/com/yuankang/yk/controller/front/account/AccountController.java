@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -39,6 +40,9 @@ public class AccountController extends BaseController {
 		  if(StringUtils.hasText(key)){//已经登录
 				return "redirect:/index.html";
 			}
+		  if(accountNo==null||accountNo.isEmpty()){
+			  return "front/account/login";
+		  }
 		  model.addAttribute("accountNo",accountNo);
 		  model.addAttribute("pwd",pwd);
 		  String oldCode = (String) request.getSession().getAttribute(
@@ -83,8 +87,11 @@ public class AccountController extends BaseController {
 					accountService.saveRegister(account);
 					//发送激活用户的网址到用户邮箱
 					accountService.sendMail( account);
+					model.addAttribute("accountNo", account.getAccountNo());
+					model.addAttribute("email", account.getEmail());
 					return "front/account/success";
 			  }else{
+				  model.addAttribute("account", account);
 				  request.setAttribute("msg", "验证码不正确!");
 				  return "front/account/register";
 			  }
@@ -108,7 +115,8 @@ public class AccountController extends BaseController {
 		 if(ac!=null){
 			 accountService.sendMail( ac,"acti");
 		 }
-		 model.addAttribute("account", ac);
+		 model.addAttribute("accountNo", ac.get("AccountNo").toString());
+		 model.addAttribute("email", ac.get("Email").toString());
 		 return "front/account/success";
 	  }
 	@RequestMapping(value = "/loginMail.html")
@@ -126,13 +134,13 @@ public class AccountController extends BaseController {
 		}
 		  return "redirect:"+url;
 	  }
-	@RequestMapping(value = "/activation.html")
-	  public String activation(HttpServletRequest request,HttpServletResponse response,Model model,String accountNo,String mailSeq)
+	@RequestMapping(value = "/updateStatus.html")
+	  public String updateStatus(HttpServletRequest request,HttpServletResponse response,Model model,String accountNo,String mailSeq)
 	  {
 		 Map<String, Object> ac= accountService.getByAccountNo(accountNo);
 		 if(ac!=null){
 			 if(ac.get("MailSeq").toString().equals(mailSeq)){
-				 accountService.activation(accountNo);
+				 accountService.updateStatus(accountNo);
 				 super.setCookie(response, Constants.FRONT_KEY, accountNo);	
 				 return "redirect:/";
 			 }
@@ -192,5 +200,17 @@ public class AccountController extends BaseController {
 		  return null;
 		
 	  }
-	
+	  @RequestMapping({"accountLogout"})
+	  public String studentLogout(HttpServletRequest request, HttpServletResponse response)
+	  {
+	    Cookie[] cks = request.getCookies();
+	    for (Cookie ck : cks) {
+	      Cookie cookie = new Cookie(ck.getName(), "");
+	      cookie.setPath("/");
+	      cookie.setMaxAge(0);
+	      response.addCookie(cookie);
+	    }
+	    request.getSession().invalidate();
+	    return "redirect:/";
+	  }
 }

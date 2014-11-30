@@ -23,9 +23,9 @@
     </div>
     <div class="su_box">
      <ul>
-      <li class="li">您的账号：<span class="c_ff0000"><b>lenchensky</b></span> 为会员登录账户使用，请牢记！</li>
-      <li class="li relative">系统已向您的邮箱：<span class="c_ff0000"><b>jxchen1986@163.com</b></span> 发送了一封验证邮件，验证通过后也可以作
-为会员账户使用，如果未收到邮件，您可以点击 <a href="#">重新发送</a><div class="btn_a2"><img src="${ctx}/theme/front/account/images/btn_a2.png" /></div>
+      <li class="li">您的账号：<span class="c_ff0000"><b>${accountNo}</b></span> 为会员登录账户使用，请牢记！</li>
+      <li class="li relative">系统已向您的邮箱：<span class="c_ff0000"><b>${email}</b></span> 发送了一封验证邮件，验证通过后也可以作
+为会员账户使用，如果未收到邮件，您可以点击 <a href="${ctx}/front/account/resendMail.html?accountNo=${accountNo}">重新发送</a><div class="btn_a2"><a href="${ctx}/front/account/loginMail.html?email=${email}"><img src="${ctx}/theme/front/account/images/btn_a2.png" /></a></div>
       </li>
      </ul>
     </div>

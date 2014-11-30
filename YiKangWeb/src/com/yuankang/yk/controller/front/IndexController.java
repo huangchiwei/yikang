@@ -5,8 +5,10 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.armysoft.core.Pagination;
+import org.armysoft.springmvc.controller.BaseController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,17 +25,17 @@ import com.yuankang.yk.service.news.NewsService;
  */
 @Controller
 @RequestMapping("/")
-public class IndexController {
+public class IndexController extends BaseController{
 	@Resource
 	private AdvertService advertService;
 	@Resource
 	private NewsService newsService;
 	@RequestMapping("index")
-	public String index(Model model){
+	public String index(HttpServletRequest request,Model model){
 
 		model.addAttribute("investList1", Constants.indexData.get("investList1"));
 		model.addAttribute("financeList1", Constants.indexData.get("financeList1"));
-		
+		model.addAttribute("accountNo", super.getCookieValue(request, Constants.FRONT_KEY));
 
 		//轮播广告indexCarousel
 		List<Map<String, Object>>  advert1=advertService.getByPosCode("1");

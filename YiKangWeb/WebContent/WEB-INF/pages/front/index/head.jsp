@@ -4,7 +4,12 @@
       <ul class="head_ul">
         <li><a href="#">设为首页</a></li>
         <li><a href="#">帮助中心</a></li>
-        <li><a href="${ctx}/front/account/login.html">登&nbsp;&nbsp;录</a></li>
+       <c:if test="${empty accountNo}"> <li><a href="${ctx}/front/account/login.html">登&nbsp;&nbsp;录</a> </li></c:if>
+        <c:if test="${not empty accountNo}"> <li>
+        <a href="#">${accountNo}</a></li>
+         <li><a href="${ctx}/front/account/accountLogout.html">安全退出</a></li>
+        </c:if>
+
         <li><a href="${ctx}/front/account/register.html">注&nbsp;&nbsp;册</a></li>
       </ul>
     </div>
