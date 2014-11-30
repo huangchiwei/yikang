@@ -73,13 +73,25 @@ public class AccountController extends BaseController {
 	@RequestMapping(value = "/saveRegister.html")
 	  public String saveRegister(HttpServletRequest request,Model model,Account account,String vcode)
 	  {
-		/*try{
+		try{
 			 String oldCode = (String) request.getSession().getAttribute(
 						Constants.VERIFY_CODE);
+			 if (oldCode.equalsIgnoreCase(vcode)){
+				  account.setStatus(0);
+					account.setMailSeq(String.valueOf(new Date().getTime()));
+					account.setPwd(DigestUtils.md5DigestAsHex(account.getPwd().getBytes()));
+					accountService.saveRegister(account);
+					//发送激活用户的网址到用户邮箱
+					accountService.sendMail( account);
+					return "front/account/success";
+			  }else{
+				  request.setAttribute("msg", "验证码不正确!");
+				  return "front/account/register";
+			  }
 		}catch(Exception e){
 			return null;
-		}*/
-		return null;
+		}
+		
 	  }
 	/**
 	 * 重新发送激活网址到邮箱
