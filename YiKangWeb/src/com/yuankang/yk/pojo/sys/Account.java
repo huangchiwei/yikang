@@ -19,93 +19,87 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
  * @date 2014年11月15日 下午11:10:36
  * @version V1.0
  */
-@Entity
-@Table(name = "account")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+
 public class Account implements Serializable{
 
-	private static final long serialVersionUID = 1000L;
-	/** 编号 PK主键自增长 */
-	@Id
-	@Column(name = "ID")
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	
 	private Long id;
 	
-	@Column(name = "AccountNo")
+	
 	private String accountNo;
 	
-	@Column(name = "Pwd")
+	
 	private String pwd;
 	
-	@Column(name = "AccountType")
+	
 	private Integer accountType;
 	
-	@Column(name = "ContactName")
+	
 	private String contactName;
 	
-	@Column(name = "Position")
+	
 	private String position;
 	
-	@Column(name = "Department")
+	
 	private String department;
 	
-	@Column(name = "Gender")
+	
 	private Integer gender;
 	
-	@Column(name = "Email")
+	
 	private String email;
 	
-	@Column(name = "Logo")
+	
 	private String logo;
 	
-	@Column(name = "Province")
+	
 	private Integer province;
 	
-	@Column(name = "City")
+
 	private Integer city;
 	
-	@Column(name = "Area")
+	
 	private Integer area;
 	
-	@Column(name = "Address")
+	
 	private String address;
 	
-	@Column(name = "Phone")
+	
 	private String phone;
 	
-	@Column(name = "Tel")
+	
 	private String tel;
 	
-	@Column(name = "QQ")
+	
 	private String QQ;
 	
-	@Column(name = "Company")
+	
 	private String company;
 	
-	@Column(name = "Industry")
+	
 	private Integer industry;
 	
-	@Column(name = "Nature")
+
 	private Integer nature;
 	
-	@Column(name = "License")
+	
 	private String license;
 	
-	@Column(name = "Registration")
+	
 	private String registration;
 	
-	@Column(name = "Website")
+	
 	private String website;
 	
-	@Column(name = "Introduce")
+	
 	private String introduce;
 	
-	@Column(name = "Status")
+	
 	private Integer status;
 	
-	@Column(name = "CreateDate")
+	
 	private Date createDate;
-	@Column(name = "MailSeq")
+	
 	private String mailSeq;
 
 	public Long getId() {
