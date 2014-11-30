@@ -29,7 +29,7 @@ public class RemoteRequestUtil {
 	/** 科室url */
 	public static final String CATEGORY_URL = DOMANE_URL + "datacenter/category/_get";
 	/** 疾病查询url */
-	public static final String DISEEASE_URL = DOMANE_URL + "datacenter/disease/_get";
+	public static final String DISEASE_URL = DOMANE_URL + "datacenter/disease/_get";
 	/** 医生查询url */
 	public static final String DOCTOR_URL = DOMANE_URL + "datacenter/doctor/_get";
 	/** 医院查询url */
@@ -40,6 +40,12 @@ public class RemoteRequestUtil {
 	public static final String MEDICINE_EFFICACY_URL = DOMANE_URL + "datacenter/medicine/_efficacy";
 	/** 药品查询url */
 	public static final String MEDICINE_URL = DOMANE_URL + "datacenter/medicine/_get";
+	/** 症状详情url */
+	public static final String SYMPTOM_DETL_URL = DOMANE_URL + "datacenter/symptom/_content";
+	/** 疾病详情url */
+	public static final String DISEASE_DETL_URL = DOMANE_URL + "datacenter/disease/_content";
+	/** 医生详情url */
+	public static final String DOCTOR_DETL_URL = DOMANE_URL + "datacenter/doctor/_content";
 	
 
 	/** 请求方式POST、GET */
@@ -189,6 +195,14 @@ public class RemoteRequestUtil {
 	}
 	
 	/**
+	 * 获取外部系统药品分类集合
+	 * @return
+	 */
+	public static JSONArray requestMedicineEfficacy(){
+		return parseJsonList(sendRequest(MEDICINE_EFFICACY_URL, RequestMethod.GET.name(), null));
+	}
+	
+	/**
 	 * 分页查询症状库
 	 * @return
 	 */
@@ -207,6 +221,10 @@ public class RemoteRequestUtil {
 
 	/**
 	 * 分页查询医生库
+	 * @param page
+	 * @param categoryId
+	 * @param pid
+	 * @param cid
 	 * @return
 	 */
 	public static JSONArray requestDoctorByPage(Pagination page, Integer categoryId,Integer pid,Integer cid) {
@@ -230,6 +248,8 @@ public class RemoteRequestUtil {
 	
 	/**
 	 * 分页查询疾病库
+	 * @param page
+	 * @param categoryId
 	 * @return
 	 */
 	public static JSONArray requestDiseaseByPage(Pagination page,Integer categoryId){
@@ -238,10 +258,97 @@ public class RemoteRequestUtil {
 		if(categoryId != null){
 			parameters += "&id=" + categoryId;
 		}
-		String str =  sendRequest(DISEEASE_URL, RequestMethod.GET.name(), parameters);
+		String str =  sendRequest(DISEASE_URL, RequestMethod.GET.name(), parameters);
 		JSONObject json = JSONObject.fromObject(str);
 		page.setTotalRowCount(Integer.parseInt(json.get("Count") + ""));
 		page.init();
 		return JSONArray.fromObject(json.get("List"));
+	}
+	
+	/**
+	 * 分页查询医院库
+	 * @param page
+	 * @param categoryId
+	 * @param pid
+	 * @param cid
+	 * @return
+	 */
+	public static JSONArray requestHospitalByPage(Pagination page, Integer categoryId,Integer pid,Integer cid) {
+		String parameters = "";
+		parameters += "page=" + page.getCurrentPage() + "&size=" + page.getPageSize();
+		if(categoryId != null){
+			parameters += "&id=" + categoryId;
+		}
+		if(pid != null && pid != -1){
+			parameters += "&pid=" + pid;
+		}
+		if(cid != null && cid != -1){
+			parameters += "&cid=" + cid;
+		}
+		String str =  sendRequest(HOSPITAL_URL, RequestMethod.GET.name(), parameters);
+		JSONObject json = JSONObject.fromObject(str);
+		page.setTotalRowCount(Integer.parseInt(json.get("Count") + ""));
+		page.init();
+		return JSONArray.fromObject(json.get("List"));
+	}
+
+	/**
+	 * 分页查询药品库
+	 * @param page
+	 * @param efficacyId
+	 * @param pid
+	 * @param cid
+	 * @return
+	 */
+	public static JSONArray requestMedicineByPage(Pagination page,
+			Integer efficacyId,Integer pid,Integer cid) {
+		String parameters = "";
+		parameters += "page=" + page.getCurrentPage() + "&size=" + page.getPageSize();
+		if(efficacyId != null){
+			parameters += "&id=" + efficacyId;
+		}else{
+			parameters += "&id=29";
+		}
+		if(pid != null && pid != -1){
+			parameters += "&pid=" + pid;
+		}
+		if(cid != null && cid != -1){
+			parameters += "&cid=" + cid;
+		}
+		String str =  sendRequest(MEDICINE_URL, RequestMethod.GET.name(), parameters);
+		JSONObject json = JSONObject.fromObject(str);
+		page.setTotalRowCount(Integer.parseInt(json.get("Count") + ""));
+		page.init();
+		return JSONArray.fromObject(json.get("List"));
+	}
+
+	/**
+	 * 获取症状详情
+	 * @param id
+	 * @return
+	 */
+	public static JSONObject requestSymptomById(Long id) {
+		String parameters = "id=" + id;
+		return JSONObject.fromObject(sendRequest(SYMPTOM_DETL_URL, RequestMethod.GET.name(), parameters));
+	}
+	
+	/**
+	 * 获取疾病详情
+	 * @param id
+	 * @return
+	 */
+	public static JSONObject requestDiseaseById(Long id) {
+		String parameters = "id=" + id;
+		return JSONObject.fromObject(sendRequest(DISEASE_DETL_URL, RequestMethod.GET.name(), parameters));
+	}
+	
+	/**
+	 * 获取医生详情
+	 * @param id
+	 * @return
+	 */
+	public static JSONObject requestDoctorById(Long id) {
+		String parameters = "id=" + id;
+		return JSONObject.fromObject(sendRequest(DOCTOR_DETL_URL, RequestMethod.GET.name(), parameters));
 	}
 }

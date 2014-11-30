@@ -22,7 +22,7 @@
   <div class="n_box">
    <div class="new_logo"><img src="${ctx}/theme/front/investfinance/images/news_logo.png" /></div>
    <div class="lanren">
-   <a href='#' class="${flag == null ? 'thisclass' : ''}">首页-投融资</a>
+    <a href='${ctx}/investFinance/index.html' class="thisclass">投融资频道</a>
     <a href='#' onclick='javascript:location.href="${ctx}/investment/list/1.html"'>投资信息</a>
     <a href='#' onclick='javascript:location.href="${ctx}/financing/list/1.html"'>融资信息</a>
     <a href='javascript:'>行业资讯</a>

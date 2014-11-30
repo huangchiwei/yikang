@@ -16,7 +16,7 @@ import com.yuankang.yk.publics.Constants;
 import com.yuankang.yk.publics.tools.RemoteRequestUtil;
 
 /**
- * 类说明:
+ * 类说明:健康服务
  * @author wei
  * @date 2014年11月15日 下午9:53:35
  * @version V1.0
@@ -120,5 +120,64 @@ public class HealthServiceController extends BaseController{
 			}
 		}
 		return result;
+	}
+	
+	/**
+	 * 症状详情
+	 * @param model
+	 * @param categoryId
+	 * @return
+	 */
+	@RequestMapping("zzDetail/{id}")
+	public String zzDetail(Model model,@PathVariable Long id,Integer flag){
+		try {
+			if(flag == null){
+				flag = 1;
+			}
+			model.addAttribute("flag", flag);
+			model.addAttribute("entity", RemoteRequestUtil.requestSymptomById(id));
+			return "front/healthservice/zzDetail";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "";
+		}
+	}
+	
+	/**
+	 * 疾病详情
+	 * @param model
+	 * @param categoryId
+	 * @return
+	 */
+	@RequestMapping("jbDetail/{id}")
+	public String jbDetail(Model model,@PathVariable Long id,Integer flag){
+		try {
+			if(flag == null){
+				flag = 1;
+			}
+			model.addAttribute("flag", flag);
+			model.addAttribute("entity", RemoteRequestUtil.requestDiseaseById(id));
+			return "front/healthservice/jbDetail";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "";
+		}
+	}
+	
+	/**
+	 * 医生详情
+	 * @param model
+	 * @param categoryId
+	 * @return
+	 */
+	@RequestMapping("ysDetail/{id}")
+	public String ysDetail(Model model,@PathVariable Long id){
+		try {
+			model.addAttribute("entity", RemoteRequestUtil.requestDoctorById(id));
+			return "front/healthservice/ysDetail";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "";
+		}
 	}
 }

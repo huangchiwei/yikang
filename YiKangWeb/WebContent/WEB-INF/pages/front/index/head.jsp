@@ -53,8 +53,8 @@
       <li class="drop-menu-effect"><a href="#"><span>健康购</span></a></li>
       <li class="drop-menu-effect"><a href="#"><span>健康数据库</span></a>
       <ul class="submenu">
-          <li><a href="${ctx}/healthDatabase/yyk/1.html">医院库</a></li>
-          <li><a href="${ctx}/healthDatabase/ypk/1.html">药品库</a></li>
+          <li><a href="${ctx}/healthDatabase/yyk/1.html" target="_blank">医院库</a></li>
+          <li><a href="${ctx}/healthDatabase/ypk/1.html" target="_blank">药品库</a></li>
           <li><a href="#">保健品库</a></li>
         </ul>
       </li>

@@ -9,6 +9,9 @@
     	<c:when test="${type == 3}">
     		<c:set var="url" value="${ctx}/healthService/jbk/1.html"/>
     	</c:when>
+    	<c:when test="${type == 6}">
+    		<c:set var="url" value="${ctx}/healthDatabase/yyk/1.html"/>
+    	</c:when>
 </c:choose>
 <div class="module mSubMenu mDepartemnt">
             <div class="titleBar">

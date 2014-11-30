@@ -1,5 +1,8 @@
 package com.yuankang.yk.controller.front.investfinance;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import javax.annotation.Resource;
 
 import org.armysoft.core.Pagination;
@@ -11,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.yuankang.yk.pojo.investfinance.Financing;
 import com.yuankang.yk.service.investfinance.FinancingService;
+import com.yuankang.yk.service.sys.McodeService;
+import com.yuankang.yk.service.sys.RegionService;
 
 /**
  * 类说明:投资
@@ -24,16 +29,30 @@ public class FinancingController extends BaseController {
 
 	@Resource
 	private FinancingService financingService;
+	@Resource
+	private McodeService mcodeService;
+	@Resource
+	private RegionService regionService;
 
 	@RequestMapping(value = PAGE_LIST)
-	public String list(@PathVariable Integer currentPage,Model model){
+	public String list(@PathVariable Integer currentPage,Model model,Long industryId,Integer provinceId,Integer cityId,Integer day){
 		Pagination page = initPage(currentPage);
 		page.setPageSize(5);
-		model.addAttribute("list", financingService.getByPage(page,null));
+		Date time = null;
+		if(day != null && day > 0){
+			Calendar cal = Calendar.getInstance();
+			cal.set(Calendar.DATE, cal.get(Calendar.DATE) - day);
+			time = new Date(cal.get(Calendar.YEAR) - 1900,cal.get(Calendar.MONTH),cal.get(Calendar.DAY_OF_MONTH));
+		}
+		model.addAttribute("list", financingService.getByPage(page, industryId, provinceId,cityId, time));
+		model.addAttribute("provinces", regionService.findByParentId(1));
+		model.addAttribute("industrys", mcodeService.findMcodesByMcType("INDUSTRY"));
 		model.addAttribute("page", page);
-		model.addAttribute("flag", "2");
-		model.addAttribute("location", "融资信息");
-		return "front/investfinance/list";
+		model.addAttribute("industryId", industryId);
+		model.addAttribute("provinceId", provinceId);
+		model.addAttribute("cityId", cityId);
+		model.addAttribute("day", day);
+		return "front/investfinance/financeList";
 	}
 	
 	/**
@@ -42,15 +61,10 @@ public class FinancingController extends BaseController {
 	 */
 	@RequestMapping(value = DETAIL)
 	public String detail(Model model,@PathVariable Long id) {
-		try {
-			model.addAttribute("entity", financingService.findById(id, Financing.class));
-			model.addAttribute("flag", "2");
-			model.addAttribute("location", "融资信息");
-			return "front/investfinance/detail";
-		} catch (Exception e) {
-			e.printStackTrace();
-			return "";
-		}
+		model.addAttribute("entity", financingService.findById(id, Financing.class));
+		model.addAttribute("flag", "2");
+		model.addAttribute("location", "融资信息");
+		return "front/investfinance/detail";
 	}
 
 }

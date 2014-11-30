@@ -1,6 +1,7 @@
 package com.yuankang.yk.dao.investfinance.financing;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,38 @@ public class FinancingDaoImpl extends BaseDaoImpl<Financing> implements Financin
 	public List<Map<String, Object>> getListByPage(Pagination page) {
 		String hql = "select new map(t.id as id,t.title as title,t.industry.mcName as industry,t.amount as amount) from Financing t where t.status = 1 order by t.id desc";
 		 return findByPage(hql, page.getStartRowNumber(), page.getPageSize());
+	}
+
+	@Override
+	public List<Map<String, Object>> findListByPage(Pagination page,
+			Long industryId, Integer provinceId,Integer cityId, Date time) {
+		StringBuilder hql = new StringBuilder("select new map(t.id as id,t.title as title,t.industry.mcName as industry,t.amount as amount,t.createDate as createDate) from Financing t where t.status = 1");
+		StringBuilder hql_1 = new StringBuilder("select count(t.id) from Financing t where t.status = 1");
+		List<Object> params = new ArrayList<Object>();
+		if(industryId != null && industryId > 0){
+			hql.append(" and t.industry.id = ?");
+			hql_1.append(" and t.industry.id = ?");
+			params.add(industryId);
+		}
+		if(provinceId != null && provinceId > 0){
+			hql.append(" and t.province.id = ?");
+			hql_1.append(" and t.province.id = ?");
+			params.add(provinceId);
+		}
+		if(cityId != null && cityId > 0){
+			hql.append(" and t.city.id = ?");
+			hql_1.append(" and t.city.id = ?");
+			params.add(cityId);
+		}
+		if(time != null){
+			hql.append(" and t.createDate >= ?");
+			hql_1.append(" and t.createDate >= ?");
+			params.add(time);
+		}
+		hql.append(" order by t.id desc");
+		page.setTotalRowCount(count(hql_1.toString(), params.toArray()));
+		page.init();
+		return findByPage(hql.toString(), page.getStartRowNumber(), page.getPageSize(), params.toArray());
 	}
 
 
