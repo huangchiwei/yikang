@@ -1,7 +1,11 @@
 package com.yuankang.yk.publics;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PropertiesLoaderUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.util.HashSet;
 import java.util.Properties;
@@ -14,7 +18,7 @@ import java.util.concurrent.ConcurrentMap;
  */
 public abstract class Constants
 {
-	
+	public final static Properties mailPros = Constants.getProperties("/mail.properties");
 	/**
 	 * 项目数据库SCHEMA引用
 	 */
@@ -46,7 +50,7 @@ public abstract class Constants
 	public static Set<String> exFileTypes  = new HashSet<String>();
 	public static Long imgSize = 0l;
 	public static String systemPath = "";
-	static{
+/*	static{
 		try {
 			URL url = Thread.currentThread().getContextClassLoader().getResource("/fileConfig.properties");
 			Properties prop = System.getProperties();
@@ -77,7 +81,7 @@ public abstract class Constants
 			e.printStackTrace();
 			throw new RuntimeException("读取配置文件失败");
 	}
-	}
+	}*/
 	
 	
 	/** 富文本图片保存路径*/
@@ -93,4 +97,20 @@ public abstract class Constants
 	
 	public static ConcurrentMap<String, Object> indexData = new ConcurrentHashMap<String, Object>();
 	public static ConcurrentMap<String, Object> healthData = new ConcurrentHashMap<String, Object>();
+	public static Properties getProperties(String proName){
+		Resource resource = new ClassPathResource(proName);
+		Properties props = null;
+		try {
+			props = PropertiesLoaderUtils.loadProperties(resource);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return props;
+		
+	}
+	public static void main(String[] args){   
+		Properties props = Constants.getProperties("/mail.properties");
+		System.out.print(props);
+	}
 }

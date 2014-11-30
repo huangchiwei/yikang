@@ -105,6 +105,8 @@ public class Account implements Serializable{
 	
 	@Column(name = "CreateDate")
 	private Date createDate;
+	@Column(name = "MailSeq")
+	private String mailSeq;
 
 	public Long getId() {
 		return id;
@@ -312,6 +314,14 @@ public class Account implements Serializable{
 
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
+	}
+
+	public String getMailSeq() {
+		return mailSeq;
+	}
+
+	public void setMailSeq(String mailSeq) {
+		this.mailSeq = mailSeq;
 	}
 	
 }
