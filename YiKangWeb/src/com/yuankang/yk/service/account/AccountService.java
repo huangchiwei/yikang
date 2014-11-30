@@ -25,8 +25,8 @@ import com.yuankang.yk.service.base.BaseSqlService;
 @Service
 public class AccountService extends BaseSqlService {
 	public void saveRegister(Account account) {
-		String sql = "insert into account(AccountNo,Pwd,Email,CreateDate,Status)"
-				+ "values('"+account.getAccountNo()+"','"+account.getPwd()+"','"+account.getEmail()+"',now(),0)";
+		String sql = "insert into account(AccountNo,Pwd,Email,CreateDate,Status,MailSeq)"
+				+ "values('"+account.getAccountNo()+"','"+account.getPwd()+"','"+account.getEmail()+"',now(),0,'"+account.getMailSeq()+"')";
 		up_del(sql);
 		
 	}

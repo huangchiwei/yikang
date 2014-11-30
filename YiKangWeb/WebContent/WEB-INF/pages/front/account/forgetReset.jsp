@@ -5,8 +5,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>会员注册</title>
 
-<link href="../theme/default/style/master.css" rel="stylesheet" type="text/css" />
-<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="${ctx}/theme/front/default/style/master.css" rel="stylesheet" type="text/css" />
+<link href="${ctx}/theme/front/account/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>

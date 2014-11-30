@@ -71,22 +71,17 @@ public class AccountController extends BaseController {
 	  }
 	
 	@RequestMapping(value = "/saveRegister.html")
-	  public String saveRegister(HttpServletRequest request,Model model,Account account)
+	  public String saveRegister(HttpServletRequest request,Model model,Account account,String vcode)
 	  {
 		try{
+			 String oldCode = (String) request.getSession().getAttribute(
+						Constants.VERIFY_CODE);
 			
-			account.setStatus(0);
-			account.setMailSeq(String.valueOf(new Date().getTime()));
-			account.setPwd(DigestUtils.md5DigestAsHex(account.getPwd().getBytes()));
-			accountService.saveRegister(account);
-			//发送激活用户的网址到用户邮箱
-			accountService.sendMail( account);
+			
 		}catch(Exception e){
 			return null;
 		}
-		
-
-		  return "front/account/success";
+		return null;
 	  }
 	/**
 	 * 重新发送激活网址到邮箱

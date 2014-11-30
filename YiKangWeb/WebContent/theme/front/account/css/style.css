@@ -20,6 +20,7 @@
 	border-bottom-color: #49a252;
 	float: left;
 	width: 250px;
+	overflow: hidden;
 }
 .login_box .login_t .r_box {
 	height: 55px;
@@ -143,9 +144,9 @@
 	margin-right: auto;
 	margin-left: auto;
 	padding-top: 70px;
-	padding-right: 70px;
+	padding-right: 60px;
 	padding-bottom: 100px;
-	padding-left: 70px;
+	padding-left: 60px;
 }
 .login_box .reg_b .reg_b_r {
 	height: 40px;
@@ -210,6 +211,243 @@
 	background-color: #49a252;
 	font-size: 18px;
 	color: #FFFFFF;
+	border: 1px none #FFFFFF;
+	border-radius:5px;
+}
+.login_box .login_t .logo h1 {
+	margin-left: auto;
+	width: 100px;
+	line-height: 54px;
+	font-size: 18px;
+}
+.login_box .reg_b .success {
+	margin-right: auto;
+	margin-left: auto;
+	width: 500px;
+	margin-bottom: 50px;
+}
+.login_box .reg_b .success .su_a1 {
+	background-image: url(../images/right.png);
+	background-repeat: no-repeat;
+	line-height: 50px;
+	height: 50px;
+	background-position: 0px;
+	padding-left: 70px;
+	font-size: 16px;
+	color: #333333;
+	font-weight: bold;
+
+}
+.login_box .reg_b .success .btn_a1 {
+	position: absolute;
+	top: 5px;
+	right: 30px;
+
+}
+.login_box .reg_b .su_box {
+	margin-right: auto;
+	margin-left: auto;
+	width: 500px;
+	padding: 15px;
+	background-color: #f8f8f8;
+	border: 1px solid #e4e4e4;
+}
+.login_box .reg_b .su_box .li {
+	line-height: 28px;
+
+}
+.login_box .reg_b .su_box .li a {
+	color: #263693;
+	text-decoration: underline;
+
+}
+.login_box .reg_b .su_box .li .btn_a2 {
+	position: absolute;
+	top: 28px;
+	right: 140px;
+
+}
+.login_box  .forget  .forget_a {
+	height: 36px;
+	line-height: 36px;
+	background-image: url(../images/forget_icon.png);
+	background-repeat: no-repeat;
+	overflow: hidden;
+	width: 846px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.login_box   .forget   .forget_a   span {
+	display: block;
+	float: left;
+	width: 282px;
+
+}
+.login_box       .forget       .forget_a       span    .a1   {
+	padding-left: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+
+}
+.login_box  .forget  .forget_a  span  .a2 {
+	padding-left: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #666666;
+}
+.login_box .forget {
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 70px;
+	padding-right: 60px;
+	padding-bottom: 100px;
+	padding-left: 60px;
+}
+.login_box .forget .ul {
+	overflow: hidden;
+	padding-top: 50px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+	padding-left: 200px;
+}
+.login_box .forget .ul .li {
+	overflow: hidden;
+	line-height: 40px;
+	height: 40px;
+	padding-bottom: 15px;
+}
+.login_box .forget .ul .li .span {
+	width: 90px;
+	display: block;
+	font-size: 14px;
+	padding-right: 10px;
+	text-align: right;
+	float: left;
+}
+.login_box .forget .ul .li .input {
+	float: left;
+	border: 1px solid #d1d1d1;
+	padding: 9px;
+	font-size: 14px;
+	color: #49A252;
+}
+.login_box .forget .ul .li em {
+	padding-left: 10px;
+	color: #666666;
+	font-size: 14px;
+}
+.login_box .forget .ul .li .btn_box {
+	float: left;
+	padding-left: 100px;
+}
+.login_box .forget .ul .li .btn_box .login {
+	width: 220px;
+	padding: 10px;
+	background-color: #49a252;
+	font-size: 18px;
+	color: #FFFFFF;
+	border: 1px none #FFFFFF;
+	border-radius:5px;
+}
+.login_box .forget .forget_mail {
+	padding-top: 20px;
+	padding-bottom: 15px;
+	padding-left: 70px;
+	background-image: url(../images/right.png);
+	background-repeat: no-repeat;
+	margin-top: 50px;
+	width: 350px;
+	margin-right: auto;
+	margin-left: auto;
+	background-position: 0px;
+}
+.login_box .forget .forget_mail span {
+	display: block;
+	line-height: 28px;
+	height: 28px;
+	font-size: 14px;
+}
+.login_box .forget .forget_mail span a {
+	color: #FF0000;
+	text-decoration: underline;
+
+}
+.login_box .forget .forget_b {
+	height: 36px;
+	line-height: 36px;
+	background-image: url(../images/forget_icon.png);
+	background-repeat: no-repeat;
+	overflow: hidden;
+	width: 846px;
+	margin-right: auto;
+	margin-left: auto;
+	background-position: 0px -64px;
+}
+.login_box .forget .forget_b span {
+	display: block;
+	float: left;
+	width: 282px;
+}
+.login_box .forget .forget_b span .a1 {
+	padding-left: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #666666;
+}
+.login_box .forget .forget_b span .a2 {
+	padding-left: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+.login_box .forget .forget_c {
+	height: 36px;
+	line-height: 36px;
+	background-image: url(../images/forget_icon.png);
+	background-repeat: no-repeat;
+	overflow: hidden;
+	width: 846px;
+	margin-right: auto;
+	margin-left: auto;
+	background-position: 0px -124px;
+}
+.login_box .forget .forget_c span {
+	display: block;
+	float: left;
+	width: 282px;
+}
+.login_box .forget .forget_c span .a1 {
+	padding-left: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #666666;
+}
+.login_box .forget .forget_c span .a2 {
+	padding-left: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+.login_box   .forget   .forget_mail   .btn_box   .member {
+	width: 120px;
+	padding: 10px;
+	background-color: #49a252;
+	font-size: 14px;
+	color: #FFFFFF;
+	border: 1px none #FFFFFF;
+	border-radius:5px;
+}
+.login_box .forget .forget_mail .btn_box {
+	padding-top: 20px;
+
+}
+.login_box .forget .forget_mail .btn_box .main {
+	width: 120px;
+	padding: 10px;
+	background-color: #E4E4E4;
+	font-size: 14px;
+	color: #666666;
 	border: 1px none #FFFFFF;
 	border-radius:5px;
 }
