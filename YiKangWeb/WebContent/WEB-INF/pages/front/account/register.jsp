@@ -18,7 +18,7 @@
   <div class="r_box"><a href="#">返回首页</a>  |  <a href="#">帮助中心</a></div>
  </div>
  <div class="reg_b">
-  <div class="reg_b_r">（带<font class=" c_ff0000">*</font>为必填项）</div>
+  <div class="reg_b_r">（带<font class=" c_ff0000">*</font>为必填项）<font color="red" size="5">${msg}</font></div>
   <form id="loginForm" action="${ctx}/front/account/saveRegister.html" method="post" onsubmit="return checkForm()">
     <ul class="ul">
      <li class="li"><span class="span"><font class=" c_ff0000">*</font>&nbsp;&nbsp;用户名：</span>
@@ -37,7 +37,7 @@
      <li class="li"><div class="btn_box"><input type="submit" class="login" value="注&nbsp;&nbsp;册" /></div></li>
     </ul>
     </form>
-    <font color="red" size="15">${msg}</font>
+    
  </div>
  <!--bot-->
   <jsp:include page="/WEB-INF/pages/front/index/bottom.jsp" />
