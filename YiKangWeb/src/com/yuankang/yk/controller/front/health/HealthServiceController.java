@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yuankang.yk.exception.HealthRequestExp;
 import com.yuankang.yk.publics.Constants;
 import com.yuankang.yk.publics.tools.RemoteRequestUtil;
 
@@ -45,7 +46,7 @@ public class HealthServiceController extends BaseController{
 			return "front/healthservice/index";
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "";
+			throw new HealthRequestExp();
 		}
 	}
 	
@@ -74,7 +75,7 @@ public class HealthServiceController extends BaseController{
 			return "front/healthservice/index";
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "";
+			throw new HealthRequestExp();
 		}
 	}
 	
@@ -97,7 +98,7 @@ public class HealthServiceController extends BaseController{
 			return "front/healthservice/index";
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "";
+			throw new HealthRequestExp();
 		}
 	}
 	
@@ -139,7 +140,7 @@ public class HealthServiceController extends BaseController{
 			return "front/healthservice/zzDetail";
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "";
+			throw new HealthRequestExp();
 		}
 	}
 	
@@ -160,7 +161,7 @@ public class HealthServiceController extends BaseController{
 			return "front/healthservice/jbDetail";
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "";
+			throw new HealthRequestExp();
 		}
 	}
 	
@@ -177,7 +178,7 @@ public class HealthServiceController extends BaseController{
 			return "front/healthservice/ysDetail";
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "";
+			throw new HealthRequestExp();
 		}
 	}
 }

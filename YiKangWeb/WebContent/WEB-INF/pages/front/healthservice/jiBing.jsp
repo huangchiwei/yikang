@@ -12,9 +12,9 @@
 			                <div class="itemContent">
 			                    <p>
 			                        <span>关联症状：</span>
-			                                  <a href="#" target="_blank">喉癌</a>
-			                                  <a href="#" target="_blank">季节性变应性鼻炎</a>
-			                                  <a href="#" target="_blank">会厌炎</a></p>
+			                                  <a href="#">喉癌</a>
+			                                  <a href="#">季节性变应性鼻炎</a>
+			                                  <a href="#">会厌炎</a></p>
 			                </div>
 			            </div>
             		</c:when>
@@ -25,9 +25,9 @@
 			                <div class="itemContent">
 			                    <p>
 			                        <span>关联症状：</span>
-			                                  <a href="#" target="_blank">外阴炎</a>
-			                                  <a href="#" target="_blank">老年性阴道炎</a>
-			                                  <a href="#" target="_blank">急性宫颈炎</a>                    </p>
+			                                  <a href="#">外阴炎</a>
+			                                  <a href="#">老年性阴道炎</a>
+			                                  <a href="#">急性宫颈炎</a>                    </p>
 			                </div>
 			            </div>
             		</c:otherwise>
