@@ -29,10 +29,4 @@
 			}
 			
  		}
- 		$(function(){
- 			// 为验证码绑定事件
-			$("#change").click(function(){
-				$("#vimg").attr("src", "${ctx}/verify/getVerifyCode.html?random=" + Math.random());
-			});
-		
- 		});
+ 	

@@ -159,8 +159,10 @@ public class AccountController extends BaseController {
 	  {
 		 String oldCode = (String) request.getSession().getAttribute(
 					Constants.VERIFY_CODE);
-		 if(!oldCode.equals(vcode)){
+		 model.addAttribute("email", email);
+		 if(!oldCode.equalsIgnoreCase(vcode)){
 			 model.addAttribute("msg", "验证码不正确");
+			
 			 return "front/account/forget";
 		 }
 		 Map<String, Object> ac= accountService.getByEmail(email);
@@ -169,6 +171,7 @@ public class AccountController extends BaseController {
 			 ac.put("MailSeq", String.valueOf(new Date().getTime()));
 			 accountService.updateMailSeq(ac.get("MailSeq").toString(),ac.get("AccountNo").toString());
 				accountService.sendMail( ac,"reset");
+				
 				return "front/account/forgetemail";
 		 }else{
 			 model.addAttribute("msg", "邮箱不存在");
@@ -182,6 +185,7 @@ public class AccountController extends BaseController {
 		 if(ac!=null){
 			 if(ac.get("MailSeq").toString().equals(mailSeq)){
 				 model.addAttribute("accountNo", accountNo);
+				 model.addAttribute("mailSeq", mailSeq);
 				 return "front/account/forgetReset";
 			 }
 		 }
@@ -189,13 +193,16 @@ public class AccountController extends BaseController {
 		
 	  }
 	@RequestMapping(value = "/submitResetPwd.html")
-	  public String submitResetPwd(HttpServletRequest request,HttpServletResponse response,Model model,String pwd,String accountNo)
+	  public String submitResetPwd(HttpServletRequest request,HttpServletResponse response,Model model,String pwd,String accountNo,String mailSeq)
 	  {
 		
 		 Map<String, Object> ac= accountService.getByAccountNo(accountNo);
 		 if(ac!=null){
-			 accountService.updatePwd(accountNo,pwd);
-			 return "front/account/forgetsuccess"; 
+			 if(ac.get("MailSeq").toString().equals(mailSeq)){
+				 accountService.updatePwd(accountNo,pwd);
+				 return "front/account/forgetsuccess"; 
+			 }
+			
 		 }
 		  return null;
 		

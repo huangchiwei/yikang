@@ -9,6 +9,16 @@
 <link href="${ctx}/theme/front/account/css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${ctx}/js/jquery-1.8.0.min.js" ></script>
   <script type="text/javascript" src="${ctx}/js/front/account/login.js" ></script>
+    <script type="text/javascript" >
+	$(function(){
+			// 为验证码绑定事件
+		$("#change").click(function(){
+			
+			$("#vimg").attr("src", "${ctx}/verify/getVerifyCode.html?random=" + Math.random());
+		});
+	
+		});
+  </script>
 </head>
 
 <body>
@@ -26,9 +36,9 @@
      <li class="li"><span class="span">密　码：</span><input type="password" name="pwd" id="pwd" value="${pwd}" class="input" size="37" />
      </li>
      <li class="li"><span class="span">验证码：</span><input name="vcode" id="vcode" type="text" class="input" size="8" />
-     <em>	<img src="${ctx}/verify/getVerifyCode.html" width="71" height="28" title="验证码" id="vimg"/></em><label>看不清？<a href="javascript:void(0);" id="change">换一张</a></label>
+     <em>	<img src="${ctx}/verify/getVerifyCode.html" width="80" height="30" title="验证码" id="vimg"/></em><label>看不清？<a href="javascript:void(0);" id="change">换一张</a></label>
      </li>
-     <li class="li"><span class="passport relative"><div class="div_float"><a href="#">忘记密码</a></span></li>
+     <li class="li"><span class="passport relative"><div class="div_float"><a href="${ctx}/front/account/forget.html">忘记密码</a></span></li>
      <li class="li"><div class="btn_box"><input type="submit" class="login" value="登&nbsp;&nbsp;录" />
      </div></li>
      <c:if test="${not empty msg }">

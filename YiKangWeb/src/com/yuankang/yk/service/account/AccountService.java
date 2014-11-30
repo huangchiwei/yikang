@@ -98,9 +98,11 @@ public class AccountService extends BaseSqlService {
 	public Map<String, Object> getByEmail(String email) {
 		String sql = "select * from  account  where Email='"+email+"'";		
 		List<Map<String, Object>> an=getQuery(sql);
-		if(an!=null)
+		if(an!=null&&an.size()>0)
 			return an.get(0);
-		else return null;
+		else{
+			return null;
+		} 
 	}
 	public void updateMailSeq(String mailSeq,String accountNo) {
 		
