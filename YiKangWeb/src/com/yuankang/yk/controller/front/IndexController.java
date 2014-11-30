@@ -7,7 +7,6 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
-import org.armysoft.core.Pagination;
 import org.armysoft.springmvc.controller.BaseController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,6 +34,11 @@ public class IndexController extends BaseController{
 
 		model.addAttribute("investList1", Constants.indexData.get("investList1"));
 		model.addAttribute("financeList1", Constants.indexData.get("financeList1"));
+		model.addAttribute("zhengzhuang_15", Constants.healthData.get("zhengzhuang_15"));
+		model.addAttribute("jibing_15", Constants.healthData.get("zhengzhuang_15"));
+		model.addAttribute("yisheng_18", Constants.healthData.get("yisheng_18"));
+		model.addAttribute("yiyuan_7", Constants.healthData.get("yiyuan_7"));
+		model.addAttribute("yaopin_3", Constants.healthData.get("yaopin_3"));
 		model.addAttribute("accountNo", super.getCookieValue(request, Constants.FRONT_KEY));
 
 		//轮播广告indexCarousel

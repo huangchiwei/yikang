@@ -76,4 +76,43 @@ public class HealthDatabaseController extends BaseController{
 		}
 	}
 	
+	/**
+	 * 医院详情
+	 * @param model
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping("yyDetail/{id}")
+	public String yyDetail(Model model,@PathVariable Long id){
+		try {
+			model.addAttribute("entity", RemoteRequestUtil.requestHospitalById(id));
+			model.addAttribute("categorys", Constants.healthData.get("categorys"));
+			return "front/healthdatabase/yyDetail";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "";
+		}
+	}
+	
+	/**
+	 * 药品详情
+	 * @param model
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping("ypDetail/{id}")
+	public String ypDetail(Model model,@PathVariable Long id){
+		try {
+			Object obj = RemoteRequestUtil.requestMedicineById(id);
+			if(obj != null && obj.toString().equals("null")){
+				return yaoPinKu(1, model, 29, null, null);
+			}
+			model.addAttribute("entity",obj);
+			model.addAttribute("medicineEfficacys", Constants.healthData.get("medicineEfficacys"));
+			return "front/healthdatabase/ypDetail";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "";
+		}
+	}
 }

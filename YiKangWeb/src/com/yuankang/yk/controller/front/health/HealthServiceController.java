@@ -125,7 +125,7 @@ public class HealthServiceController extends BaseController{
 	/**
 	 * 症状详情
 	 * @param model
-	 * @param categoryId
+	 * @param id
 	 * @return
 	 */
 	@RequestMapping("zzDetail/{id}")
@@ -146,7 +146,7 @@ public class HealthServiceController extends BaseController{
 	/**
 	 * 疾病详情
 	 * @param model
-	 * @param categoryId
+	 * @param id
 	 * @return
 	 */
 	@RequestMapping("jbDetail/{id}")
@@ -167,7 +167,7 @@ public class HealthServiceController extends BaseController{
 	/**
 	 * 医生详情
 	 * @param model
-	 * @param categoryId
+	 * @param id
 	 * @return
 	 */
 	@RequestMapping("ysDetail/{id}")

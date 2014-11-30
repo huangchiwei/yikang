@@ -46,7 +46,10 @@ public class RemoteRequestUtil {
 	public static final String DISEASE_DETL_URL = DOMANE_URL + "datacenter/disease/_content";
 	/** 医生详情url */
 	public static final String DOCTOR_DETL_URL = DOMANE_URL + "datacenter/doctor/_content";
-	
+	/** 医院详情url */
+	public static final String HOSPITAL_DETL_URL = DOMANE_URL + "datacenter/hospital/_content";
+	/** 药品详情url */
+	public static final String MEDICINE_DETL_URL = DOMANE_URL + "datacenter/medicine/_content";
 
 	/** 请求方式POST、GET */
 	public enum RequestMethod {
@@ -350,5 +353,25 @@ public class RemoteRequestUtil {
 	public static JSONObject requestDoctorById(Long id) {
 		String parameters = "id=" + id;
 		return JSONObject.fromObject(sendRequest(DOCTOR_DETL_URL, RequestMethod.GET.name(), parameters));
+	}
+	
+	/**
+	 * 获取医院详情
+	 * @param id
+	 * @return
+	 */
+	public static JSONObject requestHospitalById(Long id) {
+		String parameters = "id=" + id;
+		return JSONObject.fromObject(sendRequest(HOSPITAL_DETL_URL, RequestMethod.GET.name(), parameters));
+	}
+	
+	/**
+	 * 获取药品详情
+	 * @param id
+	 * @return
+	 */
+	public static JSONObject requestMedicineById(Long id) {
+		String parameters = "id=" + id;
+		return JSONObject.fromObject(sendRequest(MEDICINE_DETL_URL, RequestMethod.GET.name(), parameters));
 	}
 }

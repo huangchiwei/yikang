@@ -31,8 +31,8 @@
 	       <div class="listItem">
 	       <div class="photo"><img src="${o.ImgUrl}" width="163" height="203" /></div>
 	       <div class="info_box">
-	        <div class="level"><h1><a href="#">${o.Name}</a></h1>
-	        	三级甲等丨
+	        <div class="level"><h1><a href="${ctx}/healthDatabase/yyDetail/${o.Id}.html">${o.Name}</a></h1>
+	        	<!-- 三级甲等丨 -->
 	        	<c:choose>
 	        		<c:when test="${o.OwnerType == 1}">
 	        			公立
