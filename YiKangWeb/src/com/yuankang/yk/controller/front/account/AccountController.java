@@ -73,14 +73,12 @@ public class AccountController extends BaseController {
 	@RequestMapping(value = "/saveRegister.html")
 	  public String saveRegister(HttpServletRequest request,Model model,Account account,String vcode)
 	  {
-		try{
+		/*try{
 			 String oldCode = (String) request.getSession().getAttribute(
 						Constants.VERIFY_CODE);
-			
-			
 		}catch(Exception e){
 			return null;
-		}
+		}*/
 		return null;
 	  }
 	/**
