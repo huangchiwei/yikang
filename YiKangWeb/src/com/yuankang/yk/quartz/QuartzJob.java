@@ -37,7 +37,7 @@ public class QuartzJob {
 		updatehealthData();*/
 	}
 	
-	@Scheduled(cron = "0 0/5 * * * ?")
+	/*@Scheduled(cron = "0 0/5 * * * ?")
 	public void updateIndexData() {
 		try {
 
@@ -70,5 +70,5 @@ public class QuartzJob {
 		//外部科室
 		Constants.healthData.put("categorys", RemoteRequestUtil.requestCategory());
 		System.out.println("健康库数据...");
-	}
+	}*/
 }
