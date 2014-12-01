@@ -28,10 +28,27 @@ html { overflow:-moz-scrollbars-vertical;}
 			</ul>
 		</li>
 		<li>
+		<li>
+			<a href="#">健康培训</a>
+			<ul>
+				
+				<li><a href="${ctx}/admin/train/list/1.html?cateCode=qualifications&hasImage=-1" target="mainFrame">资质培训</a></li>
+			  <li><a href="${ctx}/admin/train/list/1.html?cateCode=technical&hasImage=-1" target="mainFrame">技能培训</a></li>
+			  <li><a href="${ctx}/admin/train/list/1.html?cateCode=lecture&hasImage=-1" target="mainFrame">健康大讲堂</a></li>
+			</ul>
+		</li>
+		<li>
         <a href="#">投融资管理</a>
 			<ul>
 				<li><a href="${ctx}/admin/investment/list/1.html" target="mainFrame">投资管理</a></li>
 			  <li><a href="${ctx}/admin/financing/list/1.html" target="mainFrame">融资管理</a></li>
+			</ul>
+        </li>
+        	<li>
+        <a href="#">行业活动</a>
+			<ul>
+				<li><a href="${ctx}/admin/investment/list/1.html" target="mainFrame">活动列表</a></li>
+			 
 			</ul>
         </li>
 		<li>
