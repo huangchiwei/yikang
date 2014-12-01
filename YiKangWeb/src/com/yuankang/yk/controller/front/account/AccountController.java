@@ -199,7 +199,7 @@ public class AccountController extends BaseController {
 		 Map<String, Object> ac= accountService.getByAccountNo(accountNo);
 		 if(ac!=null){
 			 if(ac.get("MailSeq").toString().equals(mailSeq)){
-				 accountService.updatePwd(accountNo,pwd);
+				 accountService.updatePwd(accountNo,DigestUtils.md5DigestAsHex(pwd.getBytes()));
 				 return "front/account/forgetsuccess"; 
 			 }
 			
