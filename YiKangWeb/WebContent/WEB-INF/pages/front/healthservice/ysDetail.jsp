@@ -41,7 +41,7 @@ $(function(){
   <div class="s_header">
       <h1><a href="#">医生查询</a></h1>
   </div>
-  <div class="s_brumbs">当前位置：<a href="${ctx}">首页</a>&nbsp;&gt;&nbsp;医生查询</div>
+  <div class="s_brumbs">当前位置：<a href="${ctx}">首页</a>&nbsp;&gt;&nbsp;<a href="${ctx}/healthService/ysk/1.html">医生查询</a></div>
    <div class="d">
     <div class="subLogo"><h1>${entity.Name}</h1></div>
     <div class="subNav2"></div>

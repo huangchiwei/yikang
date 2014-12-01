@@ -39,14 +39,17 @@ public class QuartzJob {
 
 	@PostConstruct
 	public void init() {
-		indexData();
+		indexInvestFinanceData();
 		healthBaseData();
-		healthServiceIndexData();
-		healthDatabaseIndexData();
+		indexHealthServiceData();
+		indexHealthDatabaseData();
+		IndexOtherData();
+		healthIndexData();
 	}
 
+	//首页投融资信息
 	@Scheduled(cron = "0 0/5 * * * ?")
-	public void indexData() {
+	public void indexInvestFinanceData() {
 		try {
 
 			Pagination page = new Pagination(1);
@@ -90,16 +93,18 @@ public class QuartzJob {
 
 		System.out.println("健康库数据...");
 	}
-
-	@Scheduled(cron = "0 0 2 * * ?")
-	public void healthServiceIndexData() {
+	
+	//首页健康服务信息
+	@Scheduled(cron = "0 30 * * * ?")
+	public void indexHealthServiceData() {
 		Pagination page = new Pagination(1);
 		page.setPageSize(15);
 		// 大首页15个症状
 		JSONArray arr = RemoteRequestUtil.requestSymptomByPage(page, null);
 		List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
+		Map<String, Object> map = null;
 		for (int i = 0; i < arr.size(); i++) {
-			Map<String, Object> map = new HashMap<String, Object>();
+			map = new HashMap<String, Object>();
 			map.put("Id", arr.getJSONObject(i).get("Id"));
 			map.put("Name", arr.getJSONObject(i).get("Name"));
 			result.add(map);
@@ -109,7 +114,7 @@ public class QuartzJob {
 		arr = RemoteRequestUtil.requestDiseaseByPage(page, null);
 		result = new ArrayList<Map<String, Object>>();
 		for (int i = 0; i < arr.size(); i++) {
-			Map<String, Object> map = new HashMap<String, Object>();
+			map = new HashMap<String, Object>();
 			map.put("Id", arr.getJSONObject(i).get("Id"));
 			map.put("Name", arr.getJSONObject(i).get("Name"));
 			result.add(map);
@@ -120,7 +125,7 @@ public class QuartzJob {
 		arr = RemoteRequestUtil.requestDoctorByPage(page, null, null, null);
 		result = new ArrayList<Map<String, Object>>();
 		for (int i = 0; i < arr.size(); i++) {
-			Map<String, Object> map = new HashMap<String, Object>();
+			map = new HashMap<String, Object>();
 			map.put("Id", arr.getJSONObject(i).get("Id"));
 			map.put("Name", arr.getJSONObject(i).get("Name"));
 			if(i < 3){
@@ -132,14 +137,32 @@ public class QuartzJob {
 	}
 	
 	@Scheduled(cron = "0 0 2 * * ?")
-	public void healthDatabaseIndexData() {
+	public void IndexOtherData(){
+		//大首页21个常见疾病
+		Pagination page = new Pagination(1);
+		page.setPageSize(21);
+		JSONArray arr = RemoteRequestUtil.requestDiseaseByPage(page, null);
+		List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
+		Map<String, Object> map = null;
+		for (int i = 0; i < arr.size(); i++) {
+			map = new HashMap<String, Object>();
+			map.put("Id", arr.getJSONObject(i).get("Id"));
+			map.put("Name", arr.getJSONObject(i).get("Name"));
+			result.add(map);
+		}
+		Constants.healthData.put("common_disease_21", result);
+	}
+	//首页健康数据库信息
+	@Scheduled(cron = "0 20 * * * ?")
+	public void indexHealthDatabaseData() {
 		Pagination page = new Pagination(1);
 		page.setPageSize(7);
 		// 大首页7个医院
 		JSONArray arr = RemoteRequestUtil.requestHospitalByPage(page, null, null, null);
 		List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
+		Map<String, Object> map = null;
 		for (int i = 0; i < arr.size(); i++) {
-			Map<String, Object> map = new HashMap<String, Object>();
+			map = new HashMap<String, Object>();
 			map.put("Id", arr.getJSONObject(i).get("Id"));
 			map.put("Name", arr.getJSONObject(i).get("Name"));
 			if(i < 3){
@@ -153,12 +176,34 @@ public class QuartzJob {
 		arr = RemoteRequestUtil.requestMedicineByPage(page, 29, null, null);
 		result = new ArrayList<Map<String, Object>>();
 		for (int i = 0; i < arr.size(); i++) {
-			Map<String, Object> map = new HashMap<String, Object>();
+			map = new HashMap<String, Object>();
 			map.put("Id", arr.getJSONObject(i).get("Id"));
 			map.put("Name", arr.getJSONObject(i).get("NormalName"));
 			map.put("ImgUrl", arr.getJSONObject(i).get("ImgSrc"));
 			result.add(map);
 		}
 		Constants.healthData.put("yaopin_3", result);
+	}
+	//健康频道信息
+	public void healthIndexData() {
+		Pagination page = new Pagination(1);
+		//4个专家推荐
+		page.setPageSize(4);
+		// 大首页18个医生
+		JSONArray arr = RemoteRequestUtil.requestDoctorByPage(page, null, null, null);
+		List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
+		Map<String, Object> map = null;
+		for (int i = 0; i < arr.size(); i++) {
+			map = new HashMap<String, Object>();
+			map.put("Id", arr.getJSONObject(i).get("Id"));
+			map.put("Name", arr.getJSONObject(i).get("Name"));
+			map.put("ImgUrl", arr.getJSONObject(i).get("ImgUrl"));
+			map.put("Good", arr.getJSONObject(i).get("Good"));
+			map.put("ClinicTitle", arr.getJSONObject(i).get("ClinicTitle"));
+			result.add(map);
+		}
+		Constants.healthData.put("recommend_doct_4", result);
+		
+		//4个推荐医院
 	}
 }

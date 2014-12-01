@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -41,7 +42,7 @@ $(function(){
   <div class="s_header">
       <h1><a href="#">症状查找</a></h1>
   </div>
-  <div class="s_brumbs">当前位置：<a href="${ctx}">首页</a>&nbsp;&gt;&nbsp;查症状</div>
+  <div class="s_brumbs">当前位置：<a href="${ctx}">首页</a>&nbsp;&gt;&nbsp;<a href="${ctx}/healthService/zzk/1.html">查症状</a></div>
    <div class="d">
     <div class="subLogo"><h1>${entity.symptom.Name}</h1></div>
     <div class="subNav">
@@ -68,36 +69,20 @@ $(function(){
        
       </div>
       <div class="sideBar">
-       <div class="module2"><div class="titleBar"><h4><a href="#">专家推荐</a></h4> <span class="englishTitle">Consult</span> </div> 
+       <div class="module2"><div class="titleBar"><h4>专家推荐</h4> <span class="englishTitle">Consult</span> </div> 
         <div class="moduleContent2">
-         <div class="imgText_60_75">
-         <div class="imgText_img"><a href="#"><img src="${ctx}/theme/front/healthservice/images/4042.jpg" alt="" width="60" height="75"/></a></div>
-         <div class="text">
-          <h4><a href="#">蔡绍曦</a></h4>
-          <p class="zc">职称：主任医师</p>
-          <p class="sc">尤其擅长疑难危重症肺部感染、肺…<a href="#" class="actionA">[详细]</a></p>
-          </div></div>
-          <div class="imgText_60_75">
-         <div class="imgText_img"><a href="#"><img src="${ctx}/theme/front/healthservice/images/4042.jpg" alt="" width="60" height="75"/></a></div>
-         <div class="text">
-          <h4><a href="#">蔡绍曦</a></h4>
-          <p class="zc">职称：主任医师</p>
-          <p class="sc">尤其擅长疑难危重症肺部感染、肺…<a href="#" class="actionA">[详细]</a></p>
-          </div></div>
-          <div class="imgText_60_75">
-         <div class="imgText_img"><a href="#"><img src="${ctx}/theme/front/healthservice/images/4042.jpg" alt="" width="60" height="75"/></a></div>
-         <div class="text">
-          <h4><a href="#">蔡绍曦</a></h4>
-          <p class="zc">职称：主任医师</p>
-          <p class="sc">尤其擅长疑难危重症肺部感染、肺…<a href="#" class="actionA">[详细]</a></p>
-          </div></div>
-          <div class="imgText_60_75">
-         <div class="imgText_img"><a href="#"><img src="${ctx}/theme/front/healthservice/images/4042.jpg" alt="" width="60" height="75"/></a></div>
-         <div class="text">
-          <h4><a href="#">蔡绍曦</a></h4>
-          <p class="zc">职称：主任医师</p>
-          <p class="sc">尤其擅长疑难危重症肺部感染、肺…<a href="#" class="actionA">[详细]</a></p>
-          </div></div>
+        <c:forEach items="${recommend_doct_4}" var="o">
+        	<div class="imgText_60_75">
+	         <div class="imgText_img"><a href="${ctx}/healthService/ysDetail/${o.Id}.html" target="_blank"><img src="${o.ImgUrl}" alt="" width="60" height="75"/></a></div>
+	         <div class="text">
+	          <h4><a href="${ctx}/healthService/ysDetail/${o.Id}.html" target="_blank">${o.Name}</a></h4>
+	          <p class="zc">职称：${o.ClinicTitle}</p>
+	          <p class="sc">
+				${fn:substring(o.Good,0,15)}...<a href="${ctx}/healthService/ysDetail/${o.Id}.html" class="actionA" target="_blank">[详细]</a>
+				</p>
+	          </div></div>
+        </c:forEach>
+         
           </div>
        </div>
           <div class="module2"><div class="titleBar"><h4><a href="#">名院推荐</a></h4></div> 

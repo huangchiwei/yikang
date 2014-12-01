@@ -137,6 +137,7 @@ public class HealthServiceController extends BaseController{
 			}
 			model.addAttribute("flag", flag);
 			model.addAttribute("entity", RemoteRequestUtil.requestSymptomById(id));
+			model.addAttribute("recommend_doct_4", Constants.healthData.get("recommend_doct_4"));
 			return "front/healthservice/zzDetail";
 		} catch (Exception e) {
 			e.printStackTrace();

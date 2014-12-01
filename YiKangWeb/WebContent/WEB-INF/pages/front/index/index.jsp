@@ -82,27 +82,10 @@ $(document).ready(function($){
       <div class="img"><img src="${ctx}/theme/front/default/images/hearth.png" /></div>
       <h2>常见病</h2>
       <ul class="bing">
-       <li><a href="#">手足口病</a></li>
-       <li><a href="#">颈椎病</a></li>
-       <li><a href="#">乳腺癌</a></li>
-       <li><a href="#">尖锐</a></li>
-       <li><a href="#">湿疣</a></li>
-       <li><a href="#">不孕不育</a></li>
-       <li><a href="#">牛皮癣</a></li>
-       <li><a href="#">白癜风</a></li>
-       <li><a href="#">高血压</a></li>
-       <li><a href="#">癫痫</a></li>
-       <li><a href="#">手足口病</a></li>
-       <li><a href="#">颈椎病</a></li>
-       <li><a href="#">癫痫</a></li>
-       <li><a href="#">乳腺癌</a></li>
-       <li><a href="#">癫痫</a></li>
-       <li><a href="#">癫痫</a></li>
-       <li><a href="#">手足口病</a></li>
-       <li><a href="#">颈椎病</a></li>
-       <li><a href="#">癫痫</a></li>
-       <li><a href="#">乳腺癌</a></li>
-       <li><a href="#">癫痫</a></li>
+      <c:forEach items="${common_disease_21}" var="o">
+      	<li><a href="${ctx}/healthService/jbDetail/${o.Id}.html" target="_blank">${o.Name}</a></li>
+      </c:forEach>
+       
       </ul>
       <div class="search_box2">
       <input name="search_term" class="keywords" id="search_term" value="请输入关键字"/>

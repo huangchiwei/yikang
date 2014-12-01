@@ -39,6 +39,7 @@ public class IndexController extends BaseController{
 		model.addAttribute("yisheng_18", Constants.healthData.get("yisheng_18"));
 		model.addAttribute("yiyuan_7", Constants.healthData.get("yiyuan_7"));
 		model.addAttribute("yaopin_3", Constants.healthData.get("yaopin_3"));
+		model.addAttribute("common_disease_21", Constants.healthData.get("common_disease_21"));
 		model.addAttribute("accountNo", super.getCookieValue(request, Constants.FRONT_KEY));
 
 		//轮播广告indexCarousel

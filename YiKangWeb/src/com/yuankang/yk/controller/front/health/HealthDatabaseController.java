@@ -88,6 +88,7 @@ public class HealthDatabaseController extends BaseController{
 		try {
 			model.addAttribute("entity", RemoteRequestUtil.requestHospitalById(id));
 			model.addAttribute("categorys", Constants.healthData.get("categorys"));
+			model.addAttribute("type", 6);
 			return "front/healthdatabase/yyDetail";
 		} catch (Exception e) {
 			e.printStackTrace();
