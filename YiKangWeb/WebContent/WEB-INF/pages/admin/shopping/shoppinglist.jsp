@@ -22,7 +22,7 @@
 		      type : 4,
 		      btn : ['是','否'],
 		      yes : function(){
-		          location.href='${ctx}/admin/advert/delete/' + id + '.html';
+		          location.href='${ctx}/admin/shopping/delete/' + id + '.html';
 		      },
 		      no : function(index){
 		         layer.close(index);
@@ -47,8 +47,7 @@
 <tr>
         <th>描述</th>
         <th>价格</th>
-        <th>最后修改用户</th>
-        <th>最后修改时间</th>
+       
         <th>操作</th>
       </tr>
       
@@ -57,13 +56,10 @@
         <td>${o.Discription}</td>
         <td>${o.Price}</td>
        
-        <td>${o.LastUpdateUser}</td>
- 
-        <td><fmt:formatDate value="${o.LastUpdateTime}"
-								pattern="yyyy-MM-dd HH:mm:ss" /></td>
+      
         <td>
-           <a href="${ctx}/admin/shopping/update/${o.ID}.html"><img src="${ctx}/theme/admin/default/images/edit_icon.png" /></a>&nbsp;
-          <img src="${ctx}/theme/admin/default/images/del_icon.png" onclick="delConfirm(${o.ID})"/></td>
+           <a href="${ctx}/admin/shopping/update/${o.Id}.html"><img src="${ctx}/theme/admin/default/images/edit_icon.png" /></a>&nbsp;
+          <img src="${ctx}/theme/admin/default/images/del_icon.png" onclick="delConfirm(${o.Id})"/></td>
       </tr>
       </c:forEach>
     </table>

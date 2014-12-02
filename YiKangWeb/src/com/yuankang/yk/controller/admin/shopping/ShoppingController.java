@@ -49,7 +49,7 @@ public class ShoppingController extends BaseController {
 	@RequestMapping(value = PAGE_LIST)
 	public ModelAndView getByPage(@PathVariable int currentPage) {
 		
-				ModelAndView mv = new ModelAndView("admin/shopping/list");
+				ModelAndView mv = new ModelAndView("admin/shopping/shoppinglist");
 				// 初始化分页实体
 				Pagination page = initPage(currentPage);
 				//page.setPageSize(4);
@@ -67,14 +67,16 @@ public class ShoppingController extends BaseController {
 	 @RequestMapping(value = UPDATE)
 	  public String update(@PathVariable("id") Long key, Model model)
 	  {
+		 model.addAttribute("oList", shoppingService.getOrderList());
 		 Map<String, Object> shopping= shoppingService.getById(key);
-		 model.addAttribute("advert", shopping);
+		 model.addAttribute("shopping", shopping);
 		 model.addAttribute("viewType", "U");
 	    return "admin/shopping/shoppingA_U";
 	  }
 	 @RequestMapping(value = ADD)
 	  public String toAdd(Model model)
 	  {
+		 model.addAttribute("oList", shoppingService.getOrderList());
 		 model.addAttribute("viewType", "A");
 	    return "admin/shopping/shoppingA_U";
 	  }
@@ -83,6 +85,7 @@ public class ShoppingController extends BaseController {
 	  {
 		 String imgPath="";
 		 String realPath="";
+		
 		// 转型为MultipartHttpRequest：     
 	        MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request; 
 	     // 获得文件：     

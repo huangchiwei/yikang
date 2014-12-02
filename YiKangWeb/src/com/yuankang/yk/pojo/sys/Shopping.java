@@ -2,25 +2,47 @@ package com.yuankang.yk.pojo.sys;
 
 import java.util.Date;
 
-public class Shopping {
-private long id;
-private int price;
-private String url;
-private String picPath;
-private String discription;
-private int orderNo;
-private Date lastUpdateTime;
-private String lastUpdateUser;
-public long getId() {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+@Entity
+@Table(name = "shopping", catalog = "yikang")
+public class Shopping implements java.io.Serializable {
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "ID", unique = true, nullable = false)
+	private Long id;
+	@Column(name = "Price")
+	private Integer price;
+	@Column(name = "Url")
+	private String url;
+	@Column(name = "PicPath")
+	private String picPath;
+	@Column(name = "Discription")
+	private String discription;
+	@Column(name = "OrderNo")
+	private Integer orderNo;
+	@Column(name = "LastUpdateTime")
+	private Date lastUpdateTime;
+	@Column(name = "LastUpdateUser")
+	private String lastUpdateUser;
+public Shopping(){
+	
+}
+public Long getId() {
 	return id;
 }
-public void setId(long id) {
+public void setId(Long id) {
 	this.id = id;
 }
-public int getPrice() {
+public Integer getPrice() {
 	return price;
 }
-public void setPrice(int price) {
+public void setPrice(Integer price) {
 	this.price = price;
 }
 public String getUrl() {
@@ -41,10 +63,10 @@ public String getDiscription() {
 public void setDiscription(String discription) {
 	this.discription = discription;
 }
-public int getOrderNo() {
+public Integer getOrderNo() {
 	return orderNo;
 }
-public void setOrderNo(int orderNo) {
+public void setOrderNo(Integer orderNo) {
 	this.orderNo = orderNo;
 }
 public Date getLastUpdateTime() {
@@ -57,6 +79,22 @@ public String getLastUpdateUser() {
 	return lastUpdateUser;
 }
 public void setLastUpdateUser(String lastUpdateUser) {
+	this.lastUpdateUser = lastUpdateUser;
+}
+public static long getSerialversionuid() {
+	return serialVersionUID;
+}
+public Shopping(Long id, Integer price, String url, String picPath,
+		String discription, Integer orderNo, Date lastUpdateTime,
+		String lastUpdateUser) {
+	super();
+	this.id = id;
+	this.price = price;
+	this.url = url;
+	this.picPath = picPath;
+	this.discription = discription;
+	this.orderNo = orderNo;
+	this.lastUpdateTime = lastUpdateTime;
 	this.lastUpdateUser = lastUpdateUser;
 }
 

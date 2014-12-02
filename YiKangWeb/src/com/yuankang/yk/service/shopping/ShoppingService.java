@@ -1,5 +1,7 @@
 package com.yuankang.yk.service.shopping;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -35,7 +37,7 @@ public class ShoppingService extends BaseSqlService {
 		up_del(sql);
 	  }
 	public Map<String, Object> getById(Long id) {
-		String sql = "select * from shopping where ID="+id;
+		String sql = "select * from shopping where Id="+id;
 		List<Map<String, Object>> list = getQuery(sql);
 		if (list != null && list.size() > 0)
 			return list.get(0);
@@ -51,11 +53,20 @@ public class ShoppingService extends BaseSqlService {
 	}
 	public void update(Shopping shopping) {
 		String sql="update shopping set Price="+shopping.getPrice()+",Url='"+shopping.getUrl()+"',PicPath='"+shopping.getPicPath()+"',"
-				+ "Discription="+shopping.getDiscription()+",OrderNo='"+shopping.getOrderNo()+"',LastUpdateTime=now(),LastUpdateUser="+shopping.getLastUpdateUser()
-				+" where ID="+shopping.getId();
+				+ "Discription='"+shopping.getDiscription()+"',OrderNo="+shopping.getOrderNo()+",LastUpdateTime=now(),LastUpdateUser='"+shopping.getLastUpdateUser()
+				+"' where Id="+shopping.getId();
 
 		up_del(sql);
 	}
-
+	public List<Integer> getOrderList() {
+		List<Integer> oList=new ArrayList<Integer>();
+		oList.add(1);
+		oList.add(2);
+		oList.add(3);
+		oList.add(4);
+		oList.add(5);
+		oList.add(6);
+		return oList;
+	}
 	
 }
