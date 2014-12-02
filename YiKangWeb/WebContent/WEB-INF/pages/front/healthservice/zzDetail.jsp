@@ -78,7 +78,12 @@ $(function(){
 	          <h4><a href="${ctx}/healthService/ysDetail/${o.Id}.html" target="_blank">${o.Name}</a></h4>
 	          <p class="zc">职称：${o.ClinicTitle}</p>
 	          <p class="sc">
-				${fn:substring(o.Good,0,15)}...<a href="${ctx}/healthService/ysDetail/${o.Id}.html" class="actionA" target="_blank">[详细]</a>
+				<c:if test="${fn:length(o.Good) > 15}">
+					${fn:substring(o.Good,0,15)}...<a href="${ctx}/healthService/ysDetail/${o.Id}.html" class="actionA" target="_blank">[详细]</a>
+				</c:if>
+				<c:if test="${fn:length(o.Good) <= 15}">
+					${o.Good,0,15}
+				</c:if>
 				</p>
 	          </div></div>
         </c:forEach>
@@ -87,43 +92,57 @@ $(function(){
        </div>
           <div class="module2"><div class="titleBar"><h4><a href="#">名院推荐</a></h4></div> 
         <div class="moduleContent2">
-         <div class="imgText_60_75">
-         <div class="imgText_img"><a href="#"><img src="${ctx}/theme/front/healthservice/images/4042.jpg" alt="" width="60" height="75" /></a></div>
-         <div class="text">
-          <h4><a href="#">中山大学附属第三医院</a></h4>
-          <p class="zc">电话：020-85253000</p>
-          <p class="sc">地址：广州市天河区天河路600号石牌岗</p>
-          </div></div>
-          <div class="imgText_60_75">
-         <div class="imgText_img"><a href="#"><img src="${ctx}/theme/front/healthservice/images/4042.jpg" alt="" width="60" height="75" /></a></div>
-         <div class="text">
-          <h4><a href="#">中山大学附属第三医院</a></h4>
-          <p class="zc">电话：020-85253000</p>
-          <p class="sc">地址：广州市天河区天河路600号石牌岗</p>
-          </div></div>
-          <div class="imgText_60_75">
-         <div class="imgText_img"><a href="#"><img src="${ctx}/theme/front/healthservice/images/4042.jpg" alt="" width="60" height="75" /></a></div>
-         <div class="text">
-          <h4><a href="#">中山大学附属第三医院</a></h4>
-          <p class="zc">电话：020-85253000</p>
-          <p class="sc">地址：广州市天河区天河路600号石牌岗</p>
-          </div></div>
-          <div class="imgText_60_75">
-         <div class="imgText_img"><a href="#"><img src="${ctx}/theme/front/healthservice/images/4042.jpg" alt="" width="60" height="75" /></a></div>
-         <div class="text">
-          <h4><a href="#">中山大学附属第三医院</a></h4>
-          <p class="zc">电话：020-85253000</p>
-          <p class="sc">地址：广州市天河区天河路600号石牌岗</p>
-          </div></div>
-          
+        <c:forEach items="${recommend_hospt_4}" var="o">
+        	<div class="imgText_60_75">
+	         <div class="imgText_img"><a href="${ctx}/healthDatabase/yyDetail/${o.Id}.html"><img src="${o.ImgUrl}" alt="" width="60" height="75" /></a></div>
+	         <div class="text">
+	          <h4><a href="${ctx}/healthDatabase/yyDetail/${o.Id}.html">${o.Name}</a></h4>
+	          <p class="sc">性质：
+				<c:choose>
+	        		<c:when test="${o.OwnerType == 1}">
+	        			公立
+	        		</c:when>
+	        		<c:when test="${o.OwnerType == 2}">
+	        			民营
+	        		</c:when>
+	        		<c:when test="${o.OwnerType == 3}">
+	        			合资
+	        		</c:when>
+	        		<c:when test="${o.OwnerType == 4}">
+	        			外资
+	        		</c:when>
+	        		<c:when test="${o.OwnerType == 5}">
+	        			其他
+	        		</c:when>
+	        	</c:choose>
+	        	</p>
+	        	<p class="sc">类型：
+				<c:choose>
+	        		<c:when test="${o.BusinessType == 1}">
+	        			综合性
+	        		</c:when>
+	        		<c:when test="${o.BusinessType == 2}">
+	        			专科
+	        		</c:when>
+	        		<c:when test="${o.BusinessType == 3}">
+	        			门诊
+	        		</c:when>
+	        		<c:when test="${o.BusinessType == 4}">
+	        			其他
+	        		</c:when>
+	        	</c:choose>
+			</p>
+			<p class="zc" title="${o.Phone}">电话：${fn:substring(o.Phone,0,12)}</p>
+	          </div></div>
+        </c:forEach>
+         
           </div></div>
           <div class="module2"><div class="titleBar"><h4><a href="#">热门文章</a></h4></div> 
         <div class="moduleContent3">
           <ul>
-           <li><a href="#">前列腺炎多吃鱼贝少吃虾蟹 前列...</a></li>
-           <li><a href="#">招惹前列腺疾病6大恶习 八偏治...</a></li>
-           <li><a href="#">尖锐湿疣四大治疗误区 尖锐湿疣...</a></li>
-           <li><a href="#">男人阳痿怎么办？ 男人“不</a></li>
+          <c:forEach items="${hot_news_4}" var="o">
+           <li><a href="#" title="${o.Title}">${fn:length(o.Title)>15?fn:substring(o.Title,0,15):o.Title}${fn:length(o.Title)>15?'...':''}</a></li>
+           </c:forEach>
           </ul> 
          </div>
         </div>

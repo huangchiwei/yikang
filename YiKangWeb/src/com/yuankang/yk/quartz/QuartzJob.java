@@ -185,6 +185,7 @@ public class QuartzJob {
 		Constants.healthData.put("yaopin_3", result);
 	}
 	//健康频道信息
+	@Scheduled(cron = "0 20 * * * ?")
 	public void healthIndexData() {
 		Pagination page = new Pagination(1);
 		//4个专家推荐
@@ -205,5 +206,20 @@ public class QuartzJob {
 		Constants.healthData.put("recommend_doct_4", result);
 		
 		//4个推荐医院
+		arr = RemoteRequestUtil.requestHospitalByPage(page, null, null, null);
+		result = new ArrayList<Map<String, Object>>();
+		for (int i = 0; i < arr.size(); i++) {
+			map = new HashMap<String, Object>();
+			map.put("Id", arr.getJSONObject(i).get("Id"));
+			map.put("Name", arr.getJSONObject(i).get("Name"));
+			map.put("OwnerType", arr.getJSONObject(i).get("OwnerType"));
+			map.put("Phone", arr.getJSONObject(i).get("Phone"));
+			map.put("BusinessType", arr.getJSONObject(i).get("BusinessType"));
+			map.put("ImgUrl", arr.getJSONObject(i).get("ImgUrl"));
+			result.add(map);
+		}
+		Constants.healthData.put("recommend_hospt_4", result);
+		//站内四编的热门文章
+		Constants.healthData.put("hot_news_4", newsService.getHotRecommendInfo(4));
 	}
 }
