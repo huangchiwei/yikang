@@ -38,7 +38,7 @@
       </div>
      </div>
      <div class="one_b_l_r">
-       <div class="one_b_l_r_b pt_10">
+       <div class="one_b_l_r_b">
        <div class="title">
        <h1>医生查询</h1>
        <div class="more"><a href="${ctx}/healthService/ysk/1.html" target="_blank">more</a></div>

@@ -4,13 +4,13 @@
       <ul class="head_ul">
         <li><a href="#">设为首页</a></li>
         <li><a href="#">帮助中心</a></li>
-       <c:if test="${empty accountNo}"> <li><a href="${ctx}/front/account/login.html">登&nbsp;&nbsp;录</a> </li></c:if>
+       <c:if test="${empty accountNo}"> <li><a href="${ctx}/front/account/login.html">登录</a></li></c:if>
         <c:if test="${not empty accountNo}"> <li>
         <a href="#">${accountNo}</a></li>
          <li><a href="${ctx}/front/account/accountLogout.html">安全退出</a></li>
         </c:if>
 
-        <li><a href="${ctx}/front/account/register.html">注&nbsp;&nbsp;册</a></li>
+        <li><a href="${ctx}/front/account/register.html">注册</a></li>
       </ul>
     </div>
   </div>
@@ -55,7 +55,7 @@
           <li><a href="#">预约挂号</a></li>
         </ul>
       </li>
-      <li class="drop-menu-effect"><a href="#"><span>健康购</span></a></li>
+      <li class="drop-menu-effect"><a href="http://www.is186.com" target="_blank"><span>健康购</span></a></li>
       <li class="drop-menu-effect"><a href="#"><span>健康数据库</span></a>
       <ul class="submenu">
           <li><a href="${ctx}/healthDatabase/yyk/1.html" target="_blank">医院库</a></li>

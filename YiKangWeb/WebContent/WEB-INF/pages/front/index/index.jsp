@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+﻿<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"  %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>亿康在线</title>
+<title>大健康365</title>
 
 <link href="${ctx}/theme/front/default/style/default.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/theme/front/default/style/master.css" rel="stylesheet" type="text/css" />
@@ -81,12 +81,12 @@ $(document).ready(function($){
      <div class="health_s">
       <div class="img"><img src="${ctx}/theme/front/default/images/hearth.png" /></div>
       <h2>常见病</h2>
-      <ul class="bing">
+      <div class="bing">
       <c:forEach items="${common_disease_21}" var="o">
-      	<li><a href="${ctx}/healthService/jbDetail/${o.Id}.html" target="_blank">${o.Name}</a></li>
+      	<a href="${ctx}/healthService/jbDetail/${o.Id}.html" target="_blank">${o.Name}</a>
       </c:forEach>
        
-      </ul>
+      </div>
       <div class="search_box2">
       <input name="search_term" class="keywords" id="search_term" value="请输入关键字"/>
       <input type="button" onclick="form_search();" value="搜索" class="rssclick" />
@@ -190,7 +190,7 @@ $(document).ready(function($){
   <!--two_end-->
   <!--three-->
   <div class="three">
-   <div class="hearth_gou"><h1><a href="#">促销活动</a>|<a href="#">女性保健</a>|<a href="#">男性保健</a>|<a href="#">儿童保健</a>|<a href="#">老人保健</a>|<a href="#">更多>></a></h1>
+   <div class="hearth_gou"><h1><a href="http://www.is186.com/product/list.php?class_id=21" target="_blank">完美女人</a>|<a href="http://www.is186.com/product/list.php?class_id=22" target="_blank">魅力男人</a>|<a href="http://www.is186.com/product/list.php?class_id=23" target="_blank">快乐老人</a>|<a href="http://www.is186.com/product/list.php?class_id=24" target="_blank">关爱母婴</a>|<a href="http://www.is186.com/product/list.php?class_id=25" target="_blank">大众健康</a>|<a href="http://www.is186.com" target="_blank">更多>></a></h1>
    </div>
    <div class="gou_box">
     <div class="fl">
@@ -243,28 +243,28 @@ $(document).ready(function($){
   <!--links-->
   <div class="links">
    <h1>合作伙伴&nbsp;Partners</h1>
-   <ul class="ul">
-    <li><a href="#">家庭医生在线</a></li>
-    <li><a href="#">疾病预防控制中心</a></li>
-    <li><a href="#">食品药品监督管理局</a></li>
-    <li><a href="#">中华医学会</a></li>
-    <li><a href="#">中国医师协会</a></li>
-    <li><a href="#">中国性学会</a></li>
-    <li><a href="#">中国健康教育中心</a></li>
-    <li><a href="#">生命时报</a></li>
-    <li><a href="#">健康时报</a></li>
-    <li><a href="#">大众医学北京医生</a></li>
-    <li><a href="#">中国健康界</a></li>
-    <li><a href="#">中国中医药报</a></li>
-    <li><a href="#">大河健康</a></li>
-    <li><a href="#">保健时报</a></li> 
-    <li><a href="#">中国性科学</a></li>
-    <li><a href="#">医药观察家</a></li>
-    <li><a href="#">39健康网</a></li>
-    <li><a href="#">好大夫在线</a></li>
-    <li><a href="#">爱康国宾</a></li>
-    <li><a href="#">卫生和计划生育委员会</a></li>
-   </ul>
+   <div class="ul">
+    <a href="#">家庭医生在线</a>
+    <a href="#">疾病预防控制中心</a>
+    <a href="#">食品药品监督管理局</a>
+    <a href="#">中华医学会</a>
+    <a href="#">中国医师协会</a>
+    <a href="#">中国性学会</a>
+    <a href="#">中国健康教育中心</a>
+    <a href="#">生命时报</a>
+    <a href="#">健康时报</a>
+    <a href="#">大众医学北京医生</a>
+    <a href="#">中国健康界</a>
+    <a href="#">中国中医药报</a>
+    <a href="#">大河健康</a>
+    <a href="#">保健时报</a>
+    <a href="#">中国性科学</a>
+    <a href="#">医药观察家</a>
+    <a href="#">39健康网</a>
+    <a href="#">好大夫在线</a>
+    <a href="#">爱康国宾</a>
+    <a href="#">卫生和计划生育委员会</a>
+   </div>
   </div>
   <!--links_end-->
   <!--bot-->
