@@ -59,7 +59,13 @@ html { overflow:-moz-scrollbars-vertical;}
 			 
 		  </ul>
 		</li>
-		
+			<li>
+			<a href="#">健康购管理</a>
+			<ul>
+			  <li><a href="${ctx}/admin/shopping/list/1.html" target="mainFrame">产品列表</a></li>
+			   
+		  </ul>
+		</li>
 	</ul>
     <div class="clear"></div>
  </div>
