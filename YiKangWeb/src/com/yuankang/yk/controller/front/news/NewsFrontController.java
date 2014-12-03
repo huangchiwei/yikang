@@ -64,7 +64,7 @@ public class NewsFrontController extends BaseController {
 	 {
 		// 初始化分页实体
 				Pagination page = initPage(currentPage);
-				//page.setPageSize(3);
+				page.setPageSize(30);
 				model.addAttribute("list", newsService.getByPage(page,cateCode));
 				model.addAttribute("page", page);
 				model.addAttribute("cateCode", cateCode);

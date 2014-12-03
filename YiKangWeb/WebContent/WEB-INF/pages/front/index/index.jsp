@@ -335,36 +335,15 @@ $(document).ready(function($){
     </div>
     <div class="gou_box_r">
     <ul class="ul">
+    <c:forEach items="${shoppingList}" var="o" varStatus="sta">
      <li>
-      <p class="img"><img src="${ctx}/theme/front/default/images/index_003.png" width="170" height="150" /></p>
-      <p class="p"><a href="#">葡萄籽芦荟软胶囊 护肤美白 抗氧化 抗衰老 2瓶*60粒 金康倍</a></p>
-      <p class="yang">￥397.00</p>
+      <p class="img"><img src="${ctx}/${o.PicPath}" width="170" height="150" /></p>
+      <p class="p"><a href="${o.Url}" target="_blank">${o.Discription}</a></p>
+      <p class="yang">￥<fmt:formatNumber value="${o.Price}" type="currency" pattern="0.00"/></p>
      </li>
-     <li>
-      <p class="img"><img src="${ctx}/theme/front/default/images/index_003.png" width="170" height="150" /></p>
-      <p class="p"><a href="#">葡萄籽芦荟软胶囊 护肤美白 抗氧化 抗衰老 2瓶*60粒 金康倍</a></p>
-      <p class="yang">￥397.00</p>
-     </li>
-     <li>
-      <p class="img"><img src="${ctx}/theme/front/default/images/index_003.png" width="170" height="150" /></p>
-      <p class="p"><a href="#">葡萄籽芦荟软胶囊 护肤美白 抗氧化 抗衰老 2瓶*60粒 金康倍</a></p>
-      <p class="yang">￥397.00</p>
-     </li>
-     <li>
-      <p class="img"><img src="${ctx}/theme/front/default/images/index_003.png" width="170" height="150" /></p>
-      <p class="p"><a href="#">葡萄籽芦荟软胶囊 护肤美白 抗氧化 抗衰老 2瓶*60粒 金康倍</a></p>
-      <p class="yang">￥397.00</p>
-     </li>
-     <li>
-      <p class="img"><img src="${ctx}/theme/front/default/images/index_003.png" width="170" height="150" /></p>
-      <p class="p"><a href="#">葡萄籽芦荟软胶囊 护肤美白 抗氧化 抗衰老 2瓶*60粒 金康倍</a></p>
-      <p class="yang">￥397.00</p>
-     </li>
-     <li>
-      <p class="img"><img src="${ctx}/theme/front/default/images/index_003.png" width="170" height="150" /></p>
-      <p class="p"><a href="#">葡萄籽芦荟软胶囊 护肤美白 抗氧化 抗衰老 2瓶*60粒 金康倍</a></p>
-      <p class="yang">￥397.00</p>
-     </li>
+     
+    </c:forEach>
+    
     </ul>
     </div>
    </div>

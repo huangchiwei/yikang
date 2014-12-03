@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.yuankang.yk.publics.Constants;
 import com.yuankang.yk.service.advert.AdvertService;
 import com.yuankang.yk.service.news.NewsService;
+import com.yuankang.yk.service.shopping.ShoppingService;
 
 /**
  * 类说明:
@@ -30,6 +31,8 @@ public class IndexController extends BaseController{
 	private AdvertService advertService;
 	@Resource
 	private NewsService newsService;
+	@Resource
+	private ShoppingService shoppingService;
 	@RequestMapping("index")
 	public String index(HttpServletRequest request,Model model){
 
@@ -134,6 +137,10 @@ public class IndexController extends BaseController{
 		 List<Map<String, Object>> industryActiList=newsService.getByCateCode("acti",new ArrayList<String>(),false,6);
 		 model.addAttribute("industryActiList", industryActiList);
 ////////////////////////////////行业资讯////////////////////////////////////////////
+ //////////////////////////健康购////////////////////////////////////////
+		 Pagination page = initPage(1);
+		 model.addAttribute("shoppingList", shoppingService.getByPage(page));
+//////////////////////////健康购////////////////////////////////////////
 		return "front/index/index";
 	}
 }

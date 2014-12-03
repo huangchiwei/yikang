@@ -31,6 +31,7 @@ public class ShoppingService extends BaseSqlService {
 		list=getQuery("select * from shopping  order by OrderNo asc",page);
 		return list;
 	}
+	
 	public void delete(Long id)
 	  {
 		String sql="delete from shopping where ID="+id;

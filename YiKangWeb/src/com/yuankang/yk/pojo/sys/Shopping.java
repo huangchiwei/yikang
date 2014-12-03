@@ -17,7 +17,7 @@ public class Shopping implements java.io.Serializable {
 	@Column(name = "ID", unique = true, nullable = false)
 	private Long id;
 	@Column(name = "Price")
-	private Integer price;
+	private Float price;
 	@Column(name = "Url")
 	private String url;
 	@Column(name = "PicPath")
@@ -39,10 +39,10 @@ public Long getId() {
 public void setId(Long id) {
 	this.id = id;
 }
-public Integer getPrice() {
+public Float getPrice() {
 	return price;
 }
-public void setPrice(Integer price) {
+public void setPrice(Float price) {
 	this.price = price;
 }
 public String getUrl() {
@@ -84,7 +84,7 @@ public void setLastUpdateUser(String lastUpdateUser) {
 public static long getSerialversionuid() {
 	return serialVersionUID;
 }
-public Shopping(Long id, Integer price, String url, String picPath,
+public Shopping(Long id, Float price, String url, String picPath,
 		String discription, Integer orderNo, Date lastUpdateTime,
 		String lastUpdateUser) {
 	super();
