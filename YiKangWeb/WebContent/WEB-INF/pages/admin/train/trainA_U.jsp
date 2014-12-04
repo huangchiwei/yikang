@@ -113,7 +113,8 @@
          <tr>
     <th>视频路径：</th>
     <td  colspan="6">
-      <textarea id="videoUrl" name="videoUrl" rows="1" cols="100" >${train.VideoUrl }</textarea>
+      <textarea id="videoUrl" name="videoUrl" rows="1" cols="100" >${train.VideoUrl }</textarea><font color="font">必须是flash地址
+      </font>
      	
      </td>
     </tr>

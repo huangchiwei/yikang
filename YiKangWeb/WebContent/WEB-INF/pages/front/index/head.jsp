@@ -45,7 +45,7 @@
           <li><a href="${ctx}/front/news/list/1.html?cateCode=acti">重要活动</a></li>
         </ul>
       </li>
-      <li class="drop-menu-effect"><a href="#"><span>行业活动</span></a></li>
+      <li class="drop-menu-effect"><a href="${ctx}/front/industryActi/list/1.html"><span>行业活动</span></a></li>
       <li class="drop-menu-effect"><a href="#"><span>健康服务</span></a>
       <ul class="submenu">
           <li><a href="${ctx}/healthService/zzk/1.html" target="_blank">症状查询</a></li>

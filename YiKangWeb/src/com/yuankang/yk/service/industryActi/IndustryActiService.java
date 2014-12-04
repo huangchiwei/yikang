@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.yuankang.yk.pojo.sys.IndustryActi;
 import com.yuankang.yk.pojo.sys.Train;
 import com.yuankang.yk.publics.tools.DateUtil;
+import com.yuankang.yk.publics.tools.StringUtil;
 import com.yuankang.yk.service.base.BaseSqlService;
 
 /**
@@ -39,7 +40,21 @@ public class IndustryActiService extends BaseSqlService {
 		return list;
 	}
 
-
+	public List<Map<String, Object>> getByPage(Pagination page,Long withoutId) {
+		String sql="select * from industry_acti  order by RealTime desc";
+		if(withoutId!=null){
+			sql="select * from industry_acti where Id!="+withoutId+" order by RealTime desc";
+		}
+		List<Map<String, Object>> list = getQuery(sql, page);
+		String des_src = "";
+		if (list != null && list.size() > 0) {
+			for (Map<String, Object> h : list) {
+				des_src = StringUtil.getThumb(h.get("Content").toString(), 200);
+				h.put("src", des_src);
+			}
+		}
+		return list;
+	}
 
 	public void delete(Long id) {
 		String sql = "delete from industry_acti where Id=" + id;
@@ -99,4 +114,18 @@ public class IndustryActiService extends BaseSqlService {
 		}
 	}
 	
+	//前端//
+	public List<Map<String, Object>> getHotOrderInfo(int pageSize) {
+		String sql = "";
+		sql = "select Title,Id,Clicks from industry_acti order by Clicks desc limit 0,"
+				+ pageSize;
+		List<Map<String, Object>> list = getQuery(sql);
+		return list;
+	}
+	public List<Map<String, Object>> getHotRecommendInfo(int pageSize) {
+		String sql = "select Title,Id from industry_acti where IsRecommend=1  order by Clicks desc limit 0,"
+				+ pageSize;
+		List<Map<String, Object>> list = getQuery(sql);
+		return list;
+	}
 }
