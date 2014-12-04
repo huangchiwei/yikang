@@ -4,7 +4,7 @@
 <html>
   <head>
     
-    <title>亿康在线-投融资-${entity.title}</title>
+    <title>亿康在线-投融资-${news.Title}</title>
     <meta http-equiv="pragma" content="no-cache"/>
 	<meta http-equiv="cache-control" content="no-cache"/>
 	<meta http-equiv="expires" content="0"/>
@@ -20,13 +20,13 @@
 <div class="n">
 <div class="news_nav">
   <div class="n_box">
-   <div class="new_logo"><img src="images/news_logo.png" /></div>
+   <div class="new_logo"><img src="${ctx}/theme/front/investfinance/images/news_logo.png" /></div>
    <div class="lanren">
     <a href='${ctx}/investment/list/1.html'>投资信息</a>
     <a href='${ctx}/financing/list/1.html'>融资信息</a>
-    <a href='${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceNews'>行业资讯</a>
+    <a href='${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceNews' class="${news.CateCode == 'investFinanceNews' ? 'thisclass' : ''}">行业资讯</a>
     <a href='${ctx}/account/list/1.html'>行业机构</a>
-    <a href='${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceLaw'>政策法规</a>
+    <a href='${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceLaw' class="${news.CateCode == 'investFinanceLaw' ? 'thisclass' : ''}">政策法规</a>
    </div>
   </div>
   <div class="search">

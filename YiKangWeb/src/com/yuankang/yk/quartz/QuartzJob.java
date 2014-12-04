@@ -75,9 +75,9 @@ public class QuartzJob {
 			// 投融资首页6条投融资政策法规
 			Constants.indexData.put("zhengcefagui",
 					newsService.getNews("投融资法律法规", 6));
-			// 投融资首页6条投融资行业资讯
+			//前10条热文排行
 			Constants.indexData.put("hotOrderInfoList", newsService.getHotOrderInfo(10));
-			// 投融资首页6条投融资政策法规
+			// 前10条热文推荐
 			Constants.indexData.put("hotRecomInfoList", newsService.getHotRecommendInfo(10));
 			System.out.println("初始化首页信息...");
 		} catch (Exception e) {
