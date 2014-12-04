@@ -11,10 +11,8 @@
 			                    <a href="${ctx}/healthService/jbDetail/${o.Id}.html">${o.Name}</a></div>
 			                <div class="itemContent">
 			                    <p>
-			                        <span>关联症状：</span>
-			                                  <a href="#">喉癌</a>
-			                                  <a href="#">季节性变应性鼻炎</a>
-			                                  <a href="#">会厌炎</a></p>
+			                        <span>相关联：</span>
+			                                  ${o.Keyword}</p>
 			                </div>
 			            </div>
             		</c:when>
@@ -24,10 +22,8 @@
 			                    <a href="${ctx}/healthService/jbDetail/${o.Id}.html">${o.Name}</a></div>
 			                <div class="itemContent">
 			                    <p>
-			                        <span>关联症状：</span>
-			                                  <a href="#">外阴炎</a>
-			                                  <a href="#">老年性阴道炎</a>
-			                                  <a href="#">急性宫颈炎</a>                    </p>
+			                        <span>相关联：</span>
+			                                  ${o.Keyword}</p>
 			                </div>
 			            </div>
             		</c:otherwise>

@@ -105,12 +105,12 @@ public class HealthDatabaseController extends BaseController{
 	@RequestMapping("ypDetail/{id}")
 	public String ypDetail(Model model,@PathVariable Long id){
 		try {
-			Object obj = RemoteRequestUtil.requestMedicineById(id);
-			if(obj != null && obj.toString().equals("null")){
-				return yaoPinKu(1, model, 29, null, null);
-			}
-			model.addAttribute("entity",obj);
+			model.addAttribute("entity",RemoteRequestUtil.requestMedicineById(id));
+			model.addAttribute("other_medic_4",Constants.healthData.get("other_medic_4"));
+			model.addAttribute("recommend_medic_4", Constants.healthData.get("recommend_medic_4"));
+			System.out.println(Constants.healthData.get("recommend_medic_4"));
 			model.addAttribute("medicineEfficacys", Constants.healthData.get("medicineEfficacys"));
+			model.addAttribute("hot_news_4", Constants.healthData.get("hot_news_4"));
 			return "front/healthdatabase/ypDetail";
 		} catch (Exception e) {
 			e.printStackTrace();

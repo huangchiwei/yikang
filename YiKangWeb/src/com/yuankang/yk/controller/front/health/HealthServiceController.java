@@ -140,7 +140,6 @@ public class HealthServiceController extends BaseController{
 			model.addAttribute("recommend_doct_4", Constants.healthData.get("recommend_doct_4"));
 			model.addAttribute("recommend_hospt_4", Constants.healthData.get("recommend_hospt_4"));
 			model.addAttribute("hot_news_4", Constants.healthData.get("hot_news_4"));
-			
 			return "front/healthservice/zzDetail";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -162,6 +161,9 @@ public class HealthServiceController extends BaseController{
 			}
 			model.addAttribute("flag", flag);
 			model.addAttribute("entity", RemoteRequestUtil.requestDiseaseById(id));
+			model.addAttribute("recommend_doct_4", Constants.healthData.get("recommend_doct_4"));
+			model.addAttribute("recommend_hospt_4", Constants.healthData.get("recommend_hospt_4"));
+			model.addAttribute("hot_news_4", Constants.healthData.get("hot_news_4"));
 			return "front/healthservice/jbDetail";
 		} catch (Exception e) {
 			e.printStackTrace();

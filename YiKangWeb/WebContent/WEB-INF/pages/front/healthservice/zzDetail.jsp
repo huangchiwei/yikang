@@ -47,7 +47,7 @@ $(function(){
     <div class="subLogo"><h1>${entity.symptom.Name}</h1></div>
     <div class="subNav">
             <ul>
-              <li class="${flag == 1 ? 'cur' : ''}"><a href="${ctx}/healthService/zzDetail/${entity.symptom.Id}.html" target="_self" itemprop="url">概述</a></li>
+              <li class="${flag == 1 ? 'cur' : ''}"><a href="${ctx}/healthService/zzDetail/${entity.symptom.Id}.html" target="_self">概述</a></li>
                 <li class="${flag == 2 ? 'cur' : ''}"><a href="${ctx}/healthService/zzDetail/${entity.symptom.Id}.html?flag=2" target="_self">病因</a></li>
                 <li class="${flag == 3 ? 'cur' : ''}"><a href="${ctx}/healthService/zzDetail/${entity.symptom.Id}.html?flag=3" target="_self">诊断</a></li>
             </ul>
@@ -82,7 +82,7 @@ $(function(){
 					${fn:substring(o.Good,0,15)}...<a href="${ctx}/healthService/ysDetail/${o.Id}.html" class="actionA" target="_blank">[详细]</a>
 				</c:if>
 				<c:if test="${fn:length(o.Good) <= 15}">
-					${o.Good,0,15}
+					${o.Good}
 				</c:if>
 				</p>
 	          </div></div>
@@ -141,7 +141,7 @@ $(function(){
         <div class="moduleContent3">
           <ul>
           <c:forEach items="${hot_news_4}" var="o">
-           <li><a href="#" title="${o.Title}">${fn:length(o.Title)>15?fn:substring(o.Title,0,15):o.Title}${fn:length(o.Title)>15?'...':''}</a></li>
+           <li><a href="${ctx}/front/news/detail/${o.ID}.html" target="_blank" title="${o.Title}">${fn:length(o.Title)>15?fn:substring(o.Title,0,15):o.Title}${fn:length(o.Title)>15?'...':''}</a></li>
            </c:forEach>
           </ul> 
          </div>

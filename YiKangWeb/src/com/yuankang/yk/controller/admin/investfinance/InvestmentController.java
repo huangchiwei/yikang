@@ -41,7 +41,7 @@ public class InvestmentController extends BaseController {
 		ModelAndView mv = new ModelAndView("admin/investment/list");
 		// 初始化分页实体
 		Pagination page = initPage(currentPage);
-		page.setPageSize(1);
+		page.setPageSize(10);
 		Map<String, Object> params = new HashMap<String, Object>();
 		mv.addObject("list", investmentService.getByPage(page,title));
 		mv.addObject("page", page);

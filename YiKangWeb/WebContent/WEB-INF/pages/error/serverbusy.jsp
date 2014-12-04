@@ -22,7 +22,7 @@
   </head>
   
   <body onload="delayURL()">
-    <h1>服务器繁忙！</h1>
+    <h1>服务器繁忙！</h1> <a href="#" onclick="javascript:location.reload()">刷新</a>
     <p><strong id='time'>5</strong>&nbsp;秒后将自动跳转到首页</p>
   </body>
 </html>

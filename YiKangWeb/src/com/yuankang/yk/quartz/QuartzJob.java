@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
@@ -48,7 +49,7 @@ public class QuartzJob {
 	}
 
 	//首页投融资信息
-	@Scheduled(cron = "0 0/5 * * * ?")
+	@Scheduled(cron = "0 0/10 * * * ?")
 	public void indexInvestFinanceData() {
 		try {
 
@@ -69,11 +70,15 @@ public class QuartzJob {
 			Constants.indexData.put("financeList2",
 					financingService.getListByPage(page));
 			// 投融资首页6条投融资行业资讯
-			Constants.indexData.put("hangyezixun",
-					newsService.getNews("行业新闻", 6));
+			/*Constants.indexData.put("hangyezixun",
+					newsService.getNews("投融资资讯", 6));*/
 			// 投融资首页6条投融资政策法规
 			Constants.indexData.put("zhengcefagui",
-					newsService.getNews("国家法律法规", 6));
+					newsService.getNews("投融资法律法规", 6));
+			// 投融资首页6条投融资行业资讯
+			Constants.indexData.put("hotOrderInfoList", newsService.getHotOrderInfo(10));
+			// 投融资首页6条投融资政策法规
+			Constants.indexData.put("hotRecomInfoList", newsService.getHotRecommendInfo(10));
 			System.out.println("初始化首页信息...");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -90,7 +95,6 @@ public class QuartzJob {
 		// 外部药品分类
 		Constants.healthData.put("medicineEfficacys",
 				RemoteRequestUtil.requestMedicineEfficacy());
-
 		System.out.println("健康库数据...");
 	}
 	
@@ -134,6 +138,7 @@ public class QuartzJob {
 			result.add(map);
 		}
 		Constants.healthData.put("yisheng_18", result);
+		System.out.println("首页健康服务信息...");
 	}
 	
 	@Scheduled(cron = "0 0 2 * * ?")
@@ -151,6 +156,7 @@ public class QuartzJob {
 			result.add(map);
 		}
 		Constants.healthData.put("common_disease_21", result);
+		System.out.println("大首页21个常见疾病...");
 	}
 	//首页健康数据库信息
 	@Scheduled(cron = "0 20 * * * ?")
@@ -183,11 +189,13 @@ public class QuartzJob {
 			result.add(map);
 		}
 		Constants.healthData.put("yaopin_3", result);
+		System.out.println("首页健康数据库信息...");
 	}
 	//健康频道信息
 	@Scheduled(cron = "0 20 * * * ?")
 	public void healthIndexData() {
-		Pagination page = new Pagination(1);
+		Random random = new Random();
+		Pagination page = new Pagination(random.nextInt(10) + 1);
 		//4个专家推荐
 		page.setPageSize(4);
 		// 大首页18个医生
@@ -221,5 +229,31 @@ public class QuartzJob {
 		Constants.healthData.put("recommend_hospt_4", result);
 		//站内四编的热门文章
 		Constants.healthData.put("hot_news_4", newsService.getHotRecommendInfo(4));
+		//4个其他药品
+		arr = RemoteRequestUtil.requestMedicineByPage(page, null, null, null);
+		result = new ArrayList<Map<String, Object>>();
+		for (int i = 0; i < arr.size(); i++) {
+			map = new HashMap<String, Object>();
+			map.put("Id", arr.getJSONObject(i).get("Id"));
+			map.put("Name", arr.getJSONObject(i).get("NormalName"));
+			map.put("Efficacy", arr.getJSONObject(i).get("Efficacy"));
+			map.put("ImgUrl", arr.getJSONObject(i).get("ImgSrc"));
+			result.add(map);
+		}
+		Constants.healthData.put("other_medic_4", result);
+		//4个推荐药品
+		page.setCurrentPage(1);
+		arr = RemoteRequestUtil.requestMedicineByPage(page, null, null, null);
+		result = new ArrayList<Map<String, Object>>();
+		for (int i = 0; i < arr.size(); i++) {
+			map = new HashMap<String, Object>();
+			map.put("Id", arr.getJSONObject(i).get("Id"));
+			map.put("Name", arr.getJSONObject(i).get("NormalName"));
+			map.put("Efficacy", arr.getJSONObject(i).get("Efficacy"));
+			map.put("ImgUrl", arr.getJSONObject(i).get("ImgSrc"));
+			result.add(map);
+		}
+		Constants.healthData.put("recommend_medic_4", result);
+		System.out.println("健康频道信息...");
 	}
 }

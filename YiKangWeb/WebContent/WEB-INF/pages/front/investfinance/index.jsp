@@ -22,12 +22,11 @@
   <div class="n_box">
    <div class="new_logo"><img src="${ctx}/theme/front/investfinance/images/news_logo.png" /></div>
    <div class="lanren">
-    <a href='${ctx}/investFinance/index.html' class="thisclass">投融资频道</a>
     <a href='#' onclick='javascript:location.href="${ctx}/investment/list/1.html"'>投资信息</a>
     <a href='#' onclick='javascript:location.href="${ctx}/financing/list/1.html"'>融资信息</a>
-    <a href='javascript:'>行业资讯</a>
-    <!-- <a href='javascript:'>行业机构</a> -->
-    <!-- <a href='javascript:'>政策法规</a> -->
+    <a href='${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceNews'>行业资讯</a>
+    <a href='${ctx}/account/list/1.html'>行业机构</a>
+    <a href='${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceLaw'>政策法规</a>
    </div>
   </div>
   <div class="search">
@@ -108,11 +107,11 @@
       <div class="more"><a href="#">more</a></div>
      </div>
      <dl class="dl">
-      <dt class="dt"><img src="${ctx}/theme/front/investfinance/images/index_001.png" width="100" height="74" /></dt>
-      <dd class="dd"><a href="#">昨日的互联网大会“中外互联网领袖高峰对话”上，众多互联网大佬</a></dd>
+      <dt class="dt"><img src="${ctx}/${relatedImageNews.src}" width="100" height="74" /></dt>
+      <dd class="dd"><a href="#">${relatedImageNews.Title }</a></dd>
      </dl>
       <ul class="ul3">
-      	<c:forEach items="${hangyezixun}" var="o">
+      	<c:forEach items="${relatedOtherNews}" var="o">
       		<li><a href="#" title="${o.Title}">${fn:length(o.Title)>16?fn:substring(o.Title,0,16):o.title}${fn:length(o.Title)>16?'...':''}</a></li>
       	</c:forEach>
       </ul>
