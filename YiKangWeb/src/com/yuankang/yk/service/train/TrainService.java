@@ -31,12 +31,12 @@ public class TrainService extends BaseSqlService {
 		if (hasImage == -1) {
 			initCount("select count(*) from train where CateCode='"
 					+ cateCode+"'", page);
-			list = getQuery("select ID,CateCode,Title,Source,Author,RealTime,Clicks,IsRecommend from train where CateCode='" + cateCode
+			list = getQuery("select ID,CateCode,Title,Source,Author,RealTime,Clicks,IsRecommend,HasImage from train where CateCode='" + cateCode
 					+ "' order by RealTime desc", page);
 		} else {
 			initCount("select count(*) from train where CateCode='"
 					+ cateCode + "' and HasImage=" + hasImage, page);
-			list = getQuery("select ID,CateCode,Title,Source,Author,RealTime,Clicks,IsRecommend from train where CateCode='" + cateCode
+			list = getQuery("select ID,CateCode,Title,Source,Author,RealTime,Clicks,IsRecommend,HasImage from train where CateCode='" + cateCode
 					+ "' and HasImage=" + hasImage + " order by RealTime desc",
 					page);
 		}

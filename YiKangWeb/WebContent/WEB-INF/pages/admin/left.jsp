@@ -47,7 +47,7 @@ html { overflow:-moz-scrollbars-vertical;}
         	<li>
         <a href="#">行业活动</a>
 			<ul>
-				<li><a href="${ctx}/admin/investment/list/1.html" target="mainFrame">活动列表</a></li>
+				<li><a href="${ctx}/admin/industryActi/list/1.html?hasImage=-1" target="mainFrame">活动列表</a></li>
 			 
 			</ul>
         </li>

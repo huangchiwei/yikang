@@ -22,7 +22,7 @@
 		      type : 4,
 		      btn : ['是','否'],
 		      yes : function(){
-		          location.href='${ctx}/admin/train/delete/' + id + '.html?cateCode=${cateCode}';
+		          location.href='${ctx}/admin/industryActi/delete/' + id + '.html?hasImage=-1';
 		      },
 		      no : function(index){
 		         layer.close(index);
@@ -39,12 +39,12 @@
 <body>
 <div class="content_box">
   <div class="btn_box">
- <a href="${ctx}/admin/train/add/new.html?cateCode=${cateCode}"> <input type="button" value="添加" class="initial" style="cursor:hand" /></a>
+ <a href="${ctx}/admin/industryActi/add/new.html"> <input type="button" value="添加" class="initial" style="cursor:hand" /></a>
    </div>
   <div class="list_info">
-  	<form id="search_form" action="${ctx}/admin/train/list/1.html" method="post">
-  	<input type="hidden" name="cateCode" value="${cateCode}" />
-    <h2>${categoryName }>>&nbsp;&nbsp;&nbsp;&nbsp;
+  	<form id="search_form" action="${ctx}/admin/industryActi/list/1.html" method="post">
+  
+    <h2>活动列表>>&nbsp;&nbsp;&nbsp;&nbsp;
    图片：       <select id="hasImage" name="hasImage" class="slectBox" onchange="submit();">
      <option  value="-1" <c:if test="${hasImage==-1}">selected="selected"</c:if>>所有</option>
       <option  value="1" <c:if test="${hasImage==1}">selected="selected"</c:if>>有图片</option>
@@ -82,8 +82,8 @@
         <td>${o.IsRecommend}</td>
         <td>${o.Clicks}</td>
         <td>
-           <a href="${ctx}/admin/train/update/${o.ID}.html"><img src="${ctx}/theme/admin/default/images/edit_icon.png" /></a>&nbsp;
-          <img  src="${ctx}/theme/admin/default/images/del_icon.png" onclick="delConfirm(${o.ID})"/></td>
+           <a href="${ctx}/admin/industryActi/update/${o.Id}.html"><img src="${ctx}/theme/admin/default/images/edit_icon.png" /></a>&nbsp;
+          <img  src="${ctx}/theme/admin/default/images/del_icon.png" onclick="delConfirm(${o.Id})"/></td>
       </tr>
       </c:forEach>
       <tr>

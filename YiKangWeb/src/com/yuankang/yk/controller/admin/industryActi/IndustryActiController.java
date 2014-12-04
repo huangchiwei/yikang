@@ -1,4 +1,4 @@
-package com.yuankang.yk.controller.admin.train;
+package com.yuankang.yk.controller.admin.industryActi;
 
 import java.beans.PropertyEditor;
 import java.text.DateFormat;
@@ -20,23 +20,23 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.yuankang.yk.pojo.sys.Train;
+import com.yuankang.yk.pojo.sys.IndustryActi;
 import com.yuankang.yk.pojo.sys.User;
 import com.yuankang.yk.publics.Constants;
 import com.yuankang.yk.publics.tools.StringUtil;
 import com.yuankang.yk.publics.tools.ThumbsUtil;
-import com.yuankang.yk.service.train.TrainService;
+import com.yuankang.yk.service.industryActi.IndustryActiService;
 
 /**
- * 类说明:健康培训controller
+ * 类说明:行业活动controller
 
  */
-@Controller("trainController")
-@RequestMapping("admin/train")
-public class TrainController extends BaseController {
+@Controller("industryActiController")
+@RequestMapping("admin/industryActi")
+public class IndustryActiController extends BaseController {
 
 	@Resource
-	private TrainService trainService;
+	private IndustryActiService industryActiService;
 	/**
 	 * 条件分页查询用户
 	 * 
@@ -45,20 +45,16 @@ public class TrainController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = PAGE_LIST)
-	public ModelAndView getByPage(@PathVariable int currentPage,int hasImage,String cateCode) {
-		ModelAndView mv = new ModelAndView("admin/train/trainList");
+	public ModelAndView getByPage(@PathVariable int currentPage,int hasImage) {
+		ModelAndView mv = new ModelAndView("admin/industryActi/list");
 	try{
-		Map<String, Object> category=trainService.getCategoryByCode(cateCode);
-		if(category!=null){
-			mv.addObject("categoryName", category.get("CategoryName"));
-		}
+	
 		// 初始化分页实体
 		Pagination page = initPage(currentPage);
 		//page.setPageSize(4);
-		mv.addObject("list", trainService.getByPage(page,cateCode,hasImage));
+		mv.addObject("list", industryActiService.getByPage(page,hasImage));
 		//mv.addObject("listCate", listCate);
 		mv.addObject("page", page);
-		mv.addObject("cateCode", cateCode);
 		mv.addObject("hasImage", hasImage);
 	}catch(Exception e){
 		e.printStackTrace();
@@ -70,31 +66,26 @@ public class TrainController extends BaseController {
 	 @RequestMapping(value = DELETE)
 	  public String delete(@PathVariable("id") Long key,String cateCode)
 	  {
-		 trainService.delete(key);
-	    return "redirect:/admin/train/list/1.html?cateCode="+cateCode+"&hasImage=-1";
+		 industryActiService.delete(key);
+	    return "redirect:/admin/industryActi/list/1.html?hasImage=-1";
 	  }
 	  @RequestMapping(value = UPDATE)
 	  public String update(@PathVariable("id") Long key, Model model)
 	  {
 		  
 		  model.addAttribute("viewType", "U");
-		  Map<String, Object> train=trainService.getById(key);
-		  if(train!=null)
-		  model.addAttribute("cateCode", train.get("CateCode").toString());
-	    model.addAttribute("train", train);
+		  Map<String, Object> industryActi=industryActiService.getById(key);
+	
+	    model.addAttribute("industryActi", industryActi);
 	   // model.addAttribute("categoryId", train.get("CategoryId").toString());
-	    return "admin/train/trainA_U";
+	    return "admin/industryActi/industryActiA_U";
 	  }
 	  @RequestMapping(value = ADD)
-	  public String toAdd(Model model,String cateCode)
+	  public String toAdd(Model model)
 	  {
-		  Map<String, Object> category=trainService.getCategoryByCode(cateCode);
-			if(category!=null){
-				model.addAttribute("categoryName", category.get("CategoryName"));
-			}
+		 
 		  model.addAttribute("viewType", "A");
-		  model.addAttribute("cateCode", cateCode);
-		  return "admin/train/trainA_U";
+		  return "admin/industryActi/industryActiA_U";
 	  }
 	  /**
 	 * @param model
@@ -103,26 +94,26 @@ public class TrainController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = SAVE)
-	  public String save(HttpServletRequest request,Model model,String viewType,Train train,String cateCode)
+	  public String save(HttpServletRequest request,Model model,String viewType,IndustryActi industryActi)
 	  {
 		try{
-			if(train.getContent().indexOf("<img")>=0){
-				train.setHasImage(1);
+			if(industryActi.getContent().indexOf("<img")>=0){
+				industryActi.setHasImage(1);
 			}else{
-				train.setHasImage(0);
+				industryActi.setHasImage(0);
 			}
 			 User user=(User)request.getSession().getAttribute(Constants.SESSION_USER);
-			 train.setLastUpdateUser(user.getLoginName());
+			 industryActi.setLastUpdateUser(user.getLoginName());
 			if(viewType.equals("A")){
-				  train.setCreateUser(user.getLoginName());
-				  trainService.save(train);
+				industryActi.setCreateUser(user.getLoginName());
+				  industryActiService.save(industryActi);
 			  }else  if(viewType.equals("U")){						
-				  train.setLastUpdateUser(user.getLoginName());
-				  trainService.update(train);
+				  industryActi.setLastUpdateUser(user.getLoginName());
+				  industryActiService.update(industryActi);
 			  }
 			//保存缩略图
-			if(train.getContent().indexOf("<img")>=0){
-				String src=StringUtil.getImageSrc(train.getContent()).replace("/YiKangWeb","");
+			if(industryActi.getContent().indexOf("<img")>=0){
+				String src=StringUtil.getImageSrc(industryActi.getContent()).replace("/YiKangWeb","");
 				String pre=src.substring(0, src.lastIndexOf("/")+1);
 				String des_src=src.replace(pre, pre+"thumbs/200/");
 				String des_src2=src.replace(pre, pre+"thumbs/650/");
@@ -135,7 +126,7 @@ public class TrainController extends BaseController {
 		  
 		 
 
-		  return "redirect:/admin/train/list/1.html?cateCode="+cateCode+"&hasImage=-1";
+		  return "redirect:/admin/industryActi/list/1.html?hasImage=-1";
 	  }
 
 	 @InitBinder  

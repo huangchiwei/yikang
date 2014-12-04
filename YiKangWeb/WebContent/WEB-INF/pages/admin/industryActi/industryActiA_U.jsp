@@ -12,6 +12,7 @@
 <script type="text/javascript" src="${ctx }/js/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="${ctx }/js/ckfinder/ckfinder.js"></script>
 <script type="text/javascript" src="${ctx}/js/My97DatePicker/WdatePicker.js"></script>
+</head>
  <script type="text/javascript" >
  function checkForm(){
 	 var msg = "";
@@ -28,30 +29,28 @@
 		}
  }
   </script>
-</head>
-
 <body>
 <div class="content_box">
     <div class="btn_box">
-  <input type="button" value="返回" class="initial" style="cursor:hand" onclick="javascript:location.href='${ctx}/admin/train/list/1.html?cateCode=${cateCode}&hasImage=-1'"/>
+  <input type="button" value="返回" class="initial" style="cursor:hand" onclick="javascript:location.href='${ctx}/admin/industryActi/list/1.html?cateCode=${cateCode}&hasImage=-1'"/>
    </div>
-<form id="add_form" action="${ctx}/admin/train/save.html" method="post" onsubmit="return checkForm()">
-<input type="hidden" name="id" value="${train.ID}"/>
+<form id="add_form" action="${ctx}/admin/industryActi/save.html" method="post" onsubmit="return checkForm()">
+<input type="hidden" name="id" value="${industryActi.Id}"/>
  	<input type="hidden" name="viewType" value="${viewType}"/>
- 	<input type="hidden" name="cateCode" value="${cateCode}"/>
+
   <div class="add_info">
 
-   <h2>${viewType == 'A' ? '添加' : '修改'}${categoryName}>></h2>
+   <h2>${viewType == 'A' ? '添加' : '修改'}行业活动>></h2>
    <table width="98%" border="0" cellspacing="0" cellpadding="0">
     <tr>
    
         <th>来源：</th>
      <td>
-    	<input id="source" name="source" type="text" value="${train.Source}" maxlength="20"/>
+    	<input id="source" name="source" type="text" value="${industryActi.Source}" maxlength="20"/>
      </td>
       <th>作者：</th>
      <td>
-    	<input id="author" name="author" type="text" value="${train.Author}" maxlength="20"/>
+    	<input id="author" name="author" type="text" value="${industryActi.Author}" maxlength="20"/>
      </td>
     
     
@@ -60,18 +59,18 @@
 	   <tr>
 	  <th>标题：</th>
      <td>
-     	<input id="title" name="title" type="text" value="${train.Title}" maxlength="200" size="25"/>
+     	<input id="title" name="title" type="text" value="${industryActi.Title}" maxlength="200" size="25"/>
      </td>
       <th>文档原始时间：</th>
      <td>
      	<input id="realTime" name="realTime" size="22" class="Wdate" onfocus="WdatePicker({skin:'whyGreen',dateFmt:'yyyy-MM-dd HH:mm:ss'})" type="text" 
-     	value="<fmt:formatDate value="${train.RealTime}" pattern="yyyy-MM-dd HH:mm:ss"/>" maxlength="20"/>
+     	value="<fmt:formatDate value="${industryActi.RealTime}" pattern="yyyy-MM-dd HH:mm:ss"/>" maxlength="20"/>
      </td>
 	   </tr> 
     <tr>
 	<%--     <th>是否置顶：</th>
      <td>
-    	<input name=isTop type="radio" value="1" <c:if test="${train.IsTop==1}">checked</c:if>/>
+    	<input name=isTop type="radio" value="1" <c:if test="${industryActi.IsTop==1}">checked</c:if>/>
     	<label>是</label>
     	<input name="isTop" type="radio" value="0" checked="checked" />
     	<label>否</label>
@@ -80,14 +79,14 @@
      <td>
     	<input name=IsRecommend type="radio" value="1" checked="checked"/>
     	<label>是</label>
-    	<input name="IsRecommend" type="radio" value="0"  <c:if test="${train.IsRecommend==0}">checked</c:if>/>
+    	<input name="IsRecommend" type="radio" value="0"  <c:if test="${industryActi.IsRecommend==0}">checked</c:if>/>
     	<label>否</label>
      </td>
 	   </tr> 
 	    <tr>
      <th>内容：</th>
      <td colspan="6">
-     <textarea id="content" name="content" rows="3" cols="100" >${train.Content }</textarea>
+     <textarea id="content" name="content" rows="3" cols="100" >${industryActi.Content }</textarea>
 <br/>
      </td>
      
@@ -96,7 +95,7 @@
     
       <th>摘要：</th>
      <td  colspan="6">
-      <textarea id="digest" name="digest" rows="3" cols="100" >${train.Digest }</textarea>
+      <textarea id="digest" name="digest" rows="3" cols="100" >${industryActi.Digest }</textarea>
      	
      </td>
       
@@ -105,19 +104,11 @@
     <tr>
     <th>核心提示：</th>
     <td  colspan="6">
-      <textarea id="coreTip" name="coreTip" rows="3" cols="100" >${train.CoreTip }</textarea>
+      <textarea id="coreTip" name="coreTip" rows="3" cols="100" >${industryActi.CoreTip }</textarea>
      	
      </td>
     </tr>
-    <c:if test="${cateCode=='lecture'}">
-         <tr>
-    <th>视频路径：</th>
-    <td  colspan="6">
-      <textarea id="videoUrl" name="videoUrl" rows="1" cols="100" >${train.VideoUrl }</textarea>
-     	
-     </td>
-    </tr>
-    </c:if>
+
 
    </table>
  

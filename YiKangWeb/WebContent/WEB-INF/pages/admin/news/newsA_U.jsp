@@ -12,6 +12,22 @@
 <script type="text/javascript" src="${ctx }/js/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="${ctx }/js/ckfinder/ckfinder.js"></script>
 <script type="text/javascript" src="${ctx}/js/My97DatePicker/WdatePicker.js"></script>
+ <script type="text/javascript" >
+ function checkForm(){
+	 var msg = "";
+	 var realTime = $("#realTime");
+	 if ($.trim(realTime.val()) == ""){
+			msg = "文档原始时间不为空!";
+			realTime.focus();
+		}
+	 if (msg != ""){
+			alert(msg);
+			return false;
+		}else{
+			return true;
+		}
+ }
+  </script>
 </head>
 
 <body>
@@ -19,7 +35,7 @@
     <div class="btn_box">
   <input type="button" value="返回" class="initial" style="cursor:hand" onclick="javascript:location.href='${ctx}/admin/news/list/1.html?categoryId=1&hasImage=-1'"/>
    </div>
-<form id="add_form" action="${ctx}/admin/news/save.html" method="post">
+<form id="add_form" action="${ctx}/admin/news/save.html" method="post" onsubmit="return checkForm()">
 <input type="hidden" name="id" value="${news.ID}"/>
  	<input type="hidden" name="viewType" value="${viewType}"/>
   <div class="add_info">
