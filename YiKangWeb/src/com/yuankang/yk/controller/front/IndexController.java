@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.yuankang.yk.publics.Constants;
+import com.yuankang.yk.publics.CookieUtil;
 import com.yuankang.yk.service.advert.AdvertService;
 import com.yuankang.yk.service.news.NewsService;
 import com.yuankang.yk.service.shopping.ShoppingService;
@@ -35,7 +36,7 @@ public class IndexController extends BaseController{
 	private ShoppingService shoppingService;
 	@RequestMapping("index")
 	public String index(HttpServletRequest request,Model model){
-		
+		try{
 		model.addAttribute("investList1", Constants.indexData.get("investList1"));
 		model.addAttribute("financeList1", Constants.indexData.get("financeList1"));
 		model.addAttribute("zhengzhuang_15", Constants.healthData.get("zhengzhuang_15"));
@@ -44,8 +45,9 @@ public class IndexController extends BaseController{
 		model.addAttribute("yiyuan_7", Constants.healthData.get("yiyuan_7"));
 		model.addAttribute("yaopin_3", Constants.healthData.get("yaopin_3"));
 		model.addAttribute("common_disease_21", Constants.healthData.get("common_disease_21"));
-		model.addAttribute("accountNo", super.getCookieValue(request, Constants.FRONT_KEY));
-
+	
+			model.addAttribute("accountNo", CookieUtil.getUserCookieValue(request, Constants.FRONT_KEY));
+				
 		//轮播广告indexCarousel
 		List<Map<String, Object>>  advert1=advertService.getByPosCode("1");
 		if(advert1!=null && advert1.size()>0){
@@ -147,6 +149,9 @@ public class IndexController extends BaseController{
 		 Pagination page = initPage(1);
 		 page.setPageSize(6);
 		 model.addAttribute("shoppingList", shoppingService.getByPage(page));
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 //////////////////////////健康购////////////////////////////////////////
 		return "front/index/index";
 	}
