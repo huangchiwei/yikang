@@ -55,12 +55,11 @@ $(function(){
   <div class="n_box">
    <div class="new_logo"><img src="${ctx}/theme/front/investfinance/images/news_logo.png" /></div>
    <div class="lanren">
-    <a href='${ctx}/investFinance/index.html'>投融资频道</a>
     <a href='${ctx}/investment/list/1.html'>投资信息</a>
     <a href='${ctx}/financing/list/1.html' class="thisclass">融资信息</a>
-    <a href='javascript:'>行业资讯</a>
-    <a href='javascript:'>行业机构</a>
-    <a href='javascript:'>政策法规</a>
+    <a href='${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceNews'>行业资讯</a>
+    <a href='${ctx}/account/list/1.html'>行业机构</a>
+    <a href='${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceLaw'>政策法规</a>
    </div>
   </div>
   <div class="search">
@@ -153,16 +152,9 @@ $(function(){
      <h1>热文推荐</h1>
     </div>
      <ul class="ul2">
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
+      <c:forEach items="${hotRecomInfoList}" var="o" varStatus="sta">
+       <li><a href="${ctx}/front/news/detail/${o.ID}.html" target="_blank" title="${o.Title}">${fn:substring(o.Title, 0, 18)}</a></li>
+      </c:forEach>
      </ul>
    </div>
   </div>

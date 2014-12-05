@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yuankang.yk.exception.HealthRequestExp;
 import com.yuankang.yk.publics.Constants;
 import com.yuankang.yk.publics.tools.RemoteRequestUtil;
 
@@ -45,7 +46,7 @@ public class HealthServiceController extends BaseController{
 			return "front/healthservice/index";
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "";
+			throw new HealthRequestExp();
 		}
 	}
 	
@@ -74,7 +75,7 @@ public class HealthServiceController extends BaseController{
 			return "front/healthservice/index";
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "";
+			throw new HealthRequestExp();
 		}
 	}
 	
@@ -97,7 +98,21 @@ public class HealthServiceController extends BaseController{
 			return "front/healthservice/index";
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "";
+			throw new HealthRequestExp();
+		}
+	}
+	
+	/**
+	 * 预约挂号
+	 * @return
+	 */
+	@RequestMapping("yuYueGuaHuao")
+	public String yuYueGuaHuao(){
+		try {
+			return "front/healthservice/yuYueGuaHuao";
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new HealthRequestExp();
 		}
 	}
 	
@@ -125,7 +140,7 @@ public class HealthServiceController extends BaseController{
 	/**
 	 * 症状详情
 	 * @param model
-	 * @param categoryId
+	 * @param id
 	 * @return
 	 */
 	@RequestMapping("zzDetail/{id}")
@@ -136,17 +151,20 @@ public class HealthServiceController extends BaseController{
 			}
 			model.addAttribute("flag", flag);
 			model.addAttribute("entity", RemoteRequestUtil.requestSymptomById(id));
+			model.addAttribute("recommend_doct_4", Constants.healthData.get("recommend_doct_4"));
+			model.addAttribute("recommend_hospt_4", Constants.healthData.get("recommend_hospt_4"));
+			model.addAttribute("hot_news_4", Constants.healthData.get("hot_news_4"));
 			return "front/healthservice/zzDetail";
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "";
+			throw new HealthRequestExp();
 		}
 	}
 	
 	/**
 	 * 疾病详情
 	 * @param model
-	 * @param categoryId
+	 * @param id
 	 * @return
 	 */
 	@RequestMapping("jbDetail/{id}")
@@ -157,27 +175,33 @@ public class HealthServiceController extends BaseController{
 			}
 			model.addAttribute("flag", flag);
 			model.addAttribute("entity", RemoteRequestUtil.requestDiseaseById(id));
+			model.addAttribute("recommend_doct_4", Constants.healthData.get("recommend_doct_4"));
+			model.addAttribute("recommend_hospt_4", Constants.healthData.get("recommend_hospt_4"));
+			model.addAttribute("hot_news_4", Constants.healthData.get("hot_news_4"));
 			return "front/healthservice/jbDetail";
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "";
+			throw new HealthRequestExp();
 		}
 	}
 	
 	/**
 	 * 医生详情
 	 * @param model
-	 * @param categoryId
+	 * @param id
 	 * @return
 	 */
 	@RequestMapping("ysDetail/{id}")
 	public String ysDetail(Model model,@PathVariable Long id){
 		try {
 			model.addAttribute("entity", RemoteRequestUtil.requestDoctorById(id));
+			model.addAttribute("recommend_doct_4", Constants.healthData.get("recommend_doct_4"));
+			model.addAttribute("recommend_hospt_4", Constants.healthData.get("recommend_hospt_4"));
+			model.addAttribute("hot_news_4", Constants.healthData.get("hot_news_4"));
 			return "front/healthservice/ysDetail";
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "";
+			throw new HealthRequestExp();
 		}
 	}
 }

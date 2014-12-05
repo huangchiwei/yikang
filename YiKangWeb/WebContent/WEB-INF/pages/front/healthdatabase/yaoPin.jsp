@@ -31,7 +31,7 @@
 	       <div class="listItem">
 		       <div class="photo2"><img src="${o.ImgSrc}" /></div>
 		       <div class="info_box">
-		        <div class="level"><h1><a href="#">${o.NormalName}</a></h1>&nbsp;</div>
+		        <div class="level"><h1><a href="${ctx}/healthDatabase/ypDetail/${o.Id}.html">${o.NormalName}</a></h1>&nbsp;</div>
 		        <div class="attribute">
 		        <p class="dw">生产厂家：${o.FactoryName}</p>
 		        <p class="dw">适 应 症： <a href="#">${o.JbkTag}</a></p>

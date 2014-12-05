@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.yuankang.yk.pojo.investfinance.Investment;
+import com.yuankang.yk.publics.Constants;
 import com.yuankang.yk.service.investfinance.InvestmentService;
 import com.yuankang.yk.service.sys.McodeService;
 import com.yuankang.yk.service.sys.RegionService;
@@ -44,6 +45,8 @@ public class InvestmentController extends BaseController{
 			model.addAttribute("entity", investmentService.findById(id, Investment.class));
 			model.addAttribute("flag", "1");
 			model.addAttribute("location", "投资信息");
+			//前10条热文推荐
+			 model.addAttribute("hotRecomInfoList", Constants.indexData.get("hotRecomInfoList"));
 			return "front/investfinance/detail";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -69,6 +72,8 @@ public class InvestmentController extends BaseController{
 			model.addAttribute("industryId", industryId);
 			model.addAttribute("provinceId", provinceId);
 			model.addAttribute("day", day);
+			//前10条热文推荐
+			 model.addAttribute("hotRecomInfoList", Constants.indexData.get("hotRecomInfoList"));
 			return "front/investfinance/investList";
 		} catch (Exception e) {
 			e.printStackTrace();

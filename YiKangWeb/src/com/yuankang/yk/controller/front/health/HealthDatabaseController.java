@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.yuankang.yk.exception.HealthRequestExp;
 import com.yuankang.yk.publics.Constants;
 import com.yuankang.yk.publics.tools.RemoteRequestUtil;
 
@@ -45,7 +46,7 @@ public class HealthDatabaseController extends BaseController{
 			return "front/healthdatabase/index";
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "";
+			throw new HealthRequestExp();
 		}
 	}
 	
@@ -72,8 +73,48 @@ public class HealthDatabaseController extends BaseController{
 			return "front/healthdatabase/index";
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "";
+			throw new HealthRequestExp();
 		}
 	}
 	
+	/**
+	 * 医院详情
+	 * @param model
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping("yyDetail/{id}")
+	public String yyDetail(Model model,@PathVariable Long id){
+		try {
+			model.addAttribute("entity", RemoteRequestUtil.requestHospitalById(id));
+			model.addAttribute("categorys", Constants.healthData.get("categorys"));
+			model.addAttribute("type", 6);
+			return "front/healthdatabase/yyDetail";
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new HealthRequestExp();
+		}
+	}
+	
+	/**
+	 * 药品详情
+	 * @param model
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping("ypDetail/{id}")
+	public String ypDetail(Model model,@PathVariable Long id){
+		try {
+			model.addAttribute("entity",RemoteRequestUtil.requestMedicineById(id));
+			model.addAttribute("other_medic_4",Constants.healthData.get("other_medic_4"));
+			model.addAttribute("recommend_medic_4", Constants.healthData.get("recommend_medic_4"));
+			System.out.println(Constants.healthData.get("recommend_medic_4"));
+			model.addAttribute("medicineEfficacys", Constants.healthData.get("medicineEfficacys"));
+			model.addAttribute("hot_news_4", Constants.healthData.get("hot_news_4"));
+			return "front/healthdatabase/ypDetail";
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new HealthRequestExp();
+		}
+	}
 }

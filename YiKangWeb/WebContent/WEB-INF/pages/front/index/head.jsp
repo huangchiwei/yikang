@@ -52,7 +52,7 @@
           <li><a href="${ctx}/healthService/ysk/1.html" target="_blank">医生查询</a></li>
           <li><a href="${ctx}/healthService/jbk/1.html" target="_blank">疾病查询</a></li>
           <li><a href="#">就医指南</a></li>
-          <li><a href="#">预约挂号</a></li>
+          <li><a href="${ctx}/healthService/yuYueGuaHuao.html" target="_blank">预约挂号</a></li>
         </ul>
       </li>
       <li class="drop-menu-effect"><a href="#"><span>健康购</span></a></li>

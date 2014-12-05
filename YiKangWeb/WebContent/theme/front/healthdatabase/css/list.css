@@ -607,3 +607,278 @@ white-space: nowrap;
 	border: 1px solid #CCCCCC;
 	height: 141px;
 }
+/*健康数据库样式*/
+.d {
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #FFFFFF;
+	padding: 15px;
+	border: 1px solid #e0e0e0;
+}
+.d  .subLogo {
+	zoom: 1;
+	overflow: hidden;
+	font-family: "Microsoft YaHei";
+	padding: 0px 0 0 10px;
+	margin-bottom: 11px;
+	overflow: hidden;
+	font-size: 18px;
+}
+.subLogo .name {
+	left: 130px;
+	line-height: 50px;
+}
+
+ .subLogo h1 {
+display: block;
+float: left;
+font: normal 24px/50px Microsoft Yahei,SimHei;
+color: #529325;
+}
+.subNav2 {
+	height: 10px;
+	border-top: 2px solid #529325;
+}
+.doctor_box {
+	padding: 15px;
+	margin-bottom: 15px;
+	border: 1px solid #e0e0e0;
+}
+.doctor_box .js {
+	width: 430px;
+	margin-left: auto;
+	font-size: 14px;
+}
+.doctor_box  .js  .dl {
+	line-height: 30px;
+}
+.doctor_box  .js  .dl  dt      {
+	color: #999999;
+	width: 80px;
+	float: left;
+}
+.doctor_box  .js  .dl  dd      {
+	width: 340px;
+	color: #333333;
+	margin-left: auto;
+}
+
+
+.doctor_box .js .photo {
+	position: absolute;
+	left: -210px;
+	top: 0px;
+}
+.doctor_box  .js  .dl  dd a {
+	color: #529325;
+	padding-right: 10px;
+	display: inline-block;
+}
+.clearfix {
+	zoom: 1;
+	overflow: hidden;
+	padding-top: 15px;
+}
+.content  {
+	padding: 0;
+	border: none;
+	width: 670px;
+	float: left;
+}
+.module2  {
+border: 1px solid #e0e0e0;
+margin: 0 0 15px 0;
+background: #fff;
+}
+.module2   .titleBar  {
+background: #f9f9f9;
+height: 40px;
+overflow: hidden;
+zoom: 1;
+line-height: 40px;
+border-bottom: 1px solid #ececec;
+}
+.module2   .titleBar   h2  {
+float: left;
+_display: inline;
+text-indent: 10px;
+font: normal 18px/40px Microsoft Yahei,SimHei;
+color: #360;
+}.module2    .moduleContent2  {
+	font-size: 14px;
+	line-height: 30px;
+	color: #333333;
+	padding-top: 15px;
+	padding-right: 15px;
+	padding-left: 15px;
+
+}
+.module2 .moduleContent2 p {
+	text-indent: 2em;
+	padding-bottom: 15px;
+}
+.module2  .moduleContent2 .dl {
+	line-height: 30px;
+	overflow: hidden;
+}
+.module2 .moduleContent2 .dl .dt {
+	color: #666666;
+	text-align: right;
+	float: left;
+	width: 150px;
+}
+.module2 .moduleContent2 .dl .dd {
+	width: 520px;
+	float: right;
+}
+.module2 .moduleContent2 .dl .dd a {
+	color: #336600;
+}
+.sideBar  {
+	width: 250px;
+	float: right;
+}
+.titleBar h4 {
+float: left;
+_display: inline;
+text-indent: 10px;
+font: normal 18px/40px Microsoft Yahei,SimHei;
+color: #360;
+}
+.titleBar h4 a {
+color: #360;
+}
+.titleBar .englishTitle {
+float: left;
+_display: inline;
+text-indent: 10px;
+color: #aaa;
+font: normal 14px/45px Arial;
+}
+.module3 {
+	margin: 0 0 15px 0;
+	background: #fff;
+	border: 1px solid #e0e0e0;
+}
+.module3 .titleBar {
+	background: #f9f9f9;
+	height: 40px;
+	overflow: hidden;
+	zoom: 1;
+	line-height: 40px;
+	border-bottom: 1px solid #ececec;
+}
+.module3 .titleBar h2 {
+	float: left;
+	_display: inline;
+	text-indent: 10px;
+	font: normal 18px/40px Microsoft Yahei,SimHei;
+	color: #360;
+}
+.module3 .moduleContent {
+	padding: 15px;
+	font-size: 14px;
+	line-height: 30px;
+	color: #333333;
+}
+.module3 .moduleContent p {
+	padding-bottom: 15px;
+	text-indent: 2em;
+}
+.module3 .moduleContent .dl {
+	line-height: 30px;
+	overflow: hidden;
+}
+.module3 .moduleContent .dl .dt {
+	color: #666666;
+	text-align: right;
+	float: left;
+	width: 150px;
+}
+.module3 .moduleContent .dl .dd {
+	width: 470px;
+	float: right;
+}
+.imgText_60_75 {
+	zoom: 1;
+	margin-bottom: 15px;
+}
+.imgText_60_75 .imgText_img {
+	width: 60px;
+	height: 60px;
+	border: 1px solid #ccc;
+	float: left;
+	padding: 1px;
+}
+.imgText_60_75 .text {
+	width: 140px;
+	margin-left: auto;
+
+}
+.imgText_60_75 .text h4 {
+	line-height: 24px;
+	height: 24px;
+}
+
+.imgText_60_75 .text a {
+	color: #336600;
+
+}
+.imgText_60_75 .text .zc {
+	font-size: 12px;
+
+}
+.imgText_60_75 .text .sc {
+	font-size: 12px;
+	line-height: 20px;
+}.content2 {
+	padding: 0;
+	border: none;
+}
+.doctor_box .js2 {
+	width: 360px;
+	margin-left: auto;
+	font-size: 14px;
+}
+.doctor_box .js2 .photo {
+	position: absolute;
+	left: -340px;
+	top: 0px;
+}
+.doctor_box .js2 .dl {
+	line-height: 30px;
+}
+.doctor_box .js2 .dl dt {
+	color: #999999;
+	width: 80px;
+	float: left;
+}
+.doctor_box .js2 .dl dd {
+	width: 280px;
+	color: #333333;
+	margin-left: auto;
+}
+.doctor_box .js2 .dl dd a {
+	color: #529325;
+	padding-right: 10px;
+	display: inline-block;
+}
+.module2  .moduleContent3 {
+	font-size: 14px;
+	line-height: 21px;
+	color: #333333;
+	padding: 15px;
+}
+.module2  .moduleContent3  li {
+	padding-left: 15px;
+	background-image: url(../images/icon2.png);
+	line-height: 24px;
+	height: 24px;
+	background-repeat: no-repeat;
+}
+.module2  .moduleContent3  li  a {
+	font-size: 12px;
+}
+.module2  .moduleContent3  li  a:hover {
+	color: #358902;
+}
