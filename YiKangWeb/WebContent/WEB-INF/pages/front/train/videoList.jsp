@@ -59,85 +59,51 @@ $(function(){
     </div>
   </div>
  </div>
-<div class="location"><a href="#">首页</a> &gt; <a href="#">健康培训</a> &gt; 
-<c:if test="${cateCode=='qualifications'}">资质培训</c:if>
-<c:if test="${cateCode=='technical'}">技能培训</c:if>
-<c:if test="${cateCode=='lecture'}">健康大讲堂</c:if>
-</div>
+<div class="location"><a href="#">首页</a> > 健康大讲堂</div>
 <div class="n_list">
-  <div class="n_fl_670">
-    <div class="n_list_title"><h1>
-   <c:if test="${cateCode=='qualifications'}">资质培训</c:if>
-<c:if test="${cateCode=='technical'}">技能培训</c:if>
-<c:if test="${cateCode=='lecture'}">健康大讲堂</c:if>
-    </h1>
+  <div class="list_video">
+    <div class="n_list_title"><h1>健康大讲堂</h1>
     </div>
-    <form id="search_form" action="${ctx}/front/train/list/1.html" method="post">
-    <input type="hidden" name="cateCode" value="${cateCode}"/>
-    <div class="p_20">
-      <ul>
-      <c:forEach items="${list}" var="o" varStatus="sta">
-       <li class="li"><span><fmt:formatDate value="${o.RealTime}" pattern="yyyy-MM-dd" /></span><a href="${ctx}/front/train/detail/${o.ID}.html">${o.Title}</a></li>
-      </c:forEach>
-       
-      </ul>
-      <div class="page">
+    <div class="video">
+      <dl class="dl">
+       <dt><img src="images/index_001.png" width="160" height="120" /></dt>
+       <dd><a href="#">雷尚通：甲状腺肿瘤发病率高 盲目添减碘不可取</a></dd>
+      </dl>
+      <dl class="dl">
+       <dt><img src="images/index_001.png" width="140" height="100" /></dt>
+       <dd><a href="#">雷尚通：甲状腺肿瘤发病率高 盲目添减碘不可取</a></dd>
+      </dl>
+      <dl class="dl">
+       <dt><img src="images/index_001.png" width="140" height="100" /></dt>
+       <dd><a href="#">雷尚通：甲状腺肿瘤发病率高 盲目添减碘不可取</a></dd>
+      </dl>
+      <dl class="dl">
+       <dt><img src="images/index_001.png" width="140" height="100" /></dt>
+       <dd><a href="#">雷尚通：甲状腺肿瘤发病率高 盲目添减碘不可取</a></dd>
+      </dl>
+      <dl class="dl">
+       <dt><img src="images/index_001.png" width="140" height="100" /></dt>
+       <dd><a href="#">雷尚通：甲状腺肿瘤发病率高 盲目添减碘不可取</a></dd>
+      </dl>
+      <dl class="dl">
+       <dt><img src="images/index_001.png" width="140" height="100" /></dt>
+       <dd><a href="#">雷尚通：甲状腺肿瘤发病率高 盲目添减碘不可取</a></dd>
+      </dl>
+      <dl class="dl">
+       <dt><img src="images/index_001.png" width="140" height="100" /></dt>
+       <dd><a href="#">雷尚通：甲状腺肿瘤发病率高 盲目添减碘不可取</a></dd>
+      </dl>
+      <dl class="dl">
+       <dt><img src="images/index_001.png" width="140" height="100" /></dt>
+       <dd><a href="#">雷尚通：甲状腺肿瘤发病率高 盲目添减碘不可取</a></dd>
+      </dl>
+   
+    </div>
+        <div class="page">
 					<p:pager/>
 				</div>
-      <!-- <div class="scott"><span class="disabled"> 上一页 </span><span class="current">1</span><a href="#?page=2">2</a><a href="#?page=3">3</a><a href="#?page=4">4</a><a href="#?page=5">5</a><a href="#?page=6">6</a><a href="#?page=7">7</a>...<a href="#?page=199">199</a><a href="#?page=200">下一页</a><a href="#?page=2"> 尾页 </a></div> -->
-    </div>
-    </form>
   </div>
-  <div class="n_fr_280">
-   <div class="ad_280"><img src="${ctx}/theme/front/default/images/ad/ad_280.png" /></div>
-   <div class="list_r_box">
-    <div class="list_r_box_bj">
-     <h1>热文排行</h1>
-    </div>
-    <div class="list_r_rank">
-     <ul class="ul">
-       <c:forEach items="${hotOrderInfoList}" var="o" varStatus="sta">
-        <li><span>${o.Clicks }</span><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 17)}</a></li>
-       </c:forEach>
-     
-        </ul>
-    </div>
-   </div>
-   <div class="list_r_box mt_15">
-    <div class="list_r_box_bj">
-     <h1>热文推荐</h1>
-    </div>
-     <ul class="ul2">
-      <c:forEach items="${hotRecomInfoList}" var="o" varStatus="sta">
-       <li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 23)}</a></li>
-      </c:forEach>
-     
-     
-     </ul>
-   </div>
-   <div class="list_r_box mt_10">
-    <div class="list_r_box_bj">
-     <h1 class="f_bold">疾病查询</h1>
-    </div>
-     <ul class="ul3">
-      <li><a href="#">痛经</a></li>
-      <li><a href="#">盆腔炎</a></li>
-      <li><a href="#">乳腺癌</a></li>
-      <li><a href="#">卵巢癌</a></li>
-      <li><a href="#">附件炎</a></li>
-      <li><a href="#">乳腺增生</a></li>
-      <li><a href="#">子宫肌瘤</a></li>
-      <li><a href="#">宫颈糜烂</a></li>
-      <li><a href="#">子宫肥大</a></li>
-      <li><a href="#">卵巢癌</a></li>
-      <li><a href="#">附件炎</a></li>
-      <li><a href="#">乳腺增生</a></li>
-      <li><a href="#">子宫肌瘤</a></li>
-      <li><a href="#">宫颈糜烂</a></li>
-      <li><a href="#">宫颈糜烂</a></li>
-     </ul>
-   </div>
-  </div>
+  
 </div>
   <!--bot-->
  <jsp:include page="/WEB-INF/pages/front/index/bottom.jsp" />

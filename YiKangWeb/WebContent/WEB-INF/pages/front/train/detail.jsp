@@ -15,9 +15,9 @@
 <script>
 function jump(id,newWindow){
 	if(newWindow!=null){
-		window.open("${ctx}/front/news/detail/"+id+".html","_blank");
+		window.open("${ctx}/front/train/detail/"+id+".html","_blank");
 	}else{
-		location.href="${ctx}/front/news/detail/"+id+".html";
+		location.href="${ctx}/front/train/detail/"+id+".html";
 	}
 	
 }
@@ -59,7 +59,7 @@ $(function(){
     </div>
   </div>
  </div>
-<div class="location"><a href="#">首页</a> > <a href="#">行业资讯</a> > <a href="#">${instance.CategoryName}</a> > 正文</div>
+<div class="location"><a href="#">首页</a> > <a href="#">健康培训</a> > <a href="#">${instance.CategoryName}</a> > 正文</div>
 <div class="n_list">
   <div class="n_fl_670">
     <div class="detail_title">

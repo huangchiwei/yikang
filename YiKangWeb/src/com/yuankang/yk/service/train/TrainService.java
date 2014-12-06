@@ -123,7 +123,7 @@ public class TrainService extends BaseSqlService {
 	}
 
 	public Map<String, Object> getById(Long id) {
-		String sql = "select * from train where id="+id;
+		String sql = "select n.*,nc.CateCode,nc.CategoryName from train n,train_category nc where n.CateCode=nc.CateCode  and n.ID=" + id;
 		List<Map<String, Object>> list = getQuery(sql);
 		if (list != null && list.size() > 0)
 			return list.get(0);
