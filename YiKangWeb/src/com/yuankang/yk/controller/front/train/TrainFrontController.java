@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.yuankang.yk.publics.Constants;
 import com.yuankang.yk.service.news.NewsCommentService;
 import com.yuankang.yk.service.train.TrainService;
 
@@ -55,6 +56,7 @@ public class TrainFrontController extends BaseController {
 		 }
 		 List<Map<String, Object>> relatedOtherNews=trainService.getByCateCode(instance.get("CateCode").toString(),idList,false,4);
 		 model.addAttribute("relatedOtherInstances", relatedOtherNews);
+		 model.addAttribute("other_disease_15", Constants.healthData.get("other_disease_15"));
 		 return "front/train/detail";
 	 }
 	@RequestMapping(value =PAGE_LIST)
@@ -72,6 +74,7 @@ public class TrainFrontController extends BaseController {
 				//前10条热文推荐
 				 List<Map<String, Object>> hotRecomInfoList=trainService.getHotRecommendInfo(10);
 				 model.addAttribute("hotRecomInfoList", hotRecomInfoList);
+				 model.addAttribute("other_disease_15", Constants.healthData.get("other_disease_15"));
 				//String categoryName=trainService.getByCateCode(cateCode).get(0).get("CategoryName").toString();
 				//model.addAttribute("categoryName", categoryName);
 		 return "front/train/list";
@@ -84,7 +87,7 @@ public class TrainFrontController extends BaseController {
 				page.setPageSize(15);
 				model.addAttribute("list", trainService.getLetureByPage(page));
 				model.addAttribute("page", page);
-				
+				model.addAttribute("other_disease_15", Constants.healthData.get("other_disease_15"));
 		 return "front/train/videoList";
 	 }
 	@RequestMapping(value ="/videoDetail/{id}.html")
@@ -96,6 +99,7 @@ public class TrainFrontController extends BaseController {
 			//最新视频
 			List<Map<String, Object>>	lastList=trainService.getLetures(10);
 			model.addAttribute("lastList", lastList);
+			model.addAttribute("other_disease_15", Constants.healthData.get("other_disease_15"));
 		 return "front/train/videoDetail";
 	 }
 }
