@@ -27,7 +27,7 @@ $(function(){
     <a href='${ctx}/healthService/ysk/1.html'>医生查询</a>
     <a href='${ctx}/healthService/jbk/1.html' class="thisclass">疾病查询</a>
     <a href='${ctx}/healthService/jiuYiZhiNan/1.html' >就医指南</a>
-    <a href='"${ctx}/healthService/yuYueGuaHuao.html"'>预约挂号</a>
+    <a href='${ctx}/healthService/yuYueGuaHuao.html'>预约挂号</a>
    </div>
   </div>
   <div class="search">

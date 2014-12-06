@@ -5,7 +5,7 @@
 <html>
   <head>
     
-    <title>亿康在线-投资</title>
+    <title>亿康在线-${cateCode == 'investFinanceLaw' ? '政策法规' : '行业资讯'}</title>
     <meta http-equiv="pragma" content="no-cache"/>
 	<meta http-equiv="cache-control" content="no-cache"/>
 	<meta http-equiv="expires" content="0"/>
@@ -80,28 +80,8 @@
       </c:forEach>
      </ul>
    </div>
-   <div class="list_r_box mt_10">
-    <div class="list_r_box_bj">
-     <h1 class="f_bold">疾病查询</h1>
-    </div>
-     <ul class="ul3">
-      <li><a href="#">痛经</a></li>
-      <li><a href="#">盆腔炎</a></li>
-      <li><a href="#">乳腺癌</a></li>
-      <li><a href="#">卵巢癌</a></li>
-      <li><a href="#">附件炎</a></li>
-      <li><a href="#">乳腺增生</a></li>
-      <li><a href="#">子宫肌瘤</a></li>
-      <li><a href="#">宫颈糜烂</a></li>
-      <li><a href="#">子宫肥大</a></li>
-      <li><a href="#">卵巢癌</a></li>
-      <li><a href="#">附件炎</a></li>
-      <li><a href="#">乳腺增生</a></li>
-      <li><a href="#">子宫肌瘤</a></li>
-      <li><a href="#">宫颈糜烂</a></li>
-      <li><a href="#">宫颈糜烂</a></li>
-     </ul>
-   </div>
+   <!-- 疾病查询 -->
+   <jsp:include page="/WEB-INF/pages/front/common/diseaseSearch.jsp" />
   </div>
 </div>
   <!--bot-->

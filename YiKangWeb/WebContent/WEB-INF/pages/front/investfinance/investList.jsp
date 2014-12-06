@@ -5,7 +5,7 @@
 <html>
   <head>
     
-    <title>亿康在线-投资</title>
+    <title>亿康在线-投资信息</title>
     <meta http-equiv="pragma" content="no-cache"/>
 	<meta http-equiv="cache-control" content="no-cache"/>
 	<meta http-equiv="expires" content="0"/>

@@ -16,8 +16,6 @@ import org.armysoft.core.Pagination;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.yuankang.yk.publics.Constants;
 import com.yuankang.yk.publics.tools.RemoteRequestUtil;
@@ -187,6 +185,7 @@ public class QuartzJob {
 			map.put("Name", arr.getJSONObject(i).get("Name"));
 			result.add(map);
 		}
+		//全局数据
 		servletContext.setAttribute("other_disease_15", result);
 	}
 	//首页健康数据库信息
