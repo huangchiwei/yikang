@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.yuankang.yk.pojo.sys.NewsComment;
+import com.yuankang.yk.publics.Constants;
 import com.yuankang.yk.service.news.NewsCommentService;
 import com.yuankang.yk.service.news.NewsService;
 
@@ -57,6 +58,7 @@ public class NewsFrontController extends BaseController {
 		 }
 		 List<Map<String, Object>> relatedOtherNews=newsService.getByCateCode(news.get("CateCode").toString(),idList,false,4);
 		 model.addAttribute("relatedOtherNews", relatedOtherNews);
+		 model.addAttribute("other_disease_15", Constants.healthData.get("other_disease_15"));
 		 return "front/news/detail";
 	 }
 	@RequestMapping(value =PAGE_LIST)
@@ -74,6 +76,7 @@ public class NewsFrontController extends BaseController {
 				//前10条热文推荐
 				 List<Map<String, Object>> hotRecomInfoList=newsService.getHotRecommendInfo(10);
 				 model.addAttribute("hotRecomInfoList", hotRecomInfoList);
+				 model.addAttribute("other_disease_15", Constants.healthData.get("other_disease_15"));
 				//String categoryName=newsService.getByCateCode(cateCode).get(0).get("CategoryName").toString();
 				//model.addAttribute("categoryName", categoryName);
 		 return "front/news/list";
@@ -122,7 +125,7 @@ public class NewsFrontController extends BaseController {
 		 model.addAttribute("hotOrderImage", fList.get(0));
 		 List<Map<String, Object>> hotOrderInfo=newsService.getOtherHotOrderInfo(fList.get(0));
 		 model.addAttribute("hotOrderInfo", hotOrderInfo);
-		
+		 model.addAttribute("other_disease_15", Constants.healthData.get("other_disease_15"));
 	    return "front/news/index";
 	  }
 	 @RequestMapping(value = SAVE)

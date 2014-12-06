@@ -31,7 +31,7 @@ $(function(){
 </head>
 
 <body>
- <jsp:include page="/WEB-INF/pages/front/index/part_news/partNavi.jsp" />
+  <jsp:include page="/WEB-INF/pages/front/common/secondHead.jsp" />
 <div class="n">
  <div class="news_nav">
   <div class="n_box">

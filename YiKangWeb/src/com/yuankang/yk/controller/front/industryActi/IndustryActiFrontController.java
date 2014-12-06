@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.yuankang.yk.publics.Constants;
 import com.yuankang.yk.service.industryActi.IndustryActiService;
 
 /**
@@ -44,6 +45,7 @@ public class IndustryActiFrontController extends BaseController {
 			 List<Map<String, Object>> list=industryActiService.getByPage(page,key);
 			 model.addAttribute("list",list);
 			 model.addAttribute("one", list.get(0));
+				model.addAttribute("other_disease_15", Constants.healthData.get("other_disease_15"));
 		    return "front/industryActi/detail";
 	 }
 	/**
@@ -67,6 +69,7 @@ public class IndustryActiFrontController extends BaseController {
 		Pagination page = initPage(currentPage);
 		mv.addObject("list", industryActiService.getByPage(page,null));
 		mv.addObject("page", page);
+		model.addAttribute("other_disease_15", Constants.healthData.get("other_disease_15"));
 	}catch(Exception e){
 		e.printStackTrace();
 	}
