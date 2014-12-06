@@ -39,9 +39,9 @@ $(function(){
   <div class="n_box">
    <div class="new_logo"><img src="${ctx}/js/front/train/images/news_logo.png" /></div>
    <div class="lanren">
-    <a href="${ctx}/front/train/list/1.html?cateCode=qualifications" <c:if test="${cateCode=='qualifications'}">class="thisclass"</c:if>>资质培训</a>
-    <a  href="${ctx}/front/train/list/1.html?cateCode=technical" <c:if test="${cateCode=='technical'}">class="thisclass"</c:if>>技能培训</a>
-    <a href="${ctx}/front/train/videoList/1.html?cateCode=lecture" <c:if test="${cateCode=='lecture'}">class="thisclass"</c:if>>健康大讲堂</a>
+    <a href="${ctx}/front/train/list/1.html?cateCode=qualifications">资质培训</a>
+    <a  href="${ctx}/front/train/list/1.html?cateCode=technical" >技能培训</a>
+    <a href="${ctx}/front/train/videoList/1.html?cateCode=lecture" class="thisclass">健康大讲堂</a>
    
    </div>
   </div>
@@ -58,38 +58,15 @@ $(function(){
     <div class="n_list_title"><h1>健康大讲堂</h1>
     </div>
     <div class="video">
-      <dl class="dl">
-       <dt><img src="images/index_001.png" width="160" height="120" /></dt>
-       <dd><a href="#">雷尚通：甲状腺肿瘤发病率高 盲目添减碘不可取</a></dd>
+     <form id="search_form" action="${ctx}/front/train/videoList/1.html" method="post">
+    
+      <c:forEach items="${list}" var="o" varStatus="sta">
+         <dl class="dl">
+       <dt><img src="${ctx}/${o.src}" width="160" height="120" /></dt>
+       <dd><a href="${ctx}/front/train/videoDetail/${o.ID}.html">${o.Title}</a></dd>
       </dl>
-      <dl class="dl">
-       <dt><img src="images/index_001.png" width="140" height="100" /></dt>
-       <dd><a href="#">雷尚通：甲状腺肿瘤发病率高 盲目添减碘不可取</a></dd>
-      </dl>
-      <dl class="dl">
-       <dt><img src="images/index_001.png" width="140" height="100" /></dt>
-       <dd><a href="#">雷尚通：甲状腺肿瘤发病率高 盲目添减碘不可取</a></dd>
-      </dl>
-      <dl class="dl">
-       <dt><img src="images/index_001.png" width="140" height="100" /></dt>
-       <dd><a href="#">雷尚通：甲状腺肿瘤发病率高 盲目添减碘不可取</a></dd>
-      </dl>
-      <dl class="dl">
-       <dt><img src="images/index_001.png" width="140" height="100" /></dt>
-       <dd><a href="#">雷尚通：甲状腺肿瘤发病率高 盲目添减碘不可取</a></dd>
-      </dl>
-      <dl class="dl">
-       <dt><img src="images/index_001.png" width="140" height="100" /></dt>
-       <dd><a href="#">雷尚通：甲状腺肿瘤发病率高 盲目添减碘不可取</a></dd>
-      </dl>
-      <dl class="dl">
-       <dt><img src="images/index_001.png" width="140" height="100" /></dt>
-       <dd><a href="#">雷尚通：甲状腺肿瘤发病率高 盲目添减碘不可取</a></dd>
-      </dl>
-      <dl class="dl">
-       <dt><img src="images/index_001.png" width="140" height="100" /></dt>
-       <dd><a href="#">雷尚通：甲状腺肿瘤发病率高 盲目添减碘不可取</a></dd>
-      </dl>
+      </c:forEach>
+     </form>
    
     </div>
         <div class="page">

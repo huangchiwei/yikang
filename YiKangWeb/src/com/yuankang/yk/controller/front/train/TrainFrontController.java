@@ -77,12 +77,12 @@ public class TrainFrontController extends BaseController {
 		 return "front/train/list";
 	 }
 	@RequestMapping(value ="/videoList/{currentPage}.html")
-	 public String videoList(@PathVariable int currentPage,Model model,String cateCode)
+	 public String videoList(@PathVariable int currentPage,Model model)
 	 {
 		// 初始化分页实体
 				Pagination page = initPage(currentPage);
-				page.setPageSize(30);
-				model.addAttribute("list", trainService.getByPage(page,cateCode));
+				page.setPageSize(15);
+				model.addAttribute("list", trainService.getLetureByPage(page));
 				model.addAttribute("page", page);
 				
 		 return "front/train/videoList";

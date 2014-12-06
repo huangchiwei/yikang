@@ -43,30 +43,20 @@ public class TrainService extends BaseSqlService {
 		}
 		return list;
 	}
-
-/*	public List<Map<String, Object>> getByPage(Pagination page, String cateCode) {
+	public List<Map<String, Object>> getLetureByPage(Pagination page) {
 		List<Map<String, Object>> list = null;
-		if (cateCode.equals("law")) {
-			initCount(
-					"select count(*) from train n,train_category nc where n.CategoryId=nc.ID and (nc.CateCode='countyLaw' or nc.CateCode='localLaw')",
-					page);
-			list = getQuery(
-					"select n.ID,n.Title,n.RealTime from train n,train_category nc where n.CategoryId=nc.ID and (nc.CateCode='countyLaw' or nc.CateCode='localLaw') order by n.RealTime desc",
-					page);
-
-		} else {
-			initCount(
-					"select count(*) from train n,train_category nc where n.CategoryId=nc.ID and nc.CateCode='"
-							+ cateCode + "'", page);
-			list = getQuery(
-					"select n.ID,n.Title,n.RealTime from train n,train_category nc where n.CategoryId=nc.ID and nc.CateCode='"
-							+ cateCode + "' order by n.RealTime desc", page);
-
+		String des_src = "";
+		initCount("select count(*) from train where CateCode='lecture'", page);
+		list = getQuery("select ID,CateCode,Title,Content from train where CateCode='lecture' order by RealTime desc",
+				page);
+		for (Map<String, Object> h : list) {
+			des_src = StringUtil.getThumb(h.get("Content").toString(),
+					200);
+			h.put("src", des_src);
 		}
-
 		return list;
-	}*/
-	
+	}
+
 
 
 	public void delete(Long id) {
