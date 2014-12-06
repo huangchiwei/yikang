@@ -43,20 +43,7 @@ public class TrainService extends BaseSqlService {
 		}
 		return list;
 	}
-	public List<Map<String, Object>> getLetureByPage(Pagination page) {
-		List<Map<String, Object>> list = null;
-		String des_src = "";
-		initCount("select count(*) from train where CateCode='lecture'", page);
-		list = getQuery("select ID,CateCode,Title,Content from train where CateCode='lecture' order by RealTime desc",
-				page);
-		for (Map<String, Object> h : list) {
-			des_src = StringUtil.getThumb(h.get("Content").toString(),
-					200);
-			h.put("src", des_src);
-		}
-		return list;
-	}
-
+	
 
 
 	public void delete(Long id) {
@@ -198,6 +185,24 @@ public class TrainService extends BaseSqlService {
 					"select n.ID,n.Title,n.RealTime from train n,train_category nc where n.CateCode=nc.CateCode and nc.CateCode='"
 							+ cateCode + "' order by n.RealTime desc", page);
 
+		return list;
+	}
+	public List<Map<String, Object>> getLetureByPage(Pagination page) {
+		List<Map<String, Object>> list = null;
+		String des_src = "";
+		initCount("select count(*) from train where CateCode='lecture'", page);
+		list = getQuery("select ID,CateCode,Title,Content from train where CateCode='lecture' order by RealTime desc",
+				page);
+		for (Map<String, Object> h : list) {
+			des_src = StringUtil.getThumb(h.get("Content").toString(),
+					200);
+			h.put("src", des_src);
+		}
+		return list;
+	}
+	public List<Map<String, Object>> getLetures(int size) {
+		List<Map<String, Object>> list = null;
+		list = getQuery("select ID,Title,RealTime from train where CateCode='lecture' order by RealTime desc limit 0,"+size);
 		return list;
 	}
 }

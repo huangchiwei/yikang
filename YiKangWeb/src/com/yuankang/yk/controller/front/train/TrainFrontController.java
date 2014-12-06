@@ -93,7 +93,9 @@ public class TrainFrontController extends BaseController {
 		Map<String, Object> instance=trainService.getById(key);
 			model.addAttribute("cateCode", instance.get("CateCode").toString());
 			model.addAttribute("instance", instance);
-
+			//最新视频
+			List<Map<String, Object>>	lastList=trainService.getLetures(10);
+			model.addAttribute("lastList", lastList);
 		 return "front/train/videoDetail";
 	 }
 }

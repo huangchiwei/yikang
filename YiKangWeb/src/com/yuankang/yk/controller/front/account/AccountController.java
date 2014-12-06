@@ -59,6 +59,7 @@ public class AccountController extends BaseController {
 						sessionOld.invalidate();
 					}
 					request.getSession(true);
+					request.getSession().setAttribute(Constants.FRONT_KEY, accountNo);
 					super.setCookie(response, Constants.FRONT_KEY, accountNo);	
 					return "redirect:/index.html";
 			  }
