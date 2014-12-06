@@ -101,7 +101,7 @@ $(function(){
     <div class="list_r_rank">
      <ul class="ul">
          <c:forEach items="${lastList}" var="o" varStatus="sta">
-         <li><span><fmt:formatDate value="${o.RealTime}" pattern="yyyy-MM-dd" /></span><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 15) }</a></li>
+         <li><span><fmt:formatDate value="${o.RealTime}" pattern="yyyy-MM-dd" /></span><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 13) }</a></li>
          </c:forEach>
      
      </ul>
