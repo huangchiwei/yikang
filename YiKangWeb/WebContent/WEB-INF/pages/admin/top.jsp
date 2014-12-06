@@ -29,13 +29,13 @@ function changeLeftMenu(url){
 
 <body bgcolor="#f5f5f5"  onload="time()">
 <div class="main_top relative">
- <div class="top_logo">机动车维修行业从业人员服务平台</div>
+ <div class="top_logo">亿康在线网站管理平台</div>
  <div class="top_toolbar">
   <div class="top_t_time"  id="showtime"></div>
   <div class="div">
-   <div class="user">Administrator</div>
-   <div class="home"><a href="content.html" target="mainFrame">首页</a></div>
-   <div class="set"><a href="#">设置</a></div>
+   <div class="user">${userNo}</div>
+   <!--<div class="home"><a href="${ctx}/admin/index.html" target="mainFrame">首页</a></div>
+    <div class="set"><a href="#">设置</a></div> -->
    <div class="quit"><a href="${ctx}/admin/userLogout.html" target="_blank">退出</a></div>
   </div>
  </div>

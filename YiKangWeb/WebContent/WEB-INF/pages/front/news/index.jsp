@@ -31,15 +31,7 @@ $(function(){
 </head>
 
 <body>
-
-<div class="news_top">
- <div class="index_nav">
-  <div class="logo"><img src="${ctx}/js/front/news/images/logo.png" /></div>
-  <div class="index_nav_b"><a href="#">行业资讯</a>|<a href="#">行业活动</a>|<a href="#">健康服务</a>|<a href="#">健康购</a>|<a href="#">健康数据库</a>|<a href="#">健康培训</a>|<a href="#">投融资服务</a></div>
- </div>
- <div class="index_reg"><a href="#">登录</a>|<a href="#">注册</a></div>
-</div>
-<div class="index_keyword"><a href="#">兰州白癜风</a>|<a href="#">子宫肌瘤</a>|<a href="#">酒精性脂肪肝</a>|<a href="#">硬皮病</a>|<a href="#">尿频尿急</a>|<a href="#">女性不孕</a>|<a href="#">包皮过长</a>|<a href="#">生殖器疣取</a>|<a href="#">避孕环多发性</a>|<a href="#">肌炎子宫腺肌</a>|<a href="#">症浅静脉炎</a>|<a href="#">男性不育症</a></div>
+ <jsp:include page="/WEB-INF/pages/front/index/part_news/partNavi.jsp" />
 <div class="n">
  <div class="news_nav">
   <div class="n_box">
@@ -285,92 +277,11 @@ $(function(){
      </div>
     </div>
     </div>
-    <div class="n_three_r">
-      <div class="n_one_top_t3">
-      <h1>疾病查询</h1>
-      <div class="more"><a href="#">more</a></div>
-     </div>
-     <div class="zzcs">
-      <div class="p_box">
-       <div class="p_l">内科</div>
-       <div class="p_r">
-        <ul class="ul">
-         <li><a href="#">肾炎</a></li>
-         <li><a href="#">胃癌</a></li>
-         <li><a href="#">急性肾炎</a></li>
-         <li><a href="#">便秘</a></li>
-         <li><a href="#">肾病</a></li>
-         <li><a href="#">睡眠障碍</a></li>
-         <li><a href="#">白血病</a></li>
-         <li><a href="#">鼾症</a></li>
-         <li><a href="#">慢性肾炎</a></li>
-        </ul>
-       </div>
-      </div>
-      <div class="p_box">
-       <div class="p_l">外科</div>
-       <div class="p_r">
-        <ul class="ul">
-         <li><a href="#">肾炎</a></li>
-         <li><a href="#">胃癌</a></li>
-         <li><a href="#">急性肾炎</a></li>
-         <li><a href="#">便秘</a></li>
-         <li><a href="#">肾病</a></li>
-         <li><a href="#">睡眠障碍</a></li>
-         <li><a href="#">白血病</a></li>
-         <li><a href="#">鼾症</a></li>
-         <li><a href="#">慢性肾炎</a></li>
-        </ul>
-       </div>
-      </div>
-      <div class="p_box">
-       <div class="p_l">其他</div>
-       <div class="p_r">
-        <ul class="ul">
-         <li><a href="#">肾炎</a></li>
-         <li><a href="#">胃癌</a></li>
-         <li><a href="#">急性肾炎</a></li>
-         <li><a href="#">便秘</a></li>
-         <li><a href="#">肾病</a></li>
-         <li><a href="#">睡眠障碍</a></li>
-         <li><a href="#">白血病</a></li>
-         <li><a href="#">鼾症</a></li>
-         <li><a href="#">慢性肾炎</a></li>
-        </ul>
-       </div>
-      </div>
-      <div class="p_box">
-       <div class="p_l">中医</div>
-       <div class="p_r">
-        <ul class="ul">
-         <li><a href="#">肾炎</a></li>
-         <li><a href="#">胃癌</a></li>
-         <li><a href="#">急性肾炎</a></li>
-         <li><a href="#">便秘</a></li>
-         <li><a href="#">肾病</a></li>
-         <li><a href="#">睡眠障碍</a></li>
-         <li><a href="#">白血病</a></li>
-         <li><a href="#">鼾症</a></li>
-         <li><a href="#">慢性肾炎</a></li>
-        </ul>
-       </div>
-      </div>
-     </div>
-    </div>
+<jsp:include page="/WEB-INF/pages/front/index/part_news/partDisease.jsp" />
+
   </div>
   <!--bot-->
-  <div class="bot">
-   <p class="p"><a href="#">关于我们</a> | <a href="#">版权信息</a> | <a href="#">免责声明</a> | <a href="#">公司动态</a> | <a href="#">合作伙伴</a> | <a href="#">招聘信息</a> | <a href="#">联系我们</a> | <a href="#">意见反馈</a> | <a href="#">网站帮助</a></p>
-   <p class="copyright">版权所有：广东省保健行业协会 粤ICP备10000514号
-     <br />
-     主办： 广东省保健行业协会 承办：广州源康信息技术有限公司
-     <br />
-     地址：广州市东风中路503号东建大厦十三楼广东省保健行业协会 邮编：510000 投稿信箱:gdchc@gdchc.org.cn 
-     <br />
-     直线：020-83541751 电话：020-83544718、83559326 传真:020-83541867 协会QQ： 614501982 492469471 协会QQ群：148189323 E-mail:gd-hpa@163.com 
-     <br />
-    版权所有，未经授权或认可禁止转载使用</p>
-  </div>
+<jsp:include page="/WEB-INF/pages/front/index/bottom.jsp" />
   <!--bot_end--> 
 </div>
 </body>

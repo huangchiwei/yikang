@@ -31,16 +31,7 @@ $(function(){
 </head>
 
 <body>
-
-<div class="news_top">
- <div class="index_nav">
-  <div class="logo"><img src="${ctx}/js/front/news/images/logo.png" /></div>
-  <div class="index_nav_b"><a href="#">行业资讯</a>|<a href="#">行业活动</a>|<a href="#">健康服务</a>|<a href="#">健康购</a>|<a href="#">健康数据库</a>|<a href="#">健康培训</a>|<a href="#">投融资服务</a></div>
- </div>
- <div class="index_reg"><a href="#">登录</a>|<a href="#">注册</a></div>
-</div>
-<div class="index_keyword"><a href="#">兰州白癜风</a>|<a href="#">子宫肌瘤</a>|<a href="#">酒精性脂肪肝</a>|<a href="#">硬皮病</a>|<a href="#">尿频尿急</a>|<a href="#">女性不孕</a>|<a href="#">包皮过长</a>|<a href="#">生殖器疣取</a>|<a href="#">避孕环多发性</a>|<a href="#">肌炎子宫腺肌</a>|<a href="#">症浅静脉炎</a>|<a href="#">男性不育症</a></div>
-<!--位置-->
+<jsp:include page="/WEB-INF/pages/front/index/part_news/partNavi.jsp" /><!--位置-->
 <div class="n">
 <div class="news_nav">
   <div class="n_box">
@@ -115,28 +106,8 @@ $(function(){
      
      </ul>
    </div>
-   <div class="list_r_box mt_10">
-    <div class="list_r_box_bj">
-     <h1 class="f_bold">疾病查询</h1>
-    </div>
-     <ul class="ul3">
-      <li><a href="#">痛经</a></li>
-      <li><a href="#">盆腔炎</a></li>
-      <li><a href="#">乳腺癌</a></li>
-      <li><a href="#">卵巢癌</a></li>
-      <li><a href="#">附件炎</a></li>
-      <li><a href="#">乳腺增生</a></li>
-      <li><a href="#">子宫肌瘤</a></li>
-      <li><a href="#">宫颈糜烂</a></li>
-      <li><a href="#">子宫肥大</a></li>
-      <li><a href="#">卵巢癌</a></li>
-      <li><a href="#">附件炎</a></li>
-      <li><a href="#">乳腺增生</a></li>
-      <li><a href="#">子宫肌瘤</a></li>
-      <li><a href="#">宫颈糜烂</a></li>
-      <li><a href="#">宫颈糜烂</a></li>
-     </ul>
-   </div>
+
+ <jsp:include page="/WEB-INF/pages/front/index/part_news/partDisease2.jsp" />
   </div>
 </div>
   <!--bot-->

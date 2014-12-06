@@ -99,7 +99,8 @@ $(function(){
   </div>
  </div>
 </div>
-<div class="share">
+
+<%-- <div class="share">
  <div class="fl_wy"><span class="span">网友评论</span>&nbsp;(共<span class="c_f07700">&nbsp;${news.NumCount}&nbsp;</span>条)</div>
  <div class="fr_ck"><a href="#">查看所有评论>></a></div>
 </div>
@@ -112,10 +113,10 @@ $(function(){
  <input type="submit" id="submitcomment" name="submitcomment" value="提交评论" class="issue"/>
  </div>
  </div>
- </form>
+ </form> --%>
 </div>
   <div class="n_fr_280">
-   <div class="ad_280"><img src="../theme/default/images/ad/ad_280.png" /></div>
+   <div class="ad_280"><img src="${ctx}/theme/front/default/images/ad/ad_280.png" /></div>
    <div class="list_r_box">
     <div class="list_r_box_bj">
      <h1>热文排行</h1>
@@ -139,28 +140,8 @@ $(function(){
       </c:forEach>
      </ul>
    </div>
-   <div class="list_r_box mt_10">
-    <div class="list_r_box_bj">
-     <h1 class="f_bold">疾病查询</h1>
-    </div>
-     <ul class="ul3">
-      <li><a href="#">痛经</a></li>
-      <li><a href="#">盆腔炎</a></li>
-      <li><a href="#">乳腺癌</a></li>
-      <li><a href="#">卵巢癌</a></li>
-      <li><a href="#">附件炎</a></li>
-      <li><a href="#">乳腺增生</a></li>
-      <li><a href="#">子宫肌瘤</a></li>
-      <li><a href="#">宫颈糜烂</a></li>
-      <li><a href="#">子宫肥大</a></li>
-      <li><a href="#">卵巢癌</a></li>
-      <li><a href="#">附件炎</a></li>
-      <li><a href="#">乳腺增生</a></li>
-      <li><a href="#">子宫肌瘤</a></li>
-      <li><a href="#">宫颈糜烂</a></li>
-      <li><a href="#">宫颈糜烂</a></li>
-     </ul>
-   </div>
+  <jsp:include page="/WEB-INF/pages/front/index/part_news/partDisease2.jsp" />
+  
   </div>
 </div>
   <!--bot-->
