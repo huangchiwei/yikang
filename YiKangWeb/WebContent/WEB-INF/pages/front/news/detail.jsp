@@ -136,7 +136,7 @@ $(function(){
     </div>
      <ul class="ul2">
      <c:forEach items="${hotRecomInfoList}" var="o" varStatus="sta">
-       <li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 23)}</a></li>
+       <li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 20)}</a></li>
       </c:forEach>
      </ul>
    </div>

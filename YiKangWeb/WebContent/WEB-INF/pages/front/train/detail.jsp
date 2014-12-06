@@ -41,7 +41,7 @@ $(function(){
    <div class="lanren">
        <a href="${ctx}/front/train/list/1.html?cateCode=qualifications" <c:if test="${cateCode=='qualifications'}">class="thisclass"</c:if>>资质培训</a>
     <a  href="${ctx}/front/train/list/1.html?cateCode=technical" <c:if test="${cateCode=='technical'}">class="thisclass"</c:if>>技能培训</a>
-    <a href="${ctx}/front/train/list/1.html?cateCode=lecture" <c:if test="${cateCode=='lecture'}">class="thisclass"</c:if>>健康大讲堂</a>
+    <a href="${ctx}/front/train/videoList/1.html?cateCode=lecture" <c:if test="${cateCode=='lecture'}">class="thisclass"</c:if>>健康大讲堂</a>
    
    </div>
   </div>
@@ -128,7 +128,7 @@ $(function(){
     </div>
      <ul class="ul2">
      <c:forEach items="${hotRecomInfoList}" var="o" varStatus="sta">
-       <li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 23)}</a></li>
+       <li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 20)}</a></li>
       </c:forEach>
      </ul>
    </div>

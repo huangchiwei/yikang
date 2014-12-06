@@ -43,7 +43,7 @@
      <li class="li"><span class="span"><font class=" c_ff0000">*</font>&nbsp;&nbsp;验证码：</span><input name="vcode" id="vcode" type="text" class="input" size="8" />
      <em><img src="${ctx}/verify/getVerifyCode.html" width="80" height="30" title="验证码" id="vimg"/></em><label>看不清？<a href="javascript:void(0);" id="change">换一张</a></label>
      </li>
-     <li class="li"><span class="passport relative"><div class="div_float"><input name="agreement" id="agreement" type="checkbox" checked="checked" /></div>同意《<a href="#">本站服务协议</a>》</span></li>
+     <li class="li" style="display:none;"><span class="passport relative"><div class="div_float"><input name="agreement" id="agreement" type="checkbox" checked="checked" /></div>同意《<a href="#">本站服务协议</a>》</span></li>
      <li class="li"><div class="btn_box"><input type="submit" class="login" value="注&nbsp;&nbsp;册" /></div></li>
     </ul>
     </form>
