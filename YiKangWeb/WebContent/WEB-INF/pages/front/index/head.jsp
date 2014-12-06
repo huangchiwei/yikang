@@ -63,11 +63,11 @@
           <li><a href="#">保健品库</a></li>
         </ul>
       </li>
-      <li class="drop-menu-effect"><a href="#"><span>健康培训</span></a>
+      <li class="drop-menu-effect"><a href="${ctx}/front/train/videoList/1.html?cateCode=lecture"><span>健康培训</span></a>
       <ul class="submenu">
-          <li><a href="#">健康大讲堂</a></li>
-          <li><a href="#">资质培训</a></li>
-          <li><a href="#">技能培训</a></li>
+          <li><a href="${ctx}/front/train/videoList/1.html?cateCode=lecture">健康大讲堂</a></li>
+          <li><a href="${ctx}/front/train/list/1.html?cateCode=qualifications">资质培训</a></li>
+          <li><a href="${ctx}/front/train/list/1.html?cateCode=technical">技能培训</a></li>
         </ul>
         </li>
       <li class="drop-menu-effect"><a href="${ctx}/investFinance/index.html" target="_blank"><span>投融资服务</span></a>
