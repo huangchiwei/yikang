@@ -16,7 +16,7 @@
 <script src="${ctx}/theme/front/investfinance/js/jquery.carouFredSel-6.0.4-packed.js"></script>
 </head>
 <body>
-<jsp:include page="/WEB-INF/pages/front/investfinance/head.jsp"/>
+<jsp:include page="/WEB-INF/pages/front/common/secondHead.jsp"/>
 <div class="n">
  <div class="news_nav">
   <div class="n_box">

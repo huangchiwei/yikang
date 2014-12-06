@@ -48,7 +48,7 @@ $(function(){
 
 </head>
 <body>
-<jsp:include page="/WEB-INF/pages/front/investfinance/head.jsp"/>
+<jsp:include page="/WEB-INF/pages/front/common/secondHead.jsp"/>
 <!--位置-->
 <div class="n">
 <div class="news_nav">

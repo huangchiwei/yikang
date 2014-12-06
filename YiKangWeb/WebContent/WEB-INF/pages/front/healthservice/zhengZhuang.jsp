@@ -4,7 +4,7 @@
 <div class="colMain">
                 <div class="kulist">
             <div class="itemListContent">
-            <c:forEach var="o" items="${list}" varStatus="sta">
+            <c:forEach var="o" items="${zzlist}" varStatus="sta">
             	<c:choose>
             		<c:when test="${(sta.index + 1) mod 2 == 1}">
             			<div class="diseaseItem">
@@ -13,7 +13,10 @@
 			                <div class="itemContent">
 			                    <p>
 			                        <span>简述：</span>
-			                        ${fn:length(o.DiseaseCls)>15?fn:substring(o.DiseaseCls,0,15):o.DiseaseCls}${fn:length(o.DiseaseCls)>15?'...':''}</p>
+			                        <c:if test="${o.DiseaseCls != 'null'}">
+			                        ${fn:length(o.DiseaseCls)>15?fn:substring(o.DiseaseCls,0,15):o.DiseaseCls}${fn:length(o.DiseaseCls)>15?'...':''}
+			                        </c:if>
+			                        </p>
 			                </div>
 			            </div>
             		</c:when>
@@ -24,7 +27,10 @@
 			                <div class="itemContent">
 			                    <p>
 			                        <span>简述：</span>
-			                        ${fn:length(o.DiseaseCls)>15?fn:substring(o.DiseaseCls,0,15):o.DiseaseCls}${fn:length(o.DiseaseCls)>15?'...':''}</p>
+			                        <c:if test="${o.DiseaseCls != 'null'}">
+			                        ${fn:length(o.DiseaseCls)>15?fn:substring(o.DiseaseCls,0,15):o.DiseaseCls}${fn:length(o.DiseaseCls)>15?'...':''}
+			                        </c:if>
+			                        </p>
 			                </div>
 			            </div>
             		</c:otherwise>

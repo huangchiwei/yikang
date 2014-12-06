@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <div class="w_top"><div class="fl_top">欢迎登录广东省健康产业公共服务平台！</div>
     <div class="fr_top">
       <ul class="head_ul">
@@ -23,14 +24,10 @@
       <input type="button" onclick="form_search();" value="搜索" class="rssclick" />
     </div>
     <ul class="keyword">
-     <li><a href="#">尖锐湿疣</a></li>
-     <li><a href="#">治白癜风</a></li>
-     <li><a href="#">大动脉炎</a></li>
-     <li><a href="#">静脉曲张</a></li>
-     <li><a href="#">白癜风</a></li>
-     <li><a href="#">生殖器疣</a></li>
-     <li><a href="#">生殖器疣</a></li>
-     <li><a href="#">生殖器疣</a></li>
+    <c:forEach items="${other_disease_15}" var="o" begin="0" step="1" end="7">
+    	<li><a href="${ctx}/healthService/jbDetail/${o.Id}.html" title="${o.Name}">${fn:substring(o.Name,0,4)}</a></li>
+    </c:forEach>
+     
     </ul>
    </div>
   </div>
@@ -46,7 +43,7 @@
         </ul>
       </li>
       <li class="drop-menu-effect"><a href="${ctx}/front/industryActi/list/1.html"><span>行业活动</span></a></li>
-      <li class="drop-menu-effect"><a href="#"><span>健康服务</span></a>
+      <li class="drop-menu-effect"><a><span>健康服务</span></a>
       <ul class="submenu">
           <li><a href="${ctx}/healthService/zzk/1.html" target="_blank">症状查询</a></li>
           <li><a href="${ctx}/healthService/ysk/1.html" target="_blank">医生查询</a></li>
@@ -56,7 +53,7 @@
         </ul>
       </li>
       <li class="drop-menu-effect"><a href="#"><span>健康购</span></a></li>
-      <li class="drop-menu-effect"><a href="#"><span>健康数据库</span></a>
+      <li class="drop-menu-effect"><a><span>健康数据库</span></a>
       <ul class="submenu">
           <li><a href="${ctx}/healthDatabase/yyk/1.html" target="_blank">医院库</a></li>
           <li><a href="${ctx}/healthDatabase/ypk/1.html" target="_blank">药品库</a></li>
