@@ -15,9 +15,9 @@
 <script>
 function jump(id,newWindow){
 	if(newWindow!=null){
-		window.open("${ctx}/front/train/detail/"+id+".html","_blank");
+		window.open("${ctx}/front/train/videoDetail/"+id+".html","_blank");
 	}else{
-		location.href="${ctx}/front/train/detail/"+id+".html";
+		location.href="${ctx}/front/train/videoDetail/"+id+".html";
 	}
 	
 }
@@ -56,9 +56,9 @@ $(function(){
 <div class="location"><a href="#">首页</a> > <a href="#">健康培训</a> > <a href="#">${instance.CategoryName}</a> > 正文</div>
 
 <div class="video_box">
- <h1>邹小明：给胸膜炎患者的饮食建议</h1>
+ <h1>${instance.Title}</h1>
 <div class="module playButton">
-	<div class="playbutton" id="playerSwf"><object width="970" height="515"><param name="movie" value="http://share.vrs.sohu.com/my/v.swf&amp;autoplay=false&amp;id=64514485&amp;skinNum=1&amp;topBar=1&amp;xuid=e25661496"><param name="allowFullScreen" value="true"><param name="allowscriptaccess" value="always"><embed width="970" height="515" allowfullscreen="true" allowscriptaccess="always" quality="high" src="http://share.vrs.sohu.com/my/v.swf&amp;autoplay=false&amp;id=64514485&amp;skinNum=1&amp;topBar=1&amp;xuid=e25661496" type="application/x-shockwave-flash"></object></div>
+	<div class="playbutton" id="playerSwf"><object width="970" height="515"><param name="movie" value="${instance.VideoUrl}"><param name="allowFullScreen" value="true"><param name="allowscriptaccess" value="always"><embed width="970" height="515" allowfullscreen="true" allowscriptaccess="always" quality="high" src="http://share.vrs.sohu.com/my/v.swf&amp;autoplay=false&amp;id=64514485&amp;skinNum=1&amp;topBar=1&amp;xuid=e25661496" type="application/x-shockwave-flash"></object></div>
         <!--天翼分享地址-->
         <input id="TYvideoUrl" type="hidden" value="">
         <!--天翼分享地址-->
@@ -66,25 +66,14 @@ $(function(){
 <div class="n_list">
   <div class="n_fl_670">
     <div class="v_detail_title">
-      <h2>夏云飞医生介绍</h2>
-      <p>来源：家庭医生在线&nbsp;&nbsp;时间：2014-02-21</p>
+      <h2>${instance.Title}</h2>
+      <p>来源：${instance.Source}&nbsp;&nbsp;时间：<fmt:formatDate value="${instance.RealTime}" pattern="yyyy-MM-dd" /></p>
     </div>
     <div class="art_con">
-     <p>1985年大学本科毕业于苏州医学院放射医学专业，1994年硕士研究生毕业于中山医科大学肿瘤学专业，现任职放疗科副主任、教授、主任医师、博士生导师。
-专业：放射肿瘤
-专业特长：鼻咽癌、神经肿瘤及淋巴瘤的放射治疗</p>
-            	<p>术任职：
-            	  Peer reviewer of 《International Journal of Radiation Oncology Biology Physics》
-            	  《癌症》杂志常务编委
-            	  《中国神经肿瘤学》杂志副主编
-            	  中国抗癌协会神经肿瘤专业委员会常委兼秘书长
-            	  中华医学会放射肿瘤专业委员会生物组成员
-            	  广州抗癌协会神经肿瘤专业委员会副主任委员
-            	  广州市医学会医疗事故技术鉴定专家库成员
-            	  家庭医生在线医学委员会委员</p>
+		${instance.Content}
     </div>
 <div class="extend_page">
- <h3>资讯推荐</h3>
+ <!-- <h3>资讯推荐</h3>
  <div class="d_box_tj">
   <div class="sgtj">
   <div class="fl"><a href="#"><img src="images/index_pic.png" /></a></div>
@@ -101,7 +90,7 @@ $(function(){
       <li class="li"><a href="#">眼保健操并非国人近视"祸害"</a></li>
      </ul>
   </div>
- </div>
+ </div> -->
 </div>
 </div>
   <div class="n_fr_280">
@@ -111,20 +100,14 @@ $(function(){
     </div>
     <div class="list_r_rank">
      <ul class="ul">
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><span>1231321</span><a href="#">眼保健操并非国人近视"祸害"</a></li>
+         <c:forEach items="${lastList}" var="o" varStatus="sta">
+         <li><span><fmt:formatDate value="${o.RealTime}" pattern="yyyy-MM-dd" /></span><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 15) }</a></li>
+         </c:forEach>
+     
      </ul>
     </div>
    </div>
-   <div class="list_r_box mt_15">
+<!--    <div class="list_r_box mt_15">
     <div class="list_r_box_bj">
      <h1>相关视频</h1>
     </div>
@@ -140,7 +123,7 @@ $(function(){
       <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
       <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
      </ul>
-   </div>
+   </div> -->
   </div>
 </div>
   <!--bot-->
