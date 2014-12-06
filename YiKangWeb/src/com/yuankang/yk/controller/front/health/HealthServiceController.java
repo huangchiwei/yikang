@@ -4,17 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
+
 import org.armysoft.core.Pagination;
 import org.armysoft.springmvc.controller.BaseController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yuankang.yk.exception.HealthRequestExp;
+import com.yuankang.yk.pojo.medicalguide.ExpertInfo;
+import com.yuankang.yk.pojo.medicalguide.SpecialInfo;
 import com.yuankang.yk.publics.Constants;
 import com.yuankang.yk.publics.tools.RemoteRequestUtil;
+import com.yuankang.yk.service.medicalguide.ExpertInfoService;
+import com.yuankang.yk.service.medicalguide.SpecialInfoService;
 
 /**
  * 类说明:健康服务
@@ -26,6 +33,10 @@ import com.yuankang.yk.publics.tools.RemoteRequestUtil;
 @RequestMapping("healthService")
 public class HealthServiceController extends BaseController{
 
+	@Resource
+	private ExpertInfoService expertInfoService;
+	@Resource
+	private SpecialInfoService specialInfoService;
 	/**
 	 * 症状库
 	 * @param currentPage
@@ -96,6 +107,53 @@ public class HealthServiceController extends BaseController{
 			model.addAttribute("page", page);
 			model.addAttribute("categoryId", categoryId);
 			return "front/healthservice/index";
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new HealthRequestExp();
+		}
+	}
+	
+	/**
+	 * 分布查询就医指南
+	 * @param model
+	 * @param specialInfoId
+	 * @return
+	 */
+	@RequestMapping("jiuYiZhiNan/{currentPage}")
+	public String jiuYiZhiNan(@PathVariable Integer currentPage,Model model,String specialInfoId,String hospitalId){
+		try {
+			Pagination page = initPage(currentPage);
+			page.setPageSize(10);
+			model.addAttribute("specialInfos", Constants.healthData.get("specialInfos"));
+			model.addAttribute("hospitals", Constants.healthData.get("hospitals"));
+			model.addAttribute("list", expertInfoService.getByPage(page, specialInfoId, hospitalId));
+			if(StringUtils.hasText(specialInfoId))
+				model.addAttribute("special", specialInfoService.findById(specialInfoId, SpecialInfo.class));
+			model.addAttribute("page", page);
+			model.addAttribute("specialInfoId", specialInfoId);
+			model.addAttribute("hospitalId", hospitalId);
+			return "front/healthservice/medicalguide/index";
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new HealthRequestExp();
+		}
+	}
+	
+	/**
+	 * 就医指南医生详情
+	 * @param model
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping("jiuYiZhiNanDetail/{id}")
+	public String jiuYiZhiNanDetail(Model model,@PathVariable String id){
+		try {
+			model.addAttribute("entity", expertInfoService.findById(id, ExpertInfo.class));
+			Pagination page = new Pagination(1);
+			page.setPageSize(6);
+			model.addAttribute("jyzn_recommend_doc_6", Constants.healthData.get("jyzn_recommend_doc_6"));
+			model.addAttribute("hot_news_4", Constants.healthData.get("hot_news_4"));
+			return "front/healthservice/medicalguide/experDetail";
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new HealthRequestExp();
