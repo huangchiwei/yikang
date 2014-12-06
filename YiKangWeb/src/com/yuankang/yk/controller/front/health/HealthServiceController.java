@@ -50,8 +50,8 @@ public class HealthServiceController extends BaseController{
 			Pagination page = initPage(currentPage);
 			page.setPageSize(32);
 			model.addAttribute("type", 1);
+			model.addAttribute("zzlist", RemoteRequestUtil.requestSymptomByPage(page, categoryId));
 			model.addAttribute("categorys", Constants.healthData.get("categorys"));
-			model.addAttribute("list", RemoteRequestUtil.requestSymptomByPage(page, categoryId));
 			model.addAttribute("page", page);
 			model.addAttribute("categoryId", categoryId);
 			return "front/healthservice/index";

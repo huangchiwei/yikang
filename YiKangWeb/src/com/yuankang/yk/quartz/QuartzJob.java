@@ -8,12 +8,16 @@ import java.util.Random;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
+import javax.servlet.ServletContext;
 
 import net.sf.json.JSONArray;
 
 import org.armysoft.core.Pagination;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.yuankang.yk.publics.Constants;
 import com.yuankang.yk.publics.tools.RemoteRequestUtil;
@@ -46,6 +50,8 @@ public class QuartzJob {
 	private HospitalService hospitalService;
 	@Resource
 	private ExpertInfoService expertInfoService;
+	@Autowired 
+	private ServletContext servletContext;
 
 	@PostConstruct
 	public void init() {
@@ -156,8 +162,9 @@ public class QuartzJob {
 	
 	@Scheduled(cron = "0 0 2 * * ?")
 	public void IndexOtherData(){
+		Random random = new Random();
+		Pagination page = new Pagination(random.nextInt(100) + 1);
 		//大首页21个常见疾病
-		Pagination page = new Pagination(1);
 		page.setPageSize(21);
 		JSONArray arr = RemoteRequestUtil.requestDiseaseByPage(page, null);
 		List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
@@ -170,6 +177,17 @@ public class QuartzJob {
 		}
 		Constants.healthData.put("common_disease_21", result);
 		System.out.println("大首页21个常见疾病...");
+		
+		page.setPageSize(15);
+		arr = RemoteRequestUtil.requestDiseaseByPage(page, null);
+		result = new ArrayList<Map<String, Object>>();
+		for (int i = 0; i < arr.size(); i++) {
+			map = new HashMap<String, Object>();
+			map.put("Id", arr.getJSONObject(i).get("Id"));
+			map.put("Name", arr.getJSONObject(i).get("Name"));
+			result.add(map);
+		}
+		servletContext.setAttribute("other_disease_15", result);
 	}
 	//首页健康数据库信息
 	@Scheduled(cron = "0 20 * * * ?")
@@ -273,4 +291,5 @@ public class QuartzJob {
 		Constants.healthData.put("jyzn_recommend_doc_6", expertInfoService.getByPage(page));
 		System.out.println("健康频道信息...");
 	}
+	
 }

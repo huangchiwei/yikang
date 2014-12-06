@@ -45,6 +45,7 @@ public class IndexController extends BaseController{
 		model.addAttribute("yiyuan_7", Constants.healthData.get("yiyuan_7"));
 		model.addAttribute("yaopin_3", Constants.healthData.get("yaopin_3"));
 		model.addAttribute("common_disease_21", Constants.healthData.get("common_disease_21"));
+		model.addAttribute("other_disease_15", Constants.healthData.get("other_disease_15"));
 	
 			model.addAttribute("accountNo", CookieUtil.getUserCookieValue(request, Constants.FRONT_KEY));
 				
