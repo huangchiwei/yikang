@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.yuankang.yk.pojo.sys.Train;
 import com.yuankang.yk.publics.tools.DateUtil;
+import com.yuankang.yk.publics.tools.StringUtil;
 import com.yuankang.yk.service.base.BaseSqlService;
 
 /**
@@ -138,5 +139,75 @@ public class TrainService extends BaseSqlService {
 		else {
 			return null;
 		}
+	}
+	
+	//前台
+	public List<Map<String, Object>> getHotOrderInfo(int pageSize) {
+		String sql = "";
+		sql = "select Title,ID,Clicks from train order by Clicks desc limit 0,"
+				+ pageSize;
+		List<Map<String, Object>> list = getQuery(sql);
+		return list;
+	}
+	public List<Map<String, Object>> getHotRecommendInfo(int pageSize) {
+		String sql = "select Title,ID from train where IsRecommend=1  order by Clicks desc limit 0,"
+				+ pageSize;
+		List<Map<String, Object>> list = getQuery(sql);
+		return list;
+	}
+	public List<Map<String, Object>> getByCateCode(String cateCode,
+			List<String> withoutIdList, Boolean hasImage, int pageSize) {
+		String imageSql = "", idSql = "";
+		if (hasImage == true)
+			imageSql = " and n.HasImage=1 ";
+		for (String id : withoutIdList) {
+			idSql += id + ",";
+		}
+		if (idSql != "") {
+			idSql = " and n.ID not in ("
+					+ idSql.substring(0, idSql.length() - 1) + ") ";
+		}
+		String sql = "";
+		List<Map<String, Object>> list = null;
+		if (imageSql != "") {
+			sql = "select n.ID,n.Title,n.Content,n.Digest,nc.CateCode from train n,train_category nc where n.CateCode=nc.CateCode and nc.CateCode='"
+					+ cateCode
+					+ "'"
+					+ imageSql
+					+ idSql
+					+ " limit 0,"
+					+ pageSize;
+			list = getQuery(sql);
+			String des_src = "";
+			if (list != null && list.size() > 0) {
+				for (Map<String, Object> h : list) {
+					des_src = StringUtil.getThumb(h.get("Content").toString(),
+							200);
+					h.put("src", des_src);
+				}
+			}
+		} else {
+			sql = "select n.ID,n.Title,n.Digest,nc.CateCode from train n,train_category nc where n.CateCode=nc.CateCode and nc.CateCode='"
+					+ cateCode
+					+ "'"
+					+ imageSql
+					+ idSql
+					+ " limit 0,"
+					+ pageSize;
+			list = getQuery(sql);
+		}
+
+		return list;
+	}
+	public List<Map<String, Object>> getByPage(Pagination page, String cateCode) {
+		List<Map<String, Object>> list = null;
+			initCount(
+					"select count(*) from train n,train_category nc where n.CateCode=nc.CateCode and nc.CateCode='"
+							+ cateCode + "'", page);
+			list = getQuery(
+					"select n.ID,n.Title,n.RealTime from train n,train_category nc where n.CateCode=nc.CateCode and nc.CateCode='"
+							+ cateCode + "' order by n.RealTime desc", page);
+
+		return list;
 	}
 }
