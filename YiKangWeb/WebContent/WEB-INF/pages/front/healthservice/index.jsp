@@ -60,7 +60,7 @@ $(function(){
     <a href='${ctx}/healthService/zzk/1.html' class="${type ==1 ? 'thisclass' : ''}">症状查询</a>
     <a href='${ctx}/healthService/ysk/1.html' class="${type ==2 ? 'thisclass' : ''}">医生查询</a>
     <a href='${ctx}/healthService/jbk/1.html' class="${type ==3 ? 'thisclass' : ''}">疾病查询</a>
-    <a href='javascript:' class="${type ==4 ? 'thisclass' : ''}">就医指南</a>
+    <a href='${ctx}/healthService/jiuYiZhiNan/1.html'>就医指南</a>
     <a href='${ctx}/healthService/yuYueGuaHuao.html' class="${type ==5 ? 'thisclass' : ''}">预约挂号</a>
    </div>
   </div>

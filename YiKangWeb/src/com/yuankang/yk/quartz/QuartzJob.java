@@ -19,6 +19,9 @@ import com.yuankang.yk.publics.Constants;
 import com.yuankang.yk.publics.tools.RemoteRequestUtil;
 import com.yuankang.yk.service.investfinance.FinancingService;
 import com.yuankang.yk.service.investfinance.InvestmentService;
+import com.yuankang.yk.service.medicalguide.ExpertInfoService;
+import com.yuankang.yk.service.medicalguide.HospitalService;
+import com.yuankang.yk.service.medicalguide.SpecialInfoService;
 import com.yuankang.yk.service.news.NewsService;
 
 /**
@@ -37,10 +40,20 @@ public class QuartzJob {
 	private FinancingService financingService;
 	@Resource
 	private NewsService newsService;
+	@Resource
+	private SpecialInfoService specialInfoService;
+	@Resource
+	private HospitalService hospitalService;
+	@Resource
+	private ExpertInfoService expertInfoService;
 
 	@PostConstruct
 	public void init() {
 		indexInvestFinanceData();
+		//就医指南所有专科
+		Constants.healthData.put("specialInfos", specialInfoService.getAll());
+		//就医指南所有医院
+		Constants.healthData.put("hospitals", hospitalService.getAll());
 		healthBaseData();
 		indexHealthServiceData();
 		indexHealthDatabaseData();
@@ -254,6 +267,10 @@ public class QuartzJob {
 			result.add(map);
 		}
 		Constants.healthData.put("recommend_medic_4", result);
+		//6个就医指南推荐专家
+		page = new Pagination(random.nextInt(6) + 1);
+		page.setPageSize(6);
+		Constants.healthData.put("jyzn_recommend_doc_6", expertInfoService.getByPage(page));
 		System.out.println("健康频道信息...");
 	}
 }
