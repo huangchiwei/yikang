@@ -465,6 +465,7 @@
 	border-style:solid;
 	position:relative;
 	overflow:hidden;
+	height:223px;
 }
 .tabcon .subbox {
 	position:absolute;/*必要元素*/

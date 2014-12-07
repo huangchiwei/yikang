@@ -5,13 +5,17 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.ForeignKey;
 
 /**
  * 类说明: 注册用户
@@ -75,6 +79,7 @@ public class Account implements Serializable{
 	private String company;
 
 	
+
 	
 	@Column(name = "Introduce")
 	private String introduce;
@@ -96,7 +101,7 @@ public class Account implements Serializable{
 	
 	@Column(name = "Industry")
 	private String industry;
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -120,7 +125,6 @@ public class Account implements Serializable{
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-
 
 	public Integer getGender() {
 		return gender;
@@ -194,8 +198,6 @@ public class Account implements Serializable{
 		this.telAreaCode = telAreaCode;
 	}
 
-	
-
 	public String getQq() {
 		return qq;
 	}
@@ -244,8 +246,6 @@ public class Account implements Serializable{
 		this.turnover = turnover;
 	}
 
-	
-
 	public Float getNetAsset() {
 		return netAsset;
 	}
@@ -269,6 +269,8 @@ public class Account implements Serializable{
 	public void setIndustry(String industry) {
 		this.industry = industry;
 	}
+	
+
 
 	
 	

@@ -287,7 +287,7 @@ public class NewsService extends BaseSqlService {
 	}
 
 	public List<Map<String, Object>> getHotRecommendInfo(int pageSize) {
-		String sql = "select Title,ID from news where IsRecommend=1  order by Clicks desc limit 0,"
+		String sql = "select Title,ID,CategoryId from news where IsRecommend=1  order by Clicks desc limit 0,"
 				+ pageSize;
 		List<Map<String, Object>> list = getQuery(sql);
 		return list;
@@ -322,7 +322,7 @@ public class NewsService extends BaseSqlService {
 
 	public List<Map<String, Object>> getHotOrderInfo(int pageSize) {
 		String sql = "";
-		sql = "select Title,ID,Clicks from news order by Clicks desc limit 0,"
+		sql = "select Title,ID,Clicks,CategoryId from news order by Clicks desc limit 0,"
 				+ pageSize;
 		List<Map<String, Object>> list = getQuery(sql);
 		return list;

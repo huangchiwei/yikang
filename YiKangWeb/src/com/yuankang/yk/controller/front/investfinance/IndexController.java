@@ -31,7 +31,7 @@ public class IndexController {
 		model.addAttribute("investList2", Constants.indexData.get("investList2"));
 		model.addAttribute("financeList2", Constants.indexData.get("financeList2"));
 		//model.addAttribute("hangyezixun", Constants.indexData.get("hangyezixun"));
-		model.addAttribute("zhengcefagui", Constants.indexData.get("zhengcefagui"));
+		model.addAttribute("zhengcefagui_6", Constants.indexData.get("zhengcefagui_6"));
 		// 相关推荐，相同类型的其它5条，其中一条是一定带图片的
 		List<String> idList = new ArrayList<String>();
 		List<Map<String, Object>> relatedImageNews = newsService
