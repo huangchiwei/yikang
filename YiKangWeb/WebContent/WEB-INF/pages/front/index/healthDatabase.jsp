@@ -84,7 +84,7 @@
        <c:forEach items="${lectureList}" var="o" varStatus="sta">
        <c:if test="${sta.index<=2 }">
          <dl class="dl">
-       <dt><a href="${ctx}/front/train/detail/${o.ID}.html"><img src="${ctx}/${o.src}" width="55" height="55"/></a></dt>
+       <dt><a href="${ctx}/front/train/detail/${o.ID}.html"><img src="${ctx}/${o.src}" width="57" height="55"/></a></dt>
        <dd><a href="${ctx}/front/train/detail/${o.ID}.html">${fn:substring(o.Title , 0,3)}</a></dd>
        </dl>
        </c:if>
@@ -94,13 +94,13 @@
     <div class="ma"><h1>资质培训</h1>
       <ul class="ul">
        <c:forEach items="${qualiList}" var="o">
-			  <li><a href="${ctx}/front/train/detail/${o.ID}.html" target="_blank">${fn:substring(o.Title , 0,14)}</a></li>
+			  <li><a href="${ctx}/front/train/detail/${o.ID}.html" target="_blank">${fn:substring(o.Title , 0,15)}</a></li>
 			  </c:forEach>
      </ul></div>
     <div class="ma"><h1>技能培训</h1>
       <ul class="ul">
        <c:forEach items="${techList}" var="o">
-			  <li><a href="${ctx}/front/train/detail/${o.ID}.html" target="_blank">${fn:substring(o.Title , 0,14)}</a></li>
+			  <li><a href="${ctx}/front/train/detail/${o.ID}.html" target="_blank">${fn:substring(o.Title , 0,15)}</a></li>
 			  </c:forEach>
      </ul></div>
       </div>
