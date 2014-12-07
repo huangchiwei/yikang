@@ -19,19 +19,41 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.yuankang.yk.pojo.sys.Account;
 import com.yuankang.yk.publics.Constants;
+import com.yuankang.yk.service.account.AccountCenterService;
 import com.yuankang.yk.service.account.AccountService;
 
 /**
- * 类说明:用户controller
+ * 类说明:用户中心controller
 
  */
-@Controller("accountController")
-@RequestMapping("front/account")
-public class AccountController extends BaseController {
+@Controller("accountCenterController")
+@RequestMapping("front/accountCenter")
+public class AccountCenterController extends BaseController {
+
+	@Resource
+	private AccountCenterService accountCenterService;
 
 	@Resource
 	private AccountService accountService;
-
+	
+	  @RequestMapping(value = "index")
+	  public String index( Model model,HttpServletRequest request)
+	  {
+		String accountNo=  request.getSession().getAttribute("front_key").toString();
+		if(accountNo==null||accountNo.isEmpty()){
+			return "redirect:/front/account/register.html";
+		}else{
+			 Map<String, Object> ac= accountService.getByAccountNo(accountNo);
+			 if(ac!=null){
+					model.addAttribute("ac", ac);
+					return "";
+			 }
+		}
+		return null;
+		  
+	  }
+	
+	
 	  @RequestMapping(value = "login")
 	  public String login(@CookieValue(value="front_key",required=false) String key, Model model,String accountNo,
 			  String pwd,String vcode,HttpServletRequest request,HttpServletResponse response)
@@ -48,7 +70,7 @@ public class AccountController extends BaseController {
 		  String oldCode = (String) request.getSession().getAttribute(
 					Constants.VERIFY_CODE);
 		  if (oldCode.equalsIgnoreCase(vcode)){
-			  Map<String, Object> ac= accountService.getByAccountNo(accountNo);
+			  Map<String, Object> ac= accountCenterService.getByAccountNo(accountNo);
 			  if (ac != null && DigestUtils.md5DigestAsHex(pwd.getBytes()).equals(ac.get("Pwd").toString())) {
 				  if(ac.get("Status").toString()=="0"){
 					  model.addAttribute("msg", "帐号["+accountNo+"]还没激活.");
@@ -85,9 +107,9 @@ public class AccountController extends BaseController {
 				  account.setStatus(0);
 					account.setMailSeq(String.valueOf(new Date().getTime()));
 					account.setPwd(DigestUtils.md5DigestAsHex(account.getPwd().getBytes()));
-					accountService.saveRegister(account);
+					accountCenterService.saveRegister(account);
 					//发送激活用户的网址到用户邮箱
-					accountService.sendMail( account);
+					accountCenterService.sendMail( account);
 					model.addAttribute("accountNo", account.getAccountNo());
 					model.addAttribute("email", account.getEmail());
 					return "front/account/success";
@@ -112,9 +134,9 @@ public class AccountController extends BaseController {
 	@RequestMapping(value = "/resendMail.html")
 	  public String resendMail(HttpServletRequest request,HttpServletResponse response,Model model,String accountNo)
 	  {
-		 Map<String, Object> ac= accountService.getByAccountNo(accountNo);
+		 Map<String, Object> ac= accountCenterService.getByAccountNo(accountNo);
 		 if(ac!=null){
-			 accountService.sendMail( ac,"acti");
+			 accountCenterService.sendMail( ac,"acti");
 		 }
 		 model.addAttribute("accountNo", ac.get("AccountNo").toString());
 		 model.addAttribute("email", ac.get("Email").toString());
@@ -138,10 +160,10 @@ public class AccountController extends BaseController {
 	@RequestMapping(value = "/updateStatus.html")
 	  public String updateStatus(HttpServletRequest request,HttpServletResponse response,Model model,String accountNo,String mailSeq)
 	  {
-		 Map<String, Object> ac= accountService.getByAccountNo(accountNo);
+		 Map<String, Object> ac= accountCenterService.getByAccountNo(accountNo);
 		 if(ac!=null){
 			 if(ac.get("MailSeq").toString().equals(mailSeq)){
-				 accountService.updateStatus(accountNo);
+				 accountCenterService.updateStatus(accountNo);
 				 super.setCookie(response, Constants.FRONT_KEY, accountNo);	
 				 return "redirect:/";
 			 }
@@ -166,12 +188,12 @@ public class AccountController extends BaseController {
 			
 			 return "front/account/forget";
 		 }
-		 Map<String, Object> ac= accountService.getByEmail(email);
+		 Map<String, Object> ac= accountCenterService.getByEmail(email);
 		 if(ac!=null){
 			//发送邮箱到用户
 			 ac.put("MailSeq", String.valueOf(new Date().getTime()));
-			 accountService.updateMailSeq(ac.get("MailSeq").toString(),ac.get("AccountNo").toString());
-				accountService.sendMail( ac,"reset");
+			 accountCenterService.updateMailSeq(ac.get("MailSeq").toString(),ac.get("AccountNo").toString());
+				accountCenterService.sendMail( ac,"reset");
 				
 				return "front/account/forgetemail";
 		 }else{
@@ -182,7 +204,7 @@ public class AccountController extends BaseController {
 	@RequestMapping(value = "/resetPwd.html")
 	  public String resetPwd(HttpServletRequest request,HttpServletResponse response,Model model,String accountNo,String mailSeq)
 	  {
-		 Map<String, Object> ac= accountService.getByAccountNo(accountNo);
+		 Map<String, Object> ac= accountCenterService.getByAccountNo(accountNo);
 		 if(ac!=null){
 			 if(ac.get("MailSeq").toString().equals(mailSeq)){
 				 model.addAttribute("accountNo", accountNo);
@@ -197,10 +219,10 @@ public class AccountController extends BaseController {
 	  public String submitResetPwd(HttpServletRequest request,HttpServletResponse response,Model model,String pwd,String accountNo,String mailSeq)
 	  {
 		
-		 Map<String, Object> ac= accountService.getByAccountNo(accountNo);
+		 Map<String, Object> ac= accountCenterService.getByAccountNo(accountNo);
 		 if(ac!=null){
 			 if(ac.get("MailSeq").toString().equals(mailSeq)){
-				 accountService.updatePwd(accountNo,DigestUtils.md5DigestAsHex(pwd.getBytes()));
+				 accountCenterService.updatePwd(accountNo,DigestUtils.md5DigestAsHex(pwd.getBytes()));
 				 return "front/account/forgetsuccess"; 
 			 }
 			

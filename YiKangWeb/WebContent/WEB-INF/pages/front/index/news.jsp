@@ -22,7 +22,7 @@
       <div class="new_a1">
       <div class="fl"><img src="${ctx}/${imageIndustryNews.src}" width="200"/></div>
       <dl class="dl">
-       <dt><a href="javascript:void(0);" onclick="jump(${imageIndustryNews.ID},1)">${imageIndustryNews.Title }</a></dt>
+       <dt><a href="javascript:void(0);" onclick="jump(${imageIndustryNews.ID},1)">${fn:substring(imageIndustryNews.Title, 0, 10)}</a></dt>
        <dd>
          <c:if test="${fn:length(imageIndustryNews.Digest)>55}">${fn:substring(imageIndustryNews.Digest, 0, 55)}......</c:if>
        <c:if test="${fn:length(imageIndustryNews.Digest)<55}">${imageIndustryNews.Digest}</c:if>
