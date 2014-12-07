@@ -43,13 +43,13 @@
 
 }
 .news_top .index_reg a {
-	color: #0099cc;
+	color: #509300;
 	font-size: 14px;
 	padding-right: 10px;
 	padding-left: 10px;
 }
 .news_top .index_reg a:hover {
-	color: #0066CC;
+	color: #297b00;
 	font-size: 14px;
 	padding-right: 10px;
 	padding-left: 10px;
@@ -84,7 +84,7 @@
 .n .news_nav {
 	margin-right: auto;
 	margin-left: auto;
-	background-color: #0099cc;
+	background-color: #5aa304;
 	height: 50px;
 }
 .n .news_nav .n_box {
@@ -98,7 +98,7 @@
 	padding: 10px;
 }
 .n .news_nav .n_box .lanren {
-	width: 350px;
+	width: 420px;
 	height:50px;
 	line-height:32px;
 	margin-top: 0;
@@ -117,11 +117,11 @@
 }
 .lanren a:hover{
 	text-decoration:none;
-	background:#0f6eb7;
+	background:#358902;
 }
 .lanren a.thisclass{
 	text-decoration:none;
-	background:#0f6eb7;
+	background:#358902;
 }
 .n .news_nav .search {
 	margin-left: auto;
@@ -203,11 +203,13 @@
 	width:160px;
 	margin-right:2px;
 	float:left;
-	background-color: #0f6eb7;
+	background-color: #333;
 }
-#pagers a:hover{border-color:#0099cc;}
+#pagers a:hover{
+	border-color:#999;
+}
 #pagers span{
-	background-color:#0099cc;
+	background-color:#999;
 	width:0px;
 }
 .n .n_one .n_one_l .n_flash {
@@ -228,10 +230,10 @@
 	height: 43px;
 	font-size: 16px;
 	line-height: 43px;
-	color: #0f6eb7;
+	color: #358902;
 	border-bottom-width: 2px;
 	border-bottom-style: solid;
-	border-bottom-color: #0f6eb7;
+	border-bottom-color: #358902;
 	float: left;
 	padding-right: 10px;
 	padding-left: 10px;
@@ -270,11 +272,11 @@
 }
 .n_b_box .n_b_box_r h1 a {
 	font-size: 16px;
-	color: #333333;
+	color: #358902;
 }
 .n_b_box .n_b_box_r h1 a:hover {
 	font-size: 16px;
-	color: #0F6EB7;
+	color: #358902;
 }
 .n_b_box  .n_b_box_r  .p {
 	color: #666666;
@@ -287,7 +289,7 @@
 	text-align: right;
 }
 .n_b_box .n_b_box_r .p2 a {
-	color: #0F6EB7;
+	color: #358902;
 	padding-top: 10px;
 	text-align: right;
 	padding-right: 5px;
@@ -466,10 +468,10 @@ line-height: 30px;
 	height: 43px;
 	font-size: 16px;
 	line-height: 43px;
-	color: #0f6eb7;
+	color: #358902;
 	border-bottom-width: 2px;
 	border-bottom-style: solid;
-	border-bottom-color: #0f6eb7;
+	border-bottom-color: #358902;
 	float: left;
 	padding-right: 10px;
 	padding-left: 10px;
@@ -512,7 +514,7 @@ line-height: 30px;
 .n_gj_t {
 	border-left-width: 5px;
 	border-left-style: solid;
-	border-left-color: #0F6EB7;
+	border-left-color: #358902;
 	background-color: #f4f4f4;
 	line-height: 30px;
 	height: 30px;
@@ -560,7 +562,7 @@ line-height: 30px;
 .n_t_b_r .advisory {
 	border-top-width: 3px;
 	border-top-style: solid;
-	border-top-color: #68afd5;
+	border-top-color: #5aa304;
 	padding: 15px;
 	background-color: #f4f4f4;
 
@@ -587,7 +589,7 @@ line-height: 30px;
 	border: 1px none #d1d1d1;
 	width: 100px;
 	height: 40px;
-	background-color: #2ea1de;
+	background-color: #358902;
 	font-weight: bold;
 	color: #FFFFFF;
 }

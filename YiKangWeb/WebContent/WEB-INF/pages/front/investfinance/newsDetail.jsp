@@ -25,7 +25,7 @@
     <a href='${ctx}/investment/list/1.html'>投资信息</a>
     <a href='${ctx}/financing/list/1.html'>融资信息</a>
     <a href='${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceNews' class="${news.CateCode == 'investFinanceNews' ? 'thisclass' : ''}">行业资讯</a>
-    <a href='${ctx}/account/list/1.html'>行业机构</a>
+    <a href='${ctx}/investFinance/account/list/1.html'>行业机构</a>
     <a href='${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceLaw' class="${news.CateCode == 'investFinanceLaw' ? 'thisclass' : ''}">政策法规</a>
    </div>
   </div>
@@ -41,7 +41,7 @@
   <div class="n_fl_670">
     <div class="detail_title">
       <h1>${news.Title}</h1>
-      <p><fmt:formatDate value="${news.RealTime}" pattern="yyyy-MM-dd" /> &nbsp;&nbsp;${news.Source}&nbsp;&nbsp;作者：${news.Author}&nbsp;&nbsp;评论数（<span class="c_f07700">${news.NumCount}</span>）</p>
+      <p><fmt:formatDate value="${news.RealTime}" pattern="yyyy-MM-dd" /> &nbsp;&nbsp;${news.Source}&nbsp;&nbsp;作者：${news.Author}&nbsp;&nbsp;</p>
     </div>
     <div class="p_20">
     <p class="summary">核心提示：${news.CoreTip}</p>
@@ -86,7 +86,16 @@
     <div class="list_r_rank">
      <ul class="ul">
        <c:forEach items="${hotOrderInfoList}" var="o" varStatus="sta">
-        <li><span>${o.Clicks }</span><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 17)}</a></li>
+        <li><span>${o.Clicks }</span>
+			<c:choose>
+       	<c:when test='${o.CategoryId == 6 || o.CategoryId == 7}'>
+       		<a href="${ctx}/investFinanceNews/detail/${o.ID}.html" target="_blank" title="${o.Title}">${fn:substring(o.Title, 0, 17)}</a>
+       	</c:when>
+       	<c:otherwise>
+       		<a href="${ctx}/front/news/detail/${o.ID}.html" target="_blank" title="${o.Title}">${fn:substring(o.Title, 0, 17)}</a>
+       	</c:otherwise>
+       </c:choose>
+		</li>
        </c:forEach>
      
      </ul>
@@ -98,7 +107,17 @@
     </div>
      <ul class="ul2">
      <c:forEach items="${hotRecomInfoList}" var="o" varStatus="sta">
-       <li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 20)}</a></li>
+       <li>
+		<c:choose>
+       	<c:when test='${o.CategoryId == 6 || o.CategoryId == 7}'>
+       		<a href="${ctx}/investFinanceNews/detail/${o.ID}.html" target="_blank" title="${o.Title}">${fn:substring(o.Title, 0, 20)}</a>
+       	</c:when>
+       	<c:otherwise>
+       		<a href="${ctx}/front/news/detail/${o.ID}.html" target="_blank" title="${o.Title}">${fn:substring(o.Title, 0, 20)}</a>
+       	</c:otherwise>
+       </c:choose>
+		
+		</li>
       </c:forEach>
      </ul>
    </div>

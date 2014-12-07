@@ -12,8 +12,8 @@
 <body>
 <div class="login_box">
  <div class="login_t">
-  <div class="logo"><div class="fl"><a href="#"><img src="${ctx}/theme/front/account/images/logo_login.png" width="112" height="50" /></a></div><h1>找回密码</h1></div>
-  <div class="r_box"><a href="#">返回首页</a>  |  <a href="#">帮助中心</a></div>
+  <div class="logo"><div class="fl"><a href="#"><img src="${ctx}/theme/front/account/images/logo_login.png" width="219" height="50" /></a></div><h1>找回密码</h1></div>
+  <div class="r_box"><a href="${ctx}/">返回首页</a>|<a href="${ctx}/front/account/login.html">登&nbsp;&nbsp;录</a>|<a href="#">帮助中心</a></div>
  </div>
  <div class="forget">
   <div class="forget_c">

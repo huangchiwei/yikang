@@ -1,21 +1,17 @@
 package com.yuankang.yk.service.account;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Resource;
-
 import org.armysoft.core.Pagination;
+import org.hibernate.Query;
 import org.springframework.stereotype.Service;
 
-import com.yuankang.yk.dao.sys.user.UserDao;
 import com.yuankang.yk.pojo.sys.Account;
-import com.yuankang.yk.pojo.sys.News;
-import com.yuankang.yk.pojo.sys.User;
 import com.yuankang.yk.publics.Constants;
 import com.yuankang.yk.publics.tools.mail.MailSenderInfo;
 import com.yuankang.yk.publics.tools.mail.SimpleMailSender;
-import com.yuankang.yk.service.base.BaseService;
 import com.yuankang.yk.service.base.BaseSqlService;
 
 /**
@@ -26,20 +22,49 @@ import com.yuankang.yk.service.base.BaseSqlService;
 @Service
 public class AccountService extends BaseSqlService {
 	
-	public List<Map<String, Object>> getByPage(Pagination page) {
-		List<Map<String, Object>> list = null;
-		initCount("select count(*) from account ", page);
-		list = getQuery("select * from account  order by RealTime desc",
-				page);
-		return list;
+	/**
+	 * 条件分页查询
+	 * @param page
+	 * @param industryId
+	 * @param provinceId
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> getByPage(Pagination page,Long industryId,Integer provinceId) {
+		StringBuilder countSql = new StringBuilder("select count(t.id)");
+		StringBuilder getSql = new StringBuilder();
+		StringBuilder sql = new StringBuilder("from Account t where 1 = 1");
+		List<Object> params = new ArrayList<Object>();
+		if(industryId != null && industryId != -1){
+			sql.append(" and t.industry.id = ?");
+			params.add(industryId);
+		}
+		if(provinceId != null && provinceId != -1){
+			sql.append(" and t.province = ?");
+			params.add(provinceId);
+		}
+		countSql.append(sql);
+		getSql.append(sql);
+		getSql.append(" order by t.id desc");
+		Query q1 = getSession().createQuery(countSql.toString());
+		Query q2 = getSession().createQuery(getSql.toString());
+		for(int i = 0; i < params.size(); i++){
+			q1.setParameter(i, params.get(i));
+			q2.setParameter(i, params.get(i));
+		}
+		page.setTotalRowCount(((Long)q1.uniqueResult()).intValue());
+		page.init();
+		return q2.list();
 	}
-	public Map<String, Object> getById(Long id) {
-		String sql = "select * from  account  where ID="+id;		
-		List<Map<String, Object>> an=getQuery(sql);
-		if(an!=null)
-			return an.get(0);
-		else return null;
+	/**
+	 * id查询
+	 * @param id
+	 * @return
+	 */
+	public Account getById(Long id) {
+		return (Account) getSession().get(Account.class, id);
 	}
+	
 	public void saveRegister(Account account) {
 		String sql = "insert into account(AccountNo,Pwd,Email,CreateDate,Status,MailSeq)"
 				+ "values('"+account.getAccountNo()+"','"+account.getPwd()+"','"+account.getEmail()+"',now(),0,'"+account.getMailSeq()+"')";

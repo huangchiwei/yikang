@@ -5,13 +5,17 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.ForeignKey;
 
 /**
  * 类说明: 注册用户
@@ -86,8 +90,10 @@ public class Account implements Serializable{
 	@Column(name = "Company")
 	private String company;
 	
-	@Column(name = "Industry")
-	private Integer industry;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "Industry", referencedColumnName = "ID")
+	@ForeignKey(name = "FK_ACCOUNT_INDUSTRY")
+	private Mcode industry;
 	
 	@Column(name = "Nature")
 	private Integer nature;
@@ -257,11 +263,11 @@ public class Account implements Serializable{
 		this.company = company;
 	}
 
-	public Integer getIndustry() {
+	public Mcode getIndustry() {
 		return industry;
 	}
 
-	public void setIndustry(Integer industry) {
+	public void setIndustry(Mcode industry) {
 		this.industry = industry;
 	}
 

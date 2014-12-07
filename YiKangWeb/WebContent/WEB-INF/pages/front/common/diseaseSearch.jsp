@@ -5,7 +5,7 @@
      <h1 class="f_bold">疾病查询</h1>
     </div>
      <ul class="ul3">
-     <c:forEach items="${other_disease_15}" var="o" begin="0" step="1" end="7">
+     <c:forEach items="${other_disease_15}" var="o">
     	<li><a href="${ctx}/healthService/jbDetail/${o.Id}.html" title="${o.Name}" target="_blank">${fn:substring(o.Name,0,6)}</a></li>
     </c:forEach>
      </ul>

@@ -5,10 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title></title>
+<title>大健康365--行业资讯</title>
 <link href="${ctx}/theme/front/default/style/master.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/theme/front/default/style/default.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/js/front/news/css/list.css" rel="stylesheet" type="text/css" />
+
 <script type="text/javascript" src="${ctx}/js/jquery-1.8.0.min.js"></script>
 <script src="${ctx}/js/front/news/js/flash.js"></script>
 <script src="${ctx}/js/front/news/js/jquery.carouFredSel-6.0.4-packed.js"></script>
@@ -37,8 +38,8 @@ $(function(){
   <div class="n_box">
    <div class="new_logo"><img src="${ctx}/js/front/news/images/news_logo.png" /></div>
    <div class="lanren">
-  <!--   <a href='javascript:' class="thisclass">行业新闻</a> -->
-  <a href="${ctx}/front/news/list/1.html?cateCode=industryNews" >行业新闻</a>
+    <a href="${ctx}/front/news/index.html" class="thisclass">首页</a>
+    <a href="${ctx}/front/news/list/1.html?cateCode=industryNews" >行业新闻</a>
     <a href="${ctx}/front/news/list/1.html?cateCode=law">法律法规</a>
     <a href="${ctx}/front/news/list/1.html?cateCode=industryFocus">行业焦点</a>
     <a href="${ctx}/front/news/list/1.html?cateCode=acti">重要活动</a>

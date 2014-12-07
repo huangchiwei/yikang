@@ -90,7 +90,7 @@ public class QuartzJob {
 			/*Constants.indexData.put("hangyezixun",
 					newsService.getNews("投融资资讯", 6));*/
 			// 投融资首页6条投融资政策法规
-			Constants.indexData.put("zhengcefagui",
+			Constants.indexData.put("zhengcefagui_6",
 					newsService.getNews("投融资法律法规", 6));
 			//前10条热文排行
 			Constants.indexData.put("hotOrderInfoList", newsService.getHotOrderInfo(10));

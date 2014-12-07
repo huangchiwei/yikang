@@ -4,7 +4,7 @@
 <html>
   <head>
     
-    <title>亿康在线-投融资-${entity.title}</title>
+    <title>亿康在线-行业机构-${entity.company}</title>
     <meta http-equiv="pragma" content="no-cache"/>
 	<meta http-equiv="cache-control" content="no-cache"/>
 	<meta http-equiv="expires" content="0"/>
@@ -22,10 +22,10 @@
   <div class="n_box">
    <div class="new_logo"><img src="${ctx}/theme/front/investfinance/images/news_logo.png" /></div>
    <div class="lanren">
-    <a href='${ctx}/investment/list/1.html' class="${flag == 1 ? 'thisclass' : ''}">投资信息</a>
-    <a href='${ctx}/financing/list/1.html' class="${flag == 2 ? 'thisclass' : ''}">融资信息</a>
+    <a href='${ctx}/investment/list/1.html'>投资信息</a>
+    <a href='${ctx}/financing/list/1.html'>融资信息</a>
     <a href='${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceNews'>行业资讯</a>
-    <a href='${ctx}/investFinance/account/list/1.html'>行业机构</a>
+    <a href='${ctx}/investFinance/account/list/1.html' class="thisclass">行业机构</a>
     <a href='${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceLaw'>政策法规</a>
    </div>
   </div>
@@ -36,25 +36,25 @@
     </div>
   </div>
  </div>
-<div class="location"><a href="${ctx}">首页</a> &gt; <a href="${ctx}/investFinance/index.html">投融资频道</a> &gt; <a href="${ctx}/${flag == 1 ? 'investment' : 'financing'}/list/1.html">${location}</a> &gt; ${entity.title}</div>
+<div class="location"><a href="${ctx}">首页</a> &gt; <a href="${ctx}/investFinance/index.html">投融资频道</a> &gt; 行业机构</div>
 <div class="n_list">
   <div class="n_fl_670">
-    <div class="n_list_title"><h1><span>时间：<fmt:formatDate value="${entity.createDate}"
-								pattern="yyyy-MM-dd" /></span>${entity.title}</h1></div>
+    <div class="n_list_title"><h1><span>&nbsp;</span>${entity.company}</h1></div>
     <div class="n_d_trz">
-     <div class="n_d_trz_img"><img src="${ctx}/${entity.account.logo}" width="140" height="140" class="img" /></div>
+     <div class="n_d_trz_img"><img src="${ctx}/${entity.logo}" width="140" height="140" class="img" /></div>
      <div class="n_d_trz_txt">
       <ul>
-       <li><span>机构/个人名称：</span>${entity.isSelf == 1 ? '亿康' : entity.account.company}</li>
        <li><span>所属行业：</span>${entity.industry.mcName}</li>
-       <li><span>${flag == 1 ? '投资' : '融资'}地区：</span>${entity.province.name}</li>
-       <li><span>${flag == 1 ? '投资' : '融资'}金额：</span>${entity.amount}</li>
+       <li><span>网址：</span>${entity.website}</li>
+       <li><span>联系人：</span>${entity.contactName}</li>
+       <li><span>电话：</span>${entity.tel}</li>
+       <li><span>地址：</span>${entity.address}</li>
       </ul>
      </div>
     </div>
-    <div class="trz_d_title"><h1>${location}</h1></div>
+    <div class="trz_d_title"><h1>机构介绍</h1></div>
     <div class="trz_box_d">
-    	${entity.overview}
+    	${entity.introduce}
     </div>
 
 
@@ -82,16 +82,7 @@
     </div>
      <ul class="ul2">
       <c:forEach items="${hotRecomInfoList}" var="o" varStatus="sta">
-       <li>
-		<c:choose>
-       	<c:when test='${o.CategoryId == 6 || o.CategoryId == 7}'>
-       		<a href="${ctx}/investFinanceNews/detail/${o.ID}.html" target="_blank" title="${o.Title}">${fn:substring(o.Title, 0, 18)}</a>
-       	</c:when>
-       	<c:otherwise>
-       		<a href="${ctx}/front/news/detail/${o.ID}.html" target="_blank" title="${o.Title}">${fn:substring(o.Title, 0, 18)}</a>
-       	</c:otherwise>
-       </c:choose>
-		</li>
+       <li><a href="${ctx}/front/news/detail/${o.ID}.html" target="_blank" title="${o.Title}">${fn:substring(o.Title, 0, 18)}</a></li>
       </c:forEach>
      </ul>
    </div>

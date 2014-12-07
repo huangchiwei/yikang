@@ -13,12 +13,12 @@
 <body>
 <div class="login_box">
  <div class="login_t">
-  <div class="logo"><div class="fl"><a href="#"><img src="${ctx}/theme/front/account/images/logo_login.png" width="112" height="50" /></a></div><h1>注册成功</h1></div>
-  <div class="r_box"><a href="#">返回首页</a>  |  <a href="#">帮助中心</a></div>
+  <div class="logo"><div class="fl"><a href="#"><img src="${ctx}/theme/front/account/images/logo_login.png" width="219" height="50" /></a></div><h1>注册成功</h1></div>
+  <div class="r_box"><a href="${ctx}/">返回首页</a>|<a href="${ctx}/front/account/login.html">登&nbsp;&nbsp;录</a>|<a href="#">帮助中心</a></div>
  </div>
  <div class="reg_b">
     <div class="success relative">
-     <div class="su_a1">恭喜您，成功注册为亿康会员！</div>
+     <div class="su_a1">恭喜您，成功注册为大健康365会员！</div>
      <div class="btn_a1"><img src="${ctx}/theme/front/account/images/btn_a1.png" /></div>
     </div>
     <div class="su_box">

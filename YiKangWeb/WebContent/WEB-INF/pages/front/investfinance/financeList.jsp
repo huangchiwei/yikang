@@ -58,7 +58,7 @@ $(function(){
     <a href='${ctx}/investment/list/1.html'>投资信息</a>
     <a href='${ctx}/financing/list/1.html' class="thisclass">融资信息</a>
     <a href='${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceNews'>行业资讯</a>
-    <a href='${ctx}/account/list/1.html'>行业机构</a>
+    <a href='${ctx}/investFinance/account/list/1.html'>行业机构</a>
     <a href='${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceLaw'>政策法规</a>
    </div>
   </div>
@@ -151,7 +151,16 @@ $(function(){
     </div>
      <ul class="ul2">
       <c:forEach items="${hotRecomInfoList}" var="o" varStatus="sta">
-       <li><a href="${ctx}/front/news/detail/${o.ID}.html" target="_blank" title="${o.Title}">${fn:substring(o.Title, 0, 18)}</a></li>
+       <li>
+       <c:choose>
+       	<c:when test='${o.CategoryId == 6 || o.CategoryId == 7}'>
+       		<a href="${ctx}/investFinanceNews/detail/${o.ID}.html" target="_blank" title="${o.Title}">${fn:substring(o.Title, 0, 18)}</a>
+       	</c:when>
+       	<c:otherwise>
+       		<a href="${ctx}/front/news/detail/${o.ID}.html" target="_blank" title="${o.Title}">${fn:substring(o.Title, 0, 18)}</a>
+       	</c:otherwise>
+       </c:choose>
+       </li>
       </c:forEach>
      </ul>
    </div>
