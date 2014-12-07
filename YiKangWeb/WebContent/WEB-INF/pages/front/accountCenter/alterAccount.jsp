@@ -7,6 +7,7 @@
 
 <link href="${ctx}/theme/front/default/style/master.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/theme/front/accountCenter/css/member.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body>
@@ -24,7 +25,7 @@
      </li>
      <li class="li"><span class="span">邮箱地址：</span>${ac.Email}</li>
      <li class="li"><span class="span">电话号码：</span>
-     <em>区号</em><input type="text" class="input" size="4" /><em>-</em><input type="text" class="input" size="10" /></li>
+     <em>区号</em><input name="telAreaCode" type="text" class="input" size="4" /><em>-</em><input name="tel" type="text" class="input" size="10" /></li>
      <li class="li"><span class="span">QQ号码：</span><input name="qq" value="${ac.qq}" type="text" class="input" size="20" /></li>
      <li class="li"><span class="span">联系地址：</span><select name="" class="select">
        <option>选择省级</option>
@@ -32,16 +33,16 @@
        <option>选择市级</option>
      </select><select name="" class="select">
        <option>县/区</option>
-     </select><input type="text" class="input" size="20" />
+     </select><input name="address" value="${address}" type="text" class="input" size="20" />
      </li>
      <li class="xian relative"><div class="x_title">附属资料</div>
      </li>
-     <li class="li"><span class="span">公司名称：</span><input type="text" class="input" size="37" />
+     <li class="li"><span class="span">公司名称：</span><input name="company" value="${company}" type="text" class="input" size="37" />
      </li>
      <li class="li"><span class="span">职务：</span><select name="" class="select">
        <option>请选择</option>
      </select></li>
-     <li class="li"><span class="span">所在部门：</span><input type="text" class="input" size="20" /></li>
+     <li class="li"><span class="span">所在部门：</span><input name="department" value="${department}" type="text" class="input" size="20" /></li>
      <li class="li"><span class="span">所属行业：</span><select name="" class="select">
        <option>请选择</option>
      </select></li>

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.armysoft.core.Pagination;
 import org.springframework.stereotype.Service;
 
 import com.yuankang.yk.dao.sys.user.UserDao;
@@ -24,6 +25,21 @@ import com.yuankang.yk.service.base.BaseSqlService;
  */
 @Service
 public class AccountService extends BaseSqlService {
+	
+	public List<Map<String, Object>> getByPage(Pagination page) {
+		List<Map<String, Object>> list = null;
+		initCount("select count(*) from account ", page);
+		list = getQuery("select * from account  order by RealTime desc",
+				page);
+		return list;
+	}
+	public Map<String, Object> getById(Long id) {
+		String sql = "select * from  account  where ID="+id;		
+		List<Map<String, Object>> an=getQuery(sql);
+		if(an!=null)
+			return an.get(0);
+		else return null;
+	}
 	public void saveRegister(Account account) {
 		String sql = "insert into account(AccountNo,Pwd,Email,CreateDate,Status,MailSeq)"
 				+ "values('"+account.getAccountNo()+"','"+account.getPwd()+"','"+account.getEmail()+"',now(),0,'"+account.getMailSeq()+"')";

@@ -77,6 +77,9 @@ public class Account implements Serializable{
 	@Column(name = "Tel")
 	private String tel;
 	
+	@Column(name = "TelAreaCode")
+	private String telAreaCode;
+	
 	@Column(name = "QQ")
 	private String QQ;
 	
@@ -324,6 +327,14 @@ public class Account implements Serializable{
 
 	public void setMailSeq(String mailSeq) {
 		this.mailSeq = mailSeq;
+	}
+
+	public String getTelAreaCode() {
+		return telAreaCode;
+	}
+
+	public void setTelAreaCode(String telAreaCode) {
+		this.telAreaCode = telAreaCode;
 	}
 	
 }
