@@ -7,6 +7,7 @@
 
 <link href="${ctx}/theme/front/default/style/master.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/theme/front/account/css/style.css" rel="stylesheet" type="text/css" />
+
 <script type="text/javascript" src="${ctx}/js/jquery-1.8.0.min.js" ></script>
   <script type="text/javascript" src="${ctx}/js/front/account/login.js" ></script>
     <script type="text/javascript" >
@@ -24,8 +25,9 @@
 <body>
 <div class="login_box">
  <div class="login_t">
-  <div class="logo"><a href="#"><img src="${ctx}/theme/front/account/images/logo_login.png" width="243" height="50" /></a></div>
-  <div class="r_box"><a href="${ctx}/">返回首页</a>  |  <a href="#">帮助中心</a></div>
+  <div class="logo"><div class="fl"><a href="${ctx}/"><img src="${ctx}/theme/front/account/images/logo_login.png" width="219" height="50" /></a></div>
+    <h1>欢迎登录</h1></div>
+  <div class="r_box"><a href="${ctx}/">返回首页</a>|<a href="${ctx}/front/account/register.html">注&nbsp;&nbsp;册</a>|<a href="#">帮助中心</a></div>
  </div>
  <div class="login_b">
   <div class="login_b_r">
@@ -38,7 +40,8 @@
      <li class="li"><span class="span">验证码：</span><input name="vcode" id="vcode" type="text" class="input" size="8" />
      <em>	<img src="${ctx}/verify/getVerifyCode.html" width="80" height="30" title="验证码" id="vimg"/></em><label>看不清？<a href="javascript:void(0);" id="change">换一张</a></label>
      </li>
-     <li class="li"><span class="passport relative"><div class="div_float"><a href="${ctx}/front/account/forget.html">忘记密码</a></span></li>
+     <li class="li"><span class="passport relative"><div class="div_float"><a href="${ctx}/front/account/forget.html">忘记密码</a></div>
+     </span></li>
      <li class="li"><div class="btn_box"><input type="submit" class="login" value="登&nbsp;&nbsp;录" />
      </div></li>
      <c:if test="${not empty msg }">

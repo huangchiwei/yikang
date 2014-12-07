@@ -14,17 +14,16 @@
 }
 .login_box .login_t .logo {
 	height: 54px;
-	margin-left: 10px;
 	border-bottom-width: 3px;
 	border-bottom-style: solid;
 	border-bottom-color: #49a252;
 	float: left;
-	width: 250px;
+	width: 320px;
 	overflow: hidden;
 }
 .login_box .login_t .r_box {
 	height: 55px;
-	width: 150px;
+	width: 200px;
 	margin-left: auto;
 	line-height: 55px;
 	color: #CCCCCC;
@@ -51,7 +50,7 @@
 	width: 450px;
 	margin-left: auto;
 }
-.login_box  .login_b  .login_b_r  .li .span {
+.login_box .login_b .login_b_r .li .span {
 	width: 70px;
 	display: block;
 	font-size: 14px;
@@ -86,8 +85,9 @@
 }
 .login_box .login_b .login_b_r .li .passport .div_float {
 	position: absolute;
-	top: 11px;
+	top: 0px;
 	left: 80px;
+	text-align: left;
 }
 .login_box .login_b .login_b_r .li label {
 	padding-left: 10px;
@@ -97,7 +97,7 @@
 }
 .login_box .login_b .login_b_r .li .passport a {
 	color: #003399;
-	padding-left: 20px;
+	font-size: 14px;
 }
 .login_box .login_b .login_b_r .li .btn_box {
 	float: left;
@@ -111,6 +111,7 @@
 	color: #FFFFFF;
 	border: 1px none #FFFFFF;
 	border-radius:5px;
+	cursor:pointer;
 }
 /*登录样式end*/
 .bot {
@@ -140,7 +141,8 @@
 	margin-bottom: 20px;
 	line-height: 24px;
 }
-/*注册样式end*/.login_box .reg_b {
+/*注册样式end*/
+.login_box .reg_b {
 	margin-right: auto;
 	margin-left: auto;
 	padding-top: 70px;
@@ -156,7 +158,7 @@
 	line-height: 40px;
 
 }
-.login_box    .reg_b    .ul   {
+.login_box .reg_b .ul {
 	overflow: hidden;
 	padding-top: 50px;
 	padding-right: 15px;
@@ -190,7 +192,7 @@
 	font-size: 14px;
 
 }
-.login_box  .reg_b  .ul  .li  .passport {
+.login_box .reg_b .ul .li .passport {
 	width: 150px;
 	text-align: left;
 	float: left;
@@ -213,12 +215,14 @@
 	color: #FFFFFF;
 	border: 1px none #FFFFFF;
 	border-radius:5px;
+	cursor:pointer;
 }
 .login_box .login_t .logo h1 {
 	margin-left: auto;
 	width: 100px;
 	line-height: 54px;
 	font-size: 18px;
+	text-align: center;
 }
 .login_box .reg_b .success {
 	margin-right: auto;
@@ -267,7 +271,7 @@
 	right: 140px;
 
 }
-.login_box  .forget  .forget_a {
+.login_box .forget .forget_a {
 	height: 36px;
 	line-height: 36px;
 	background-image: url(../images/forget_icon.png);
@@ -277,20 +281,20 @@
 	margin-right: auto;
 	margin-left: auto;
 }
-.login_box   .forget   .forget_a   span {
+.login_box .forget .forget_a span {
 	display: block;
 	float: left;
 	width: 282px;
 
 }
-.login_box       .forget       .forget_a       span    .a1   {
+.login_box .forget .forget_a span .a1 {
 	padding-left: 10px;
 	font-size: 14px;
 	font-weight: bold;
 	color: #FFFFFF;
 
 }
-.login_box  .forget  .forget_a  span  .a2 {
+.login_box .forget .forget_a span .a2 {
 	padding-left: 10px;
 	font-size: 14px;
 	font-weight: bold;
@@ -429,7 +433,7 @@
 	font-weight: bold;
 	color: #FFFFFF;
 }
-.login_box   .forget   .forget_mail   .btn_box   .member {
+.login_box .forget .forget_mail .btn_box .member {
 	width: 120px;
 	padding: 10px;
 	background-color: #49a252;
