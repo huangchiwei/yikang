@@ -52,7 +52,7 @@ public class IndexController extends BaseController{
 		model.addAttribute("yaopin_3", Constants.healthData.get("yaopin_3"));
 		model.addAttribute("common_disease_21", Constants.healthData.get("common_disease_21"));
 	
-			model.addAttribute("accountNo", CookieUtil.getUserCookieValue(request, Constants.FRONT_KEY));
+			//model.addAttribute("accountNo", CookieUtil.getUserCookieValue(request, Constants.FRONT_KEY));
 				
 		//轮播广告indexCarousel
 		List<Map<String, Object>>  advert1=advertService.getByPosCode("1");

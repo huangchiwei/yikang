@@ -19,13 +19,13 @@
    <div class="title"><h1>修改个人资料</h1></div>
    <div class="info">
     <ul class="ul">
-     <li class="li"><span class="span">用户名：</span>lenchensky</li>
-     <li class="li"><span class="span">手机号：</span><input type="text" class="input" size="20" />
+     <li class="li"><span class="span">用户名：</span>${ac.AccountNo}</li>
+     <li class="li"><span class="span">手机号：</span><input name="Phone" value="${ac.Phone }" type="text" class="input" size="20" />
      </li>
-     <li class="li"><span class="span">邮箱地址：</span>jxchen1986@163.com</li>
-     <li class="li"><span class="span">电话号码：</span><input type="text" class="input" value="086" size="5" />
-     <em>-</em><input type="text" class="input" size="8" /><em>-</em><input type="text" class="input" size="10" /></li>
-     <li class="li"><span class="span">QQ号码：</span><input type="text" class="input" size="20" /></li>
+     <li class="li"><span class="span">邮箱地址：</span>${ac.Email}</li>
+     <li class="li"><span class="span">电话号码：</span>
+     <em>区号</em><input type="text" class="input" size="4" /><em>-</em><input type="text" class="input" size="10" /></li>
+     <li class="li"><span class="span">QQ号码：</span><input name="qq" value="${ac.qq}" type="text" class="input" size="20" /></li>
      <li class="li"><span class="span">联系地址：</span><select name="" class="select">
        <option>选择省级</option>
      </select><select name="" class="select">

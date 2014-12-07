@@ -33,13 +33,14 @@ public class AccountController extends BaseController {
 	private AccountService accountService;
 
 	  @RequestMapping(value = "login")
-	  public String login(@CookieValue(value="front_key",required=false) String key, Model model,String accountNo,
+	  public String login( Model model,String accountNo,
 			  String pwd,String vcode,HttpServletRequest request,HttpServletResponse response)
 	  {
-		  
-		  if(StringUtils.hasText(key)){//已经登录
+		  Object oj=  request.getSession().getAttribute("front_key");
+			if(oj!=null){
 				return "redirect:/index.html";
 			}
+		 
 		  if(accountNo==null||accountNo.isEmpty()){
 			  return "front/account/login";
 		  }
@@ -60,8 +61,10 @@ public class AccountController extends BaseController {
 					}
 					request.getSession(true);
 					request.getSession().setAttribute(Constants.FRONT_KEY, accountNo);
-					super.setCookie(response, Constants.FRONT_KEY, accountNo);	
+					//super.setCookie(response, Constants.FRONT_KEY, accountNo);	
 					return "redirect:/index.html";
+			  }else{
+				  request.setAttribute("msg", "密码不正确!");
 			  }
 			  }else{
 				  request.setAttribute("msg", "验证码不正确!");

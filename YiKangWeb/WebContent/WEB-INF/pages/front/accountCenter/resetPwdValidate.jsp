@@ -71,7 +71,7 @@
           </div>
           <div class="list">
             <div class="btn_box">
-              <input type="button" class="btn" value="提交" /><br/>
+              <input type="submit" class="btn" value="提交" /><br/>
                <c:if test="${not empty msg }">
     <span class="span">&nbsp;&nbsp;&nbsp;</span><font color="red" size="5">${msg}</font>
      </c:if>

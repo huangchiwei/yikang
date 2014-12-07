@@ -24,7 +24,7 @@
      <li class="li_a1"></li>
      <li class="li_a2">登录密码</li>
      <li class="li_a3 c_ff0000">互联网账号存在被盗风险，建议您定期更改密码以保护账号安全。</li>
-     <li class="li_a2"><a href="#">修改</a></li>
+     <li class="li_a2"><a href="${ctx}/front/accountCenter/resetPwdValidate.html">修改</a></li>
     </ul>
     </div>
    </div>

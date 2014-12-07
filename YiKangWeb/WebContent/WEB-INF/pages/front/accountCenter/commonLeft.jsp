@@ -12,13 +12,13 @@
     <div class="l_nav">
      <h1>管理中心</h1>
      <ul>
-      <li class="select"><a href="#">发布信息</a></li>
-      <li><a href="#">已发布的信息</a></li>
+      <li <c:if test="${menu=='addInfo' }">class="select"</c:if>><a href="#">发布信息</a></li>
+      <li <c:if test="${menu=='infoList' }">class="select"</c:if>><a href="#">已发布的信息</a></li>
      </ul>
      <h1>账户管理</h1>
      <ul>
-      <li><a href="${ctx}/front/accountCenter/alterAccount.html">修改个人资料</a></li>
-      <li><a href="${ctx}/front/accountCenter/resetPwdIndex.html">账号设置</a></li>
+      <li <c:if test="${menu=='alert' }">class="select"</c:if>><a href="${ctx}/front/accountCenter/alterAccount.html" >修改个人资料</a></li>
+      <li <c:if test="${menu=='reset' }">class="select"</c:if>><a href="${ctx}/front/accountCenter/resetPwdIndex.html">账号设置</a></li>
      </ul>
     </div>
    </div>

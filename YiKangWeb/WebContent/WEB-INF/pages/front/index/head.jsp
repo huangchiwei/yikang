@@ -7,7 +7,7 @@
         <li><a href="#">帮助中心</a></li>
        <c:if test="${empty sessionScope.front_key}"> <li><a href="${ctx}/front/account/login.html">登录</a> </li></c:if>
         <c:if test="${not empty sessionScope.front_key}"> <li>
-        <a href="#">${sessionScope.front_key}</a></li>
+        <a href="${ctx}/front/accountCenter/index.html">${sessionScope.front_key}</a></li>
          <li><a href="${ctx}/front/account/accountLogout.html">退出</a></li>
         </c:if>
 

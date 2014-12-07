@@ -59,12 +59,12 @@
         <div class="consignee-form">
           <div class="list"> <span class="label">请输入登录密码：</span>
             <div class="field">
-             <input name="pwd" id="pwd" type="password" class="input" size="27" />
+             <input name="pwd" id="pwd" value="${pwd}" type="password" class="input" size="27" />
             </div>
           </div>
           <div class="list"><span class="label">确认新密码：</span>
             <div class="field">
-             <input name="pwd2" id="pwd2" type="password" class="input" size="27" />
+             <input name="pwd2" id="pwd2" value="${pwd}" type="password" class="input" size="27" />
             </div>
           </div>
           <div class="list"> <span class="label">验证码：</span>
@@ -74,7 +74,7 @@
               <em><a href="javascript:void(0);" id="change">换一张</a></em> <span class="status error" id="email_div_error"></span></div>
           </div>
         <div class="list"><div class="btn_box">
-            <input type="button" class="btn" value="提交" /><br/>
+            <input type="submit" class="btn" value="提交" /><br/>
              <c:if test="${not empty msg }">
     <span class="span">&nbsp;&nbsp;&nbsp;</span><font color="red" size="5">${msg}</font>
      </c:if>

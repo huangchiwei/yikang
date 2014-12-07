@@ -33,11 +33,11 @@ public class AccountCenterController extends BaseController {
 	  @RequestMapping(value = "index")
 	  public String index( Model model,HttpServletRequest request)
 	  {
-		String accountNo=  request.getSession().getAttribute("front_key").toString();
-		if(accountNo==null||accountNo.isEmpty()){
+		Object oj=  request.getSession().getAttribute("front_key");
+		if(oj==null){
 			return "redirect:/front/account/register.html";
-		}else{
-			 Map<String, Object> ac= accountService.getByAccountNo(accountNo);
+		}	else{
+			 Map<String, Object> ac= accountService.getByAccountNo(oj.toString());
 			 if(ac!=null){
 					model.addAttribute("ac", ac);
 					return "front/accountCenter/index";
@@ -56,10 +56,13 @@ public class AccountCenterController extends BaseController {
 	  @RequestMapping(value = "/alterAccount.html")
 	  public String alterAccount(HttpServletRequest request,HttpServletResponse response,Model model)
 	  {
-		String accountNo=  request.getSession().getAttribute("front_key").toString();
-		if(accountNo==null||accountNo.isEmpty()){
-			return "redirect:/front/account/register.html";
-		}else{
+			Object oj=  request.getSession().getAttribute("front_key");
+			if(oj==null){
+				return "redirect:/front/account/register.html";
+			}else{
+				 Map<String, Object> ac= accountService.getByAccountNo(oj.toString());
+			model.addAttribute("menu", "alert");
+			model.addAttribute("ac", ac);
 			return "front/accountCenter/alterAccount";
 		}
 		 
@@ -74,10 +77,11 @@ public class AccountCenterController extends BaseController {
 	@RequestMapping(value = "/resetPwdIndex.html")
 	  public String resetPwdIndex(HttpServletRequest request,HttpServletResponse response,Model model)
 	  {
-		String accountNo=  request.getSession().getAttribute("front_key").toString();
-		if(accountNo==null||accountNo.isEmpty()){
+		Object oj=  request.getSession().getAttribute("front_key");
+		if(oj==null){
 			return "redirect:/front/account/register.html";
 		}else{
+			model.addAttribute("menu", "reset");
 			return "front/accountCenter/resetPwdIndex";
 		}
 		 
@@ -85,10 +89,11 @@ public class AccountCenterController extends BaseController {
 	@RequestMapping(value = "/resetPwdValidate.html")
 	  public String resetPwdValidate(HttpServletRequest request,HttpServletResponse response,Model model)
 	  {
-		String accountNo=  request.getSession().getAttribute("front_key").toString();
-		if(accountNo==null||accountNo.isEmpty()){
+		Object oj=  request.getSession().getAttribute("front_key");
+		if(oj==null){
 			return "redirect:/front/account/register.html";
 		}else{
+			model.addAttribute("menu", "reset");
 			return "front/accountCenter/resetPwdValidate";
 		}
 		 
@@ -96,19 +101,23 @@ public class AccountCenterController extends BaseController {
 	@RequestMapping(value = "/submitPwdValidate.html")
 	  public String submitPwdValidate(HttpServletRequest request,HttpServletResponse response,Model model,String pwd,String vcode)
 	  {
-		String accountNo=  request.getSession().getAttribute("front_key").toString();
-		if(accountNo==null||accountNo.isEmpty()){
+		model.addAttribute("menu", "reset");
+		
+		Object oj=  request.getSession().getAttribute("front_key");
+		if(oj==null){
 			return "redirect:/front/account/register.html";
 		}else{
 			String oldCode = (String) request.getSession().getAttribute(
 					Constants.VERIFY_CODE);
 			 if (!oldCode.equalsIgnoreCase(vcode)){
 				 request.setAttribute("msg", "验证码不正确!");
+				 model.addAttribute("pwd", pwd);
 				 return "front/accountCenter/resetPwdValidate";
 			 }else{
-				  Map<String, Object> ac= accountService.getByAccountNo(accountNo);
-				  if(!ac.get("Pwd").toString().equals(pwd)){
+				  Map<String, Object> ac= accountService.getByAccountNo(oj.toString());
+				  if (ac == null || !DigestUtils.md5DigestAsHex(pwd.getBytes()).equals(ac.get("Pwd").toString())) {
 					  request.setAttribute("msg", "密码不正确!");
+					  model.addAttribute("pwd", pwd);
 					  return "front/accountCenter/resetPwdValidate";
 				  }
 			 }
@@ -118,18 +127,24 @@ public class AccountCenterController extends BaseController {
 	  }
 
 	@RequestMapping(value = "/submitResetPwdDoing.html")
-	  public String saveResetPwdDoing(HttpServletRequest request,HttpServletResponse response,Model model,String pwd,String accountNo,String mailSeq)
+	  public String saveResetPwdDoing(HttpServletRequest request,HttpServletResponse response,Model model,String pwd,String vcode)
 	  {
 		
-		 Map<String, Object> ac= accountCenterService.getByAccountNo(accountNo);
-		 if(ac!=null){
-			 if(ac.get("MailSeq").toString().equals(mailSeq)){
-				 accountCenterService.updatePwd(accountNo,DigestUtils.md5DigestAsHex(pwd.getBytes()));
-				 return "front/accountCenter/resetPwdSuccess"; 
+		model.addAttribute("menu", "reset");
+		Object oj=  request.getSession().getAttribute("front_key");
+		if(oj==null){
+			return "redirect:/front/account/register.html";
+		}else{
+			String oldCode = (String) request.getSession().getAttribute(
+					Constants.VERIFY_CODE);
+			 if (!oldCode.equalsIgnoreCase(vcode)){
+				 request.setAttribute("msg", "验证码不正确!");
+				 model.addAttribute("pwd", pwd);
+				 return "front/accountCenter/resetPwdDoing";
 			 }
-			
-		 }
-		  return null;
+			 accountCenterService.updatePwd(oj.toString(),DigestUtils.md5DigestAsHex(pwd.getBytes()));
+		}
+		 return "front/accountCenter/resetPwdSuccess"; 
 		
 	  }
 	
