@@ -91,7 +91,7 @@ public class ShoppingController extends BaseController {
 	     // 获得文件：     
 	        MultipartFile file = multipartRequest.getFile("file");    
 	        if (!file.isEmpty()) {
-					   imgPath="userfiles/shopping/"+file.getOriginalFilename();
+					   imgPath="/userfiles/shopping/"+file.getOriginalFilename();
 					realPath=request.getSession().getServletContext().getRealPath(imgPath);
 				   try {
 							file.transferTo(new File(realPath));

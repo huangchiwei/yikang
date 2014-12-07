@@ -189,7 +189,7 @@ $(document).ready(function($){
     <ul class="ul">
     <c:forEach items="${shoppingList}" var="o" varStatus="sta">
      <li>
-      <p class="img"><a href="${o.Url}" target="_blank"><img src="${ctx}/${o.PicPath}" width="170" height="150" /></a></p>
+      <p class="img"><a href="${o.Url}" target="_blank"><img src="${ctx}${o.PicPath}" width="170" height="150" /></a></p>
       <p class="p"><a href="${o.Url}" target="_blank">${o.Discription}</a></p>
       <p class="yang">￥<fmt:formatNumber value="${o.Price}" type="currency" pattern="0.00"/></p>
      </li>
