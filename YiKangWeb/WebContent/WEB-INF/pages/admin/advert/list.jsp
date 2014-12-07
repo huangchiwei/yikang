@@ -38,7 +38,7 @@
 <form action="${ctx}/admin/advert/list/1.html" method="post">
 <div class="content_box">
 <div class="btn_box">
- <a href="${ctx}/admin/advert/add/new.html"> <input type="button" value="添加" class="initial" style="cursor:hand" /></a>
+ <input onclick="javascript:location.href='${ctx}/admin/advert/add/new.html'"  type="button" value="添加" class="initial" style="cursor:hand" />
    </div>
   <div class="list_info">
     <h2> 广告名称：<input name="adName" value="${adName}"/> <input type="submit" value="&nbsp;查&nbsp;询&nbsp;"/></h2>

@@ -38,7 +38,7 @@
 <form action="${ctx}/admin/shopping/list/1.html" method="post">
 <div class="content_box">
 <div class="btn_box">
- <a href="${ctx}/admin/shopping/add/new.html"> <input type="button" value="添加" class="initial" style="cursor:hand" /></a>
+<input onclick="javascript:location.href='${ctx}/admin/shopping/add/new.html'" type="button" value="添加" class="initial" style="cursor:hand" />
    </div>
   <div class="list_info">
     <h2> 产品列表>></h2>

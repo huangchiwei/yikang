@@ -5,42 +5,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>大健康365-会员中心</title>
 
-<link href="../theme/default/style/master.css" rel="stylesheet" type="text/css" />
-<link href="css/member.css" rel="stylesheet" type="text/css" />
+<link href="${ctx}/theme/front/default/style/master.css" rel="stylesheet" type="text/css" />
+<link href="${ctx}/theme/front/accountCenter/css/member.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-<div class="m">
-  <div class="t">
-   <div class="logo"><img src="images/logo.png" /></div>
-   <div class="columns">Hi,lenchensky<a href="#">首页</a><span>|</span><a href="#">会员中心</a>[<a href="#">退出</a>]</div>
-  </div>
-</div>
+  <jsp:include page="/WEB-INF/pages/front/accountCenter/commonTop.jsp" />
 <div class="m930">
  <div class="m_box">
-  <div class="m_left">
-   <div class="m_left_h">
-    <div class="m_b_l relative">
-     <div class="name"><span>陈小明</span>&nbsp;先生</div>
-     <div class="modify"><a href="#">修改资料</a><a href="#">头像设置</a></div>
-     <div class="head"><img src="images/head.png" /></div>
-    </div>
-   </div> 
-   <div class="ma">
-    <div class="l_nav">
-     <h1>管理中心</h1>
-     <ul>
-      <li class="select"><a href="#">发布信息</a></li>
-      <li><a href="#">已发布的信息</a></li>
-     </ul>
-     <h1>账户管理</h1>
-     <ul>
-      <li><a href="#">修改个人资料</a></li>
-      <li><a href="#">账号设置</a></li>
-     </ul>
-    </div>
-   </div>
-  </div>
+ <jsp:include page="/WEB-INF/pages/front/accountCenter/commonLeft.jsp" />
+
   <div class="m_right">
    <div class="title"><h1>修改个人资料</h1></div>
    <div class="info">

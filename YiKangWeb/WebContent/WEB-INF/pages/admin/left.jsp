@@ -22,9 +22,7 @@ html { overflow:-moz-scrollbars-vertical;}
 		<li>
 			<a href="#">资讯管理</a>
 			<ul>
-				
 				<li><a href="${ctx}/admin/news/list/1.html?categoryId=1&hasImage=-1" target="mainFrame">资讯列表</a></li>
-			  
 			</ul>
 		</li>
 		<li>

@@ -4,41 +4,49 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>大健康365-会员中心</title>
-<link href="../theme/default/style/master.css" rel="stylesheet" type="text/css" />
-<link href="css/member.css" rel="stylesheet" type="text/css" />
+<link href="${ctx}/theme/front/default/style/master.css" rel="stylesheet" type="text/css" />
+<link href="${ctx}/theme/front/accountCenter/css/member.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${ctx}/js/jquery-1.8.0.min.js" ></script>
+    <script type="text/javascript" >
+	function checkForm(){
+ 		
+		var password = $("#pwd");
+		var pwd2 = $("#pwd2");
+		var vcode = $("#vcode");
+		var msg = "";
+	    if($.trim(password.val()) == ""){
+			msg = "新密码不能为空!";
+			password.focus();
+		}else if($.trim(pwd2.val()) == ""){
+			msg = "确认密码不能为空!";
+			pwd2.focus();
+		}else if($.trim(pwd2.val()) != $.trim(password.val())){
+			msg = "确认密码不正确!";
+			pwd2.focus();
+		}else if($.trim(vcode.val()) == ""){
+			msg = "验证不能为空!";
+			vcode.focus();
+		}else if (!/^[a-zA-Z0-9]{4}$/.test($.trim(vcode.val()))){
+			msg = "验证码格式不正确!";
+			vcode.focus();
+		}
+		
+		if (msg != ""){
+			alert(msg);
+			return false;
+		}else{
+			return true;
+		}
+		
+		}
+	
+    </script>
 </head>
 <body>
-<div class="m">
-  <div class="t">
-    <div class="logo"><img src="images/logo.png" /></div>
-    <div class="columns">Hi,lenchensky<a href="#">首页</a><span>|</span><a href="#">会员中心</a>[<a href="#">退出</a>]</div>
-  </div>
-</div>
+ <jsp:include page="/WEB-INF/pages/front/accountCenter/commonTop.jsp" />
 <div class="m930">
   <div class="m_box">
-    <div class="m_left">
-      <div class="m_left_h">
-        <div class="m_b_l relative">
-          <div class="name"><span>陈小明</span>&nbsp;先生</div>
-          <div class="modify"><a href="#">修改资料</a><a href="#">头像设置</a></div>
-          <div class="head"><img src="images/head.png" /></div>
-        </div>
-      </div>
-      <div class="ma">
-        <div class="l_nav">
-          <h1>管理中心</h1>
-          <ul>
-            <li class="select"><a href="#">发布信息</a></li>
-            <li><a href="#">已发布的信息</a></li>
-          </ul>
-          <h1>账户管理</h1>
-          <ul>
-            <li><a href="#">修改个人资料</a></li>
-            <li><a href="#">账号设置</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
+ <jsp:include page="/WEB-INF/pages/front/accountCenter/commonLeft.jsp" />
     <div class="m_right">
       <div class="title">
         <h1>修改密码</h1>
@@ -47,28 +55,32 @@
         <div class="o_d_p">
           <div class="setp2"></div>
         </div>
+         <form id="loginForm" action="${ctx}/front/accountCenter/submitResetPwdDoing.html" method="post" onsubmit="return checkForm()">
         <div class="consignee-form">
           <div class="list"> <span class="label">请输入登录密码：</span>
             <div class="field">
-              <input type="text" class="textbox" maxlength="20">
+             <input name="pwd" id="pwd" type="password" class="input" size="27" />
             </div>
           </div>
           <div class="list"><span class="label">确认新密码：</span>
             <div class="field">
-              <input type="text" class="textbox" maxlength="20">
+             <input name="pwd2" id="pwd2" type="password" class="input" size="27" />
             </div>
           </div>
           <div class="list"> <span class="label">验证码：</span>
-            <div class="field">
-              <input name="input" type="text" class="textbox" id="input"  maxlength="50" />
-              <label><img src="images/eee.jpg" width="60" height="30" /></label>
-            <em><a href="#">换一张</a></em> </div>
+           <div class="field">
+              <input name="vcode" id="vcode" type="text" class="textbox"  maxlength="50" />
+              <label><img src="${ctx}/verify/getVerifyCode.html" width="60" height="30" title="验证码" id="vimg"/></label>
+              <em><a href="javascript:void(0);" id="change">换一张</a></em> <span class="status error" id="email_div_error"></span></div>
           </div>
         <div class="list"><div class="btn_box">
-            <input type="button" class="btn" value="提交" />
+            <input type="button" class="btn" value="提交" /><br/>
+             <c:if test="${not empty msg }">
+    <span class="span">&nbsp;&nbsp;&nbsp;</span><font color="red" size="5">${msg}</font>
+     </c:if>
           </div></div>  
         </div>
-        
+        </form>
       </div>
     </div>
   </div>

@@ -38,7 +38,7 @@
 <form action="${ctx}/admin/adPosition/list/1.html" method="post">
 <div class="content_box">
 <div class="btn_box">
- <a href="${ctx}/admin/adPosition/add/new.html"> <input type="button" value="添加" class="initial" style="cursor:hand" /></a>
+  <input onclick="javascript:location.href='${ctx}/admin/adPosition/add/new.html'"  type="button" value="添加" class="initial" style="cursor:hand" />
    </div>
   <div class="list_info">
     <h2> 所属级别：<input name="levelPage" value="${levelPage}"/> <input type="submit" value="&nbsp;查&nbsp;询&nbsp;"/></h2>

@@ -39,7 +39,7 @@
 <body>
 <div class="content_box">
   <div class="btn_box">
- <a href="${ctx}/admin/train/add/new.html?cateCode=${cateCode}"> <input type="button" value="添加" class="initial" style="cursor:hand" /></a>
+  <input onclick="javascript:location.href='${ctx}/admin/train/add/new.html?cateCode=${cateCode}'" type="button" value="添加" class="initial" style="cursor:hand" />
    </div>
   <div class="list_info">
   	<form id="search_form" action="${ctx}/admin/train/list/1.html" method="post">
