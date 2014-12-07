@@ -12,9 +12,13 @@ import org.springframework.ui.Model;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.yuankang.yk.pojo.investfinance.Financing;
+import com.yuankang.yk.pojo.sys.Account;
 import com.yuankang.yk.publics.Constants;
 import com.yuankang.yk.service.account.AccountCenterService;
 import com.yuankang.yk.service.account.AccountService;
+import com.yuankang.yk.service.sys.McodeService;
+import com.yuankang.yk.service.sys.RegionService;
 
 /**
  * 类说明:用户中心controller
@@ -26,16 +30,18 @@ public class AccountCenterController extends BaseController {
 
 	@Resource
 	private AccountCenterService accountCenterService;
-
+	@Resource
+	private RegionService regionService;
 	@Resource
 	private AccountService accountService;
-	
+	@Resource
+	private McodeService mcodeService;
 	  @RequestMapping(value = "index")
 	  public String index( Model model,HttpServletRequest request)
 	  {
 		Object oj=  request.getSession().getAttribute("front_key");
 		if(oj==null){
-			return "redirect:/front/account/register.html";
+			return "redirect:/front/account/login.html";
 		}	else{
 			 Map<String, Object> ac= accountService.getByAccountNo(oj.toString());
 			 if(ac!=null){
@@ -58,14 +64,31 @@ public class AccountCenterController extends BaseController {
 	  {
 			Object oj=  request.getSession().getAttribute("front_key");
 			if(oj==null){
-				return "redirect:/front/account/register.html";
+				return "redirect:/front/account/login.html";
 			}else{
 				 Map<String, Object> ac= accountService.getByAccountNo(oj.toString());
 			model.addAttribute("menu", "alert");
 			model.addAttribute("ac", ac);
+
+			model.addAttribute("provinces", regionService.findByParentId(1));
+			model.addAttribute("industrys", mcodeService.findMcodesByMcType("INDUSTRY"));
+			if(ac.get("Province") != null){
+				model.addAttribute("citys", regionService.findByParentId(Integer.parseInt(ac.get("Province").toString())));
+			}
+			if(ac.get("City") != null){
+				model.addAttribute("areas", regionService.findByParentId(Integer.parseInt(ac.get("City").toString())));
+			}
 			return "front/accountCenter/alterAccount";
 		}
 		 
+	  }
+	  @RequestMapping(value = "/submitAlterAccount.html")
+	  public String submitAlterAccount(HttpServletRequest request,HttpServletResponse response,Model model,Account account)
+	  {
+		  accountCenterService.saveAlterAccount(account);
+		  
+			return "redirect:/front/accountCenter/index.html";
+		
 	  }
 	  /**
 	   * 密码设置
@@ -79,7 +102,7 @@ public class AccountCenterController extends BaseController {
 	  {
 		Object oj=  request.getSession().getAttribute("front_key");
 		if(oj==null){
-			return "redirect:/front/account/register.html";
+			return "redirect:/front/account/login.html";
 		}else{
 			model.addAttribute("menu", "reset");
 			return "front/accountCenter/resetPwdIndex";
@@ -91,7 +114,7 @@ public class AccountCenterController extends BaseController {
 	  {
 		Object oj=  request.getSession().getAttribute("front_key");
 		if(oj==null){
-			return "redirect:/front/account/register.html";
+			return "redirect:/front/account/login.html";
 		}else{
 			model.addAttribute("menu", "reset");
 			return "front/accountCenter/resetPwdValidate";
@@ -105,7 +128,7 @@ public class AccountCenterController extends BaseController {
 		
 		Object oj=  request.getSession().getAttribute("front_key");
 		if(oj==null){
-			return "redirect:/front/account/register.html";
+			return "redirect:/front/account/login.html";
 		}else{
 			String oldCode = (String) request.getSession().getAttribute(
 					Constants.VERIFY_CODE);
@@ -133,7 +156,7 @@ public class AccountCenterController extends BaseController {
 		model.addAttribute("menu", "reset");
 		Object oj=  request.getSession().getAttribute("front_key");
 		if(oj==null){
-			return "redirect:/front/account/register.html";
+			return "redirect:/front/account/login.html";
 		}else{
 			String oldCode = (String) request.getSession().getAttribute(
 					Constants.VERIFY_CODE);

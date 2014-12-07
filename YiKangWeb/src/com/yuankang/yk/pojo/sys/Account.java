@@ -38,17 +38,6 @@ public class Account implements Serializable{
 	@Column(name = "Pwd")
 	private String pwd;
 	
-	@Column(name = "AccountType")
-	private Integer accountType;
-	
-	@Column(name = "ContactName")
-	private String contactName;
-	
-	@Column(name = "Position")
-	private String position;
-	
-	@Column(name = "Department")
-	private String department;
 	
 	@Column(name = "Gender")
 	private Integer gender;
@@ -56,8 +45,7 @@ public class Account implements Serializable{
 	@Column(name = "Email")
 	private String email;
 	
-	@Column(name = "Logo")
-	private String logo;
+	
 	
 	@Column(name = "Province")
 	private Integer province;
@@ -81,25 +69,12 @@ public class Account implements Serializable{
 	private String telAreaCode;
 	
 	@Column(name = "QQ")
-	private String QQ;
+	private String qq;
 	
 	@Column(name = "Company")
 	private String company;
+
 	
-	@Column(name = "Industry")
-	private Integer industry;
-	
-	@Column(name = "Nature")
-	private Integer nature;
-	
-	@Column(name = "License")
-	private String license;
-	
-	@Column(name = "Registration")
-	private String registration;
-	
-	@Column(name = "Website")
-	private String website;
 	
 	@Column(name = "Introduce")
 	private String introduce;
@@ -110,9 +85,18 @@ public class Account implements Serializable{
 	@Column(name = "CreateDate")
 	private Date createDate;
 	
+	@Column(name = "Turnover")
+	private Float turnover;
+	
+	@Column(name = "NetAsset")
+	private Float netAsset;
+	
 	@Column(name = "MailSeq")
 	private String mailSeq;
-
+	
+	@Column(name = "Industry")
+	private String industry;
+	
 	public Long getId() {
 		return id;
 	}
@@ -137,37 +121,6 @@ public class Account implements Serializable{
 		this.pwd = pwd;
 	}
 
-	public Integer getAccountType() {
-		return accountType;
-	}
-
-	public void setAccountType(Integer accountType) {
-		this.accountType = accountType;
-	}
-
-	public String getContactName() {
-		return contactName;
-	}
-
-	public void setContactName(String contactName) {
-		this.contactName = contactName;
-	}
-
-	public String getPosition() {
-		return position;
-	}
-
-	public void setPosition(String position) {
-		this.position = position;
-	}
-
-	public String getDepartment() {
-		return department;
-	}
-
-	public void setDepartment(String department) {
-		this.department = department;
-	}
 
 	public Integer getGender() {
 		return gender;
@@ -183,14 +136,6 @@ public class Account implements Serializable{
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getLogo() {
-		return logo;
-	}
-
-	public void setLogo(String logo) {
-		this.logo = logo;
 	}
 
 	public Integer getProvince() {
@@ -241,12 +186,22 @@ public class Account implements Serializable{
 		this.tel = tel;
 	}
 
-	public String getQQ() {
-		return QQ;
+	public String getTelAreaCode() {
+		return telAreaCode;
 	}
 
-	public void setQQ(String qQ) {
-		QQ = qQ;
+	public void setTelAreaCode(String telAreaCode) {
+		this.telAreaCode = telAreaCode;
+	}
+
+	
+
+	public String getQq() {
+		return qq;
+	}
+
+	public void setQq(String qq) {
+		this.qq = qq;
 	}
 
 	public String getCompany() {
@@ -255,46 +210,6 @@ public class Account implements Serializable{
 
 	public void setCompany(String company) {
 		this.company = company;
-	}
-
-	public Integer getIndustry() {
-		return industry;
-	}
-
-	public void setIndustry(Integer industry) {
-		this.industry = industry;
-	}
-
-	public Integer getNature() {
-		return nature;
-	}
-
-	public void setNature(Integer nature) {
-		this.nature = nature;
-	}
-
-	public String getLicense() {
-		return license;
-	}
-
-	public void setLicense(String license) {
-		this.license = license;
-	}
-
-	public String getRegistration() {
-		return registration;
-	}
-
-	public void setRegistration(String registration) {
-		this.registration = registration;
-	}
-
-	public String getWebsite() {
-		return website;
-	}
-
-	public void setWebsite(String website) {
-		this.website = website;
 	}
 
 	public String getIntroduce() {
@@ -321,6 +236,24 @@ public class Account implements Serializable{
 		this.createDate = createDate;
 	}
 
+	public Float getTurnover() {
+		return turnover;
+	}
+
+	public void setTurnover(Float turnover) {
+		this.turnover = turnover;
+	}
+
+	
+
+	public Float getNetAsset() {
+		return netAsset;
+	}
+
+	public void setNetAsset(Float netAsset) {
+		this.netAsset = netAsset;
+	}
+
 	public String getMailSeq() {
 		return mailSeq;
 	}
@@ -329,12 +262,14 @@ public class Account implements Serializable{
 		this.mailSeq = mailSeq;
 	}
 
-	public String getTelAreaCode() {
-		return telAreaCode;
+	public String getIndustry() {
+		return industry;
 	}
 
-	public void setTelAreaCode(String telAreaCode) {
-		this.telAreaCode = telAreaCode;
+	public void setIndustry(String industry) {
+		this.industry = industry;
 	}
+
+	
 	
 }
