@@ -28,12 +28,12 @@
       <div class="listcontent">
       <c:forEach items="${list}" var="o">
       	<div class="listItem">
-	       <div class="photo"><img src="${o.ImgUrl}" width="100" height="125" /></div>
+	       <div class="photo"><a href="${ctx}/healthService/ysDetail/${o.Id}.html"><img src="${o.ImgUrl}" width="100" height="125" /></a></div>
 	       <div class="info_box">
 	        <div class="level"><h1><a href="${ctx}/healthService/ysDetail/${o.Id}.html">${o.Name}</a></h1>
 	        ${o.ClinicTitle} &nbsp; ${TeachTitle}</div>
 	        <div class="attribute">
-	        <p class="dw">所属单位：<a href="#" target="_blank">${o.HospitalName}</a> &nbsp; 
+	        <p class="dw">所属单位：<a href="${ctx}/healthDatabase/yyDetail/${o.HospitalId}.html" target="_blank">${o.HospitalName}</a> &nbsp; 
 	        ${o.DepartmentName}</p>
 	        <p class="sc">擅长疾病：${o.Good != 'null' ? o.Good : ''}</p>
 	    </div>

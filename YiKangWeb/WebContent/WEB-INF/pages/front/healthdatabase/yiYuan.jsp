@@ -29,7 +29,7 @@
       <div class="listcontent">
       <c:forEach items="${list}" var="o">
 	       <div class="listItem">
-	       <div class="photo"><img src="${o.ImgUrl}" width="163" height="203" /></div>
+	       <div class="photo"><a href="${ctx}/healthDatabase/yyDetail/${o.Id}.html"><img src="${o.ImgUrl}" width="163" height="203" /></a></div>
 	       <div class="info_box">
 	        <div class="level"><h1><a href="${ctx}/healthDatabase/yyDetail/${o.Id}.html">${o.Name}</a></h1>
 	        	<!-- 三级甲等丨 -->
