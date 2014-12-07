@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.yuankang.yk.publics.Constants;
 import com.yuankang.yk.publics.CookieUtil;
 import com.yuankang.yk.service.advert.AdvertService;
+import com.yuankang.yk.service.industryActi.IndustryActiService;
 import com.yuankang.yk.service.news.NewsService;
 import com.yuankang.yk.service.shopping.ShoppingService;
+import com.yuankang.yk.service.train.TrainService;
 
 /**
  * 类说明:
@@ -34,6 +36,10 @@ public class IndexController extends BaseController{
 	private NewsService newsService;
 	@Resource
 	private ShoppingService shoppingService;
+	@Resource
+	private TrainService trainService;
+	@Resource
+	private IndustryActiService industryActiService;
 	@RequestMapping("index")
 	public String index(HttpServletRequest request,Model model){
 		try{
@@ -153,6 +159,24 @@ public class IndexController extends BaseController{
 			e.printStackTrace();
 		}
 //////////////////////////健康购////////////////////////////////////////
+//////////////////////////健康培训////////////////////////////////////////
+		//大讲堂
+		Pagination page = initPage(1);
+		page.setPageSize(8);
+		List<Map<String, Object>> lectureList=trainService.getLetureByPage(page);
+		 model.addAttribute("lectureList", lectureList);
+		 //资质培训
+		 page.setPageSize(4);
+		 List<Map<String, Object>> qualiList= trainService.getByPage(page,"qualifications");
+		 model.addAttribute("qualiList", qualiList);
+		 //技能培训
+		 page.setPageSize(4);
+		 List<Map<String, Object>> techList= trainService.getByPage(page,"technical");
+		 model.addAttribute("techList", techList);
+/////////////////////////行业活动////////////////////////////////////////
+		 page.setPageSize(8);
+		 List<Map<String, Object>> indusList=  industryActiService.getByPage(page, -1);
+		 model.addAttribute("indusList", indusList);
 		return "front/index/index";
 	}
 }

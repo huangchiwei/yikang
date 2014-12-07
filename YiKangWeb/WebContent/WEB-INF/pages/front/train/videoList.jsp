@@ -15,9 +15,9 @@
 <script>
 function jump(id,newWindow){
 	if(newWindow!=null){
-		window.open("${ctx}/front/train/detail/"+id+".html","_blank");
+		window.open("${ctx}/front/train/videoDetail/"+id+".html","_blank");
 	}else{
-		location.href="${ctx}/front/train/detail/"+id+".html";
+		location.href="${ctx}/front/train/videoDetail/"+id+".html";
 	}
 	
 }

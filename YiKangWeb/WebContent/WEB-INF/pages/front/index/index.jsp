@@ -134,43 +134,32 @@ $(document).ready(function($){
    <ul class="tabbtn" id="normaltab">
 		<li class="current"><a href="#">活动</a></li>
 		<li><a href="#">培训</a></li>
-		<li><a href="#">品牌</a></li>
+		<li><a href="#">大讲堂</a></li>
 	</ul><!--tabbtn end-->
 	<div class="tabcon" id="normalcon">
 		<div class="sublist">
 			<ul>
-				<li><a href="#" target="_blank">牛皮癣、白癜风有问必答11</a></li>
-				<li><a href="#" target="_blank">让您远离化疗摧残的秘方！</a></li>
-				<li><a href="#" target="_blank">如何让牛皮癣不再牛皮？</a></li>
-				<li><a href="#" target="_blank">简单五步去除夏日脚臭</a></li>
-				<li><a href="#" target="_blank">春夏护肤 你真的会防晒？</a></li>
-				<li><a href="#" target="_blank">让你安全享“瘦”完美身段</a></li>
-                <li><a href="#" target="_blank">科普：幼年创伤脑部留痕</a></li>
-                <li><a href="#" target="_blank">10个饮食习惯，让你吃饱不长胖</a></li>
+			  <c:forEach items="${indusList}" var="o">
+			  <li><a href="${ctx}/front/industryActi/detail/${o.Id}.html" target="_blank">${fn:substring(o.Title , 0,14)}</a></li>
+			  </c:forEach>
 			</ul>
 		</div><!--tabcon end-->
 		<div class="sublist" style="display:none;">
 			<ul>
-				<li><a href="#" target="_blank">牛皮癣、白癜风有问必答22</a></li>
-				<li><a href="#" target="_blank">让您远离化疗摧残的秘方！</a></li>
-				<li><a href="#" target="_blank">如何让牛皮癣不再牛皮？</a></li>
-				<li><a href="#" target="_blank">简单五步去除夏日脚臭</a></li>
-				<li><a href="#" target="_blank">春夏护肤 你真的会防晒？</a></li>
-				<li><a href="#" target="_blank">让你安全享“瘦”完美身段</a></li>
-                <li><a href="#" target="_blank">科普：幼年创伤脑部留痕</a></li>
-                <li><a href="#" target="_blank">10个饮食习惯，让你吃饱不长胖</a></li>
+			 <c:forEach items="${qualiList}" var="o">
+			  <li><a href="${ctx}/front/train/detail/${o.ID}.html" target="_blank">${fn:substring(o.Title , 0,14)}</a></li>
+			  </c:forEach>
+				 <c:forEach items="${techList}" var="o">
+			  <li><a href="${ctx}/front/train/detail/${o.ID}.html" target="_blank">${fn:substring(o.Title , 0,14)}</a></li>
+			  </c:forEach>
 			</ul>
 		</div><!--tabcon end-->
 		<div class="sublist" style="display:none;">
 			<ul>
-				<li><a href="#" target="_blank">牛皮癣、白癜风有问必答33</a></li>
-				<li><a href="#" target="_blank">让您远离化疗摧残的秘方！</a></li>
-				<li><a href="#" target="_blank">如何让牛皮癣不再牛皮？</a></li>
-				<li><a href="#" target="_blank">简单五步去除夏日脚臭</a></li>
-				<li><a href="#" target="_blank">春夏护肤 你真的会防晒？</a></li>
-				<li><a href="#" target="_blank">让你安全享“瘦”完美身段</a></li>
-                <li><a href="#" target="_blank">科普：幼年创伤脑部留痕</a></li>
-                <li><a href="#" target="_blank">10个饮食习惯，让你吃饱不长胖</a></li>
+				 <c:forEach items="${lectureList}" var="o">
+			  <li><a href="${ctx}/front/train/videoDetail/${o.ID}.html" target="_blank">${fn:substring(o.Title , 0,14)}</a></li>
+			  </c:forEach>
+		
 			</ul>
 		</div><!--tabcon end-->
 	</div>
@@ -200,7 +189,7 @@ $(document).ready(function($){
     <ul class="ul">
     <c:forEach items="${shoppingList}" var="o" varStatus="sta">
      <li>
-      <p class="img"><img src="${ctx}/${o.PicPath}" width="170" height="150" /></p>
+      <p class="img"><a href="${o.Url}" target="_blank"><img src="${ctx}/${o.PicPath}" width="170" height="150" /></a></p>
       <p class="p"><a href="${o.Url}" target="_blank">${o.Discription}</a></p>
       <p class="yang">￥<fmt:formatNumber value="${o.Price}" type="currency" pattern="0.00"/></p>
      </li>

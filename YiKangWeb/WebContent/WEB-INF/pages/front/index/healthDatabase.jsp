@@ -81,31 +81,27 @@
      <div class="one_b_r_b">
       <div class="video_box">
       <h1>岭南健康大讲堂</h1>
-      <dl class="dl">
-       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_006.png" /></a></dt>
-       <dd><a href="#">马晓年</a></dd>
-     </dl>
-     <dl class="dl">
-       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_006.png" /></a></dt>
-       <dd><a href="#">马晓年</a></dd>
-     </dl>
-     <dl class="dl">
-       <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_006.png" /></a></dt>
-       <dd><a href="#">马晓年</a></dd>
-     </dl>
+       <c:forEach items="${lectureList}" var="o" varStatus="sta">
+       <c:if test="${sta.index<=2 }">
+         <dl class="dl">
+       <dt><a href="${ctx}/front/train/detail/${o.ID}.html"><img src="${ctx}/${o.src}" width="55" height="55"/></a></dt>
+       <dd><a href="${ctx}/front/train/detail/${o.ID}.html">${fn:substring(o.Title , 0,3)}</a></dd>
+       </dl>
+       </c:if>
+    	  </c:forEach>
+    
      </div>
     <div class="ma"><h1>资质培训</h1>
       <ul class="ul">
-       <li><a href="#">羊胎素有抗衰老作用 价格几何？</a></li>
-       <li><a href="#">罗布麻茶：心血管天然保健佳品</a></li>
-       <li><a href="#">破壁灵芝孢子粉为何能抗癌</a></li>
+       <c:forEach items="${qualiList}" var="o">
+			  <li><a href="${ctx}/front/train/detail/${o.ID}.html" target="_blank">${fn:substring(o.Title , 0,14)}</a></li>
+			  </c:forEach>
      </ul></div>
     <div class="ma"><h1>技能培训</h1>
       <ul class="ul">
-       <li><a href="#">羊胎素有抗衰老作用 价格几何？</a></li>
-       <li><a href="#">罗布麻茶：心血管天然保健佳品</a></li>
-       <li><a href="#">破壁灵芝孢子粉为何能抗癌</a></li>
-       <li><a href="#">大豆异黄酮 抗衰防癌好助手</a></li>
+       <c:forEach items="${techList}" var="o">
+			  <li><a href="${ctx}/front/train/detail/${o.ID}.html" target="_blank">${fn:substring(o.Title , 0,14)}</a></li>
+			  </c:forEach>
      </ul></div>
       </div>
    </div>
