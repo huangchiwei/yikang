@@ -13,8 +13,8 @@
  </div>
  <div class="index_reg">
  <c:if test="${front_key == null}">
-	 <a href="${ctx}/front/account/login.html">登录</a>
-	 |<a href="${ctx}/front/account/register.html">注册</a>
+	 <a href="${ctx}/front/account/login.html" target="_blank">登录</a>
+	 |<a href="${ctx}/front/account/register.html" target="_blank">注册</a>
  </c:if>
  <c:if test="${front_key != null}">
  	<a href="#">${front_key}</a>

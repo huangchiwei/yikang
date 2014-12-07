@@ -47,6 +47,8 @@ public class InvestmentController extends BaseController{
 			model.addAttribute("location", "投资信息");
 			//前10条热文推荐
 			 model.addAttribute("hotRecomInfoList", Constants.indexData.get("hotRecomInfoList"));
+			 model.addAttribute("invest_related_5", Constants.indexData.get("invest_related_5"));
+			 model.addAttribute("finance_related_5", Constants.indexData.get("finance_related_5"));
 			return "front/investfinance/detail";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -74,6 +76,8 @@ public class InvestmentController extends BaseController{
 			model.addAttribute("day", day);
 			//前10条热文推荐
 			 model.addAttribute("hotRecomInfoList", Constants.indexData.get("hotRecomInfoList"));
+			 model.addAttribute("finance_related_5", Constants.indexData.get("finance_related_5"));
+			 model.addAttribute("invest_related_5", Constants.indexData.get("invest_related_5"));
 			return "front/investfinance/investList";
 		} catch (Exception e) {
 			e.printStackTrace();

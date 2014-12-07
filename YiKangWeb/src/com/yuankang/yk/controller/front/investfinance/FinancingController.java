@@ -19,7 +19,7 @@ import com.yuankang.yk.service.sys.McodeService;
 import com.yuankang.yk.service.sys.RegionService;
 
 /**
- * 类说明:投资
+ * 类说明:融资
  * @author wei
  * @date 2014年11月15日 下午11:36:49
  * @version V1.0
@@ -55,6 +55,8 @@ public class FinancingController extends BaseController {
 		model.addAttribute("day", day);
 		//前10条热文推荐
 		 model.addAttribute("hotRecomInfoList", Constants.indexData.get("hotRecomInfoList"));
+		 model.addAttribute("invest_related_5", Constants.indexData.get("invest_related_5"));
+		 model.addAttribute("finance_related_5", Constants.indexData.get("finance_related_5"));
 		return "front/investfinance/financeList";
 	}
 	
@@ -69,6 +71,8 @@ public class FinancingController extends BaseController {
 		model.addAttribute("location", "融资信息");
 		//前10条热文推荐
 		 model.addAttribute("hotRecomInfoList", Constants.indexData.get("hotRecomInfoList"));
+		 model.addAttribute("invest_related_5", Constants.indexData.get("invest_related_5"));
+		 model.addAttribute("finance_related_5", Constants.indexData.get("finance_related_5"));
 		return "front/investfinance/detail";
 	}
 

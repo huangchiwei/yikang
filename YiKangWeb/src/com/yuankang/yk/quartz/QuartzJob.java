@@ -96,6 +96,10 @@ public class QuartzJob {
 			Constants.indexData.put("hotOrderInfoList", newsService.getHotOrderInfo(10));
 			// 前10条热文推荐
 			Constants.indexData.put("hotRecomInfoList", newsService.getHotRecommendInfo(10));
+			//投资首页5条相关投融资信息
+			page.setPageSize(5);
+			Constants.indexData.put("invest_related_5", investmentService.getListByPage(page));
+			Constants.indexData.put("finance_related_5", financingService.getListByPage(page));
 			System.out.println("初始化首页信息...");
 		} catch (Exception e) {
 			e.printStackTrace();

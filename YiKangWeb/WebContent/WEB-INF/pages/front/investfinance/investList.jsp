@@ -102,16 +102,14 @@
      <h1>相关投融资信息</h1>
     </div>
      <ul class="ul2">
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
-      <li><a href="#">眼保健操并非国人近视"祸害"</a></li>
+      <c:forEach items="${finance_related_5}" var="o">
+     	<li><a href="${ctx}/financing/detail/${o.id}.html" target="_blank" title="${o.title}">
+		${fn:length(o.title)>18?fn:substring(o.title,0,18):o.title}${fn:length(o.title)>18?'...':''}</a></li>
+     </c:forEach>
+      <c:forEach items="${invest_related_5}" var="o">
+     	<li><a href="${ctx}/investment/detail/${o.id}.html" target="_blank" title="${o.title}">
+		${fn:length(o.title)>18?fn:substring(o.title,0,18):o.title}${fn:length(o.title)>18?'...':''}</a></li>
+     </c:forEach>
      </ul>
    </div>
    <div class="ad_280 mt_10"><img src="${ctx}/theme/front/default/images/ad/ad_280.png" /></div>

@@ -9,6 +9,7 @@
 <link href="${ctx}/theme/admin/default/css/default.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/theme/admin/default/css/font.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${ctx}/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="${ctx }/js/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="${ctx}/js/layer/layer.min.js"></script>
 <script type="text/javascript">
 	$(function(){
@@ -31,7 +32,11 @@
 			layer.alert(msg, 3);
 			return false;
 		});
+		var editor;
+		editor= CKEDITOR.replace("overview"); 
+		CKFinder.setupCKEditor(editor, '${ctx}/js/ckfinder/');
 	});
+
 </script>
 </head>
 
@@ -49,7 +54,7 @@
     <tr>
      <td class="w100">标题：</td>
      <td>
-     	<input id="title" name="title" type="text" value="${entity.title}"/>
+     	<input id="title" name="title" type="text" value="${entity.title}" size="42"/>
      </td>
     </tr>
    <tr>
