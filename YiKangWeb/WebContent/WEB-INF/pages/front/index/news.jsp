@@ -20,12 +20,12 @@
        <div class="more"><a href="${ctx}/front/news/list/1.html?cateCode=industryNews">more</a></div>
       </div>
       <div class="new_a1">
-      <div class="fl"><img src="${ctx}/${imageIndustryNews.src}" width="200"/></div>
+      <div class="fl"><img src="${ctx}/${imageIndustryNews.src}" width="130" height="80"/></div>
       <dl class="dl">
        <dt><a href="javascript:void(0);" onclick="jump(${imageIndustryNews.ID},1)">${fn:substring(imageIndustryNews.Title, 0, 10)}</a></dt>
        <dd>
-         <c:if test="${fn:length(imageIndustryNews.Digest)>55}">${fn:substring(imageIndustryNews.Digest, 0, 55)}......</c:if>
-       <c:if test="${fn:length(imageIndustryNews.Digest)<55}">${imageIndustryNews.Digest}</c:if>
+         <c:if test="${fn:length(imageIndustryNews.Digest)>30}">${fn:substring(imageIndustryNews.Digest, 0, 30)}......</c:if>
+       <c:if test="${fn:length(imageIndustryNews.Digest)<30}">${imageIndustryNews.Digest}</c:if>
        <a href="javascript:void(0);" onclick="jump(${imageIndustryNews.ID},1)">[详细]</a></dd>
       </dl>
       </div>
