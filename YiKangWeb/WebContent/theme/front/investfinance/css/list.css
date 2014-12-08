@@ -44,13 +44,13 @@
 
 }
 .news_top .index_reg a {
-	color: #0099cc;
+	color: #509300;
 	font-size: 14px;
 	padding-right: 10px;
 	padding-left: 10px;
 }
 .news_top .index_reg a:hover {
-	color: #0066CC;
+	color: #297b00;
 	font-size: 14px;
 	padding-right: 10px;
 	padding-left: 10px;
@@ -85,7 +85,7 @@
 .n .news_nav {
 	margin-right: auto;
 	margin-left: auto;
-	background-color: #2c6abf;
+	background-color: #5aa304;
 	height: 50px;
 }
 .n .news_nav .n_box {
@@ -99,7 +99,7 @@
 	padding: 10px;
 }
 .n .news_nav .n_box .lanren {
-	width: 390px;
+	width: 430px;
 	height:50px;
 	line-height:32px;
 	margin-top: 0;
@@ -121,11 +121,11 @@
 }
 .lanren a:hover{
 	text-decoration:none;
-	background-color: #003783;
+	background-color: #297b00;
 }
 .lanren a.thisclass{
 	text-decoration:none;
-	background:#003783;
+	background:#297b00;
 }
 .n .news_nav .search {
 	margin-left: auto;
