@@ -42,7 +42,7 @@
     <div class="n_list_title"><h1><span>时间：<fmt:formatDate value="${entity.createDate}"
 								pattern="yyyy-MM-dd" /></span>${entity.title}</h1></div>
     <div class="n_d_trz">
-     <div class="n_d_trz_img"><img src="${ctx}/${entity.account.logo}" width="140" height="140" class="img" /></div>
+     <div class="n_d_trz_img"><img src="${ctx}//theme/front/accountCenter/images/head.png" width="140" height="140" class="img" /></div>
      <div class="n_d_trz_txt">
       <ul>
        <li><span>机构/个人名称：</span>${entity.isSelf == 1 ? '亿康' : entity.account.company}</li>
