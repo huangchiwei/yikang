@@ -86,7 +86,7 @@ public class TrainService extends BaseSqlService {
 
 	public void update(Train train) {
 		String sql="";
-		if(train.getThumbPic().isEmpty()){
+		if(train.getThumbPic()!=null){
 			sql = "update train set CateCode='" + train.getCateCode() + "',"
 					+ "Title='" + train.getTitle() + "'," + "Content='"
 					+ train.getContent() + "'," + "Digest='" + train.getDigest()
