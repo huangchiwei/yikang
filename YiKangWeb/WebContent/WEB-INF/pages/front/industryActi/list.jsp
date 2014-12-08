@@ -49,7 +49,7 @@ $(function(){
     </div>
   </div>
  </div>
-<div class="location"><div class="location"><a href="#">首页</a> &gt; 行业活动</div></div>
+<div class="location"><a href="#">首页</a> &gt; 行业活动</div>
 <div class="n_list">
   <div class="n_fl_670">
     <div class="n_list_title"><h1>行业活动</h1>
