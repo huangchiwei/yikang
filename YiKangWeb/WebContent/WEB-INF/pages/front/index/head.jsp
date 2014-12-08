@@ -25,7 +25,7 @@
     </div>
     <ul class="keyword">
     <c:forEach items="${other_disease_15}" var="o" begin="0" step="1" end="7">
-    	<li><a href="${ctx}/healthService/jbDetail/${o.Id}.html" title="${o.Name}">${fn:substring(o.Name,0,4)}</a></li>
+    	<li><a target="_blank" href="${ctx}/healthService/jbDetail/${o.Id}.html" title="${o.Name}">${fn:substring(o.Name,0,4)}</a></li>
     </c:forEach>
      
     </ul>

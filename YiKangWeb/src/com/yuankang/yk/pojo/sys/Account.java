@@ -99,8 +99,10 @@ public class Account implements Serializable{
 	@Column(name = "MailSeq")
 	private String mailSeq;
 	
-	@Column(name = "Industry")
-	private String industry;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "Industry", referencedColumnName = "ID")
+	@ForeignKey(name = "FK_ACCOUNT_INDUSTRY")
+	private Mcode industry;
 
 	public Long getId() {
 		return id;
@@ -262,11 +264,11 @@ public class Account implements Serializable{
 		this.mailSeq = mailSeq;
 	}
 
-	public String getIndustry() {
+	public Mcode getIndustry() {
 		return industry;
 	}
 
-	public void setIndustry(String industry) {
+	public void setIndustry(Mcode industry) {
 		this.industry = industry;
 	}
 	

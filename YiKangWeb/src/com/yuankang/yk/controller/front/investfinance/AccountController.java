@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.yuankang.yk.pojo.investfinance.Investment;
 import com.yuankang.yk.publics.Constants;
 import com.yuankang.yk.service.account.AccountService;
 import com.yuankang.yk.service.sys.McodeService;

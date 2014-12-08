@@ -83,7 +83,7 @@ $(document).ready(function($){
       <div class="img"><img src="${ctx}/theme/front/default/images/hearth.png" /></div>
       <h2>常见病</h2>
       <ul class="bing">
-      <c:forEach items="${common_disease_21}" var="o">
+      <c:forEach items="${common_disease_21}" var="o" begin="0" step="1" end="13">
       	<a href="${ctx}/healthService/jbDetail/${o.Id}.html" target="_blank">${o.Name}</a>
       </c:forEach>
        </ul>

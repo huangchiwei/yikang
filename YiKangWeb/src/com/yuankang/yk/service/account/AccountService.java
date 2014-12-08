@@ -30,7 +30,7 @@ public class AccountService extends BaseSqlService {
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Map<String, Object>> getByPage(Pagination page,Long industryId,Integer provinceId) {
+	public List<Account> getByPage(Pagination page,Long industryId,Integer provinceId) {
 		StringBuilder countSql = new StringBuilder("select count(t.id)");
 		StringBuilder getSql = new StringBuilder();
 		StringBuilder sql = new StringBuilder("from Account t where 1 = 1");
