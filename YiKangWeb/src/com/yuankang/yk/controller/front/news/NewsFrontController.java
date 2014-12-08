@@ -126,6 +126,14 @@ public class NewsFrontController extends BaseController {
 		 List<Map<String, Object>> hotOrderInfo=newsService.getOtherHotOrderInfo(fList.get(0));
 		 model.addAttribute("hotOrderInfo", hotOrderInfo);
 		 model.addAttribute("other_disease_15", Constants.healthData.get("other_disease_15"));
+		//内科
+		 model.addAttribute("news_dise_neike_6", Constants.healthData.get("news_dise_neike_6"));
+		//外科
+		 model.addAttribute("news_dise_waike_6", Constants.healthData.get("news_dise_waike_6"));
+		//妇科
+		 model.addAttribute("news_dise_fuke_6", Constants.healthData.get("news_dise_fuke_6"));
+		//中医
+		 model.addAttribute("news_dise_zhongyi_6", Constants.healthData.get("news_dise_zhongyi_6"));
 	    return "front/news/index";
 	  }
 	 @RequestMapping(value = SAVE)

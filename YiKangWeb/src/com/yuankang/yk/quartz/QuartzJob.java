@@ -66,7 +66,7 @@ public class QuartzJob {
 	}
 
 	//首页投融资信息
-	@Scheduled(cron = "0 0/10 * * * ?")
+	@Scheduled(cron = "0 0/5 * * * ?")
 	public void indexInvestFinanceData() {
 		try {
 
@@ -191,6 +191,50 @@ public class QuartzJob {
 		}
 		//全局数据
 		servletContext.setAttribute("other_disease_15", result);
+		
+		//行业资讯首页
+		page = new Pagination(random.nextInt(50) + 1);
+		page.setPageSize(8);
+		//内科
+		arr = RemoteRequestUtil.requestDiseaseByPage(page, 1);
+		result = new ArrayList<Map<String, Object>>();
+		for (int i = 0; i < arr.size(); i++) {
+			map = new HashMap<String, Object>();
+			map.put("Id", arr.getJSONObject(i).get("Id"));
+			map.put("Name", arr.getJSONObject(i).get("Name"));
+			result.add(map);
+		}
+		Constants.healthData.put("news_dise_neike_6", result);
+		//外科
+		arr = RemoteRequestUtil.requestDiseaseByPage(page, 2);
+		result = new ArrayList<Map<String, Object>>();
+		for (int i = 0; i < arr.size(); i++) {
+			map = new HashMap<String, Object>();
+			map.put("Id", arr.getJSONObject(i).get("Id"));
+			map.put("Name", arr.getJSONObject(i).get("Name"));
+			result.add(map);
+		}
+		Constants.healthData.put("news_dise_waike_6", result);
+		//妇科
+		arr = RemoteRequestUtil.requestDiseaseByPage(page, 3);
+		result = new ArrayList<Map<String, Object>>();
+		for (int i = 0; i < arr.size(); i++){
+			map = new HashMap<String, Object>();
+			map.put("Id", arr.getJSONObject(i).get("Id"));
+			map.put("Name", arr.getJSONObject(i).get("Name"));
+			result.add(map);
+		}
+		Constants.healthData.put("news_dise_fuke_6", result);
+		//中医
+		arr = RemoteRequestUtil.requestDiseaseByPage(page, 15);
+		result = new ArrayList<Map<String, Object>>();
+		for (int i = 0; i < arr.size(); i++){
+			map = new HashMap<String, Object>();
+			map.put("Id", arr.getJSONObject(i).get("Id"));
+			map.put("Name", arr.getJSONObject(i).get("Name"));
+			result.add(map);
+		}
+		Constants.healthData.put("news_dise_zhongyi_6", result);
 	}
 	//首页健康数据库信息
 	@Scheduled(cron = "0 20 * * * ?")
@@ -226,7 +270,7 @@ public class QuartzJob {
 		System.out.println("首页健康数据库信息...");
 	}
 	//健康频道信息
-	@Scheduled(cron = "0 20 * * * ?")
+	@Scheduled(cron = "0 40 * * * ?")
 	public void healthIndexData() {
 		Random random = new Random();
 		Pagination page = new Pagination(random.nextInt(10) + 1);

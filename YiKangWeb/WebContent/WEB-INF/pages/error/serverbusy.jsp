@@ -14,7 +14,7 @@
             delay--;
             document.getElementById("time").innerHTML = delay;
           } else {
-              window.top.location.href = '${ctx}';
+              window.top.location.href = '${ctx}/healthService/zzk/1.html';
           }
           setTimeout(delayURL, 1000); 
         }
