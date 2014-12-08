@@ -27,6 +27,21 @@
 			return true;
 		}
  }
+ function getFileSuffix(){
+		var f = document.getElementById("file");
+		var fullFile=f.value;
+		var suffixName=fullFile.substring(fullFile.lastIndexOf(".")+1,fullFile.length);
+		//var fullName=fullFile.substring(fullFile.lastIndexOf("\\")+1);;
+		
+		if(suffixName!="jpg"&&suffixName!="gif"&&suffixName!="png"){
+			f.value="";
+			alert("这种文件类型不允许上传！\r\n只允许上传这几种文件：jpg、gif、png\r\n请选择别的文件。");
+			 
+		}else{
+			//alert(fullFile);
+			$("#selectedPath").html(fullFile);
+		}
+	}
   </script>
 </head>
 
@@ -35,7 +50,7 @@
     <div class="btn_box">
   <input type="button" value="返回" class="initial" style="cursor:hand" onclick="javascript:location.href='${ctx}/admin/train/list/1.html?cateCode=${cateCode}&hasImage=-1'"/>
    </div>
-<form id="add_form" action="${ctx}/admin/train/save.html" method="post" onsubmit="return checkForm()">
+<form id="add_form" action="${ctx}/admin/train/save.html" method="post" enctype="multipart/form-data" onsubmit="return checkForm()">
 <input type="hidden" name="id" value="${train.ID}"/>
  	<input type="hidden" name="viewType" value="${viewType}"/>
  	<input type="hidden" name="cateCode" value="${cateCode}"/>
@@ -87,7 +102,7 @@
 	    <tr>
      <th>内容：</th>
      <td colspan="6">
-     <textarea id="content" name="content" rows="3" cols="100" >${train.Content }</textarea>
+     <textarea id="content" name="content" rows="3" cols="70" >${train.Content }</textarea>
 <br/>
      </td>
      
@@ -96,7 +111,7 @@
     
       <th>摘要：</th>
      <td  colspan="6">
-      <textarea id="digest" name="digest" rows="3" cols="100" >${train.Digest }</textarea>
+      <textarea id="digest" name="digest" rows="3" cols="70" >${train.Digest }</textarea>
      	
      </td>
       
@@ -105,15 +120,21 @@
     <tr>
     <th>核心提示：</th>
     <td  colspan="6">
-      <textarea id="coreTip" name="coreTip" rows="3" cols="100" >${train.CoreTip }</textarea>
+      <textarea id="coreTip" name="coreTip" rows="3" cols="70" >${train.CoreTip }</textarea>
      	
      </td>
     </tr>
     <c:if test="${cateCode=='lecture'}">
+        <tr>
+    <th>缩略图：</th>
+    <td  colspan="6">
+      <input  id="file" name="file" type="file" onchange="getFileSuffix()" value="${train.ThumbPic}"/><font color="red">已选择:<span id="selectedPath">${train.ThumbPic }</span>(限jpg,gif,png)</font> 
+     </td>
+    </tr>
          <tr>
     <th>视频路径：</th>
     <td  colspan="6">
-      <textarea id="videoUrl" name="videoUrl" rows="2" cols="100" >${train.VideoUrl }</textarea><font color="font">必须是flash地址
+      <textarea id="videoUrl" name="videoUrl" rows="2" cols="70" >${train.VideoUrl }</textarea><font color="font">必须是flash地址
       </font>
      	
      </td>

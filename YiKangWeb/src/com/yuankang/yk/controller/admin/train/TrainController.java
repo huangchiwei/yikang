@@ -1,6 +1,8 @@
 package com.yuankang.yk.controller.admin.train;
 
 import java.beans.PropertyEditor;
+import java.io.File;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -18,6 +20,8 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.yuankang.yk.pojo.sys.Train;
@@ -105,12 +109,36 @@ public class TrainController extends BaseController {
 	@RequestMapping(value = SAVE)
 	  public String save(HttpServletRequest request,Model model,String viewType,Train train,String cateCode)
 	  {
+		 String imgPath="";
+		 String realPath="";
 		try{
-			if(train.getContent().indexOf("<img")>=0){
-				train.setHasImage(1);
+			if(cateCode.equals("lecture")){
+				// 转型为MultipartHttpRequest：     
+		        MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request; 
+		     // 获得文件：     
+		        MultipartFile file = multipartRequest.getFile("file");   
+		        if (!file.isEmpty()) {
+					   imgPath="/userfiles/trainVideo/"+file.getOriginalFilename();
+					realPath=Constants.BASE_DIR+imgPath;
+				   try {
+							file.transferTo(new File(realPath));
+							train.setThumbPic(imgPath);
+						} catch (IllegalStateException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+			   }
 			}else{
-				train.setHasImage(0);
+				if(train.getContent().indexOf("<img")>=0){
+					train.setHasImage(1);
+				}else{
+					train.setHasImage(0);
+				}
 			}
+			
 			 User user=(User)request.getSession().getAttribute(Constants.SESSION_USER);
 			 train.setLastUpdateUser(user.getLoginName());
 			if(viewType.equals("A")){
@@ -120,7 +148,7 @@ public class TrainController extends BaseController {
 				  train.setLastUpdateUser(user.getLoginName());
 				  trainService.update(train);
 			  }
-			//保存缩略图
+		/*	//保存缩略图
 			if(train.getContent().indexOf("<img")>=0){
 				String src=StringUtil.getImageSrc(train.getContent()).replace("/YiKangWeb","");
 				String pre=src.substring(0, src.lastIndexOf("/")+1);
@@ -128,7 +156,7 @@ public class TrainController extends BaseController {
 				String des_src2=src.replace(pre, pre+"thumbs/650/");
 				ThumbsUtil.getInstance().init(request.getSession().getServletContext().getRealPath(src), request.getSession().getServletContext().getRealPath(des_src)).resizeByWidth(200);
 				ThumbsUtil.getInstance().init(request.getSession().getServletContext().getRealPath(src), request.getSession().getServletContext().getRealPath(des_src2)).resizeByWidth(650);
-			}
+			}*/
 		}catch(Exception e ){
 			e.printStackTrace();
 		}

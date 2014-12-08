@@ -38,6 +38,7 @@ public class Train implements java.io.Serializable {
 	private Integer hasImage;
 	private String coreTip;
 	private String videoUrl;
+	private String thumbPic;
 	// Constructors
 
 	/** default constructor */
@@ -250,6 +251,14 @@ public class Train implements java.io.Serializable {
 
 	public void setVideoUrl(String videoUrl) {
 		this.videoUrl = videoUrl;
+	}
+
+	public String getThumbPic() {
+		return thumbPic;
+	}
+
+	public void setThumbPic(String thumbPic) {
+		this.thumbPic = thumbPic;
 	}
 
 }

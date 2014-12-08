@@ -53,7 +53,7 @@ public class TrainService extends BaseSqlService {
 
 	public void save(Train train) {
 		String sql = "insert into train(CateCode,Title,Content,Digest,Source,Author,CreateTime"
-				+ ",RealTime,CreateUser,LastUpdateUser,LastUpdateTime,IsTop,IsRecommend,HasImage,CoreTip,VideoUrl) values('"
+				+ ",RealTime,CreateUser,LastUpdateUser,LastUpdateTime,IsTop,IsRecommend,HasImage,CoreTip,VideoUrl,ThumbPic) values('"
 				+ train.getCateCode()
 				+ "','"
 				+ train.getTitle()
@@ -79,23 +79,41 @@ public class TrainService extends BaseSqlService {
 				+ ","
 				+ train.getIsRecommend()
 				+ ","
-				+ train.getHasImage() + ",'" + train.getCoreTip() + "','"+train.getVideoUrl()+"')";
+				+ train.getHasImage() + ",'" + train.getCoreTip() + "','"+
+				train.getVideoUrl()+"','"+train.getThumbPic()+"')";
 		up_del(sql);
 	}
 
 	public void update(Train train) {
-		String sql = "update train set CateCode='" + train.getCateCode() + "',"
-				+ "Title='" + train.getTitle() + "'," + "Content='"
-				+ train.getContent() + "'," + "Digest='" + train.getDigest()
-				+ "'," + "Source='" + train.getSource() + "'," + "Author='"
-				+ train.getAuthor() + "',RealTime=str_to_date('"
-				+ DateUtil.formatDate(train.getRealTime())
-				+ "','%Y-%m-%d %H:%i:%s')" + ",LastUpdateUser='"
-				+ train.getLastUpdateUser() + "',LastUpdateTime=now()"
-				+ ",IsTop=" + train.getIsTop() + ",IsRecommend="
-				+ train.getIsRecommend() + ",HasImage=" + train.getHasImage()
-				+ ",CoreTip='" + train.getCoreTip() + "',VideoUrl='"+train.getVideoUrl()+"' where ID="
-				+ train.getId();
+		String sql="";
+		if(train.getThumbPic().isEmpty()){
+			sql = "update train set CateCode='" + train.getCateCode() + "',"
+					+ "Title='" + train.getTitle() + "'," + "Content='"
+					+ train.getContent() + "'," + "Digest='" + train.getDigest()
+					+ "'," + "Source='" + train.getSource() + "'," + "Author='"
+					+ train.getAuthor() + "',RealTime=str_to_date('"
+					+ DateUtil.formatDate(train.getRealTime())
+					+ "','%Y-%m-%d %H:%i:%s')" + ",LastUpdateUser='"
+					+ train.getLastUpdateUser() + "',LastUpdateTime=now()"
+					+ ",IsTop=" + train.getIsTop() + ",IsRecommend="
+					+ train.getIsRecommend() + ",HasImage=" + train.getHasImage()
+					+ ",CoreTip='" + train.getCoreTip() + "',VideoUrl='"+train.getVideoUrl()+"' where ID="
+					+ train.getId();
+		}else{
+			sql = "update train set CateCode='" + train.getCateCode() + "',"
+					+ "Title='" + train.getTitle() + "'," + "Content='"
+					+ train.getContent() + "'," + "Digest='" + train.getDigest()
+					+ "'," + "Source='" + train.getSource() + "'," + "Author='"
+					+ train.getAuthor() + "',RealTime=str_to_date('"
+					+ DateUtil.formatDate(train.getRealTime())
+					+ "','%Y-%m-%d %H:%i:%s')" + ",LastUpdateUser='"
+					+ train.getLastUpdateUser() + "',LastUpdateTime=now()"
+					+ ",IsTop=" + train.getIsTop() + ",IsRecommend="
+					+ train.getIsRecommend() + ",HasImage=" + train.getHasImage()
+					+ ",CoreTip='" + train.getCoreTip() + "',VideoUrl='"+train.getVideoUrl()+"',ThumbPic='"+train.getThumbPic()+"' where ID="
+					+ train.getId();
+		}
+		 
 		up_del(sql);
 	}
 
@@ -189,15 +207,11 @@ public class TrainService extends BaseSqlService {
 	}
 	public List<Map<String, Object>> getLetureByPage(Pagination page) {
 		List<Map<String, Object>> list = null;
-		String des_src = "";
+	
 		initCount("select count(*) from train where CateCode='lecture'", page);
-		list = getQuery("select ID,CateCode,Title,Content from train where CateCode='lecture' order by RealTime desc",
+		list = getQuery("select ID,CateCode,Title,ThumbPic from train where CateCode='lecture' order by RealTime desc",
 				page);
-		for (Map<String, Object> h : list) {
-			des_src = StringUtil.getThumb(h.get("Content").toString(),
-					200);
-			h.put("src", des_src);
-		}
+		
 		return list;
 	}
 	public List<Map<String, Object>> getLetures(int size) {

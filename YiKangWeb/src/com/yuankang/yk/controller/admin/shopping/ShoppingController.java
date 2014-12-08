@@ -92,7 +92,7 @@ public class ShoppingController extends BaseController {
 	        MultipartFile file = multipartRequest.getFile("file");    
 	        if (!file.isEmpty()) {
 					   imgPath="/userfiles/shopping/"+file.getOriginalFilename();
-					realPath=request.getSession().getServletContext().getRealPath(imgPath);
+					realPath=Constants.BASE_DIR+imgPath;//request.getSession().getServletContext().getRealPath(imgPath);
 				   try {
 							file.transferTo(new File(realPath));
 						} catch (IllegalStateException e) {

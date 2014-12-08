@@ -28,7 +28,7 @@ public abstract class Constants
 	public static final String SESSION_USER = "session_user";
 	
 	public static final String FRONT_KEY = "front_key";
-	
+	public static final String BASE_DIR = "C:/YiKangWeb_upfile";
 	/** 角色停用状态 */
 	public final static int ROLE_STOP_STATUS = -1;
 	/** 角色启用状态  */

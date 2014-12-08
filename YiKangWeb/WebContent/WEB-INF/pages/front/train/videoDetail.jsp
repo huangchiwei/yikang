@@ -58,7 +58,7 @@ $(function(){
 <div class="video_box">
  <h1>${instance.Title}</h1>
 <div class="module playButton">
-	<div class="playbutton" id="playerSwf"><object width="970" height="515"><param name="movie" value="${instance.VideoUrl}"><param name="allowFullScreen" value="true"><param name="allowscriptaccess" value="always"><embed width="970" height="515" allowfullscreen="true" allowscriptaccess="always" quality="high" src="http://share.vrs.sohu.com/my/v.swf&amp;autoplay=false&amp;id=64514485&amp;skinNum=1&amp;topBar=1&amp;xuid=e25661496" type="application/x-shockwave-flash"></object></div>
+	<div class="playbutton" id="playerSwf"><object width="970" height="515"><param name="movie" value="${instance.VideoUrl}"><param name="allowFullScreen" value="true"><param name="allowscriptaccess" value="always"><embed width="970" height="515" allowfullscreen="true" allowscriptaccess="always" quality="high" src="${instance.VideoUrl}" type="application/x-shockwave-flash"></object></div>
         <!--天翼分享地址-->
         <input id="TYvideoUrl" type="hidden" value="">
         <!--天翼分享地址-->

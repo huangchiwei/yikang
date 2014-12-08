@@ -73,7 +73,7 @@ $(function(){
   <c:if test="${not empty relatedImageNews }">
    <div class="fl"><a href="#"><img src="${ctx}/${relatedImageNews.src}" width="150"/></a></div>
   <dl class="extend_page_dl">
-   <dt class="extend_page_dt"><a href="javascript:void(0);" onclick="jump(${relatedImageNews.ID})">${relatedImageNews.Title}</a></dt>
+   <dt class="extend_page_dt"><a href="javascript:void(0);" onclick="jump(${relatedImageNews.ID})">${fn:substring(relatedImageNews.Title, 0, 14)}</a></dt>
    <dd class="extend_page_dd">
    <c:if test="${fn:length(relatedImageNews.Digest)>55}">${fn:substring(relatedImageNews.Digest, 0, 55)}......</c:if>
        <c:if test="${fn:length(relatedImageNews.Digest)<55}">${relatedImageNews.Digest}</c:if>
