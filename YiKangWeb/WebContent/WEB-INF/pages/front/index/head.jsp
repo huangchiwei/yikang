@@ -52,12 +52,12 @@
           <li><a href="${ctx}/healthService/yuYueGuaHuao.html" target="_blank">预约挂号</a></li>
         </ul>
       </li>
-      <li class="drop-menu-effect"><a href="#"><span>健康购</span></a></li>
+      <li class="drop-menu-effect"><a href="http://www.is186.com" target="_blank"><span>健康购</span></a></li>
       <li class="drop-menu-effect"><a><span>健康数据库</span></a>
       <ul class="submenu">
           <li><a href="${ctx}/healthDatabase/yyk/1.html" target="_blank">医院库</a></li>
           <li><a href="${ctx}/healthDatabase/ypk/1.html" target="_blank">药品库</a></li>
-          <li><a href="#">保健品库</a></li>
+          <!--<li><a href="#">保健品库</a></li>-->
         </ul>
       </li>
       <li class="drop-menu-effect"><a href="${ctx}/front/train/videoList/1.html?cateCode=lecture"><span>健康培训</span></a>
@@ -71,8 +71,9 @@
       <ul class="submenu">
           <li><a href="${ctx}/investment/list/1.html" target="_blank">投资</a></li>
           <li><a href="${ctx}/financing/list/1.html" target="_blank">融资</a></li>
-          <li><a href="#">行业资讯</a></li>
+          <li><a href="${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceNews">行业资讯</a></li>
           <li><a href="#">行业机构</a></li>
+          <li><a href="${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceLaw">政策法规</a></li>
         </ul>
       </li>
     </ul>

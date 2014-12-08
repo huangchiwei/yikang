@@ -22,11 +22,27 @@
 }
 .login_box {
 	top: 0px;
-	width: 300px;
+	width: 280px;
 	margin-left: auto;
 	margin-right: auto;
 	padding-top: 308px;
-	padding-left: 265px;
+	padding-left: 240px;
+}
+.login_float {
+	top: 220px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 0px;
+	padding-left: 0px;
+	position: absolute;
+	line-height: 40px;
+	height: 40px;
+	left: 0px;
+	width: 480px;
+	text-align: center;
+	font-family: "微软雅黑";
+	font-size: 24px;
+	color: #FFFFFF;
 }
 .login_box li {
 	height: 35px;

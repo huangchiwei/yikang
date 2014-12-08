@@ -4,13 +4,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     
-    <title>登录</title>
+    <title>大健康365后台管理系统</title>
     <meta http-equiv="pragma" content="no-cache"/>
 	<meta http-equiv="cache-control" content="no-cache"/>
 	<meta http-equiv="expires" content="0"/>
 	<link href="${ctx}/theme/admin/default/css/master.css" rel="stylesheet" type="text/css" />
 	<link href="${ctx}/theme/admin/default/css/font.css" rel="stylesheet" type="text/css" />
 	<link href="${ctx}/theme/admin/default/css/default.css" rel="stylesheet" type="text/css" />
+    
+    <link href="../../../theme/admin/default/css/master.css" rel="stylesheet" type="text/css" />
+	<link href="../../../theme/admin/default/css/font.css" rel="stylesheet" type="text/css" />
+	<link href="../../../theme/admin/default/css/default.css" rel="stylesheet" type="text/css" />
  	<script type="text/javascript" src="${ctx}/js/jquery-1.8.0.min.js" ></script>
  	<script type="text/javascript">
  		var flag = true;
@@ -59,7 +63,8 @@
 <form id="loginForm" action="${ctx}/admin/userLogin.html" method="post">
 <div class="login_bj">
   <div class="login">
-   <div class="login_box">
+   <div class="login_box relative">
+   <div class="login_float">大健康365后台管理系统</div>
     <ul>
      <li style=" margin-top:4px;">
      	<input id="loginName" name="loginName" type="text" value="admin" style="width:190px;" class="input"/></li>

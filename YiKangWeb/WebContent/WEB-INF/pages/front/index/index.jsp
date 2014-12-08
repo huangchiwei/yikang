@@ -4,6 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
 <title>大健康365</title>
 
 <link href="${ctx}/theme/front/default/style/default.css" rel="stylesheet" type="text/css" />
@@ -132,9 +133,9 @@ $(document).ready(function($){
    </div>
    <div class="news_b_r">
    <ul class="tabbtn" id="normaltab">
-		<li class="current"><a href="#">活动</a></li>
-		<li><a href="#">培训</a></li>
-		<li><a href="#">大讲堂</a></li>
+		<li class="current"><a href="${ctx}/front/industryActi/list/1.html" target="_blank">活动</a></li>
+		<li><a href="${ctx}/front/train/list/1.html?cateCode=qualifications" target="_blank">培训</a></li>
+		<li><a href="${ctx}/front/train/videoList/1.html?cateCode=lecture" target="_blank">大讲堂</a></li>
 	</ul><!--tabbtn end-->
 	<div class="tabcon" id="normalcon">
 		<div class="sublist">
@@ -210,23 +211,7 @@ $(document).ready(function($){
   <!--links-->
   <div class="links">
    <h1>合作伙伴&nbsp;Partners</h1>
-   <ul class="ul"><a href="#">家庭医生在线</a><a href="#">疾病预防控制中心</a><a href="#">食品药品监督管理局</a><a href="#">中华医学会</a>
-<a href="#">中国医师协会</a>
-<a href="#">中国性学会</a>
-<a href="#">中国健康教育中心</a>
-<a href="#">生命时报</a>
-<a href="#">健康时报</a>
-<a href="#">大众医学北京医生</a>
-<a href="#">中国健康界</a>
-<a href="#">中国中医药报</a>
-<a href="#">大河健康</a>
-<a href="#">保健时报</a>
-<a href="#">中国性科学</a>
-<a href="#">医药观察家</a>
-<a href="#">39健康网</a>
-<a href="#">好大夫在线</a>
-<a href="#">爱康国宾</a>
-<a href="#">卫生和计划生育委员会</a>
+   <ul class="ul"><a href="www.familydoctor.com.cn" target="_blank">家庭医生在线</a><a href="http://www.39.net" target="_blank">39健康网</a><a href="http://www.is186.com" target="_blank">爱尚健康商城</a>
    </ul>
   </div>
   <!--links_end-->
