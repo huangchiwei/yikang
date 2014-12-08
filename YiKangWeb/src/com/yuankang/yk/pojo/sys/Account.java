@@ -42,14 +42,8 @@ public class Account implements Serializable{
 	@Column(name = "Pwd")
 	private String pwd;
 	
-	
-	@Column(name = "Gender")
-	private Integer gender;
-	
 	@Column(name = "Email")
 	private String email;
-	
-	
 	
 	@Column(name = "Province")
 	private Integer province;
@@ -78,9 +72,6 @@ public class Account implements Serializable{
 	@Column(name = "Company")
 	private String company;
 
-	
-
-	
 	@Column(name = "Introduce")
 	private String introduce;
 	
@@ -126,14 +117,6 @@ public class Account implements Serializable{
 
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
-	}
-
-	public Integer getGender() {
-		return gender;
-	}
-
-	public void setGender(Integer gender) {
-		this.gender = gender;
 	}
 
 	public String getEmail() {

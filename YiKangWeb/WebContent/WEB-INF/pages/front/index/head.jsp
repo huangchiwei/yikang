@@ -72,7 +72,7 @@
           <li><a href="${ctx}/investment/list/1.html" target="_blank">投资</a></li>
           <li><a href="${ctx}/financing/list/1.html" target="_blank">融资</a></li>
           <li><a href="${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceNews">行业资讯</a></li>
-          <li><a href="#">行业机构</a></li>
+          <li><a href="${ctx}/investFinance/account/list/1.html" target="_blank">行业机构</a></li>
           <li><a href="${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceLaw">政策法规</a></li>
         </ul>
       </li>

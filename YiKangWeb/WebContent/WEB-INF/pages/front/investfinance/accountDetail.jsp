@@ -36,18 +36,17 @@
     </div>
   </div>
  </div>
-<div class="location"><a href="${ctx}">首页</a> &gt; <a href="${ctx}/investFinance/index.html">投融资频道</a> &gt; 行业机构</div>
+<div class="location"><a href="${ctx}">首页</a> &gt; <a href="${ctx}/investFinance/index.html">投融资频道</a> &gt; <a href="${ctx}/investFinance/account/list/1.html">行业机构</a>&gt; ${entity.company}</div>
 <div class="n_list">
   <div class="n_fl_670">
     <div class="n_list_title"><h1><span>&nbsp;</span>${entity.company}</h1></div>
     <div class="n_d_trz">
-     <div class="n_d_trz_img"><img src="${ctx}/${entity.logo}" width="140" height="140" class="img" /></div>
+     <div class="n_d_trz_img"><img src="${ctx}/theme/front/accountCenter/images/head.png" width="140" height="140" class="img" /></div>
      <div class="n_d_trz_txt">
       <ul>
        <li><span>所属行业：</span>${entity.industry.mcName}</li>
-       <li><span>网址：</span>${entity.website}</li>
-       <li><span>联系人：</span>${entity.contactName}</li>
-       <li><span>电话：</span>${entity.tel}</li>
+       <li><span>电话：</span>${entity.telAreaCode}-${entity.tel}</li>
+       <li><span>邮箱：</span>${entity.email}</li>
        <li><span>地址：</span>${entity.address}</li>
       </ul>
      </div>

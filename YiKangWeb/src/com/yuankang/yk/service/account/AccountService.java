@@ -33,7 +33,7 @@ public class AccountService extends BaseSqlService {
 	public List<Account> getByPage(Pagination page,Long industryId,Integer provinceId) {
 		StringBuilder countSql = new StringBuilder("select count(t.id)");
 		StringBuilder getSql = new StringBuilder();
-		StringBuilder sql = new StringBuilder("from Account t where 1 = 1");
+		StringBuilder sql = new StringBuilder("from Account t where status = 1");
 		List<Object> params = new ArrayList<Object>();
 		if(industryId != null && industryId != -1){
 			sql.append(" and t.industry.id = ?");
