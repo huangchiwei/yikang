@@ -84,7 +84,7 @@
        <c:forEach items="${lectureList}" var="o" varStatus="sta">
        <c:if test="${sta.index<=2 }">
          <dl class="dl">
-       <dt><a href="${ctx}/front/train/detail/${o.ID}.html"><img src="${ctx}/${o.src}" width="57" height="55"/></a></dt>
+       <dt><a href="${ctx}/front/train/detail/${o.ID}.html"><img src="${ctx}${o.ThumbPic}" width="57" height="55"/></a></dt>
        <dd><a href="${ctx}/front/train/detail/${o.ID}.html">${fn:substring(o.Title , 0,3)}</a></dd>
        </dl>
        </c:if>

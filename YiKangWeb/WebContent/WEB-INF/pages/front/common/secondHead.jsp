@@ -13,7 +13,7 @@
  </c:if>
  <c:if test="${front_key != null}">
  	<a href="#">${front_key}</a>
-	 <a href="${ctx}/front/account/accountLogout.html">安全退出</a>
+	 <a href="${ctx}/front/account/accountLogout.html">退出</a>
  </c:if>
  </div>
 </div>

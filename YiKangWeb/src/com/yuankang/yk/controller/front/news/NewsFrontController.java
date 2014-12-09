@@ -92,9 +92,13 @@ public class NewsFrontController extends BaseController {
 		 //行业新闻9条
 		 List<Map<String, Object>> industryNews=newsService.getIndustryNews();
 		 model.addAttribute("industryNews", industryNews);
+		 if(industryNews!=null&&industryNews.size()>0)
+			 model.addAttribute("first_industryNews_pic", industryNews.get(0));
 		 //行业焦点9条
 		 List<Map<String, Object>> industryFocus=newsService.getIndustryFocus();
 		 model.addAttribute("industryFocus", industryFocus);
+		 if(industryFocus!=null&&industryFocus.size()>0)
+			 model.addAttribute("first_industryFocus_pic", industryFocus.get(0));
 		 //国家法律法规5条
 		 List<Map<String, Object>> countyLaw=newsService.getCountyLaw();
 		 model.addAttribute("countyLaw", countyLaw);

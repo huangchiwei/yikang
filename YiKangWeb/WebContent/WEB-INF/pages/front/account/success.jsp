@@ -19,7 +19,7 @@
  <div class="reg_b">
     <div class="success relative">
      <div class="su_a1">恭喜您，成功注册为大健康365会员！</div>
-     <div class="btn_a1"><img src="${ctx}/theme/front/account/images/btn_a1.png" /></div>
+     <div class="btn_a1"><a href="${ctx}/front/accountCenter/index.html"><img src="${ctx}/theme/front/account/images/btn_a1.png" /></a></div>
     </div>
     <div class="su_box">
      <ul>
