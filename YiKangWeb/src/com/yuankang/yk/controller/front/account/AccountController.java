@@ -86,12 +86,14 @@ public class AccountController extends BaseController {
 			 String oldCode = (String) request.getSession().getAttribute(
 						Constants.VERIFY_CODE);
 			 if (oldCode.equalsIgnoreCase(vcode)){
-				  account.setStatus(0);
+				  account.setStatus(1);
 					account.setMailSeq(String.valueOf(new Date().getTime()));
 					account.setPwd(DigestUtils.md5DigestAsHex(account.getPwd().getBytes()));
 					accountService.saveRegister(account);
 					//发送激活用户的网址到用户邮箱
-					accountService.sendMail( account);
+					//accountService.sendMail( account);
+					request.getSession(true);
+					request.getSession().setAttribute(Constants.FRONT_KEY, account.getAccountNo());
 					model.addAttribute("accountNo", account.getAccountNo());
 					model.addAttribute("email", account.getEmail());
 					return "front/account/success";

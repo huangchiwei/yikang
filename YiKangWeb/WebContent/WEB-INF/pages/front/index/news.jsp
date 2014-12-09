@@ -20,7 +20,7 @@
        <div class="more"><a href="${ctx}/front/news/list/1.html?cateCode=industryNews">more</a></div>
       </div>
       <div class="new_a1">
-      <div class="fl"><img src="${ctx}/${imageIndustryNews.src}" width="130" height="80"/></div>
+      <div class="fl"><img src="${ctx}${imageIndustryNews.src}" width="130" height="80"/></div>
       <dl class="dl">
        <dt><a href="javascript:void(0);" onclick="jump(${imageIndustryNews.ID},1)">${fn:substring(imageIndustryNews.Title, 0, 10)}</a></dt>
        <dd>

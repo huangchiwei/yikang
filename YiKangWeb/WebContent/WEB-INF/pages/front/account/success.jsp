@@ -19,16 +19,16 @@
  <div class="reg_b">
     <div class="success relative">
      <div class="su_a1">恭喜您，成功注册为大健康365会员！</div>
-     <div class="btn_a1"><img src="${ctx}/theme/front/account/images/btn_a1.png" /></div>
+     <div class="btn_a1"><a href="${ctx}/front/accountCenter/index.html"><img src="${ctx}/theme/front/account/images/btn_a1.png" /></a></div>
     </div>
-    <div class="su_box">
+ <%--    <div class="su_box">
      <ul>
       <li class="li">您的账号：<span class="c_ff0000"><b>${accountNo}</b></span> 为会员登录账户使用，请牢记！</li>
       <li class="li relative">系统已向您的邮箱：<span class="c_ff0000"><b>${email}</b></span> 发送了一封验证邮件，验证通过后也可以作
 为会员账户使用，如果未收到邮件，您可以点击 <a href="${ctx}/front/account/resendMail.html?accountNo=${accountNo}">重新发送</a><div class="btn_a2"><a href="${ctx}/front/account/loginMail.html?email=${email}"><img src="${ctx}/theme/front/account/images/btn_a2.png" /></a></div>
       </li>
      </ul>
-    </div>
+    </div> --%>
  </div>
  <!--bot-->
  <jsp:include page="/WEB-INF/pages/front/index/bottom.jsp" />

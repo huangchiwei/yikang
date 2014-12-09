@@ -11,10 +11,6 @@
 <link href="${ctx}/js/front/train/css/list.css" rel="stylesheet" type="text/css" />
 
 
-
-<link href="../../../../theme/front/default/style/master.css" rel="stylesheet" type="text/css" />
-<link href="../../../../theme/front/default/style/default.css" rel="stylesheet" type="text/css" />
-<link href="../../../../js/front/train/css/list.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${ctx}/js/jquery-1.8.0.min.js"></script>
 <%-- <script src="${ctx}/js/front/news/js/flash.js"></script> --%>
 <script src="${ctx}/js/front/news/js/jquery.carouFredSel-6.0.4-packed.js"></script>

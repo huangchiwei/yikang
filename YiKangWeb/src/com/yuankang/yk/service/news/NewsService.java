@@ -208,7 +208,7 @@ public class NewsService extends BaseSqlService {
 	}
 
 	public String initSql(String CategoryName, int size) {
-		String sql = "select n.ID,n.Title,n.Digest from news n,news_category nc where n.CategoryId=nc.ID "
+		String sql = "select n.ID,n.Title,n.Content,n.Digest from news n,news_category nc where n.CategoryId=nc.ID "
 				+ "and nc.CategoryName='"
 				+ CategoryName
 				+ "' order by n.RealTime desc limit 0," + size + "";
@@ -223,13 +223,27 @@ public class NewsService extends BaseSqlService {
 
 	public List<Map<String, Object>> getIndustryNews() {
 		String sql = initSql("行业新闻", 9);
+		String des_src = "";
 		List<Map<String, Object>> list = getQuery(sql);
+		if (list != null && list.size() > 0) {
+			for (Map<String, Object> h : list) {
+				des_src = StringUtil.getThumb(h.get("Content").toString(), 200);
+				h.put("src", des_src);
+			}
+		}
 		return list;
 	}
 
 	public List<Map<String, Object>> getIndustryFocus() {
 		String sql = initSql("行业焦点", 9);
 		List<Map<String, Object>> list = getQuery(sql);
+		String des_src = "";
+		if (list != null && list.size() > 0) {
+			for (Map<String, Object> h : list) {
+				des_src = StringUtil.getThumb(h.get("Content").toString(), 200);
+				h.put("src", des_src);
+			}
+		}
 		return list;
 
 	}

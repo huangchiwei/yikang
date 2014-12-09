@@ -52,6 +52,8 @@ html { overflow:-moz-scrollbars-vertical;}
 		<li>
 			<a href="#">广告管理</a>
 			<ul>
+			  <li><a href="${ctx}/admin/advert/list/1.html" target="mainFrame">首页轮播图</a></li>
+			  <li><a href="${ctx}/admin/advert/list/1.html" target="mainFrame">行业资讯二级轮播图</a></li>
 			  <li><a href="${ctx}/admin/advert/list/1.html" target="mainFrame">广告列表</a></li>
 			   <li><a href="${ctx}/admin/adPosition/list/1.html" target="mainFrame">位置列表</a></li>
 			 
