@@ -426,6 +426,13 @@ DIV.scott SPAN.disabled {
 	color: #333333;
 
 }
+.art_con img{
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+
+}
 .art_con p {
 	margin-top: 0px;
 	margin-right: 0px;

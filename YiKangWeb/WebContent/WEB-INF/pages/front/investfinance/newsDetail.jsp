@@ -22,6 +22,7 @@
   <div class="n_box">
    <div class="new_logo"><img src="${ctx}/theme/front/investfinance/images/news_logo.png" /></div>
    <div class="lanren">
+   <a href="${ctx}/investFinance/index.html">首页</a>
     <a href='${ctx}/investment/list/1.html'>投资信息</a>
     <a href='${ctx}/financing/list/1.html'>融资信息</a>
     <a href='${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceNews' class="${news.CateCode == 'investFinanceNews' ? 'thisclass' : ''}">行业资讯</a>
@@ -36,7 +37,7 @@
     </div>
   </div>
  </div>
-<div class="location"><a href="${ctx}">首页</a> &gt; <a href="${ctx}/investFinance/index.html">投融资频道</a> &gt; 正文</div>
+<div class="location"><a href="${ctx}/">首页</a> &gt; <a href="${ctx}/investFinance/index.html">投融资频道</a> &gt; 正文</div>
 <div class="n_list">
   <div class="n_fl_670">
     <div class="detail_title">
@@ -55,13 +56,13 @@
  <div class="d_box_tj">
   <div class="sgtj">
   <c:if test="${not empty relatedImageNews }">
-   <div class="fl"><a href="#"><img src="${ctx}/${relatedImageNews.src}" width="150"/></a></div>
+   <div class="fl"><a href="${ctx}/investFinanceNews/detail/${relatedImageNews.ID}.html"><img src="${ctx}/${relatedImageNews.src}" width="150"/></a></div>
   <dl class="extend_page_dl">
-   <dt class="extend_page_dt"><a href="javascript:void(0);" onclick="jump(${relatedImageNews.ID})">${relatedImageNews.Title}</a></dt>
+   <dt class="extend_page_dt"><a href="${ctx}/investFinanceNews/detail/${relatedImageNews.ID}.html">${relatedImageNews.Title}</a></dt>
    <dd class="extend_page_dd">
    <c:if test="${fn:length(relatedImageNews.Digest)>55}">${fn:substring(relatedImageNews.Digest, 0, 55)}......</c:if>
        <c:if test="${fn:length(relatedImageNews.Digest)<55}">${relatedImageNews.Digest}</c:if>
-   [<a href="javascript:void(0);" onclick="jump(${relatedImageNews.ID})">详细</a>]</dd>
+   [<a href="${ctx}/investFinanceNews/detail/${relatedImageNews.ID}.html">详细</a>]</dd>
   </dl>
   </c:if>
  
@@ -69,7 +70,7 @@
   <div class="extend_page_d">
      <ul>
       <c:forEach items="${relatedOtherNews}" var="o" varStatus="sta">
-       <li class="li"><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 15) }</a></li>
+       <li class="li"><a href="${ctx}/investFinanceNews/detail/${o.ID}.html">${fn:substring(o.Title, 0, 15) }</a></li>
       </c:forEach>
       
      </ul>
@@ -101,26 +102,7 @@
      </ul>
     </div>
    </div>
-   <div class="list_r_box mt_15">
-    <div class="list_r_box_bj">
-     <h1>热文推荐</h1>
-    </div>
-     <ul class="ul2">
-     <c:forEach items="${hotRecomInfoList}" var="o" varStatus="sta">
-       <li>
-		<c:choose>
-       	<c:when test='${o.CategoryId == 6 || o.CategoryId == 7}'>
-       		<a href="${ctx}/investFinanceNews/detail/${o.ID}.html" target="_blank" title="${o.Title}">${fn:substring(o.Title, 0, 20)}</a>
-       	</c:when>
-       	<c:otherwise>
-       		<a href="${ctx}/front/news/detail/${o.ID}.html" target="_blank" title="${o.Title}">${fn:substring(o.Title, 0, 20)}</a>
-       	</c:otherwise>
-       </c:choose>
-		
-		</li>
-      </c:forEach>
-     </ul>
-   </div>
+   <jsp:include page="/WEB-INF/pages/front/common/hotRecomInfoList.jsp" />
     <!-- 疾病查询 -->
    <jsp:include page="/WEB-INF/pages/front/common/diseaseSearch.jsp"/>
   </div>

@@ -39,6 +39,7 @@ $(function(){
   <div class="n_box">
    <div class="new_logo"><img src="${ctx}/js/front/news/images/news_logo.png" /></div>
    <div class="lanren">
+   <a href="${ctx}/front/news/index.html">首页</a>
       <a href="${ctx}/front/news/list/1.html?cateCode=industryNews" <c:if test="${cateCode=='industryNews'}">class="thisclass"</c:if>>行业新闻</a>
     <a  href="${ctx}/front/news/list/1.html?cateCode=law" <c:if test="${cateCode=='countyLaw'||cateCode=='localLaw'||cateCode=='law'}">class="thisclass"</c:if>>法律法规</a>
     <a href="${ctx}/front/news/list/1.html?cateCode=industryFocus" <c:if test="${cateCode=='industryFocus'}">class="thisclass"</c:if>>行业焦点</a>
@@ -71,12 +72,12 @@ $(function(){
  <div class="d_box_tj">
   <div class="sgtj">
   <c:if test="${not empty relatedImageNews }">
-   <div class="fl"><a href="#"><img src="${ctx}/${relatedImageNews.src}" width="150"/></a></div>
+   <div class="fl"><a href="#"><img src="${ctx}/${relatedImageNews.src}" width="150" height="100"/></a></div>
   <dl class="extend_page_dl">
-   <dt class="extend_page_dt"><a href="javascript:void(0);" onclick="jump(${relatedImageNews.ID})">${fn:substring(relatedImageNews.Title, 0, 14)}</a></dt>
+   <dt class="extend_page_dt"><a href="javascript:void(0);" onclick="jump(${relatedImageNews.ID})">${relatedImageNews.Title}</a></dt>
    <dd class="extend_page_dd">
-   <c:if test="${fn:length(relatedImageNews.Digest)>55}">${fn:substring(relatedImageNews.Digest, 0, 55)}......</c:if>
-       <c:if test="${fn:length(relatedImageNews.Digest)<55}">${relatedImageNews.Digest}</c:if>
+   <c:if test="${fn:length(relatedImageNews.Digest)>48}">${fn:substring(relatedImageNews.Digest, 0, 48)}......</c:if>
+       <c:if test="${fn:length(relatedImageNews.Digest)<48}">${relatedImageNews.Digest}</c:if>
    [<a href="javascript:void(0);" onclick="jump(${relatedImageNews.ID})">详细</a>]</dd>
   </dl>
   </c:if>
@@ -129,7 +130,7 @@ $(function(){
     </div>
      <ul class="ul2">
      <c:forEach items="${hotRecomInfoList}" var="o" varStatus="sta">
-       <li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 20)}</a></li>
+       <li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 18)}</a></li>
       </c:forEach>
      </ul>
    </div>

@@ -22,7 +22,7 @@
   <div class="n_box">
    <div class="new_logo"><img src="${ctx}/theme/front/investfinance/images/news_logo.png" /></div>
    <div class="lanren">
-    <a href="${ctx}/" class="thisclass">首页</a>
+    <a href="${ctx}/investFinance/index.html" class="thisclass">首页</a>
     <a href='${ctx}/investment/list/1.html' >投资信息</a>
     <a href='${ctx}/financing/list/1.html'>融资信息</a>
     <a href='${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceNews'>行业资讯</a>
@@ -97,34 +97,34 @@
         为金融机构、企业提供专属服务！</div>
       <div class="trz_login_b">
        <h1>简单一步，轻松注册</h1>
-       <div class="btn_div"><input type="button" class="btn" value="登录" />
-         <input name="input2" type="button" class="btn" value="注册"/>
+       <div class="btn_div"><input type="button" class="btn" value="登录" style="cursor: pointer;" onclick="javascript:location.href='${ctx}/front/account/login.html'"/>
+         <input name="input2" type="button" class="btn" value="注册" style="cursor: pointer;" onclick="javascript:location.href='${ctx}/front/account/register.html'"/>
        </div>
       </div>
     </div>
     <div class="n_one_top">
      <div class="n_one_top_t2">
       <h1>行业资讯</h1>
-      <div class="more"><a href="#">more</a></div>
+      <div class="more"><a href="${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceNews" target="_blank">more</a></div>
      </div>
      <dl class="dl">
-      <dt class="dt"><img src="${ctx}/${relatedImageNews.src}" width="100" height="74" /></dt>
-      <dd class="dd"><a href="#">${relatedImageNews.Title }</a></dd>
+      <dt class="dt"><a href="${ctx}/investFinanceNews/detail/${relatedImageNews.ID}.html" target="_blank"><img src="${ctx}/${relatedImageNews.src}" width="100" height="74" /></a></dt>
+      <dd class="dd"><a href="${ctx}/investFinanceNews/detail/${relatedImageNews.ID}.html" target="_blank">${relatedImageNews.Title}</a></dd>
      </dl>
       <ul class="ul3">
       	<c:forEach items="${relatedOtherNews}" var="o">
-      		<li><a href="#" title="${o.Title}">${fn:length(o.Title)>16?fn:substring(o.Title,0,16):o.title}${fn:length(o.Title)>16?'...':''}</a></li>
+      		<li><a href="${ctx}/investFinanceNews/detail/${o.ID}.html" target="_blank" title="${o.Title}">${fn:length(o.Title)>16?fn:substring(o.Title,0,16):o.title}${fn:length(o.Title)>16?'...':''}</a></li>
       	</c:forEach>
       </ul>
     </div>
     <div class="n_one_top">
      <div class="n_one_top_t2">
       <h1>政策法规</h1>
-      <div class="more"><a href="#">more</a></div>
+      <div class="more"><a href="${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceLaw" target="_blank">more</a></div>
      </div>
       <ul class="ul3">
-       <c:forEach items="${zhengcefagui}" var="o">
-      		<li><a href="#" title="${o.Title}">${fn:length(o.Title)>16?fn:substring(o.Title,0,16):o.title}${fn:length(o.Title)>16?'...':''}</a></li>
+        <c:forEach items="${zhengcefagui_6}" var="o">
+      		<li><a href="${ctx}/investFinanceNews/detail/${o.ID}.html" target="_blank" title="${o.Title}">${fn:length(o.Title)>16?fn:substring(o.Title,0,16):o.title}${fn:length(o.Title)>16?'...':''}</a></li>
       	</c:forEach>
       </ul>
     </div>

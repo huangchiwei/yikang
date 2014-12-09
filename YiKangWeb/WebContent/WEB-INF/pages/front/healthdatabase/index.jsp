@@ -56,7 +56,7 @@ $(function(){
    <div class="lanren">
     <a href='${ctx}/healthDatabase/yyk/1.html' class="${type == 6 ? 'thisclass' : ''}">医院库</a>
     <a href='${ctx}/healthDatabase/ypk/1.html' class="${type == 7 ? 'thisclass' : ''}">药品库</a>
-    <a href='#'>保健品库</a>
+    <!--<a href='#'>保健品库</a>-->
    </div>
   </div>
   <div class="search">

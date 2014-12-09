@@ -26,6 +26,7 @@
   <div class="n_box">
    <div class="new_logo"><img src="${ctx}/theme/front/investfinance/images/news_logo.png" /></div>
    <div class="lanren">
+   <a href="${ctx}/investFinance/index.html">首页</a>
     <a href='${ctx}/investment/list/1.html'>投资信息</a>
     <a href='${ctx}/financing/list/1.html'>融资信息</a>
     <a href='${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceNews' class="${cateCode == 'investFinanceNews' ? 'thisclass' : ''}">行业资讯</a>
@@ -40,7 +41,7 @@
     </div>
   </div>
  </div>
-<div class="location"><a href="${ctx}">首页</a> &gt; <a href="${ctx}/investFinance/index.html">投融资频道</a> &gt; ${cateCode == 'investFinanceLaw' ? '政策法规' : '行业资讯'}
+<div class="location"><a href="${ctx}/">首页</a> &gt; <a href="${ctx}/investFinance/index.html">投融资频道</a> &gt; ${cateCode == 'investFinanceLaw' ? '政策法规' : '行业资讯'}</div>
 <div class="n_list">
   <div class="n_fl_670">
     <div class="n_list_title"><h1>${cateCode == 'investFinanceLaw' ? '政策法规' : '行业资讯'}</h1>
@@ -79,24 +80,7 @@
      </ul>
     </div>
    </div>
-   <div class="list_r_box mt_10">
-    <div class="list_r_box_bj">
-     <h1>热文推荐</h1>
-    </div>
-     <ul class="ul2">
-      <c:forEach items="${hotRecomInfoList}" var="o" varStatus="sta">
-       <li>
-       	<c:choose>
-       	<c:when test='${o.CategoryId == 6 || o.CategoryId == 7}'>
-       		<a href="${ctx}/investFinanceNews/detail/${o.ID}.html" target="_blank" title="${o.Title}">${fn:substring(o.Title, 0, 18)}</a>
-       	</c:when>
-       	<c:otherwise>
-       		<a href="${ctx}/front/news/detail/${o.ID}.html" target="_blank" title="${o.Title}">${fn:substring(o.Title, 0, 18)}</a>
-       	</c:otherwise>
-       </c:choose>
-      </c:forEach>
-     </ul>
-   </div>
+   <jsp:include page="/WEB-INF/pages/front/common/hotRecomInfoList.jsp" />
    <!-- 疾病查询 -->
    <jsp:include page="/WEB-INF/pages/front/common/diseaseSearch.jsp" />
   </div>

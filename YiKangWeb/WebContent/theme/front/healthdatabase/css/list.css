@@ -43,13 +43,13 @@
 
 }
 .news_top .index_reg a {
-	color: #0099cc;
+	color: #5aa304;
 	font-size: 14px;
 	padding-right: 10px;
 	padding-left: 10px;
 }
 .news_top .index_reg a:hover {
-	color: #0066CC;
+	color: #297b00;
 	font-size: 14px;
 	padding-right: 10px;
 	padding-left: 10px;
@@ -648,6 +648,7 @@ color: #529325;
 	width: 430px;
 	margin-left: auto;
 	font-size: 14px;
+	height:250px;
 }
 .doctor_box  .js  .dl {
 	line-height: 30px;

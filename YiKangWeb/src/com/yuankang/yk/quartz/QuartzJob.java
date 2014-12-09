@@ -86,9 +86,7 @@ public class QuartzJob {
 			page.setPageSize(8);
 			Constants.indexData.put("financeList2",
 					financingService.getListByPage(page));
-			// 投融资首页6条投融资行业资讯
-			/*Constants.indexData.put("hangyezixun",
-					newsService.getNews("投融资资讯", 6));*/
+			
 			// 投融资首页6条投融资政策法规
 			Constants.indexData.put("zhengcefagui_6",
 					newsService.getNews("投融资法律法规", 6));

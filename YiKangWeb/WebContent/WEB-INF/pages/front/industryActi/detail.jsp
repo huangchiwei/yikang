@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title></title>
+<title>大健康365---行业活动</title>
 <link href="${ctx}/theme/front/default/style/master.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/theme/front/default/style/default.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/js/front/industryActi/css/list.css" rel="stylesheet" type="text/css" />
@@ -71,8 +71,8 @@ $(function(){
   <dl class="extend_page_dl">
    <dt class="extend_page_dt"><a href="javascript:void(0);" onclick="jump(${one.Id})">${one.Title}</a></dt>
    <dd class="extend_page_dd">
-   <c:if test="${fn:length(one.Digest)>55}">${fn:substring(one.Digest, 0, 55)}......</c:if>
-       <c:if test="${fn:length(one.Digest)<55}">${one.Digest}</c:if>
+   <c:if test="${fn:length(one.Digest)>48}">${fn:substring(one.Digest, 0, 48)}......</c:if>
+       <c:if test="${fn:length(one.Digest)<48}">${one.Digest}</c:if>
    [<a href="javascript:void(0);" onclick="jump(${one.Id})">详细</a>]</dd>
   </dl>
   </c:if>
@@ -114,7 +114,7 @@ $(function(){
     <div class="list_r_rank">
      <ul class="ul">
        <c:forEach items="${hotOrderInfoList}" var="o" varStatus="sta">
-        <li><span>${o.Clicks }</span><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 17)}</a></li>
+        <li><span>${o.Clicks }</span><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 16)}</a></li>
        </c:forEach>
      
      </ul>
@@ -126,7 +126,7 @@ $(function(){
     </div>
      <ul class="ul2">
      <c:forEach items="${hotRecomInfoList}" var="o" varStatus="sta">
-       <li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 23)}</a></li>
+       <li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 18)}</a></li>
       </c:forEach>
      </ul>
    </div>

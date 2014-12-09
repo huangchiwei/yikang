@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title></title>
+<title>大健康365---健康大讲堂</title>
 <link href="${ctx}/theme/front/default/style/master.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/theme/front/default/style/default.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/js/front/train/css/list.css" rel="stylesheet" type="text/css" />
@@ -43,7 +43,6 @@ $(function(){
        <a href="${ctx}/front/train/list/1.html?cateCode=qualifications" <c:if test="${cateCode=='qualifications'}">class="thisclass"</c:if>>资质培训</a>
     <a  href="${ctx}/front/train/list/1.html?cateCode=technical" <c:if test="${cateCode=='technical'}">class="thisclass"</c:if>>技能培训</a>
     <a href="${ctx}/front/train/videoList/1.html?cateCode=lecture" <c:if test="${cateCode=='lecture'}">class="thisclass"</c:if>>健康大讲堂</a>
-   
    </div>
   </div>
   <div class="search">
@@ -53,7 +52,7 @@ $(function(){
     </div>
   </div>
  </div>
-<div class="location"><a href="#">首页</a> > <a href="#">健康培训</a> > <a href="#">${instance.CategoryName}</a> > 正文</div>
+<div class="location"><a href="${ctx}/">首页</a> > <a href="${ctx}/front/train/videoList/1.html?cateCode=lecture">${instance.CategoryName}</a></div>
 
 <div class="video_box">
  <h1>${instance.Title}</h1>

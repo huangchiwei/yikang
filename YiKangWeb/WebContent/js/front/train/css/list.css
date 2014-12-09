@@ -1153,7 +1153,7 @@ DIV.scott SPAN.disabled {
 .share .fr_ck a {
 	color: #0F6EB7;
 }
-.n   .list_video .list_video  {
+.n   .list_video  {
 	border-top-width: 3px;
 	border-right-width: 1px;
 	border-bottom-width: 1px;
@@ -1171,7 +1171,6 @@ DIV.scott SPAN.disabled {
 .n .video_box h1 {
 	font-family: "微软雅黑";
 	font-size: 18px;
-	font-weight: bold;
 	color: #333333;
 	margin-bottom: 10px;
 	border-top-width: 1px;
@@ -1183,3 +1182,4 @@ DIV.scott SPAN.disabled {
 .n .video_box {
 	margin-bottom: 15px;
 }
+.fenye{ padding:20px; text-align:center;}

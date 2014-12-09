@@ -24,7 +24,7 @@ $(function(){
    <div class="lanren">
     <a href='${ctx}/healthDatabase/yyk/1.html' class="thisclass">医院库</a>
     <a href='${ctx}/healthDatabase/ypk/1.html'>药品库</a>
-    <a href='javascript:'>保健品库</a>
+    <!--<a href='javascript:'>保健品库</a>-->
    </div>
   </div>
   <div class="search">

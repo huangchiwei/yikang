@@ -722,7 +722,7 @@ line-height: 30px;
 .n .location a {
 	padding-right: 5px;
 	padding-left: 5px;
-	color: #0F6EB7;
+	color: #297b00;
 }
 .n .n_list {
 	margin-right: auto;
@@ -738,7 +738,7 @@ line-height: 30px;
 	border-right-style: solid;
 	border-bottom-style: solid;
 	border-left-style: solid;
-	border-top-color: #0F6EB7;
+	border-top-color: #297b00;
 	border-right-color: #d3d3d3;
 	border-bottom-color: #d3d3d3;
 	border-left-color: #d3d3d3;
@@ -787,11 +787,11 @@ line-height: 30px;
 }
 .n .n_list .n_fl_670 .p_20 .li a {
 	font-size: 14px;
-	color: #0F6EB7;
+	color: #297b00;
 
 }
 /*CSS scott style 分页*/
-
+.fenye{ padding:20px; text-align:center;}
 DIV.scott {
 	TEXT-ALIGN: center;
 	padding: 5px;
@@ -938,11 +938,11 @@ DIV.scott SPAN.disabled {
 .detail_title p a:hover {color: #FF6600;text-decoration: underline;}
 .summary {
 	padding: 15px;
-	border: 1px solid #C4EAFB;
+	border: 1px solid #c9e7a7;
 	text-indent: 2em;
 	font-size: 14px;
 	line-height: 28px;
-	background-color: #EEFAFF;
+	background-color: #f3ffe5;
 }
 .art_con {
 	padding-right: 20px;
@@ -951,6 +951,13 @@ DIV.scott SPAN.disabled {
 	font-size: 14px;
 	line-height: 26px;
 	color: #333333;
+
+}
+.art_con img{
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
 
 }
 .art_con p {

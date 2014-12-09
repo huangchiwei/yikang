@@ -26,6 +26,7 @@
   <div class="n_box">
    <div class="new_logo"><img src="${ctx}/theme/front/investfinance/images/news_logo.png" /></div>
    <div class="lanren">
+   <a href="${ctx}/investFinance/index.html">首页</a>
     <a href='${ctx}/investment/list/1.html'>投资信息</a>
     <a href='${ctx}/financing/list/1.html'>融资信息</a>
     <a href='${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceNews'>行业资讯</a>
@@ -40,7 +41,7 @@
     </div>
   </div>
  </div>
-<div class="location"><a href="${ctx}">首页</a> &gt; <a href="${ctx}/investFinance/index.html">投融资频道</a> &gt; 行业机构</div>
+<div class="location"><a href="${ctx}/">首页</a> &gt; <a href="${ctx}/investFinance/index.html">投融资频道</a> &gt; 行业机构</div>
 <div class="search_trz">
  <h1>请选择查询条件</h1>
  <div class="s_trz_box">
@@ -98,16 +99,7 @@
      </ul>
    </div>
    <div class="ad_280 mt_10"><img src="${ctx}/theme/front/default/images/ad/ad_280.png" /></div>
-   <div class="list_r_box mt_10">
-    <div class="list_r_box_bj">
-     <h1>热文推荐</h1>
-    </div>
-     <ul class="ul2">
-      <c:forEach items="${hotRecomInfoList}" var="o" varStatus="sta">
-       <li><a href="${ctx}/front/news/detail/${o.ID}.html" target="_blank" title="${o.Title}">${fn:substring(o.Title, 0, 18)}</a></li>
-      </c:forEach>
-     </ul>
-   </div>
+   <jsp:include page="/WEB-INF/pages/front/common/hotRecomInfoList.jsp" />
   </div>
 </div>
   <!--bot-->

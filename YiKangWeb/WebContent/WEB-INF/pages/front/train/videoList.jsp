@@ -5,10 +5,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title></title>
+<title>大健康365---健康大讲堂</title>
 <link href="${ctx}/theme/front/default/style/master.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/theme/front/default/style/default.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/js/front/train/css/list.css" rel="stylesheet" type="text/css" />
+
+
+
+<link href="../../../../theme/front/default/style/master.css" rel="stylesheet" type="text/css" />
+<link href="../../../../theme/front/default/style/default.css" rel="stylesheet" type="text/css" />
+<link href="../../../../js/front/train/css/list.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${ctx}/js/jquery-1.8.0.min.js"></script>
 <%-- <script src="${ctx}/js/front/news/js/flash.js"></script> --%>
 <script src="${ctx}/js/front/news/js/jquery.carouFredSel-6.0.4-packed.js"></script>
