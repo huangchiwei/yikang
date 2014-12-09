@@ -10,6 +10,7 @@
 <link href="${ctx}/theme/admin/default/css/font.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${ctx}/js/jquery-1.8.0.min.js"></script>
 <script type="text/javascript" src="${ctx }/js/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="${ctx }/js/ckfinder/ckfinder.js"></script>
 <script type="text/javascript" src="${ctx}/js/layer/layer.min.js"></script>
 <script type="text/javascript">
 	$(function(){
@@ -36,7 +37,7 @@
 		editor= CKEDITOR.replace("overview"); 
 		CKFinder.setupCKEditor(editor, '${ctx}/js/ckfinder/');
 	});
-
+	
 </script>
 </head>
 

@@ -25,7 +25,7 @@
     </dl>
     <dl class="dl">
      <dt class="dt_b"></dt>
-     <dd><a href="#">发布资料</a></dd>
+     <dd><a href="${ctx}/front/accountCenter/add/new.html">发布资料</a></dd>
     </dl>
     <dl class="dl">
      <dt class="dt_c"></dt>

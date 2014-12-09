@@ -22,5 +22,5 @@ public interface InvestmentDao extends BaseDao<Investment> {
 	List<Map<String,Object>> findListByPage(Pagination page);
 
 	List<Map<String, Object>> findListByPage(Pagination page,
-			Long industryId, Integer provinceId, Date time);
+			Long industryId, Integer provinceId, Date time,Long accountId);
 }

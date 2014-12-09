@@ -12,7 +12,7 @@
 	 |<a href="${ctx}/front/account/register.html" target="_blank">注册</a>
  </c:if>
  <c:if test="${front_key != null}">
- 	<a href="#">${front_key}</a>
+ 	<a href="${ctx}/front/accountCenter/index.html">${front_key}</a>
 	 <a href="${ctx}/front/account/accountLogout.html">安全退出</a>
  </c:if>
  </div>

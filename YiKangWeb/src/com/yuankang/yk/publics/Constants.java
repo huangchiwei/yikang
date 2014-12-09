@@ -26,6 +26,7 @@ public abstract class Constants
 	public static final String VERIFY_CODE = "verify_code";
 	/** 定义存放在Session中的用户 */
 	public static final String SESSION_USER = "session_user";
+	public static final String SESSION_USERID = "session_userid";
 	
 	public static final String FRONT_KEY = "front_key";
 	public static final String BASE_DIR = "C:/YiKangWeb_upfile";

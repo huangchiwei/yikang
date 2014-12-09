@@ -16,6 +16,6 @@ public interface FinancingDao extends BaseDao<Financing> {
 	List<Map<String, Object>> getListByPage(Pagination page);
 
 	List<Map<String, Object>> findListByPage(Pagination page, Long industryId,
-			Integer provinceId,Integer cityId, Date time);
+			Integer provinceId,Integer cityId, Date time,Long accountId);
 
 }

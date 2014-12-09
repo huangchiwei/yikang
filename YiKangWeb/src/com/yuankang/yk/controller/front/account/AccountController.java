@@ -36,7 +36,7 @@ public class AccountController extends BaseController {
 	  public String login( Model model,String accountNo,
 			  String pwd,String vcode,HttpServletRequest request,HttpServletResponse response)
 	  {
-		  Object oj=  request.getSession().getAttribute("front_key");
+		  Object oj=  request.getSession().getAttribute(Constants.FRONT_KEY);
 			if(oj!=null){
 				return "redirect:/index.html";
 			}
@@ -61,6 +61,7 @@ public class AccountController extends BaseController {
 					}
 					request.getSession(true);
 					request.getSession().setAttribute(Constants.FRONT_KEY, accountNo);
+					request.getSession().setAttribute(Constants.SESSION_USERID, ac.get("ID"));
 					//super.setCookie(response, Constants.FRONT_KEY, accountNo);	
 					return "redirect:/index.html";
 			  }else{

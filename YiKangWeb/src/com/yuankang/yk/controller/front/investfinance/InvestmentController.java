@@ -67,7 +67,7 @@ public class InvestmentController extends BaseController{
 				cal.set(Calendar.DATE, cal.get(Calendar.DATE) - day);
 				time = new Date(cal.get(Calendar.YEAR) - 1900,cal.get(Calendar.MONTH),cal.get(Calendar.DAY_OF_MONTH));
 			}
-			model.addAttribute("list", investmentService.getByPage(page, industryId, provinceId, time));
+			model.addAttribute("list", investmentService.getByPage(page, industryId, provinceId, time,null));
 			model.addAttribute("page", page);
 			model.addAttribute("regions", regionService.findByParentId(1));
 			model.addAttribute("industrys", mcodeService.findMcodesByMcType("INDUSTRY"));

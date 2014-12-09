@@ -45,7 +45,7 @@ public class FinancingController extends BaseController {
 			cal.set(Calendar.DATE, cal.get(Calendar.DATE) - day);
 			time = new Date(cal.get(Calendar.YEAR) - 1900,cal.get(Calendar.MONTH),cal.get(Calendar.DAY_OF_MONTH));
 		}
-		model.addAttribute("list", financingService.getByPage(page, industryId, provinceId,cityId, time));
+		model.addAttribute("list", financingService.getByPage(page, industryId, provinceId,cityId, time,null));
 		model.addAttribute("provinces", regionService.findByParentId(1));
 		model.addAttribute("industrys", mcodeService.findMcodesByMcType("INDUSTRY"));
 		model.addAttribute("page", page);
