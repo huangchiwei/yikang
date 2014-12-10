@@ -97,7 +97,7 @@ public class AccountService extends BaseSqlService {
 		    mailInfo.setToAddress(account.getEmail()); 
 		    mailInfo.setSubject("激活注册用户"); 
 		    String actiUrl=Constants.mailPros.getProperty("mail.actiUrl")+"accountNo="+account.getAccountNo()+"&mailSeq="+account.getMailSeq();
-		     mailInfo.setContent("亿康会员：尊敬的["+account.getAccountNo()+"],激活用户请点击以下地址,"+actiUrl);    
+		     mailInfo.setContent("亲爱的大健康365会员["+account.getAccountNo()+"]:激活用户请点击以下地址,"+actiUrl);    
 		        //这个类主要来发送邮件   
 		     SimpleMailSender sms = new SimpleMailSender();   
 		         sms.sendTextMail(mailInfo);//发送文体格式    
@@ -116,11 +116,11 @@ public class AccountService extends BaseSqlService {
 		    if(type.equals("acti")){
 		    	 mailInfo.setSubject("激活注册用户"); 
 				    String actiUrl=Constants.mailPros.getProperty("mail.actiUrl")+"accountNo="+account.get("AccountNo").toString()+"&mailSeq="+account.get("MailSeq").toString();
-				     mailInfo.setContent("亿康会员：尊敬的["+account.get("AccountNo").toString()+"],激活用户请点击以下地址,"+actiUrl);   
+				     mailInfo.setContent("亲爱的大健康365会员["+account.get("AccountNo").toString()+"]:激活用户请点击以下地址,"+actiUrl);   
 		    }else if(type.equals("reset")){
 		    	 mailInfo.setSubject("重置密码"); 
 		    	 String resetUrl=Constants.mailPros.getProperty("mail.resetUrl")+"accountNo="+account.get("AccountNo").toString()+"&mailSeq="+account.get("MailSeq").toString();
-		    	 mailInfo.setContent("亿康会员：尊敬的["+account.get("AccountNo").toString()+"],重置密码请点击以下地址,"+resetUrl);   
+		    	 mailInfo.setContent("亲爱的大健康365会员["+account.get("AccountNo").toString()+"]:重置密码请点击以下地址,"+resetUrl);   
 		    }
 		    
 		        //这个类主要来发送邮件   

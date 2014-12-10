@@ -5,15 +5,15 @@ public class Test {
         //这个类主要是设置邮件   
      MailSenderInfo mailInfo = new MailSenderInfo();   
      //163服务器
-     mailInfo.setMailServerHost("smtp.163.com");    
+     mailInfo.setMailServerHost("smtp.126.com");    
      mailInfo.setMailServerPort("25");    
      mailInfo.setValidate(true);    
-     mailInfo.setUserName("13418056821@163.com");    
-     mailInfo.setPassword("456woshxi!!");//您的邮箱密码    
-    mailInfo.setFromAddress("13418056821@163.com");   
+     mailInfo.setUserName("djk3652014@126.com");    
+     mailInfo.setPassword("djk365");//您的邮箱密码    
+    mailInfo.setFromAddress("djk3652014@126.com");   
     
      //mailInfo.setToAddress("77946416@qq.com");  //雄哥
-     mailInfo.setToAddress("1040213645@qq.com");  //国冠
+     mailInfo.setToAddress("1246251343@qq.com");  //国冠
     // mailInfo.setToAddress("659590719@qq.com");  //炽威
      
     // mailInfo.setToAddress("13418056821@163.com");   
