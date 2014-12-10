@@ -138,7 +138,7 @@ public class IndexController extends BaseController{
 ////////////////////////////////头条////////////////////////////////////////////
 ////////////////////////////////行业资讯////////////////////////////////////////////
 		//行业新闻推荐
-		 List<String> idList=new ArrayList<String>();
+		/* List<String> idList=new ArrayList<String>();
 		// idList.add(news.get("ID").toString());
 		 List<Map<String, Object>> imageIndustryNewsList=newsService.getByCateCode("industryNews",idList,true,1);
 		
@@ -148,15 +148,20 @@ public class IndexController extends BaseController{
 			 
 		 }
 		 List<Map<String, Object>> otherIndustryNews=newsService.getByCateCode("industryNews",idList,false,6);
-		 model.addAttribute("otherIndustryNews", otherIndustryNews);
-		 
+		 model.addAttribute("otherIndustryNews", otherIndustryNews);*/
+		 List<Map<String, Object>> industryNews=newsService.getByCateCode("industryNews",7);
+		 model.addAttribute("industryNews", industryNews);
 		 //行业焦点推荐
-		 List<Map<String, Object>> industryFocusList=newsService.getByCateCode("industryFocus",new ArrayList<String>(),false,4);
+		/* List<Map<String, Object>> industryFocusList=newsService.getByCateCode("industryFocus",new ArrayList<String>(),false,4);
+		 model.addAttribute("industryFocusList", industryFocusList);*/
+		 List<Map<String, Object>> industryFocusList=newsService.getByCateCode("industryFocus",4);
 		 model.addAttribute("industryFocusList", industryFocusList);
 		 //法律法规推荐
 		model.addAttribute("allLawList", newsService.getByLaw(4,true));
 		//重要活动
-		 List<Map<String, Object>> industryActiList=newsService.getByCateCode("acti",new ArrayList<String>(),false,6);
+		/* List<Map<String, Object>> industryActiList=newsService.getByCateCode("acti",new ArrayList<String>(),false,6);
+		 model.addAttribute("industryActiList", industryActiList);*/
+		 List<Map<String, Object>> industryActiList=newsService.getByCateCode("acti",6);
 		 model.addAttribute("industryActiList", industryActiList);
 ////////////////////////////////行业资讯////////////////////////////////////////////
  //////////////////////////健康购////////////////////////////////////////

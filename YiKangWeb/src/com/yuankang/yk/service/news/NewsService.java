@@ -78,6 +78,19 @@ public class NewsService extends BaseSqlService {
 				"select n.ID,n.Title,n.RealTime from news n,news_category nc where n.CategoryId=nc.ID and (nc.CateCode='countyLaw' or nc.CateCode='localLaw')"+sql+" order by n.RealTime desc limit 0,"+pageSize);
 		return list;
 	}
+	public List<Map<String, Object>> getByCateCode(String cateCode,int pageSize) {
+		String sql="select n.*,nc.CateCode from news n,news_category nc where n.CategoryId=nc.ID and nc.CateCode='"+cateCode+"' order by n.RealTime desc limit 0,"+pageSize;
+		List<Map<String, Object>> list =  getQuery(sql);
+		String des_src="";
+		if (list != null && list.size() > 0) {
+			for (Map<String, Object> h : list) {
+				des_src = StringUtil.getThumb(h.get("Content").toString(), 200);
+				h.put("src", des_src);
+			}
+		}
+		return list;
+		
+	}
 	public List<Map<String, Object>> getByCateCode(String cateCode,
 			List<String> withoutIdList, Boolean hasImage, int pageSize) {
 		String imageSql = "", idSql = "";

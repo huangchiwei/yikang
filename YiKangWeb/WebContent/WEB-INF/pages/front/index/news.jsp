@@ -20,18 +20,22 @@
        <div class="more"><a href="${ctx}/front/news/list/1.html?cateCode=industryNews">more</a></div>
       </div>
       <div class="new_a1">
-      <div class="fl"><img src="${ctx}${imageIndustryNews.src}" width="130" height="80"/></div>
+      <div class="fl"><c:if test="${not empty industryNews}">
+      <c:if test="${not empty industryNews[0].src}"><img src="${ctx}${industryNews[0].src}" width="130" height="80"/></c:if>
+      <c:if test="${ empty industryNews[0].src}"><img src="${ctx}/theme/front/default/images/index_001.png" width="130" height="80"/></c:if>
+      </c:if></div>
       <dl class="dl">
-       <dt><a href="javascript:void(0);" onclick="jump(${imageIndustryNews.ID},1)">${fn:substring(imageIndustryNews.Title, 0, 10)}</a></dt>
+       <dt><a href="javascript:void(0);" onclick="jump(${industryNews[0].ID},1)">${fn:substring(industryNews[0].Title, 0, 10)}</a></dt>
        <dd>
-         <c:if test="${fn:length(imageIndustryNews.Digest)>30}">${fn:substring(imageIndustryNews.Digest, 0, 30)}......</c:if>
-       <c:if test="${fn:length(imageIndustryNews.Digest)<30}">${imageIndustryNews.Digest}</c:if>
-       <a href="javascript:void(0);" onclick="jump(${imageIndustryNews.ID},1)">[详细]</a></dd>
+         <c:if test="${fn:length(industryNews[0].Digest)>28}">${fn:substring(industryNews[0].Digest, 0, 28)}......</c:if>
+       <c:if test="${fn:length(industryNews[0].Digest)<28}">${industryNews[0].Digest}</c:if>
+       <a href="javascript:void(0);" onclick="jump(${industryNews[0].ID},1)">[详细]</a></dd>
       </dl>
       </div>
       <ul class="ul2">
-       <c:forEach items="${otherIndustryNews}" var="o" varStatus="sta">
-        <li><a href="javascript:void(0);" onclick="jump(${o.ID},1)">${fn:substring(o.Title, 0, 30) }</a></li>
+       <c:forEach items="${industryNews}" var="o" varStatus="sta">
+       <c:if test="${sta.index>0}"> <li><a href="javascript:void(0);" onclick="jump(${o.ID},1)">${fn:substring(o.Title, 0, 30) }</a></li></c:if>
+       
        </c:forEach>
       
       </ul>
