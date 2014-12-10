@@ -194,7 +194,7 @@ public class NewsService extends BaseSqlService {
 
 	// 前台
 	// 二级
-	public List<Map<String, Object>> getSecLevShowPic() {
+/*	public List<Map<String, Object>> getSecLevShowPic() {
 		String sql = "select ID,Content from news where HasImage=1 order by RealTime desc limit 0,4";
 		List<Map<String, Object>> list = getQuery(sql);
 		String des_src = "";
@@ -205,7 +205,7 @@ public class NewsService extends BaseSqlService {
 			}
 		}
 		return list;
-	}
+	}*/
 
 	public String initSql(String CategoryName, int size) {
 		String sql = "select n.ID,n.Title,n.Content,n.Digest from news n,news_category nc where n.CategoryId=nc.ID "

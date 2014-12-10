@@ -40,13 +40,90 @@ public class AdvertController extends BaseController {
 	private AdvertService advertService;
 	@Resource
 	private AdPositionService adPositionService;
-	/**
+	
+	////////////////////////////////////////////
+	@RequestMapping(value = PAGE_LIST)
+	public ModelAndView list(@PathVariable int currentPage,int adPosionId,String pictype) {
+		
+				ModelAndView mv = new ModelAndView("admin/advert/carouselQ");
+				// 初始化分页实体
+				Pagination page = initPage(currentPage);
+				//page.setPageSize(4);
+				mv.addObject("list", advertService.getByPage(page,adPosionId,pictype));
+				mv.addObject("posList",advertService.getByPicType(pictype));
+				mv.addObject("page", page);
+				mv.addObject("pictype", pictype);
+				mv.addObject("adPosionId", adPosionId);
+		return mv;
+	}
+	@RequestMapping(value = SAVE)
+	public String save(HttpServletRequest request,Model model,Advert advert,String viewType,String pictype) {
+		
+		 String imgPath="";
+		 String realPath="";  
+	     MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;  
+	        MultipartFile file = multipartRequest.getFile("file");    
+			   if (!file.isEmpty()) {
+				 
+				   imgPath="/userfiles/advert/"+pictype+"/"+file.getOriginalFilename();
+					realPath=Constants.BASE_DIR+imgPath;
+				   try {
+							file.transferTo(new File(realPath));
+						} catch (IllegalStateException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+			   }
+
+		 User user=(User)request.getSession().getAttribute(Constants.SESSION_USER);
+		 advert.setLastUpdateUser(user.getLoginName());
+		 advert.setImg(imgPath);
+		 if(viewType.equals("A")){
+			 advertService.save(advert);
+		 }else  if(viewType.equals("U")){
+			 advertService.update(advert);
+		 }
+		 
+		 return "redirect:/admin/advert/list/1.html?adPosionId=-1&pictype="+pictype;
+	}
+	 @RequestMapping(value = ADD)
+	  public String add(Model model,String pictype)
+	  {
+
+		 model.addAttribute("pictype",pictype);
+		 model.addAttribute("posList",advertService.getByPicType(pictype));
+		 model.addAttribute("viewType", "A");
+	    return "admin/advert/carouselA_U";
+	  }
+	 @RequestMapping(value = UPDATE)
+	  public String update(@PathVariable("id") Long key, Model model,String pictype)
+	  {
+		 Map<String, Object> advert= advertService.getById(key);
+		 model.addAttribute("posList", advertService.getByPicType(pictype));
+		 model.addAttribute("advert", advert);
+		 model.addAttribute("pictype", pictype);
+		 model.addAttribute("viewType", "U");
+	    return "admin/advert/carouselA_U";
+	  }
+	 @RequestMapping(value = DELETE)
+	  public String delete(@PathVariable("id") Long key,String pictype)
+	  {
+		 advertService.delete(key);
+	    return "redirect:/admin/advert/list/1.html?adPosionId=-1&pictype="+pictype;
+	  }
+	
+	
+/*	
+	*//**
 	 * 条件分页查询广告
 	 * 
 	 * @param currentPage
 	 * @param user
 	 * @return
-	 */
+	 *//*
 	@RequestMapping(value = PAGE_LIST)
 	public ModelAndView getByPage(@PathVariable int currentPage, String adName) {
 		
@@ -121,5 +198,5 @@ public class AdvertController extends BaseController {
 		 }
 		 
 		 return "redirect:/admin/advert/list/1.html";
-	  }
+	  }*/
 }

@@ -57,13 +57,20 @@ $(function(){
    <div class="n_flash">
     <div id="wrappers">
 	<div id="carousels">
-	<c:forEach items="${fourPicList}" var="p" varStatus="sta">
-			<img src="${ctx}/${p.src}" width="650" height="310" onclick="jump(${p.ID})" style="cursor:pointer;"/>
-	</c:forEach>
-		<!-- <img src="http://demo.lanrenzhijia.com/2014/banner1029/images/cars.jpg" width="650" height="310" />
+<%-- 	<c:forEach items="${advert11}" var="p" varStatus="sta">
+	<c:if test="${sta.index==fn:length(advert11)-1}">
+	<a href="${p.Url}" target="_blank"><img src="${ctx}${p.Img}" width="650" height="300" style="cursor:pointer;" class="last"/></a>
+			
+	</c:if>
+	<c:if test="${sta.index!=fn:length(advert11)-1}">
+	<a href="${p.Url}" target="_blank"><img src="${ctx}${p.Img}" width="650" height="300" style="cursor:pointer;" /></a>
+			
+	</c:if>
+	</c:forEach> --%>
+		 <img src="http://demo.lanrenzhijia.com/2014/banner1029/images/cars.jpg" width="650" height="310" />
 		<img src="http://demo.lanrenzhijia.com/2014/banner1029/images/rat.jpg" width="650" height="310" />
 		<img src="http://demo.lanrenzhijia.com/2014/banner1029/images/toystory.jpg" width="650" height="310" />
-		<img src="http://demo.lanrenzhijia.com/2014/banner1029/images/walle.jpg" width="650" height="310" class="last" /> -->
+		<img src="http://demo.lanrenzhijia.com/2014/banner1029/images/walle.jpg" width="650" height="310"  /> 
 	</div>
 	<div id="pagers">
 		<a href="#"><span></span></a>
@@ -79,7 +86,7 @@ $(function(){
      <div class="more"><a href="${ctx}/front/news/list/1.html?cateCode=industryNews">more</a></div>
     </div>
     <div class="n_b_box">
-     <div class="n_b_box_l"><img src="${ctx}/js/front/news/images/index_001.png" /></div>
+     <div class="n_b_box_l"><img src="${ctx}${first_industryNews_pic.src}" width="140" height="105"/></div>
      <div class="n_b_box_r">
      <c:forEach items="${industryNews}" var="i" varStatus="sta">
      <c:if test="${sta.index ==0}">
@@ -110,7 +117,7 @@ $(function(){
      <div class="more"><a href="${ctx}/front/news/list/1.html?cateCode=industryFocus">more</a></div>
     </div>
     <div class="n_b_box">
-     <div class="n_b_box_l"><img src="${ctx}/js/front/news/images/index_001.png" /></div>
+     <div class="n_b_box_l"><img src="${ctx}${first_industryFocus_pic.src}" width="140" height="105"/></div>
      <div class="n_b_box_r">
      
           <c:forEach items="${industryFocus}" var="f" varStatus="sta">
@@ -170,7 +177,7 @@ $(function(){
        <dl>
 <dt>
 <a href="javascript:void(0);" onclick="jump(${hotOrderImage.ID},1)">${fn:substring(hotOrderImage.Title, 0, 18) }</a></dt>
-<dd><p><a href="javascript:void(0);" onclick="jump(${hotOrderImage.ID},1)"><img src="${ctx}/${hotOrderImage.src}" width="100" height="100"/></a></p>
+<dd><p><a href="javascript:void(0);" onclick="jump(${hotOrderImage.ID},1)"><img src="${ctx}${hotOrderImage.src}" width="100" height="100"/></a></p>
 <span> <c:if test="${fn:length(hotOrderImage.Digest)>35}">${fn:substring(hotOrderImage.Digest, 0, 35) }.....</c:if>
 <c:if test="${fn:length(hotOrderImage.Digest)<37}">${ hotOrderImage.Digest}</c:if>
 <a href="javascript:void(0);" onclick="jump(${hotOrderImage.ID},1)">查看详细</a></span>
@@ -241,7 +248,7 @@ $(function(){
     <div class="n_three_b">
      <div class="l_box">
       <dl>
-       <dt><img src="${ctx }/${oneImage.src}" width="200"/></dt>
+       <dt><img src="${ctx }/${oneImage.src}" width="200" height="120"/></dt>
        <dd><a  href="javascript:void(0);" onclick="jump(${oneImage.ID})">${fn:substring(oneImage.Title, 0, 14) }</a></dd>
       </dl>
       <ul class="ul">
@@ -254,7 +261,7 @@ $(function(){
      </div>
      <div class="l_box">
       <dl>
-       <dt><img src="${ctx }/${twoImage.src}" width="200"/></dt>
+       <dt><img src="${ctx }/${twoImage.src}" width="200" height="120"/></dt>
        <dd><a href="javascript:void(0);" onclick="jump(${twoImage.ID})">${fn:substring(twoImage.Title, 0, 14) }</a></dd>
       </dl>
       <ul class="ul">
@@ -266,7 +273,7 @@ $(function(){
      </div>
      <div class="l_box">
       <dl>
-       <dt><img src="${ctx }/${thirdImage.src}" width="200"/></dt>
+       <dt><img src="${ctx }/${thirdImage.src}" width="200" height="120"/></dt>
        <dd><a href="javascript:void(0);" onclick="jump(${thirdImage.ID})">${fn:substring(thirdImage.Title, 0, 14) }</a></dd>
       </dl>
       <ul class="ul">

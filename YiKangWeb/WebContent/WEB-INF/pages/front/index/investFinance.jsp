@@ -79,9 +79,9 @@
      <div class="one_b_r_b">
       <h1>行业活动</h1>
       <ul class="ul2">
-       <li><a href="#"><img src="${ctx}/theme/front/default/images/ad/ad_200.png" /></a></li>
-       <li><a href="#"><img src="${ctx}/theme/front/default/images/ad/ad_200.png" /></a></li>
-       <li><a href="#"><img src="${ctx}/theme/front/default/images/ad/ad_200.png" /></a></li>
+       <li><a href="${advert8.Url}" target="_blank"><img src="${ctx}${advert8.Img}" width="${advert8.Width}" height="${advert8.Height }"/></a></li>
+      <li><a href="${advert9.Url}" target="_blank"><img src="${ctx}${advert9.Img}" width="${advert9.Width}" height="${advert9.Height }"/></a></li>
+      <li><a href="${advert10.Url}" target="_blank"><img src="${ctx}${advert10.Img}" width="${advert10.Width}" height="${advert10.Height }"/></a></li>
      </ul>
     </div>
    </div>

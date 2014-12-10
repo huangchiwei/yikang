@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.yuankang.yk.publics.Constants;
+import com.yuankang.yk.service.advert.AdvertService;
 import com.yuankang.yk.service.news.NewsCommentService;
 import com.yuankang.yk.service.train.TrainService;
 
@@ -24,7 +25,8 @@ import com.yuankang.yk.service.train.TrainService;
 @Controller("frontTrainController")
 @RequestMapping("front/train")
 public class TrainFrontController extends BaseController {
-
+	@Resource
+	private AdvertService advertService;
 	@Resource
 	private TrainService trainService;
 	
@@ -32,6 +34,10 @@ public class TrainFrontController extends BaseController {
 	@RequestMapping(value =DETAIL)
 	 public String detail(@PathVariable("id") Long key,Model model)
 	 {
+		//右上角广告
+		List<Map<String, Object>>  advert12=advertService.getByPosCode("12");
+		if(advert12!=null && advert12.size()>0)
+		model.addAttribute("advert12",advert12.get(0));
 		Map<String, Object> instance=trainService.getById(key);
 		//if(news!=null){
 			model.addAttribute("cateCode", instance.get("CateCode").toString());
@@ -62,6 +68,10 @@ public class TrainFrontController extends BaseController {
 	@RequestMapping(value =PAGE_LIST)
 	 public String list(@PathVariable int currentPage,Model model,String cateCode)
 	 {
+		//右上角广告
+		List<Map<String, Object>>  advert12=advertService.getByPosCode("12");
+		if(advert12!=null && advert12.size()>0)
+		model.addAttribute("advert12",advert12.get(0));
 		// 初始化分页实体
 				Pagination page = initPage(currentPage);
 				page.setPageSize(30);
