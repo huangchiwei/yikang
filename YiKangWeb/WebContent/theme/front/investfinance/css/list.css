@@ -35,13 +35,13 @@
 	font-family:"微软雅黑";
 }
 .news_top .index_reg {
-	width: 110px;
+	width: 150px;
 	margin-left: auto;
 	line-height: 36px;
 	padding-top: 2px;
 	color: #CCCCCC;
 	font-size: 14px;
-
+	text-align: right;
 }
 .news_top .index_reg a {
 	color: #509300;
@@ -202,17 +202,17 @@
 #pagers a, #pagers span{
 	display:block;
 	height:10px;
-	color: #003333;
+	color: #333;
 }
 #pagers a{
 	width:160px;
 	margin-right:2px;
 	float:left;
-	background-color: #0f6eb7;
+	background-color: #666666;
 }
-#pagers a:hover{border-color:#0099cc;}
+#pagers a:hover{border-color:#999;}
 #pagers span{
-	background-color:#0099cc;
+	background-color:#999;
 	width:0px;
 }
 .n .n_one .n_one_l .n_flash {
@@ -233,10 +233,10 @@
 	height: 43px;
 	font-size: 16px;
 	line-height: 43px;
-	color: #0f6eb7;
+	color: #358902;
 	border-bottom-width: 2px;
 	border-bottom-style: solid;
-	border-bottom-color: #0f6eb7;
+	border-bottom-color: #358902;
 	float: left;
 	padding-right: 10px;
 	padding-left: 10px;
@@ -250,7 +250,7 @@
 	line-height: 43px;
 }
 .n_n_b_t .more a {
-	color: #003399;
+	color: #358902;
 	font-size: 14px;
 }
 
@@ -275,7 +275,7 @@
 .n_one_top .n_one_top_t h1 {
 	line-height: 36px;
 	height: 36px;
-	background-color: #2c6abf;
+	background-color: #358902;
 	float: left;
 	padding-right: 10px;
 	padding-left: 10px;
@@ -444,10 +444,10 @@ line-height: 30px;
 	height: 43px;
 	font-size: 16px;
 	line-height: 43px;
-	color: #0f6eb7;
+	color: #358902;
 	border-bottom-width: 2px;
 	border-bottom-style: solid;
-	border-bottom-color: #0f6eb7;
+	border-bottom-color: #358902;
 	float: left;
 	padding-right: 10px;
 	padding-left: 10px;
@@ -598,7 +598,7 @@ line-height: 30px;
 .n .location a {
 	padding-right: 5px;
 	padding-left: 5px;
-	color: #0F6EB7;
+	color: #358902;
 }
 .n .n_list {
 	margin-right: auto;
@@ -614,13 +614,12 @@ line-height: 30px;
 	border-right-style: solid;
 	border-bottom-style: solid;
 	border-left-style: solid;
-	border-top-color: #0F6EB7;
+	border-top-color: #358902;
 	border-right-color: #d3d3d3;
 	border-bottom-color: #d3d3d3;
 	border-left-color: #d3d3d3;
 	float: left;
 	width: 670px;
-
 }
 .n  .n_list  .n_fr_280 {
 	width: 280px;
@@ -690,7 +689,7 @@ DIV.scott A {
 	PADDING-LEFT: 7px;
 	PADDING-BOTTOM: 5px;
 	BORDER-LEFT: #ddd 1px solid;
-	COLOR: #0F6EB7;
+	COLOR: #358902;
 	MARGIN-RIGHT: 5px;
 	PADDING-TOP: 5px;
 	BORDER-BOTTOM: #ddd 1px solid;
@@ -699,14 +698,14 @@ DIV.scott A {
 	border-radius:5px;
 }
 DIV.scott A:hover {
-	COLOR: #0F6EB7;
-	BACKGROUND-COLOR: #D7F5FF;
-	border: 1px solid #0F6EB6;
+	COLOR: #358902;
+	BACKGROUND-COLOR: #dfffd7;
+	border: 1px solid #358902;
 }
 DIV.scott A:active {
-	COLOR: #0F6EB7;
-	BACKGROUND-COLOR: #D7F5FF;
-	border: 1px solid #0F6EB6;
+	COLOR: #358902;
+	BACKGROUND-COLOR: #dfffd7;
+	border: 1px solid #358902;
 	border-radius:5px;
 }
 DIV.scott SPAN.current {
@@ -718,7 +717,7 @@ DIV.scott SPAN.current {
 	MARGIN-RIGHT: 5px;
 	PADDING-TOP: 5px;
 	BACKGROUND-COLOR: #0F6EB7;
-	border: 1px solid #0F6EB7;
+	border: 1px solid #358902;
 	font-family: Arial, Helvetica, sans-serif;
 	border-radius:5pxm;
 }
@@ -995,7 +994,7 @@ DIV.scott SPAN.disabled {
 
 }
 .n_one_top   .trz_login_b   .btn_div .btn {
-	background-color: #2c6abf;
+	background-color: #358902;
 	padding-top: 10px;
 	padding-right: 28px;
 	padding-bottom: 10px;
@@ -1004,7 +1003,6 @@ DIV.scott SPAN.disabled {
 	color: #FFFFFF;
 	border-radius:5px;
 	border: 1px none #FFFFFF;
-
 }
 .n_one_top .trz_login_b .btn_div {
 	padding-top: 10px;
@@ -1113,11 +1111,12 @@ DIV.scott SPAN.disabled {
 
 }
 .n .search_trz .s_trz_box .span .btn {
-	background-color: #003783;
+	background-color: #358902;
 	font-size: 14px;
 	color: #FFFFFF;
 	border: 1px none #FFFFFF;
-
+	cursor: pointer;
+	border-radius: 5px;
 }
 .p_20 .trz_title span {
 	display: block;
@@ -1158,10 +1157,10 @@ DIV.scott SPAN.disabled {
 }
 .n .n_list .n_fl_670 .p_20 .li2 a {
 	font-size: 14px;
-	color: #0F6EB7;
+	color: #358902;
 }
 .n .n_list .n_fl_670 .p_20 .li2 .industry {
-	width: 80px;
+	width: 100px;
 	text-align: center;
 }
 .n .n_list .n_fl_670 .p_20 .li2 .time {
@@ -1221,10 +1220,10 @@ DIV.scott SPAN.disabled {
 	height: 43px;
 	font-size: 16px;
 	line-height: 43px;
-	color: #0f6eb7;
+	color: #358902;
 	border-bottom-width: 2px;
 	border-bottom-style: solid;
-	border-bottom-color: #0f6eb7;
+	border-bottom-color: #358902;
 	float: left;
 	padding-right: 10px;
 	padding-left: 10px;

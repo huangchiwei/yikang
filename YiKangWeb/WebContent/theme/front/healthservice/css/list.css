@@ -34,22 +34,22 @@
 	padding-left: 10px;
 }
 .news_top .index_reg {
-	width: 110px;
+	width: 150px;
 	margin-left: auto;
 	line-height: 36px;
 	padding-top: 2px;
 	color: #CCCCCC;
 	font-size: 14px;
-
+    text-align: right;
 }
 .news_top .index_reg a {
-	color: #0099cc;
+	color: #5aa304;
 	font-size: 14px;
 	padding-right: 10px;
 	padding-left: 10px;
 }
 .news_top .index_reg a:hover {
-	color: #0066CC;
+	color: #358902;
 	font-size: 14px;
 	padding-right: 10px;
 	padding-left: 10px;

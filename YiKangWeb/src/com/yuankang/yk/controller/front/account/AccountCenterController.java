@@ -241,13 +241,12 @@ public class AccountCenterController extends BaseController {
 					.getAttribute(Constants.SESSION_USERID).toString());
 			if ("invest".equals(type)) {
 				Investment invest = new Investment();
-				invest.setAccount(accountService.getById(accountId));
+				invest.setAccount(new Account(accountId));
 				invest.setAmount(amount);
-				invest.setIndustry(mcodeService.findById(industry, Mcode.class));
+				invest.setIndustry(new Mcode(industry));
 				invest.setIsSelf(0);
 				invest.setOverview(overview);
-				invest.setProvince(regionService.findById(province,
-						Region.class));
+				invest.setProvince(new Region(province));
 				invest.setTitle(title);
 
 				if (id == null) {
@@ -262,18 +261,16 @@ public class AccountCenterController extends BaseController {
 				}
 			} else if ("finance".equals(type)) {
 				Financing finance = new Financing();
-				finance.setAccount(accountService.getById(accountId));
+				finance.setAccount(new Account(accountId));
 				finance.setAmount(amount);
 
-				finance.setIndustry(mcodeService
-						.findById(industry, Mcode.class));
+				finance.setIndustry(new Mcode(industry));
 				finance.setIsSelf(0);
 				finance.setOverview(overview);
-				finance.setProvince(regionService.findById(province,
-						Region.class));
+				finance.setProvince(new Region(province));
 				finance.setTitle(title);
-				finance.setArea(regionService.findById(area, Region.class));
-				finance.setCity(regionService.findById(city, Region.class));
+				finance.setArea(new Region(area));
+				finance.setCity(new Region(city));
 
 				if (id == null) {
 					finance.setCreateDate(new Date());

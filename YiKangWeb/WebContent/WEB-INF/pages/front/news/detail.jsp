@@ -72,7 +72,7 @@ $(function(){
  <div class="d_box_tj">
   <div class="sgtj">
   <c:if test="${not empty relatedImageNews }">
-   <div class="fl"><a href="javascript:void(0);" onclick="jump(${relatedImageNews.ID})"><img src="${ctx}${relatedImageNews.src}" width="150" height="100"/></a></div>
+   <div class="fl"><a href="#"><img src="${ctx}/${relatedImageNews.src}" width="150" height="100"/></a></div>
   <dl class="extend_page_dl">
    <dt class="extend_page_dt"><a href="javascript:void(0);" onclick="jump(${relatedImageNews.ID})">${relatedImageNews.Title}</a></dt>
    <dd class="extend_page_dd">

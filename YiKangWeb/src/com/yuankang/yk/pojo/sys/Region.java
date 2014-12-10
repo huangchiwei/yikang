@@ -41,6 +41,12 @@ public class Region implements Serializable {
 	@ForeignKey(name = "FK_REGION_PARENT_ID")
 	private Region parent;
 
+	public Region(){}
+	
+	public Region(Integer id){
+		this.id = id;
+	}
+	
 	public Integer getId() {
 		return id;
 	}

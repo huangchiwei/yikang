@@ -60,7 +60,7 @@ $(function(){
     
       <c:forEach items="${list}" var="o" varStatus="sta">
        <dl class="dl">
-       <dt><img src="${ctx}${o.src}" width="80" height="80" /></dt>
+       <dt><img src="${ctx}/${o.src}" width="80" height="80" /></dt>
        <dd>
         <h1><a href="javascript:void(0);" onclick="jump(${o.Id})">${o.Title}</a></h1>
         <span> <c:if test="${fn:length(o.Digest)>78}">${fn:substring(o.Digest, 0, 78)}......</c:if>

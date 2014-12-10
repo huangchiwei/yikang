@@ -51,7 +51,12 @@ public class Mcode implements Serializable {
 	@Column(name="OrderNum",nullable = true, length=50)
 	private Integer orderNum;
 	
-
+	public Mcode(){}
+	
+	public Mcode(Long id){
+		this.id = id;
+	}
+	
 	public Long getId() {
 		return id;
 	}

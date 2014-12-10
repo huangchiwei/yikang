@@ -95,6 +95,12 @@ public class Account implements Serializable{
 	@ForeignKey(name = "FK_ACCOUNT_INDUSTRY")
 	private Mcode industry;
 
+	public Account(){}
+	
+	public Account(Long id){
+		this.id = id;
+	}
+	
 	public Long getId() {
 		return id;
 	}
