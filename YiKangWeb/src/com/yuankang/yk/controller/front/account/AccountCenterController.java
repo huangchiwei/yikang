@@ -205,17 +205,20 @@ public class AccountCenterController extends BaseController {
 	@RequestMapping(value = PAGE_LIST)
 	public String getInvestFinanceByPage(@PathVariable Integer currentPage,
 			Model model, String type, HttpServletRequest req) {
+		Object oj = req.getSession().getAttribute("front_key");
+		if (oj == null) 
+			return "redirect:/front/account/login.html";
 		Pagination page = new Pagination(currentPage);
 		Long accountId = Long.valueOf(req.getSession()
 				.getAttribute(Constants.SESSION_USERID).toString());
 		if ("invest".equals(type)) {
 			model.addAttribute("typeName", "投资");
 			model.addAttribute("list", investmentService.getByPage(page, null,
-					null, null, accountId));
+					null, null, accountId,null));
 		} else if ("finance".equals(type)) {
 			model.addAttribute("typeName", "融资");
 			model.addAttribute("list", financingService.getByPage(page, null,
-					null, null, null, accountId));
+					null, null, null, accountId,null));
 		}
 		model.addAttribute("page", page);
 		model.addAttribute("type", type);
@@ -224,17 +227,46 @@ public class AccountCenterController extends BaseController {
 	}
 
 	@RequestMapping(value = ADD)
-	public String toAdd(Model model) {
+	public String toAdd(Model model,HttpServletRequest req) {
+		Object oj = req.getSession().getAttribute("front_key");
+		if (oj == null) 
+			return "redirect:/front/account/login.html";
 		model.addAttribute("provinces", regionService.findByParentId(1));
 		model.addAttribute("industrys",
 				mcodeService.findMcodesByMcType("INDUSTRY"));
 		return "front/accountCenter/addInfo";
 	}
 
+	@RequestMapping(value = UPDATE)
+	public String toUpdate(@PathVariable Long id,Model model,String type,HttpServletRequest req){
+		Object oj = req.getSession().getAttribute("front_key");
+		if (oj == null) 
+			return "redirect:/front/account/login.html";
+		model.addAttribute("provinces", regionService.findByParentId(1));
+		model.addAttribute("industrys", mcodeService.findMcodesByMcType("INDUSTRY"));
+		if ("invest".equals(type)) {
+			model.addAttribute("entity", investmentService.findById(id, Investment.class));
+		} else if ("finance".equals(type)) {
+			Financing finance = financingService.findById(id, Financing.class);
+			model.addAttribute("entity", finance);
+			if(finance.getProvince() != null){
+				model.addAttribute("citys", regionService.findByParentId(finance.getProvince().getId()));
+			}
+			if(finance.getCity() != null){
+				model.addAttribute("areas", regionService.findByParentId(finance.getCity().getId()));
+			}
+		}
+		model.addAttribute("type", type);
+		return "front/accountCenter/addInfo";
+	}
+	
 	@RequestMapping(value = SAVE)
 	public String save(HttpServletRequest req, String type, Long id,
 			String title, Long industry, Integer province, Integer city,
 			Integer area, Integer amount, String overview) {
+		Object oj = req.getSession().getAttribute("front_key");
+		if (oj == null) 
+			return "redirect:/front/account/login.html";
 		try {
 
 			Long accountId = Long.valueOf(req.getSession()
@@ -269,9 +301,10 @@ public class AccountCenterController extends BaseController {
 				finance.setOverview(overview);
 				finance.setProvince(new Region(province));
 				finance.setTitle(title);
-				finance.setArea(new Region(area));
-				finance.setCity(new Region(city));
-
+				if(city != -1)
+					finance.setCity(new Region(city));
+				if(area != -1)
+					finance.setArea(new Region(area));
 				if (id == null) {
 					finance.setCreateDate(new Date());
 					financingService.save(finance);

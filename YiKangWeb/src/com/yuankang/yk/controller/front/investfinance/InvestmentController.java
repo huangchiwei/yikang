@@ -42,7 +42,10 @@ public class InvestmentController extends BaseController{
 	@RequestMapping(value = DETAIL)
 	public String detail(Model model,@PathVariable Long id) {
 		try {
-			model.addAttribute("entity", investmentService.findById(id, Investment.class));
+			Investment invest = investmentService.findById(id, Investment.class);
+			if(invest.getStatus() == 0)
+				return "error/404";
+			model.addAttribute("entity", invest);
 			model.addAttribute("flag", "1");
 			model.addAttribute("location", "投资信息");
 			//前10条热文推荐
@@ -67,7 +70,7 @@ public class InvestmentController extends BaseController{
 				cal.set(Calendar.DATE, cal.get(Calendar.DATE) - day);
 				time = new Date(cal.get(Calendar.YEAR) - 1900,cal.get(Calendar.MONTH),cal.get(Calendar.DAY_OF_MONTH));
 			}
-			model.addAttribute("list", investmentService.getByPage(page, industryId, provinceId, time,null));
+			model.addAttribute("list", investmentService.getByPage(page, industryId, provinceId, time,null,1));
 			model.addAttribute("page", page);
 			model.addAttribute("regions", regionService.findByParentId(1));
 			model.addAttribute("industrys", mcodeService.findMcodesByMcType("INDUSTRY"));

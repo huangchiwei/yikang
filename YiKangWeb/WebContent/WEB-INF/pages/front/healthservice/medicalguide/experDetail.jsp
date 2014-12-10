@@ -42,7 +42,7 @@ $(function(){
   <div class="s_header">
       <h1><a href="#">专家查询</a></h1>
   </div>
-  <div class="s_brumbs">当前位置：<a href="${ctx}">首页</a>&nbsp;&gt;&nbsp;<a href="${ctx}/healthService/jiuYiZhiNan/1.html">找专家</a></div>
+  <div class="s_brumbs">当前位置：<a href="${ctx}">首页</a>&nbsp;&gt;&nbsp;<a href="${ctx}/healthService/jiuYiZhiNan/1.html">找专家</a> &gt; 正文</div>
    <div class="d">
     <div class="subLogo"><h1>${entity.name}</h1></div>
     <div class="subNav2"></div>
@@ -51,18 +51,18 @@ $(function(){
       <div class="doctor_box">
        <div class="js relative">
         <ul>
-         <li class="li"><span>所属医院：</span><a href="#">
+         <li class="li"><span>所属医院：</span>
 			<c:forEach items="${entity.relations}" var="o1">
 	        	${o1.hospital.name}&nbsp;
 	        	</c:forEach>
-		</a></li>
+		</li>
          <li class="li"><span>专科：</span>
 			<c:forEach items="${entity.relations}" var="o1">
 	        	${o1.specialInfo.name}&nbsp;
 	        	</c:forEach>
 		</li>
         </ul>
-        <div class="photo"><img src="${entity.avatar}" /></div>
+        <div class="photo"><img src="${ctx}${entity.avatar}" /></div>
        </div>
       </div>
        <div class="module3">
@@ -85,7 +85,7 @@ ${entity.introduction}
         <div class="moduleContent2">
         <c:forEach items="${jyzn_recommend_doc_6}" var="o">
         	<div class="imgText_60_75">
-	         <div class="imgText_img"><a href="${ctx}/healthService/jiuYiZhiNanDetail/${o.id}.html" target="_blank"><img src="${o.avatar}" alt="" width="60" height="75"/></a></div>
+	         <div class="imgText_img"><a href="${ctx}/healthService/jiuYiZhiNanDetail/${o.id}.html" target="_blank"><img src="${ctx}${o.avatar}" alt="" width="60" height="75"/></a></div>
 	         <div class="text">
 	          <h4><a href="${ctx}/healthService/jiuYiZhiNanDetail/${o.id}.html" target="_blank">${o.name}</a></h4>
 	          <p class="zc">专科：

@@ -57,7 +57,7 @@ public class InvestmentService extends BaseService<Investment> {
 	 * @param day
 	 * @return
 	 */
-	public List<Map<String,Object>> getByPage(Pagination page,Long industryId,Integer provinceId,Date time,Long accountId) {
-		return investmentDao.findListByPage(page,industryId,provinceId,time,accountId);
+	public List<Map<String,Object>> getByPage(Pagination page,Long industryId,Integer provinceId,Date time,Long accountId,Integer status) {
+		return investmentDao.findListByPage(page,industryId,provinceId,time,accountId,status);
 	}
 }

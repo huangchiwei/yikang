@@ -19,6 +19,7 @@ import org.springframework.stereotype.Component;
 
 import com.yuankang.yk.publics.Constants;
 import com.yuankang.yk.publics.tools.RemoteRequestUtil;
+import com.yuankang.yk.service.account.AccountService;
 import com.yuankang.yk.service.investfinance.FinancingService;
 import com.yuankang.yk.service.investfinance.InvestmentService;
 import com.yuankang.yk.service.medicalguide.ExpertInfoService;
@@ -48,8 +49,10 @@ public class QuartzJob {
 	private HospitalService hospitalService;
 	@Resource
 	private ExpertInfoService expertInfoService;
-	@Autowired 
+	@Resource 
 	private ServletContext servletContext;
+	@Resource 
+	private AccountService accountService;
 
 	@PostConstruct
 	public void init() {
@@ -78,6 +81,13 @@ public class QuartzJob {
 			// 大首页5条融资
 			Constants.indexData.put("financeList1",
 					financingService.getListByPage(page));
+			// 大首页5条投融资行业资讯
+			Constants.indexData.put("index_investfinance_news_5",
+					newsService.getNews("投融资资讯", 5));
+			// 大首页10个行业机构
+			page.setPageSize(10);
+			Constants.indexData.put("index_account_10",
+					accountService.getQuery("select ID,Company from account where Status = 1 ", page));
 			// 投融资首页8条投资
 			page.setPageSize(8);
 			Constants.indexData.put("investList2",
@@ -143,7 +153,7 @@ public class QuartzJob {
 			result.add(map);
 		}
 		Constants.healthData.put("jibing_15", result);
-		page.setPageSize(18);
+		page.setPageSize(15);
 		// 大首页18个医生
 		arr = RemoteRequestUtil.requestDoctorByPage(page, null, null, null);
 		result = new ArrayList<Map<String, Object>>();
@@ -156,7 +166,7 @@ public class QuartzJob {
 			}
 			result.add(map);
 		}
-		Constants.healthData.put("yisheng_18", result);
+		Constants.healthData.put("yisheng_15", result);
 		System.out.println("首页健康服务信息...");
 	}
 	
