@@ -16,6 +16,30 @@ import com.yuankang.yk.service.base.BaseSqlService;
  */
 @Service
 public class AdvertService extends BaseSqlService {
+	
+	/**
+	 * 获取位置列表
+	 * @param pictype
+	 * @return
+	 */
+	public List<Map<String, Object>> getByPicType(String pictype) {
+		List<Map<String, Object>> list=getQuery("select * from ad_position where PicType='"+pictype+"' order by PosName asc");
+		return list;
+	}
+	public List<Map<String, Object>> getByPage(Pagination page, int adPosionId,String pictype) {
+		List<Map<String, Object>> list=null;
+		String tempSql="";
+		if(adPosionId==-1){
+			tempSql="select a.*,ap.PosName,ap.PosCode from advert a,ad_position ap where a.AdPositionId=ap.ID and ap.PicType='"+pictype+"' order by ap.PosName asc";
+			
+		}else{
+			tempSql="select a.*,ap.PosName,ap.PosCode from advert a,ad_position ap where a.AdPositionId=ap.ID and AdPositionId="+adPosionId+" and ap.PicType='"+pictype+"' order by ap.PosName asc";
+			}
+		initCount("select count(*) from ("+tempSql+") ss  ",page);
+		list=getQuery(tempSql,page);
+				
+		return list;
+	}
 	/**
 	 * 分页查询广告
 	 * @param pager

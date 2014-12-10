@@ -60,7 +60,7 @@ $(function(){
     
       <c:forEach items="${list}" var="o" varStatus="sta">
        <dl class="dl">
-       <dt><img src="${ctx}/${o.src}" width="80" height="80" /></dt>
+       <dt><img src="${ctx}${o.src}" width="80" height="80" /></dt>
        <dd>
         <h1><a href="javascript:void(0);" onclick="jump(${o.Id})">${o.Title}</a></h1>
         <span> <c:if test="${fn:length(o.Digest)>78}">${fn:substring(o.Digest, 0, 78)}......</c:if>
@@ -80,7 +80,7 @@ $(function(){
     </form>
   </div>
   <div class="n_fr_280">
-   <div class="ad_280"><img src="${ctx}/theme/front/default/images/ad/ad_280.png" /></div>
+   <div class="ad_280"><a href="${advert12.Url}" target="_blank"><img src="${ctx}${advert12.Img}" width="${advert12.Width}" height="${advert12.Height }"/></a></div>
    <div class="list_r_box">
     <div class="list_r_box_bj">
      <h1>热文排行</h1>

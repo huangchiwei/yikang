@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.yuankang.yk.publics.Constants;
+import com.yuankang.yk.service.advert.AdvertService;
 import com.yuankang.yk.service.industryActi.IndustryActiService;
 
 /**
@@ -25,10 +26,17 @@ import com.yuankang.yk.service.industryActi.IndustryActiService;
 @RequestMapping("front/industryActi")
 public class IndustryActiFrontController extends BaseController {
 	@Resource
+	private AdvertService advertService;
+	@Resource
 	private IndustryActiService industryActiService;
 	@RequestMapping(value =DETAIL)
 	 public String detail(@PathVariable("id") Long key,Model model)
 	 {
+
+		//右上角广告
+				List<Map<String, Object>>  advert12=advertService.getByPosCode("12");
+				if(advert12!=null && advert12.size()>0)
+				model.addAttribute("advert12",advert12.get(0));
 		  Map<String, Object> industryActi=industryActiService.getById(key);
 			
 		    model.addAttribute("industryActi", industryActi);
@@ -59,6 +67,11 @@ public class IndustryActiFrontController extends BaseController {
 	public ModelAndView getByPage(@PathVariable int currentPage,Model model) {
 		ModelAndView mv = new ModelAndView("front/industryActi/list");
 	try{
+
+		//右上角广告
+				List<Map<String, Object>>  advert12=advertService.getByPosCode("12");
+				if(advert12!=null && advert12.size()>0)
+				model.addAttribute("advert12",advert12.get(0));
 		//前10条热文排行
 		 List<Map<String, Object>> hotOrderInfoList=industryActiService.getHotOrderInfo(10);
 		 model.addAttribute("hotOrderInfoList", hotOrderInfoList);

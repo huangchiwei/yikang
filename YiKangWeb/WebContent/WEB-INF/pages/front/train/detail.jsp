@@ -71,7 +71,7 @@ $(function(){
  <div class="d_box_tj">
   <div class="sgtj">
   <c:if test="${not empty relatedImageInstance }">
-   <div class="fl"><a href="#"><img src="${ctx}/${relatedImageInstance.src}" width="150"/></a></div>
+   <div class="fl"><a href="#"><img src="${ctx}${relatedImageInstance.src}" width="150"/></a></div>
   <dl class="extend_page_dl">
    <dt class="extend_page_dt"><a href="javascript:void(0);" onclick="jump(${relatedImageInstance.ID})">${relatedImageInstance.Title}</a></dt>
    <dd class="extend_page_dd">
@@ -108,7 +108,7 @@ $(function(){
  </form> --%>
 </div>
   <div class="n_fr_280">
-   <div class="ad_280"><img src="${ctx}/theme/front/default/images/ad/ad_280.png" /></div>
+   <div class="ad_280"><a href="${advert12.Url}" target="_blank"><img src="${ctx}${advert12.Img}" width="${advert12.Width}" height="${advert12.Height }"/></a></div>
    <div class="list_r_box">
     <div class="list_r_box_bj">
      <h1>热文排行</h1>

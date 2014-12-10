@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.yuankang.yk.pojo.sys.NewsComment;
 import com.yuankang.yk.publics.Constants;
+import com.yuankang.yk.service.advert.AdvertService;
 import com.yuankang.yk.service.news.NewsCommentService;
 import com.yuankang.yk.service.news.NewsService;
 
@@ -26,7 +27,8 @@ import com.yuankang.yk.service.news.NewsService;
 @Controller("frontNewsController")
 @RequestMapping("front/news")
 public class NewsFrontController extends BaseController {
-
+	@Resource
+	private AdvertService advertService;
 	@Resource
 	private NewsService newsService;
 	@Resource
@@ -34,6 +36,10 @@ public class NewsFrontController extends BaseController {
 	@RequestMapping(value =DETAIL)
 	 public String detail(@PathVariable("id") Long key,Model model)
 	 {
+		//右上角广告
+		List<Map<String, Object>>  advert12=advertService.getByPosCode("12");
+		if(advert12!=null && advert12.size()>0)
+		model.addAttribute("advert12",advert12.get(0));
 		Map<String, Object> news=newsService.getById(key);
 		//if(news!=null){
 			model.addAttribute("cateCode", news.get("CateCode").toString());
@@ -64,6 +70,11 @@ public class NewsFrontController extends BaseController {
 	@RequestMapping(value =PAGE_LIST)
 	 public String list(@PathVariable int currentPage,Model model,String cateCode)
 	 {
+		
+		//右上角广告
+				List<Map<String, Object>>  advert12=advertService.getByPosCode("12");
+				if(advert12!=null && advert12.size()>0)
+				model.addAttribute("advert12",advert12.get(0));
 		// 初始化分页实体
 				Pagination page = initPage(currentPage);
 				page.setPageSize(30);
@@ -87,8 +98,8 @@ public class NewsFrontController extends BaseController {
 		// List<Map<String, Object>> listCate=newsService.getCategory();
 		 
 		//四张图片,现在换成四张广告
-		 List<Map<String, Object>> fourPicList=newsService.getSecLevShowPic();
-		 model.addAttribute("fourPicList", fourPicList);
+		 List<Map<String, Object>>  advert11=advertService.getByPosCode("11");
+		 model.addAttribute("advert11", advert11);
 		 //行业新闻9条
 		 List<Map<String, Object>> industryNews=newsService.getIndustryNews();
 		 model.addAttribute("industryNews", industryNews);

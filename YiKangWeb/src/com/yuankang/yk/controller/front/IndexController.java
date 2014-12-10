@@ -74,24 +74,32 @@ public class IndexController extends BaseController{
 		List<Map<String, Object>>  advert3=advertService.getByPosCode("3");
 		if(advert3!=null && advert3.size()>0)
 		model.addAttribute("advert3",advert3.get(0));
-		//首页健康服务横幅上面
+		//首页重要活动正下方(220*90)
 		List<Map<String, Object>>  advert4=advertService.getByPosCode("4");
 		if(advert4!=null && advert4.size()>0)
 		model.addAttribute("advert4",advert4.get(0));
-		//首页爱心健康购上面
+		//首页就医指南正下方(220*130)
 		List<Map<String, Object>>  advert5=advertService.getByPosCode("5");
 		if(advert5!=null && advert5.size()>0)
 		model.addAttribute("advert5",advert5.get(0));
 		//首页健康购下面
 		List<Map<String, Object>>  advert6=advertService.getByPosCode("6");
-		if(advert6!=null && advert6.size()>0)
-			model.addAttribute("advert6_1",advert6.get(0));
-		if(advert6!=null && advert6.size()>1)
-			model.addAttribute("advert6_2",advert6.get(1));
-		//首页投融资服务右边
 		List<Map<String, Object>>  advert7=advertService.getByPosCode("7");
+		if(advert6!=null && advert6.size()>0)
+			model.addAttribute("advert6",advert6.get(0));
 		if(advert7!=null && advert7.size()>0)
-		model.addAttribute("advert7",advert7.get(0));
+			model.addAttribute("advert7",advert7.get(0));
+		//首页行业活动正下方图1(200*100)
+		List<Map<String, Object>>  advert8=advertService.getByPosCode("8");
+		List<Map<String, Object>>  advert9=advertService.getByPosCode("9");
+		List<Map<String, Object>>  advert10=advertService.getByPosCode("10");
+
+		if(advert8!=null && advert8.size()>0)
+		model.addAttribute("advert8",advert8.get(0));
+		if(advert9!=null && advert9.size()>0)
+			model.addAttribute("advert9",advert9.get(0));
+		if(advert10!=null && advert10.size()>0)
+			model.addAttribute("advert10",advert10.get(0));
 ////////////////////////////////广告////////////////////////////////////////////
 ////////////////////////////////头条////////////////////////////////////////////
 		//法律法规
@@ -132,7 +140,7 @@ public class IndexController extends BaseController{
 ////////////////////////////////头条////////////////////////////////////////////
 ////////////////////////////////行业资讯////////////////////////////////////////////
 		//行业新闻推荐
-		 List<String> idList=new ArrayList<String>();
+		/* List<String> idList=new ArrayList<String>();
 		// idList.add(news.get("ID").toString());
 		 List<Map<String, Object>> imageIndustryNewsList=newsService.getByCateCode("industryNews",idList,true,1);
 		
@@ -142,15 +150,20 @@ public class IndexController extends BaseController{
 			 
 		 }
 		 List<Map<String, Object>> otherIndustryNews=newsService.getByCateCode("industryNews",idList,false,6);
-		 model.addAttribute("otherIndustryNews", otherIndustryNews);
-		 
+		 model.addAttribute("otherIndustryNews", otherIndustryNews);*/
+		 List<Map<String, Object>> industryNews=newsService.getByCateCode("industryNews",7);
+		 model.addAttribute("industryNews", industryNews);
 		 //行业焦点推荐
-		 List<Map<String, Object>> industryFocusList=newsService.getByCateCode("industryFocus",new ArrayList<String>(),false,4);
+		/* List<Map<String, Object>> industryFocusList=newsService.getByCateCode("industryFocus",new ArrayList<String>(),false,4);
+		 model.addAttribute("industryFocusList", industryFocusList);*/
+		 List<Map<String, Object>> industryFocusList=newsService.getByCateCode("industryFocus",4);
 		 model.addAttribute("industryFocusList", industryFocusList);
 		 //法律法规推荐
 		model.addAttribute("allLawList", newsService.getByLaw(4,true));
 		//重要活动
-		 List<Map<String, Object>> industryActiList=newsService.getByCateCode("acti",new ArrayList<String>(),false,6);
+		/* List<Map<String, Object>> industryActiList=newsService.getByCateCode("acti",new ArrayList<String>(),false,6);
+		 model.addAttribute("industryActiList", industryActiList);*/
+		 List<Map<String, Object>> industryActiList=newsService.getByCateCode("acti",6);
 		 model.addAttribute("industryActiList", industryActiList);
 ////////////////////////////////行业资讯////////////////////////////////////////////
  //////////////////////////健康购////////////////////////////////////////

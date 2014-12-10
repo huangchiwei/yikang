@@ -52,10 +52,10 @@ html { overflow:-moz-scrollbars-vertical;}
 		<li>
 			<a href="#">广告管理</a>
 			<ul>
-			  <li><a href="${ctx}/admin/advert/list/1.html" target="mainFrame">首页轮播图</a></li>
-			  <li><a href="${ctx}/admin/advert/list/1.html" target="mainFrame">行业资讯二级轮播图</a></li>
-			  <li><a href="${ctx}/admin/advert/list/1.html" target="mainFrame">广告列表</a></li>
-			   <li><a href="${ctx}/admin/adPosition/list/1.html" target="mainFrame">位置列表</a></li>
+			  <li><a href="${ctx}/admin/advert/list/1.html?adPosionId=-1&pictype=multi" target="mainFrame">广告轮播列表</a></li>
+			  <li><a href="${ctx}/admin/advert/list/1.html?adPosionId=-1&pictype=one" target="mainFrame">广告位置列表</a></li>
+			 <%--  <li><a href="${ctx}/admin/advert/list/1.html" target="mainFrame">广告列表(旧)</a></li>
+			   <li><a href="${ctx}/admin/adPosition/list/1.html" target="mainFrame">位置列表(旧)</a></li> --%>
 			 
 		  </ul>
 		</li>
