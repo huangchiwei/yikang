@@ -23,7 +23,7 @@
       <div class="listcontent">
       <c:forEach items="${list}" var="o">
       	<div class="listItem">
-	       <div class="photo"><a href="${ctx}/healthService/jiuYiZhiNanDetail/${o.id}.html"><img src="${o.avatar}" width="100" height="125" /></a></div>
+	       <div class="photo"><a href="${ctx}/healthService/jiuYiZhiNanDetail/${o.id}.html"><img src="${ctx}${o.avatar}" width="100" height="125" /></a></div>
 	       <div class="info_box">
 	        <div class="level"><h1><a href="${ctx}/healthService/jiuYiZhiNanDetail/${o.id}.html">${o.name}</a></h1>
 	        &nbsp;&nbsp;</div>

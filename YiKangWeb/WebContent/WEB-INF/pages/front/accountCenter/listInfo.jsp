@@ -9,7 +9,6 @@
 
 <link href="${ctx}/theme/front/default/style/master.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/theme/front/accountCenter/css/member.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="${ctx}/js/jquery-1.8.0.min.js"></script>
 </head>
 
 <body>
@@ -22,7 +21,7 @@
    <div class="m_list">
    <span class="span">信息类型：</span>
    <form id="searchform" action="${ctx}/front/accountCenter/list/1.html" method="post">
-   <select name="type" class="select" onchange="javascript:$('#searchform').submit()">
+   <select name="type" class="select" onchange="javascript:document.getElementById('searchform').submit();">
        <option value="invest" ${type == 'invest' ? 'selected' : ''}>投资信息</option>
        <option value="finance" ${type == 'finance' ? 'selected' : ''}>融资信息</option>
      </select>
@@ -37,7 +36,7 @@
       <c:forEach items="${list}" var="o">
       <li class="li2"><span class="time"><fmt:formatDate value="${o.createDate}"
 								pattern="yyyy-MM-dd" /></span><span class="scale">${o.amount}万</span><span class="industry">${o.industry}</span>
-		<a href="${ctx}/investment/detail/${o.id}.html" title="${o.title}">${fn:length(o.title)>20?fn:substring(o.title,0,20):o.title}${fn:length(o.title)>20?'...':''}</a></li>
+		<a href="${ctx}/front/accountCenter/update/${o.id}.html?type=${type}" title="${o.title}">${fn:length(o.title)>20?fn:substring(o.title,0,20):o.title}${fn:length(o.title)>20?'...':''}</a></li>
       </c:forEach>
         
       </ul>

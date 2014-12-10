@@ -3,7 +3,7 @@
 <html>
   <head>
     
-    <title>404jsp</title>
+    <title>资源不存在</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -11,6 +11,6 @@
   </head>
   
   <body>
-    404 error 资源不存在! <br>
+    资源不存在! <br>
   </body>
 </html>

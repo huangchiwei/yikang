@@ -44,12 +44,12 @@
        <div class="more"><a href="${ctx}/healthService/ysk/1.html" target="_blank">more</a></div>
       </div>
       <ul class="ul3">
-       <c:forEach items="${yisheng_18}" var="o">
+       <c:forEach items="${yisheng_15}" var="o">
       		<li><a href="${ctx}/healthService/ysDetail/${o.Id}.html" target="_blank">${o.Name}</a></li>
       	</c:forEach>
       </ul>
       <div class="ma">
-      <c:forEach items="${yisheng_18}" var="o" begin="0" step="1" end="2">
+      <c:forEach items="${yisheng_15}" var="o" begin="0" step="1" end="2">
       	<dl class="dl">
 	       <dt><a href="${ctx}/healthService/ysDetail/${o.Id}.html" target="_blank"><img src="${o.ImgUrl}" width="90px" height="110px"/></a></dt>
 	       <dd><a href="${ctx}/healthService/ysDetail/${o.Id}.html" target="_blank">${o.Name}</a></dd>

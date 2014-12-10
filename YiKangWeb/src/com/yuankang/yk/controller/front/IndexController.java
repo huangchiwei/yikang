@@ -45,9 +45,11 @@ public class IndexController extends BaseController{
 		try{
 		model.addAttribute("investList1", Constants.indexData.get("investList1"));
 		model.addAttribute("financeList1", Constants.indexData.get("financeList1"));
+		model.addAttribute("index_investfinance_news_5", Constants.indexData.get("index_investfinance_news_5"));
+		model.addAttribute("index_account_10", Constants.indexData.get("index_account_10"));
 		model.addAttribute("zhengzhuang_15", Constants.healthData.get("zhengzhuang_15"));
 		model.addAttribute("jibing_15", Constants.healthData.get("jibing_15"));
-		model.addAttribute("yisheng_18", Constants.healthData.get("yisheng_18"));
+		model.addAttribute("yisheng_15", Constants.healthData.get("yisheng_15"));
 		model.addAttribute("yiyuan_7", Constants.healthData.get("yiyuan_7"));
 		model.addAttribute("yaopin_3", Constants.healthData.get("yaopin_3"));
 		model.addAttribute("common_disease_21", Constants.healthData.get("common_disease_21"));

@@ -47,7 +47,7 @@ public class FinancingService extends BaseService<Financing> {
 		return financingDao.getListByPage(page);
 	}
 
-	public List<Map<String,Object>> getByPage(Pagination page,Long industryId,Integer provinceId,Integer cityId,Date time,Long accountId) {
-		return financingDao.findListByPage(page,industryId,provinceId,cityId,time,accountId);
+	public List<Map<String,Object>> getByPage(Pagination page,Long industryId,Integer provinceId,Integer cityId,Date time,Long accountId,Integer status) {
+		return financingDao.findListByPage(page,industryId,provinceId,cityId,time,accountId,status);
 	}
 }

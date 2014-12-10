@@ -9,8 +9,8 @@
     <ul class="ti5">
      <li><a href="${ctx}/investment/list/1.html" target="_blank">投资</a></li>
      <li><a href="${ctx}/financing/list/1.html" target="_blank">融资</a></li>
-     <li><a href="#">行业资讯</a></li>
-     <li><a href="#">行业机构</a></li>
+     <li><a href="${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceNews" target="_blank">行业资讯</a></li>
+     <li><a href="${ctx}/investFinance/account/list/1.html" target="_blank">行业机构</a></li>
     </ul>
    </div>
    <div class="one_b_l">
@@ -30,14 +30,14 @@
       <div class="one_b_l_r_b pt_10">
        <div class="title">
        <h1>行业资讯</h1>
-       <div class="more"><a href="#">more</a></div>
+       <div class="more"><a href="${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceNews" target="_blank">more</a></div>
       </div>
       <ul class="ul5">
-       <li><a href="#">中国人民解放军总医院</a></li>
-       <li><a href="#">广东省人民医院</a></li>
-       <li><a href="#">中山大学附属第一医院</a></li>
-       <li><a href="#">中山大学孙逸仙纪念医院</a></li>
-       <li><a href="#">中山大学孙逸仙纪念医院</a></li>
+      <c:forEach items="${index_investfinance_news_5}" var="o">
+      	<li><a href="${ctx}/investFinanceNews/detail/${o.ID}.html" target="_blank" title="${o.Title}">
+      	${fn:length(o.Title)>22?fn:substring(o.Title,0,22):o.Title}${fn:length(o.Title)>22?'...':''}
+      	</a></li>
+      </c:forEach>
       </ul>
       </div>
      </div>
@@ -57,19 +57,14 @@
       <div class="one_b_l_r_b pt_10">
        <div class="title">
        <h1>行业机构</h1>
-       <div class="more"><a href="#">more</a></div>
+       <div class="more"><a href="${ctx}/investFinance/account/list/1.html" target="_blank">more</a></div>
       </div>
       <ul class="ul6">
-       <li><a href="#">星巢创投</a></li>
-       <li><a href="#">泰州融众创投</a></li>
-       <li><a href="#">越商创投</a></li>
-       <li><a href="#">汇友资本</a></li>
-       <li><a href="#">信中利</a></li>
-       <li><a href="#">天图资本</a></li>
-       <li><a href="#">中信产业基金</a></li>
-       <li><a href="#">赛富投资基金</a></li>
-       <li><a href="#">阿里资本</a></li>
-       <li><a href="#">IDG资本</a></li>
+      <c:forEach items="${index_account_10}" var="o">
+      	<li><a href="${ctx}/investFinance/account/detail/${o.ID}.html" target="_blank" title="${o.Company}">
+	${fn:length(o.Company)>10?fn:substring(o.Company,0,10):o.Company}${fn:length(o.Company)>10?'...':''}</a></li>
+      </c:forEach>
+       
       </ul>
       </div>
      </div>

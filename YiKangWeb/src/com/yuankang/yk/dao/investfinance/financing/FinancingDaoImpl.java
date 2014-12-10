@@ -43,9 +43,9 @@ public class FinancingDaoImpl extends BaseDaoImpl<Financing> implements Financin
 
 	@Override
 	public List<Map<String, Object>> findListByPage(Pagination page,
-			Long industryId, Integer provinceId,Integer cityId, Date time,Long accountId) {
-		StringBuilder hql = new StringBuilder("select new map(t.id as id,t.title as title,t.industry.mcName as industry,t.amount as amount,t.createDate as createDate) from Financing t where t.status = 1");
-		StringBuilder hql_1 = new StringBuilder("select count(t.id) from Financing t where t.status = 1");
+			Long industryId, Integer provinceId,Integer cityId, Date time,Long accountId,Integer status) {
+		StringBuilder hql = new StringBuilder("select new map(t.id as id,t.title as title,t.industry.mcName as industry,t.amount as amount,t.createDate as createDate) from Financing t where 1 = 1");
+		StringBuilder hql_1 = new StringBuilder("select count(t.id) from Financing t where 1 = 1");
 		List<Object> params = new ArrayList<Object>();
 		if(industryId != null && industryId > 0){
 			hql.append(" and t.industry.id = ?");
@@ -71,6 +71,11 @@ public class FinancingDaoImpl extends BaseDaoImpl<Financing> implements Financin
 			hql.append(" and t.account.id = ?");
 			hql_1.append(" and t.account.id = ?");
 			params.add(accountId);
+		}
+		if(status != null){
+			hql.append(" and t.status = ?");
+			hql_1.append(" and t.status = ?");
+			params.add(status);
 		}
 		hql.append(" order by t.id desc");
 		page.setTotalRowCount(count(hql_1.toString(), params.toArray()));
