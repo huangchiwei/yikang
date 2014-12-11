@@ -49,9 +49,9 @@ public class IndexController extends BaseController{
 		model.addAttribute("index_account_10", Constants.indexData.get("index_account_10"));
 		model.addAttribute("zhengzhuang_15", Constants.healthData.get("zhengzhuang_15"));
 		model.addAttribute("jibing_15", Constants.healthData.get("jibing_15"));
-		model.addAttribute("yisheng_15", Constants.healthData.get("yisheng_15"));
+		model.addAttribute("yisheng_18", Constants.healthData.get("yisheng_18"));
 		model.addAttribute("yiyuan_7", Constants.healthData.get("yiyuan_7"));
-		model.addAttribute("yaopin_3", Constants.healthData.get("yaopin_3"));
+		model.addAttribute("yaopin_6", Constants.healthData.get("yaopin_6"));
 		model.addAttribute("common_disease_21", Constants.healthData.get("common_disease_21"));
 	
 			//model.addAttribute("accountNo", CookieUtil.getUserCookieValue(request, Constants.FRONT_KEY));

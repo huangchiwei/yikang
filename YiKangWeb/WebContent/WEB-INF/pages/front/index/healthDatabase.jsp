@@ -46,7 +46,7 @@
        <div class="more"><a href="${ctx}/healthDatabase/ypk/1.html" target="_blank">more</a></div>
       </div>
       <div class="ma">
-      <c:forEach items="${yaopin_3}" var="o">
+      <c:forEach items="${yaopin_6}" var="o">
       	 <dl class="dl3">
 	       <dt><a href="${ctx}/healthDatabase/ypDetail/${o.Id}.html" target="_blank"><img src="${o.ImgUrl}" width="100px" height="83px"/></a></dt>
 	       <dd><a href="${ctx}/healthDatabase/ypDetail/${o.Id}.html" target="_blank">${o.Name}</a></dd>

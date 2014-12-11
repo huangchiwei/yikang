@@ -153,7 +153,7 @@ public class QuartzJob {
 			result.add(map);
 		}
 		Constants.healthData.put("jibing_15", result);
-		page.setPageSize(15);
+		page.setPageSize(18);
 		// 大首页18个医生
 		arr = RemoteRequestUtil.requestDoctorByPage(page, null, null, null);
 		result = new ArrayList<Map<String, Object>>();
@@ -166,7 +166,7 @@ public class QuartzJob {
 			}
 			result.add(map);
 		}
-		Constants.healthData.put("yisheng_15", result);
+		Constants.healthData.put("yisheng_18", result);
 		System.out.println("首页健康服务信息...");
 	}
 	
@@ -263,8 +263,8 @@ public class QuartzJob {
 			result.add(map);
 		}
 		Constants.healthData.put("yiyuan_7", result);
-		// 大首页3药品
-		page.setPageSize(3);
+		// 大首页6药品
+		page.setPageSize(6);
 		arr = RemoteRequestUtil.requestMedicineByPage(page, 29, null, null);
 		result = new ArrayList<Map<String, Object>>();
 		for (int i = 0; i < arr.size(); i++) {
@@ -274,7 +274,7 @@ public class QuartzJob {
 			map.put("ImgUrl", arr.getJSONObject(i).get("ImgSrc"));
 			result.add(map);
 		}
-		Constants.healthData.put("yaopin_3", result);
+		Constants.healthData.put("yaopin_6", result);
 		System.out.println("首页健康数据库信息...");
 	}
 	//健康频道信息
@@ -284,7 +284,6 @@ public class QuartzJob {
 		Pagination page = new Pagination(random.nextInt(10) + 1);
 		//4个专家推荐
 		page.setPageSize(4);
-		// 大首页18个医生
 		JSONArray arr = RemoteRequestUtil.requestDoctorByPage(page, null, null, null);
 		List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
 		Map<String, Object> map = null;

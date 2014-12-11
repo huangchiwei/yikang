@@ -4,7 +4,7 @@
  <div class="index_nav">
   <div class="logo"><a href="${ctx}/"><img src="${ctx}/theme/front/investfinance/images/logo.png" /></a></div>
   <div class="index_nav_b">
-   <a href="${ctx}/">首页</a>|<a href="${ctx}/front/news/index.html">行业资讯</a>|<a href="${ctx}/front/industryActi/list/1.html">行业活动</a>|<a href="${ctx}/healthService/zzk/1.html">健康服务</a>|<a href="#">健康购</a>|<a href="${ctx}/healthDatabase/yyk/1.html">健康数据库</a>|<a href="${ctx}/front/train/videoList/1.html?cateCode=lecture">健康培训</a>|<a href="${ctx}/investFinance/index.html">投融资服务</a></div>
+   <a href="${ctx}/">首页</a>|<a href="${ctx}/front/news/index.html">行业资讯</a>|<a href="${ctx}/front/industryActi/list/1.html">行业活动</a>|<a href="${ctx}/healthService/zzk/1.html">健康服务</a>|<a href="http://www.is186.com/" target="_blank">健康购</a>|<a href="${ctx}/healthDatabase/yyk/1.html">健康数据库</a>|<a href="${ctx}/front/train/videoList/1.html?cateCode=lecture">健康培训</a>|<a href="${ctx}/investFinance/index.html">投融资服务</a></div>
  </div>
  <div class="index_reg">
  <c:if test="${front_key == null}">
