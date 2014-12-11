@@ -1234,8 +1234,98 @@ DIV.scott SPAN.disabled {
 	color: #333333;
 	padding: 20px;
 }
+
+
 .trz_box_d p {
 	text-indent: 2em;
 	padding-bottom: 20px;
 
+}
+.n .add_box {
+	width: 650px;
+	margin-top: 50px;
+	margin-right: auto;
+	margin-bottom: 50px;
+	margin-left: auto;
+	border: 1px solid #CCCCCC;
+}
+.n .add_box .add_b {
+	padding: 15px;
+}
+.n .add_box h1 {
+	background-color: #f9f9f9;
+	padding: 10px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCCCCC;
+}
+
+.n .add_location {
+	margin-right: auto;
+	margin-left: auto;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCCCCC;
+}
+.n  .add_location  a {
+	padding-right: 5px;
+	padding-left: 5px;
+	color: #358902;
+}
+.n .add_box .add_b .ul {
+	overflow: hidden;
+	padding-top: 15px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+	padding-left: 50px;
+}
+.n .add_box .add_b .ul .li {
+	overflow: hidden;
+	line-height: 40px;
+	padding-bottom: 15px;
+}
+.n .add_box .add_b .ul .li .span {
+	width: 90px;
+	display: block;
+	font-size: 12px;
+	padding-right: 10px;
+	text-align: right;
+	float: left;
+}
+.n .add_box .add_b .ul .li .input {
+	float: left;
+	border: 1px solid #d1d1d1;
+	padding: 7px;
+	font-size: 12px;
+	color: #333333;
+}
+.n .add_box .add_b .ul .li em {
+	color: #666666;
+	padding-right: 10px;
+	padding-left: 5px;
+
+}
+.n .add_box .add_b .ul .li .btn_box {
+	float: left;
+	padding-left: 100px;
+}
+.n .add_box .add_b .ul .li .btn_box .login {
+	width: 180px;
+	padding: 10px;
+	background-color: #49a252;
+	font-size: 18px;
+	color: #FFFFFF;
+	border: 1px none #FFFFFF;
+	border-radius:5px;
+	cursor: pointer;
+}
+.n .add_box .add_b .ul .li .textarea {
+	float: left;
+	border: 1px solid #d1d1d1;
+	padding: 7px;
+	font-size: 12px;
+	color: #333333;
+	width: 400px;
 }

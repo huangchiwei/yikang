@@ -39,7 +39,7 @@ public class ExpertInfoDaoImpl extends BaseDaoImpl<ExpertInfo> implements Expert
 
 	@Override
 	public List<ExpertInfo> findByPage(Pagination page) {
-		StringBuilder hql = new StringBuilder("from ExpertInfo t order by t.id");
+		StringBuilder hql = new StringBuilder("from ExpertInfo t order by t.id desc");
 		return findByPage(hql.toString(), page.getStartRowNumber(), page.getPageSize());
 	}
 

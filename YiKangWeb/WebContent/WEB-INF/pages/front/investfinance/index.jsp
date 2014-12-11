@@ -57,7 +57,7 @@
    <div class="n_new_b">
     <div class="n_n_b_t">
      <h1>投资信息</h1>
-     <div class="more"><a href="#">发布投资信息</a></div>
+     <div class="more"><a href="${ctx}/investFinance/toAddInvestFinance.html?type=invest">发布投资信息</a></div>
     </div>
     <div class="ul2">
      <h1 class="tz"><span>投资意向行业</span>项目名称</h1>
@@ -73,7 +73,7 @@
    <div class="n_new_b">
     <div class="n_n_b_t">
      <h1>融资信息</h1>
-     <div class="more"><a href="#">发布融资信息</a></div>
+     <div class="more"><a href="${ctx}/investFinance/toAddInvestFinance.html?type=finance">发布融资信息</a></div>
     </div>
     <div class="ul2">
      <h1 class="tz"><span class="rzod">融资额度</span><span>所属行业</span>项目名称</h1>

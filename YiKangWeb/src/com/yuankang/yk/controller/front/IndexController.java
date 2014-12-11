@@ -1,6 +1,5 @@
 package com.yuankang.yk.controller.front;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -14,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.yuankang.yk.publics.Constants;
-import com.yuankang.yk.publics.CookieUtil;
 import com.yuankang.yk.service.advert.AdvertService;
 import com.yuankang.yk.service.industryActi.IndustryActiService;
 import com.yuankang.yk.service.news.NewsService;
@@ -47,12 +45,13 @@ public class IndexController extends BaseController{
 		model.addAttribute("financeList1", Constants.indexData.get("financeList1"));
 		model.addAttribute("index_investfinance_news_5", Constants.indexData.get("index_investfinance_news_5"));
 		model.addAttribute("index_account_10", Constants.indexData.get("index_account_10"));
-		model.addAttribute("zhengzhuang_15", Constants.healthData.get("zhengzhuang_15"));
-		model.addAttribute("jibing_15", Constants.healthData.get("jibing_15"));
-		model.addAttribute("yisheng_18", Constants.healthData.get("yisheng_18"));
+		model.addAttribute("zhengzhuang_18", Constants.healthData.get("zhengzhuang_18"));
+		model.addAttribute("jibing_18", Constants.healthData.get("jibing_18"));
+		model.addAttribute("yisheng_21", Constants.healthData.get("yisheng_21"));
 		model.addAttribute("yiyuan_7", Constants.healthData.get("yiyuan_7"));
 		model.addAttribute("yaopin_6", Constants.healthData.get("yaopin_6"));
 		model.addAttribute("common_disease_21", Constants.healthData.get("common_disease_21"));
+		model.addAttribute("jyzn_recommend_doc_6", Constants.healthData.get("jyzn_recommend_doc_6"));
 	
 			//model.addAttribute("accountNo", CookieUtil.getUserCookieValue(request, Constants.FRONT_KEY));
 				

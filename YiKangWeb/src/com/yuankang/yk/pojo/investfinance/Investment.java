@@ -57,7 +57,8 @@ public class Investment implements Serializable{
 	
 	@Column(name="Overview")
 	private String overview;
-
+	
+	//0:注册用户发表 1:后台发布 2:前台快速发布
 	@Column(name="IsSelf")
 	private Integer isSelf;
 	
@@ -76,6 +77,28 @@ public class Investment implements Serializable{
 	@ForeignKey(name = "FK_INVESTMENT_ACCOUNTID")
 	private Account account;
 	
+	@Column(name="Contacts")
+	private String contacts;
+	
+	@Column(name="Telephone")
+	private String telephone;
+	
+	public String getContacts() {
+		return contacts;
+	}
+
+	public void setContacts(String contacts) {
+		this.contacts = contacts;
+	}
+
+	public String getTelephone() {
+		return telephone;
+	}
+
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
+	}
+
 	public Long getId() {
 		return id;
 	}

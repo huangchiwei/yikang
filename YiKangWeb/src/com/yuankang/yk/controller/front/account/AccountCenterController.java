@@ -264,11 +264,10 @@ public class AccountCenterController extends BaseController {
 	public String save(HttpServletRequest req, String type, Long id,
 			String title, Long industry, Integer province, Integer city,
 			Integer area, Integer amount, String overview) {
-		Object oj = req.getSession().getAttribute("front_key");
-		if (oj == null) 
-			return "redirect:/front/account/login.html";
 		try {
-
+			Object oj = req.getSession().getAttribute("front_key");
+			if (oj == null) 
+				return "redirect:/front/account/login.html";
 			Long accountId = Long.valueOf(req.getSession()
 					.getAttribute(Constants.SESSION_USERID).toString());
 			if ("invest".equals(type)) {

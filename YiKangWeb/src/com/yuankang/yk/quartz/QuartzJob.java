@@ -13,7 +13,6 @@ import javax.servlet.ServletContext;
 import net.sf.json.JSONArray;
 
 import org.armysoft.core.Pagination;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -130,9 +129,10 @@ public class QuartzJob {
 	//首页健康服务信息
 	@Scheduled(cron = "0 30 * * * ?")
 	public void indexHealthServiceData() {
-		Pagination page = new Pagination(1);
-		page.setPageSize(15);
-		// 大首页15个症状
+		Random random = new Random();
+		Pagination page = new Pagination(random.nextInt(4) + 1);
+		page.setPageSize(18);
+		// 大首页18个症状
 		JSONArray arr = RemoteRequestUtil.requestSymptomByPage(page, null);
 		List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
 		Map<String, Object> map = null;
@@ -142,8 +142,8 @@ public class QuartzJob {
 			map.put("Name", arr.getJSONObject(i).get("Name"));
 			result.add(map);
 		}
-		Constants.healthData.put("zhengzhuang_15", result);
-		// 大首页15个疾病
+		Constants.healthData.put("zhengzhuang_18", result);
+		// 大首页18个疾病
 		arr = RemoteRequestUtil.requestDiseaseByPage(page, null);
 		result = new ArrayList<Map<String, Object>>();
 		for (int i = 0; i < arr.size(); i++) {
@@ -152,9 +152,9 @@ public class QuartzJob {
 			map.put("Name", arr.getJSONObject(i).get("Name"));
 			result.add(map);
 		}
-		Constants.healthData.put("jibing_15", result);
-		page.setPageSize(18);
-		// 大首页18个医生
+		Constants.healthData.put("jibing_18", result);
+		page.setPageSize(21);
+		// 大首页21个医生
 		arr = RemoteRequestUtil.requestDoctorByPage(page, null, null, null);
 		result = new ArrayList<Map<String, Object>>();
 		for (int i = 0; i < arr.size(); i++) {
@@ -166,7 +166,7 @@ public class QuartzJob {
 			}
 			result.add(map);
 		}
-		Constants.healthData.put("yisheng_18", result);
+		Constants.healthData.put("yisheng_21", result);
 		System.out.println("首页健康服务信息...");
 	}
 	
@@ -339,8 +339,8 @@ public class QuartzJob {
 			result.add(map);
 		}
 		Constants.healthData.put("recommend_medic_4", result);
-		//6个就医指南推荐专家
-		page = new Pagination(random.nextInt(6) + 1);
+		//6个就医指南推荐专家(大首页也用)
+		page = new Pagination(random.nextInt(1) + 1);
 		page.setPageSize(6);
 		Constants.healthData.put("jyzn_recommend_doc_6", expertInfoService.getByPage(page));
 		System.out.println("健康频道信息...");
