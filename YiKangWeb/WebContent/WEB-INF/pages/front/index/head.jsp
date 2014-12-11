@@ -64,7 +64,7 @@
       </li>
       <li class="drop-menu-effect"><a href="${ctx}/front/train/videoList/1.html?cateCode=lecture"><span>健康培训</span></a>
       <ul class="submenu">
-          <li><a href="${ctx}/front/train/videoList/1.html?cateCode=lecture">健康大讲堂</a></li>
+          <li><a href="${ctx}/front/train/videoList/1.html?cateCode=lecture">岭南健康大讲堂</a></li>
           <li><a href="${ctx}/front/train/list/1.html?cateCode=qualifications">资质培训</a></li>
           <li><a href="${ctx}/front/train/list/1.html?cateCode=technical">技能培训</a></li>
         </ul>

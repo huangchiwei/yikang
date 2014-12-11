@@ -583,7 +583,7 @@
 	float: left;
 	width: 345px;
 }
-.one .one_box .one_b_l .one_b_l_r {
+.one_box .one_b_l .one_b_l_r {
 	width: 345px;
 	margin-left: auto;
 }
@@ -654,12 +654,12 @@
 	color: #218ece;
 
 }
-.one_b_l_l   .ul2  {
+.one_b_l_l .ul2  {
 	margin-top: 2px;
 	padding-left: 10px;
 
 }
-.one_b_l_l    .ul2   li  {
+.one_b_l_l .ul2 li  {
 	padding-left: 15px;
 	background-image: url(../images/dian.png);
 	background-repeat: no-repeat;
@@ -807,7 +807,6 @@
 .one_b_l_r_b .ul3  {
 	padding-top: 10px;
 	overflow: hidden;
-	height: 135px;
 
 }
 .one_b_l_r_b  .ul3  a  {
@@ -965,7 +964,7 @@
 	float: left;
 	width: 172px;
 	padding-right: 7px;
-	padding-bottom: 4px;
+	padding-bottom: 15px;
 	padding-left: 7px;
 
 }
@@ -1266,13 +1265,9 @@
 	font-size: 14px;
 }
 .four_r .one_b_r_b .ul2 {
-	padding-top: 12px;
+	padding-top: 2px;
 }
-.four_r .one_b_r_b .ul2 li {
-	padding-top: 12px;
-	padding-bottom: 8px;
 
-}
 .links {
 	padding: 20px;
 	margin-right: 5px;
@@ -1323,4 +1318,31 @@
 	margin-top: 20px;
 	margin-bottom: 20px;
 	line-height: 24px;
+}
+.ul_h_250{ height:246px;}
+.ul_h_350{ height:359px;}
+.one_b_r .one_b_r_b .guide {
+	overflow: hidden;
+	width: 200px;
+}
+.one_b_r .one_b_r_b .guide .dl {
+	float: left;
+	padding-top: 10px;
+	padding-right: 4px;
+	padding-bottom: 5px;
+	padding-left: 2px;
+
+}
+.one_b_r .one_b_r_b  .guide  .dl dt {
+	border: 1px solid #d1d1d1;
+}
+
+.one_b_r .one_b_r_b .guide .dl dd  {
+	text-align: center;
+	padding-top: 5px;
+
+}
+.one_b_r .one_b_r_b .guide .dl dd  a {
+	color: #2579a9;
+
 }

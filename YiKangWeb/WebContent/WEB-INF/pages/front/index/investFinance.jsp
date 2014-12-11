@@ -72,11 +72,14 @@
    </div>
    <div class="four_r">
      <div class="one_b_r_b">
-      <h1>行业活动</h1>
-      <ul class="ul2">
-       <li><a href="${advert8.Url}" target="_blank"><img src="${ctx}${advert8.Img}" width="${advert8.Width}" height="${advert8.Height }"/></a></li>
-      <li><a href="${advert9.Url}" target="_blank"><img src="${ctx}${advert9.Img}" width="${advert9.Width}" height="${advert9.Height }"/></a></li>
-      <li><a href="${advert10.Url}" target="_blank"><img src="${ctx}${advert10.Img}" width="${advert10.Width}" height="${advert10.Height }"/></a></li>
+      <div class="ma"><h1>行业活动</h1>
+      <ul class="ul ul_h_250">
+       <c:forEach items="${qualiList}" var="o">
+			  <li><a href="${ctx}/front/train/detail/${o.ID}.html" target="_blank">${fn:substring(o.Title , 0,15)}</a></li>
+			  </c:forEach>
+     </ul></div>
+     <ul class="ul2">
+      <li><img src="${ctx}/theme/front/default/images/ad/ad_200.png" /></li>
      </ul>
     </div>
    </div>

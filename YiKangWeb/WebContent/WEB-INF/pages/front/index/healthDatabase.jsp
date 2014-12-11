@@ -6,9 +6,9 @@
     <div class="h1">健康数据库</div>
     <div class="english_s"></div>
     <ul class="ti4">
+    <li>&nbsp;</li>
      <li><a href="${ctx}/healthDatabase/yyk/1.html" target="_blank">医院库</a></li>
      <li><a href="${ctx}/healthDatabase/ypk/1.html" target="_blank">药品库</a></li>
-     <li><a href="#">保健品库</a></li>
     </ul>
    </div>
    <div class="one_b_l">
@@ -39,7 +39,7 @@
       </div>
       </div>
      </div>
-     <div class="one_b_l_r">
+     <div class="one_b_l_r ul_h_350">
        <div class="one_b_l_r_b2">
        <div class="title">
        <h1>药品库</h1>
@@ -55,7 +55,7 @@
      
       </div>
       </div>
-      <div class="one_b_l_r_b2 pt_15">
+      <!--<div class="one_b_l_r_b2 pt_15">
        <div class="title">
        <h1>保健品库</h1>
        <div class="more"><a href="#">more</a></div>
@@ -73,7 +73,7 @@
        <dt><a href="#"><img src="${ctx}/theme/front/default/images/index_005.png" /></a></dt>
        <dd><a href="#">保健品</a></dd>
       </dl></div>
-      </div>
+      </div>-->
      </div>
     </div>
    </div>

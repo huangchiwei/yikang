@@ -184,7 +184,7 @@ $(document).ready(function($){
    <div class="gou_box">
     <div class="fl">
       <div class="ma"><a href="${advert6.Url}" target="_blank"><img src="${ctx}${advert6.Img}" width="${advert6.Width}" height="${advert6_1.Height }"/></a></div>
-      <div class="ma pt_10"><a href="${advert7.Url}" target="_blank"><img src="${ctx}${advert7.Img}" width="${advert7.Width}" height="${advert7.Height }"/></a></div>
+      <div class="ma mt_20"><a href="${advert7.Url}" target="_blank"><img src="${ctx}${advert7.Img}" width="${advert7.Width}" height="${advert7.Height }"/></a></div>
     </div>
     <div class="gou_box_r">
     <ul class="ul">
