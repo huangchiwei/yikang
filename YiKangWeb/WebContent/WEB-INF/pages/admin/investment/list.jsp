@@ -64,7 +64,7 @@
         <td>${o.title}</td>
         <td>${o.province.name}</td>
         <td>${o.industry.mcName}</td>
-        <td>${o.amount} 万元</td>
+        <td><c:if test="${o.amount != null}">${o.amount} 万元</c:if></td>
         <td><c:if test="${o.isSelf == 1}">系统管理员</c:if><c:if test="${o.isSelf == 0}">${o.account.company}</c:if><c:if test="${o.isSelf == 2}">${o.contacts}</c:if></td>
         <td><fmt:formatDate value="${o.createDate}"
 								pattern="yyyy-MM-dd" /></td>

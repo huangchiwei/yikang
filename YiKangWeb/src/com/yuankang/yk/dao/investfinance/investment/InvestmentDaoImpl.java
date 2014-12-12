@@ -11,7 +11,6 @@ import org.springframework.util.StringUtils;
 
 import com.yuankang.yk.dao.base.BaseDaoImpl;
 import com.yuankang.yk.pojo.investfinance.Investment;
-import com.yuankang.yk.publics.tools.DateUtil;
 
 @Repository("investmentDao")
 public class InvestmentDaoImpl extends BaseDaoImpl<Investment> implements InvestmentDao {
@@ -57,7 +56,7 @@ public class InvestmentDaoImpl extends BaseDaoImpl<Investment> implements Invest
 	@Override
 	public List<Map<String, Object>> findListByPage(Pagination page,
 			Long industryId, Integer provinceId, Date time,Long accountId,Integer status) {
-		StringBuilder hql = new StringBuilder("select new map(t.id as id,t.title as title,t.industry.mcName as industry,t.amount as amount,t.createDate as createDate) from Investment t where 1 = 1");
+		StringBuilder hql = new StringBuilder("select new map(t.id as id,t.title as title,m.mcName as industry,t.amount as amount,t.createDate as createDate) from Investment t left join t.industry m where 1 = 1");
 		StringBuilder hql_1 = new StringBuilder("select count(t.id) from Investment t where 1 = 1");
 		List<Object> params = new ArrayList<Object>();
 		if(industryId != null && industryId > 0){

@@ -118,6 +118,7 @@
      </select>
      </td>
    </tr>
+   <c:if test="${not empty entity}">
     <tr>
      <td class="w100">联系人：</td>
      <td>
@@ -130,6 +131,7 @@
      	<c:if test="${entity.isSelf == 0}">${entity.account.phone}</c:if><c:if test="${entity.isSelf == 2}">${entity.telephone}</c:if>
      </td>
     </tr>
+    </c:if>
 	<tr>
 	 <td>融资行业：</td>
      <td>

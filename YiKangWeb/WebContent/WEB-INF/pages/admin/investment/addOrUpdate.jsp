@@ -71,6 +71,7 @@
      </select>
      </td>
    </tr>
+   <c:if test="${not empty entity}">
    	 <tr>
      <td class="w100">联系人：</td>
      <td>
@@ -83,6 +84,7 @@
      	<c:if test="${entity.isSelf == 0}">${entity.account.phone}</c:if><c:if test="${entity.isSelf == 2}">${entity.telephone}</c:if>
      </td>
     </tr>
+    </c:if>
 	<tr>
 	 <td>投资行业：</td>
      <td>
@@ -113,7 +115,7 @@
 	</tr>
    </table>
   <p class="div_submit">
-	<input id="sumbit_bt" name="" type="button" src="${ctx}/theme/admin/default/images/submit.png" value="提交"/>
+	<input id="sumbit_bt" name="" type="image" src="${ctx}/theme/admin/default/images/submit.png"/>
 	</p>
   </div>
   </form>
