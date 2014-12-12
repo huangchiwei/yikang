@@ -64,7 +64,7 @@ public class Investment implements Serializable{
 	
 	//1:通过 2审核中 3不通过
 	@Column(name="Status")
-	private Integer status = 0;
+	private Integer status = 2;
 	
 	@Column(name="isTop")
 	private Integer isTop = 0;

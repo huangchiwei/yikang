@@ -24,8 +24,8 @@
 				msg = '请选择行业';
 			}else if($("#amount").val() == ''){
 				msg = '请填写融资金额';
-			}else if($.trim($("#overview").val()) == ''){
-				msg = '请填写融资要求概述';
+			}else if($.trim(getEditorContent()) == ''){
+				msg = '请填写投资要求概述';
 			}
 			if(msg == ''){
 				return true;
@@ -72,6 +72,9 @@
 			}
 		});
 	}
+	function getEditorContent() { 
+		return CKEDITOR.instances.overview.getData();
+	}
 </script>
 </head>
 
@@ -115,7 +118,18 @@
      </select>
      </td>
    </tr>
-   
+    <tr>
+     <td class="w100">联系人：</td>
+     <td>
+     	<c:if test="${entity.isSelf == 1}">系统管理员</c:if><c:if test="${entity.isSelf == 0}">${entity.account.company}</c:if><c:if test="${entity.isSelf == 2}">${entity.contacts}</c:if>
+     </td>
+    </tr>
+    <tr>
+     <td class="w100">联系电话：</td>
+     <td>
+     	<c:if test="${entity.isSelf == 0}">${entity.account.phone}</c:if><c:if test="${entity.isSelf == 2}">${entity.telephone}</c:if>
+     </td>
+    </tr>
 	<tr>
 	 <td>融资行业：</td>
      <td>

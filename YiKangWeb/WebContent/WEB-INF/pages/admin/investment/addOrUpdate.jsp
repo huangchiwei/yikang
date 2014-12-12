@@ -24,7 +24,7 @@
 				msg = '请选择行业';
 			}else if($("#amount").val() == ''){
 				msg = '请填写投资金额';
-			}else if($.trim($("#overview").val()) == ''){
+			}else if($.trim(getEditorContent()) == ''){
 				msg = '请填写投资要求概述';
 			}
 			if(msg == ''){
@@ -37,7 +37,9 @@
 		editor= CKEDITOR.replace("overview"); 
 		CKFinder.setupCKEditor(editor, '${ctx}/js/ckfinder/');
 	});
-	
+	function getEditorContent() { 
+		return CKEDITOR.instances.overview.getData();
+	}
 </script>
 </head>
 
@@ -69,7 +71,18 @@
      </select>
      </td>
    </tr>
-   
+   	 <tr>
+     <td class="w100">联系人：</td>
+     <td>
+     	<c:if test="${entity.isSelf == 1}">系统管理员</c:if><c:if test="${entity.isSelf == 0}">${entity.account.company}</c:if><c:if test="${entity.isSelf == 2}">${entity.contacts}</c:if>
+     </td>
+    </tr>
+    <tr>
+     <td class="w100">联系电话：</td>
+     <td>
+     	<c:if test="${entity.isSelf == 0}">${entity.account.phone}</c:if><c:if test="${entity.isSelf == 2}">${entity.telephone}</c:if>
+     </td>
+    </tr>
 	<tr>
 	 <td>投资行业：</td>
      <td>
@@ -100,7 +113,7 @@
 	</tr>
    </table>
   <p class="div_submit">
-	<input id="sumbit_bt" name="" type="image" src="${ctx}/theme/admin/default/images/submit.png"/>
+	<input id="sumbit_bt" name="" type="button" src="${ctx}/theme/admin/default/images/submit.png" value="提交"/>
 	</p>
   </div>
   </form>

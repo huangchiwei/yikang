@@ -42,10 +42,11 @@
  <input onclick="javascript:location.href='${ctx}/admin/investment/add/new.html'" type="button" value="添加" class="initial" style="cursor:hand" />
    </div>
   <div class="list_info">
-    <h2>投资管理</h2>
-    标题：<input name="title" value="${title}"/> <input type="submit" value="查询"/>
+    <h2>投资管理&gt;&gt;&nbsp;&nbsp;&nbsp;&nbsp;标题：<input name="title" value="${title}"/> <input type="submit" value="查询"/></h2>
+    
     <table border="0" cellpadding="0" cellspacing="0" class="table">
 <tr>
+		<th>&nbsp;</th>
         <th>标题</th>
         <th>投资地区</th>
         <th>投资行业</th>
@@ -57,13 +58,14 @@
         <th>操作</th>
       </tr>
       
-      <c:forEach items="${list}" var="o">
+      <c:forEach items="${list}" var="o" varStatus="sta">
       	<tr onMouseOver="this.style.background='#ecf6ff'" onMouseOut="this.style.background='#FFFFFF'" >
+      	<td>${sta.index + 1}</td>
         <td>${o.title}</td>
         <td>${o.province.name}</td>
         <td>${o.industry.mcName}</td>
         <td>${o.amount} 万元</td>
-        <td><c:if test="${o.isSelf == 1}">后台发布</c:if><c:if test="${o.isSelf == 0}">${o.account.contactName}</c:if></td>
+        <td><c:if test="${o.isSelf == 1}">系统管理员</c:if><c:if test="${o.isSelf == 0}">${o.account.company}</c:if><c:if test="${o.isSelf == 2}">${o.contacts}</c:if></td>
         <td><fmt:formatDate value="${o.createDate}"
 								pattern="yyyy-MM-dd" /></td>
         <td>
@@ -74,7 +76,7 @@
         	</c:choose>
         </td>
         <td>${o.isTop == 1 ? '是' : '否'}</td>
-        <td><img style="cursor: pointer;" src="${ctx}/theme/admin/default/images/file_icon.png" onclick="javascript:location.href='${ctx}/admin/investment/update/${o.id}.html'"/>&nbsp;
+        <td>
            <img style="cursor: pointer;" src="${ctx}/theme/admin/default/images/edit_icon.png" onclick="javascript:location.href='${ctx}/admin/investment/update/${o.id}.html'"/>&nbsp;
           <img style="cursor: pointer;" src="${ctx}/theme/admin/default/images/del_icon.png" onclick="delConfirm(${o.id})"/>
           <c:choose>

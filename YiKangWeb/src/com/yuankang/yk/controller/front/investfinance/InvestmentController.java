@@ -63,7 +63,7 @@ public class InvestmentController extends BaseController{
 	public String list(@PathVariable Integer currentPage,Model model,Long industryId,Integer provinceId,Integer day){
 		try {
 			Pagination page = initPage(currentPage);
-			page.setPageSize(5);
+			page.setPageSize(22);
 			Date time = null;
 			if(day != null && day > 0){
 				Calendar cal = Calendar.getInstance();

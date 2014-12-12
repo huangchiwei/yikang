@@ -34,13 +34,13 @@
 	padding-left: 10px;
 }
 .news_top .index_reg {
-	width: 110px;
+	width: 150px;
 	margin-left: auto;
 	line-height: 36px;
 	padding-top: 2px;
 	color: #CCCCCC;
 	font-size: 14px;
-
+    text-align: right;
 }
 .news_top .index_reg a {
 	color: #509300;

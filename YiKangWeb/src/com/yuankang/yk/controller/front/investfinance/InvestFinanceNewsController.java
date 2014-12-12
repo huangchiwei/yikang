@@ -83,7 +83,7 @@ public class InvestFinanceNewsController extends BaseController {
 			String cateCode) {
 		try {
 			Pagination page = initPage(currentPage);
-			page.setPageSize(17);
+			page.setPageSize(30);
 			model.addAttribute("list", newsService.getByPage(page, cateCode));
 			model.addAttribute("page", page);
 			model.addAttribute("cateCode", cateCode);

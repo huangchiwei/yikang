@@ -73,7 +73,7 @@ public class Financing implements Serializable{
 	private Integer isSelf;
 	
 	@Column(name="Status")
-	private Integer status = 0;
+	private Integer status = 2;
 	
 	@Column(name="isTop")
 	private Integer isTop = 0;

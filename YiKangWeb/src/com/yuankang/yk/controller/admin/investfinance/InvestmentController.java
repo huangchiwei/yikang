@@ -1,8 +1,6 @@
 package com.yuankang.yk.controller.admin.investfinance;
 
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -41,8 +39,7 @@ public class InvestmentController extends BaseController {
 		ModelAndView mv = new ModelAndView("admin/investment/list");
 		// 初始化分页实体
 		Pagination page = initPage(currentPage);
-		page.setPageSize(1);
-		Map<String, Object> params = new HashMap<String, Object>();
+		page.setPageSize(10);
 		mv.addObject("list", investmentService.getByPage(page,title));
 		mv.addObject("page", page);
 		mv.addObject("title", title);

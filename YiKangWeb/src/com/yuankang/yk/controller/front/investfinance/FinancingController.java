@@ -38,7 +38,7 @@ public class FinancingController extends BaseController {
 	@RequestMapping(value = PAGE_LIST)
 	public String list(@PathVariable Integer currentPage,Model model,Long industryId,Integer provinceId,Integer cityId,Integer day){
 		Pagination page = initPage(currentPage);
-		page.setPageSize(5);
+		page.setPageSize(22);
 		Date time = null;
 		if(day != null && day > 0){
 			Calendar cal = Calendar.getInstance();
