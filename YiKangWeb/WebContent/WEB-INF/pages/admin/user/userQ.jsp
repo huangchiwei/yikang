@@ -22,7 +22,7 @@
 		      type : 4,
 		      btn : ['是','否'],
 		      yes : function(){
-		          location.href='${ctx}/admin/adPosition/delete/' + id + '.html';
+		          location.href='${ctx}/admin/user/delete/' + id + '.html';
 		      },
 		      no : function(index){
 		         layer.close(index);
@@ -35,38 +35,32 @@
 </head>
 
 <body>
-<form action="${ctx}/admin/adPosition/list/1.html" method="post">
+<form action="${ctx}/admin/user/list/1.html" method="post">
 <div class="content_box">
 <div class="btn_box">
-  <%-- <input onclick="javascript:location.href='${ctx}/admin/adPosition/add/new.html'"  type="button" value="添加" class="initial" style="cursor:hand" /> --%>
+<input onclick="javascript:location.href='${ctx}/admin/user/add/new.html'" type="button" value="添加" class="initial" style="cursor:hand" />
    </div>
   <div class="list_info">
-    <h2> 位置列表&gt;<%-- 所属级别：<input name="levelPage" value="${levelPage}"/> <input type="submit" value="&nbsp;查&nbsp;询&nbsp;"/> --%></h2>
+    <h2> 用户列表>></h2>
    
     <table border="0" cellpadding="0" cellspacing="0" class="table">
 <tr>
-		<!-- <th>所属级别</th> -->
-        <th>位置名称</th>
-        
-        <th>宽(px)</th>
-        <th>高(px)</th>
+        <th>用户名</th>
+        <th>邮箱</th>
+       <th>电话号码</th>
+        <th>状态</th>
         <th>操作</th>
       </tr>
       
       <c:forEach items="${list}" var="o">
       	<tr onMouseOver="this.style.background='#ecf6ff'" onMouseOut="this.style.background='#FFFFFF'" >
-        <%--  <td><c:if test="${o.LevelPage=='one'}">一级首页</c:if>
-         <c:if test="${o.LevelPage=='two'}">二级列表页</c:if>
-          <c:if test="${o.LevelPage=='third'}">三级详细页</c:if>
-         </td> --%>
-        <td>${o.PosName}</td>
-        <td>${o.Width}</td>
-       
-        <td>${o.Height}</td>
-       
+        <td>${o.LoginName}</td>
+        <td>${o.Email}</td>
+       <td>${o.Mobile}</td>
+       <td><c:if test="${o.Status==1}">正常</c:if><c:if test="${o.Status==0}">被锁住</c:if></td>
         <td>
-           <a href="${ctx}/admin/adPosition/update/${o.ID}.html"><img src="${ctx}/theme/admin/default/images/edit_icon.png" /></a>&nbsp;
-           </td>
+          <a href="${ctx}/admin/user/resetPwd.html?id=${o.ID}">修改密码</a> &nbsp;<a href="${ctx}/admin/user/update/${o.ID}.html"><img src="${ctx}/theme/admin/default/images/edit_icon.png" /></a>&nbsp;
+          <img src="${ctx}/theme/admin/default/images/del_icon.png" onclick="delConfirm(${o.ID})"/></td>
       </tr>
       </c:forEach>
     </table>

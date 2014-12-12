@@ -27,37 +27,38 @@
  
    
 	   <tr>
-	    <th>所属页面：</th>
+	  <%--   <th>所属页面：</th>
      <td>
      	<select id="levelPage" name="levelPage" class="slectBox" >
      	  <option  value="one" <c:if test="${adPosition.LevelPage=='one'}">selected="selected"</c:if>>一级首页</option>
      	  <option  value="two" <c:if test="${adPosition.LevelPage=='two'}">selected="selected"</c:if>>二级页</option>
      	  <option  value="third" <c:if test="${adPosition.LevelPage=='third'}">selected="selected"</c:if>>三级详细列表页</option>
      	</select>
-     </td>
+     </td> --%>
 	     <th>位置名称：</th>
      <td>
-     	<input id="PosName" name="PosName" type="text" value="${adPosition.PosName}" />
+     	<input id="PosName" name="PosName" type="text" value="${adPosition.PosName}" size="60"/>
+     </td>
+     <th>宽度(px)：</th>
+     <td>
+     <font color="red">${adPosition.Width}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>
+    	<%-- <input id="width" name="width" type="text" value="${adPosition.Width}" /> --%>
      </td>
 	   </tr> 
 	   <tr>
-	     <th>宽度(px)：</th>
-     <td>
-    	<input id="width" name="width" type="text" value="${adPosition.Width}" />
+	       <th>备注：</th>
+     <td >
+     <font color="red">${adPosition.Des }</font>
+    	<%--  <textarea id="des" name="des" rows="1" cols="100" >${adPosition.Des }</textarea>
+     	 --%>
      </td>
+	    
       <th>高度(px)：</th>
      <td>
-    	<input id="height" name="height" type="text" value="${adPosition.Height}" />
+      <font color="red">${adPosition.Height}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>
+    	<%-- <input id="height" name="height" type="text" value="${adPosition.Height}" /> --%>
      </td>
 	   </tr>
-    <tr>
-	
-         <th>描述：</th>
-     <td colspan="6">
-    	 <textarea id="des" name="des" rows="3" cols="100" >${adPosition.Des }</textarea>
-     	
-     </td>
-	   </tr> 
 
    </table>
  

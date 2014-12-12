@@ -54,8 +54,8 @@ html { overflow:-moz-scrollbars-vertical;}
 			<ul>
 			  <li><a href="${ctx}/admin/advert/list/1.html?adPosionId=-1&pictype=multi" target="mainFrame">广告轮播列表</a></li>
 			  <li><a href="${ctx}/admin/advert/list/1.html?adPosionId=-1&pictype=one" target="mainFrame">广告位置列表</a></li>
-			 <%--  <li><a href="${ctx}/admin/advert/list/1.html" target="mainFrame">广告列表(旧)</a></li>
-			   <li><a href="${ctx}/admin/adPosition/list/1.html" target="mainFrame">位置列表(旧)</a></li> --%>
+			 <%--  <li><a href="${ctx}/admin/advert/list/1.html" target="mainFrame">广告列表(旧)</a></li>--%>
+			   <li><a href="${ctx}/admin/adPosition/list/1.html" target="mainFrame">位置列表</a></li> 
 			 
 		  </ul>
 		</li>
@@ -63,6 +63,13 @@ html { overflow:-moz-scrollbars-vertical;}
 			<a href="#">健康购管理</a>
 			<ul>
 			  <li><a href="${ctx}/admin/shopping/list/1.html" target="mainFrame">产品列表</a></li>
+			   
+		  </ul>
+		</li>
+			<li>
+			<a href="#">用户管理</a>
+			<ul>
+			  <li><a href="${ctx}/admin/user/list/1.html" target="mainFrame">用户列表</a></li>
 			   
 		  </ul>
 		</li>
