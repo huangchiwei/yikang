@@ -24,6 +24,8 @@
 				msg = '请选择行业';
 			}else if($("#amount").val() == ''){
 				msg = '请填写投资金额';
+			}else if(!/^\d+$/.test($("#amount").val())){
+				msg = '请填写正确的金额';
 			}else if($.trim(getEditorContent()) == ''){
 				msg = '请填写投资要求概述';
 			}
@@ -99,7 +101,7 @@
 	<tr>
 	 <td>投资金额：</td>
      <td>
-     	<input id="amount" name="amount" type="text" value="${entity.amount}" maxlength="20"/> 万元
+     	<input id="amount" name="amount" type="text" value="${entity.amount}" maxlength="10"/> 万元
      </td>
 	</tr>
 	<tr>

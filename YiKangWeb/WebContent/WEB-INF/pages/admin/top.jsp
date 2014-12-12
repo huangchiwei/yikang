@@ -41,7 +41,7 @@ function resetPwd(){
    <div class="user">${session_user.loginName }</div>
   <!--  <div class="home"><a href="content.html" target="mainFrame">首页</a></div> -->
    <div class="set"><span style="cursor:pointer;" onclick="resetPwd();">修改密码</span></div>
-   <div class="quit"><a href="${ctx}/admin/userLogout.html" target="_blank">退出</a></div>
+   <div class="quit"><a href="${ctx}/admin/userLogout.html">退出</a></div>
   </div>
  </div>
 </div>
