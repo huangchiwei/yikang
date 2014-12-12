@@ -97,7 +97,7 @@ public class TrainService extends BaseSqlService {
 					+ train.getLastUpdateUser() + "',LastUpdateTime=now()"
 					+ ",IsTop=" + train.getIsTop() + ",IsRecommend="
 					+ train.getIsRecommend() + ",HasImage=" + train.getHasImage()
-					+ ",CoreTip='" + train.getCoreTip() + "',VideoUrl='"+train.getVideoUrl()+"' where ID="
+					+ ",CoreTip='" + train.getCoreTip() + "',VideoUrl='"+train.getVideoUrl()+"',ThumbPic='"+train.getThumbPic()+"' where ID="
 					+ train.getId();
 		}else{
 			sql = "update train set CateCode='" + train.getCateCode() + "',"
@@ -110,7 +110,7 @@ public class TrainService extends BaseSqlService {
 					+ train.getLastUpdateUser() + "',LastUpdateTime=now()"
 					+ ",IsTop=" + train.getIsTop() + ",IsRecommend="
 					+ train.getIsRecommend() + ",HasImage=" + train.getHasImage()
-					+ ",CoreTip='" + train.getCoreTip() + "',VideoUrl='"+train.getVideoUrl()+"',ThumbPic='"+train.getThumbPic()+"' where ID="
+					+ ",CoreTip='" + train.getCoreTip() + "',VideoUrl='"+train.getVideoUrl()+"' where ID="
 					+ train.getId();
 		}
 		 

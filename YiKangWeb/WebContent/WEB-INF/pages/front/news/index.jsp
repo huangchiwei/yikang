@@ -73,7 +73,7 @@ $(function(){
    <div class="n_flash">
     <div class="n_l_o_flash" id="KinSlideshow" style="visibility:hidden;">
       <c:forEach items="${advert11}" var="i" varStatus="sta">
-      <a href="${i.Url}" target="_blank"><img src="${ctx}${i.Img}" width="${i.Width}" height="${i.Height }"/></a>
+      <a href="${i.Url}" target="_blank"><img src="${ctx}${i.Img}" alt="${i.AdName}" width="${i.Width}" height="${i.Height }"/></a>
       
       </c:forEach>
      
