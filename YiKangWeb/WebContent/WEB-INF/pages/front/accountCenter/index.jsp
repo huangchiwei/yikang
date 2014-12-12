@@ -22,7 +22,7 @@
    <div class="m_r_box">
     <dl class="dl">
      <dt class="dt_a"></dt>
-     <dd><a href="#">资料确认</a></dd>
+     <dd><a href="${ctx}/front/accountCenter/alterAccount.html">资料确认</a></dd>
     </dl>
     <dl class="dl">
      <dt class="dt_b"></dt>
@@ -30,7 +30,7 @@
     </dl>
     <dl class="dl">
      <dt class="dt_c"></dt>
-     <dd><a href="#">账号设置</a></dd>
+     <dd><a href="${ctx}/front/accountCenter/resetPwdIndex.html">账号设置</a></dd>
     </dl>
    </div>
    <div class="title"><h1>投融资动态</h1></div>
