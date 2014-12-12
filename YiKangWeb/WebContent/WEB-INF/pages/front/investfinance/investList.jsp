@@ -80,7 +80,7 @@
     </div>
     <div class="p_20">
     <div class="trz_title">
-     <span class="name">投资机构/个人名称</span>
+     <span class="name">投资项目</span>
      <span class="industry">投资行业</span>
      <span class="scale">投资规模</span>
      <span class="time">发布日期</span>
@@ -90,7 +90,7 @@
       		<li class="li2"><span class="time"><fmt:formatDate value="${o.createDate}"
 								pattern="yyyy-MM-dd" /></span>
 							<span class="scale">${o.amount}万</span><span class="industry">${o.industry}</span>
-							<a href="${ctx}/investment/detail/${o.id}.html">${fn:length(o.title)>30?fn:substring(o.title,0,30):o.title}${fn:length(o.title)>30?'...':''}</a></li>
+							<a href="${ctx}/investment/detail/${o.id}.html" title="${o.title}">${fn:length(o.title)>25?fn:substring(o.title,0,25):o.title}${fn:length(o.title)>25?'...':''}</a></li>
       	</c:forEach>
         
       </ul>

@@ -1,8 +1,6 @@
 package com.yuankang.yk.controller.admin.investfinance;
 
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -74,6 +72,10 @@ public class FinancingController extends BaseController {
 	@RequestMapping(value = SAVE)
 	public String save(Financing invest){
 		try {
+			if(invest.getCity().getId() == -1)
+				invest.setCity(null);
+			if(invest.getArea().getId() == -1)
+				invest.setArea(null);
 			if(invest.getId() == null){
 				invest.setCreateDate(new Date());
 				invest.setIsSelf(1);

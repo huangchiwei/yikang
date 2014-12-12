@@ -56,7 +56,7 @@
  <div class="d_box_tj">
   <div class="sgtj">
   <c:if test="${not empty relatedImageNews }">
-   <div class="fl"><a href="${ctx}/investFinanceNews/detail/${relatedImageNews.ID}.html"><img src="${ctx}/${relatedImageNews.src}" width="150"/></a></div>
+   <div class="fl"><a href="${ctx}/investFinanceNews/detail/${relatedImageNews.ID}.html"><img src="${ctx}${relatedImageNews.src}" width="150"/></a></div>
   <dl class="extend_page_dl">
    <dt class="extend_page_dt"><a href="${ctx}/investFinanceNews/detail/${relatedImageNews.ID}.html">${relatedImageNews.Title}</a></dt>
    <dd class="extend_page_dd">

@@ -119,7 +119,7 @@ $(function(){
       <div class="more"><a href="${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceNews" target="_blank">more</a></div>
      </div>
      <dl class="dl">
-      <dt class="dt"><a href="${ctx}/investFinanceNews/detail/${relatedImageNews.ID}.html" target="_blank"><img src="${ctx}/${relatedImageNews.src}" width="100" height="74" /></a></dt>
+      <dt class="dt"><a href="${ctx}/investFinanceNews/detail/${relatedImageNews.ID}.html" target="_blank"><img src="${ctx}${relatedImageNews.src}" width="100" height="74" /></a></dt>
       <dd class="dd"><a href="${ctx}/investFinanceNews/detail/${relatedImageNews.ID}.html" target="_blank">${relatedImageNews.Title}</a></dd>
      </dl>
       <ul class="ul3">

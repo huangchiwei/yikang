@@ -24,6 +24,8 @@
 				msg = '请选择行业';
 			}else if($("#amount").val() == ''){
 				msg = '请填写融资金额';
+			}else if(!/^\d+$/.test($("#amount").val())){
+				msg = '请填写正确的金额';
 			}else if($.trim(getEditorContent()) == ''){
 				msg = '请填写投资要求概述';
 			}
@@ -118,6 +120,7 @@
      </select>
      </td>
    </tr>
+   <c:if test="${not empty entity}">
     <tr>
      <td class="w100">联系人：</td>
      <td>
@@ -130,6 +133,7 @@
      	<c:if test="${entity.isSelf == 0}">${entity.account.phone}</c:if><c:if test="${entity.isSelf == 2}">${entity.telephone}</c:if>
      </td>
     </tr>
+    </c:if>
 	<tr>
 	 <td>融资行业：</td>
      <td>
@@ -144,7 +148,7 @@
 	<tr>
 	 <td>融资金额：</td>
      <td>
-     	<input id="amount" name="amount" type="text" value="${entity.amount}" maxlength="20"/> 万元
+     	<input id="amount" name="amount" type="text" value="${entity.amount}" maxlength="10"/> 万元
      </td>
 	</tr>
 	<tr>

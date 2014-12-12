@@ -42,7 +42,7 @@
  <input onclick="javascript:location.href='${ctx}/admin/financing/add/new.html'" type="button" value="添加" class="initial" style="cursor:hand" />
    </div>
   <div class="list_info">
-    <h2>融资管理理&gt;&gt;&nbsp;&nbsp;&nbsp;&nbsp; 标题：<input name="title" value="${title}"/> <input type="submit" value="查询"/></h2>
+    <h2>融资管理&gt;&gt;&nbsp;&nbsp;&nbsp;&nbsp; 标题：<input name="title" value="${title}"/> <input type="submit" value="查询"/></h2>
    
     <table border="0" cellpadding="0" cellspacing="0" class="table">
 <tr>
@@ -64,7 +64,7 @@
         <td>${o.title}</td>
         <td>${o.province.name} ${o.city.name} ${o.area.name}</td>
         <td>${o.industry.mcName}</td>
-        <td>${o.amount} 万元</td>
+        <td><c:if test="${o.amount != null}">${o.amount} 万元</c:if></td>
         <td><c:if test="${o.isSelf == 1}">系统管理员</c:if><c:if test="${o.isSelf == 0}">${o.account.company}</c:if><c:if test="${o.isSelf == 2}">${o.contacts}</c:if></td>
         <td><fmt:formatDate value="${o.createDate}"
 								pattern="yyyy-MM-dd" /></td>
