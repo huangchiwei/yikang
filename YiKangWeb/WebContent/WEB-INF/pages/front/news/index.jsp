@@ -257,7 +257,7 @@ $(function(){
     <div class="n_three_b">
      <div class="l_box">
       <dl>
-       <dt><img src="${ctx }/${oneImage.src}" width="200" height="120"/></dt>
+       <dt><img src="${ctx }${oneImage.src}" width="200" height="120"/></dt>
        <dd><a  href="javascript:void(0);" onclick="jump(${oneImage.ID})">${fn:substring(oneImage.Title, 0, 14) }</a></dd>
       </dl>
       <ul class="ul">
@@ -270,7 +270,7 @@ $(function(){
      </div>
      <div class="l_box">
       <dl>
-       <dt><img src="${ctx }/${twoImage.src}" width="200" height="120"/></dt>
+       <dt><img src="${ctx }${twoImage.src}" width="200" height="120"/></dt>
        <dd><a href="javascript:void(0);" onclick="jump(${twoImage.ID})">${fn:substring(twoImage.Title, 0, 14) }</a></dd>
       </dl>
       <ul class="ul">
@@ -282,7 +282,7 @@ $(function(){
      </div>
      <div class="l_box">
       <dl>
-       <dt><img src="${ctx }/${thirdImage.src}" width="200" height="120"/></dt>
+       <dt><img src="${ctx }${thirdImage.src}" width="200" height="120"/></dt>
        <dd><a href="javascript:void(0);" onclick="jump(${thirdImage.ID})">${fn:substring(thirdImage.Title, 0, 14) }</a></dd>
       </dl>
       <ul class="ul">

@@ -74,12 +74,12 @@
      <div class="one_b_r_b">
       <div class="ma"><h1>行业活动</h1>
       <ul class="ul ul_h_250">
-       <c:forEach items="${qualiList}" var="o">
-			  <li><a href="${ctx}/front/train/detail/${o.ID}.html" target="_blank">${fn:substring(o.Title , 0,15)}</a></li>
+       <c:forEach items="${indusList}" var="o">
+			  <li><a href="${ctx}/front/industryActi/detail/${o.Id}.html" target="_blank">${fn:substring(o.Title , 0,15)}</a></li>
 			  </c:forEach>
      </ul></div>
      <ul class="ul2">
-      <li><img src="${ctx}/theme/front/default/images/ad/ad_200.png" /></li>
+      <li><a href="${advert8.Url}" target="_blank"><img src="${ctx}${advert8.Img}" width="${advert8.Width}" height="${advert8.Height }"/></a></li>
      </ul>
     </div>
    </div>

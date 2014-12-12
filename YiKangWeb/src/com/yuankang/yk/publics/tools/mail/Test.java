@@ -17,8 +17,10 @@ public class Test {
     // mailInfo.setToAddress("659590719@qq.com");  //炽威
      
     // mailInfo.setToAddress("13418056821@163.com");   
-     mailInfo.setSubject("test3");    
-     mailInfo.setContent("冠哥，请允许我非礼调戏你1分钟，谢谢。");    
+     mailInfo.setSubject("重置密码"); 
+    // mailInfo.setContent("dddddddddddddddddddddddd");
+     mailInfo.setContent("亲爱的大健康365会员[zgg]:重置密码请点击以下地址");    
+    // mailInfo.setContent("亲爱的大健康365会员[zgg]:重置密码请点击以下地址,http://www.djk365.org.cn/front/account/resetPwd.html?accountNo=zgg&mailSeq=1418230536015");    
         //这个类主要来发送邮件   
      SimpleMailSender sms = new SimpleMailSender();   
          sms.sendTextMail(mailInfo);//发送文体格式    
