@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>大健康365---健康大讲堂</title>
+<title>大健康365---岭南健康大讲堂</title>
 <link href="${ctx}/theme/front/default/style/master.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/theme/front/default/style/default.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/js/front/train/css/list.css" rel="stylesheet" type="text/css" />
@@ -42,7 +42,7 @@ $(function(){
    <div class="lanren">
     <a href="${ctx}/front/train/list/1.html?cateCode=qualifications">资质培训</a>
     <a  href="${ctx}/front/train/list/1.html?cateCode=technical" >技能培训</a>
-    <a href="${ctx}/front/train/videoList/1.html?cateCode=lecture" class="thisclass">健康大讲堂</a>
+    <a href="${ctx}/front/train/videoList/1.html?cateCode=lecture" class="thisclass">岭南健康大讲堂</a>
    
    </div>
   </div>
@@ -53,10 +53,10 @@ $(function(){
     </div>
   </div>
  </div>
-<div class="location"><a href="#">首页</a> > 健康大讲堂</div>
+<div class="location"><a href="#">首页</a> > 岭南健康大讲堂</div>
 <div class="n_list">
   <div class="list_video">
-    <div class="n_list_title"><h1>健康大讲堂</h1>
+    <div class="n_list_title"><h1>岭南健康大讲堂</h1>
     </div>
     <div class="video">
      <form id="search_form" action="${ctx}/front/train/videoList/1.html" method="post">

@@ -54,6 +54,9 @@ public class AccountCenterController extends BaseController {
 		if (oj == null) {
 			return "redirect:/front/account/login.html";
 		} else {
+			model.addAttribute("investList1", Constants.indexData.get("investList1"));
+			model.addAttribute("financeList1", Constants.indexData.get("financeList1"));
+			
 			Map<String, Object> ac = accountService.getByAccountNo(oj
 					.toString());
 			if (ac != null) {

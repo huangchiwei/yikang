@@ -7,9 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.yuankang.yk.pojo.sys.User;
-import com.yuankang.yk.publics.Constants;
-
 /**
  * 类说明:
  * @author wei
@@ -22,8 +19,6 @@ public class IndexController {
 
 	@RequestMapping("{page}")
 	public String index(@PathVariable String page,HttpServletRequest request,Model model){
-		 User user=(User)request.getSession().getAttribute(Constants.SESSION_USER);
-		model.addAttribute("userNo", user.getLoginName());
 		return "admin/" + page;
 		
 	}

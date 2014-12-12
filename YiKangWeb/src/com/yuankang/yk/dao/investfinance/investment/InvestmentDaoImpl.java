@@ -50,7 +50,7 @@ public class InvestmentDaoImpl extends BaseDaoImpl<Investment> implements Invest
 
 	@Override
 	public List<Map<String,Object>> findListByPage(Pagination page){
-		String hql = "select new map(t.id as id,t.title as title,t.industry.mcName as industry) from Investment t where t.status = 1 order by t.id desc";
+		String hql = "select new map(t.id as id,t.title as title,t.industry.mcName as industry,t.createDate as createDate) from Investment t where t.status = 1 order by t.id desc";
 		 return findByPage(hql, page.getStartRowNumber(), page.getPageSize());
 	}
 	

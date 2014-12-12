@@ -13,7 +13,17 @@
 <link href="${ctx}/theme/front/investfinance/css/list.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${ctx}/js/jquery-1.8.0.min.js"></script>
 <script src="${ctx}/theme/front/investfinance/js/flash.js"></script>
-<script src="${ctx}/theme/front/investfinance/js/jquery.carouFredSel-6.0.4-packed.js"></script>
+
+<script type="text/javascript">
+$(function(){
+	$("#KinSlideshow").KinSlideshow({
+			moveStyle:"right",
+			titleBar:{titleBar_height:30,titleBar_bgColor:"#000000",titleBar_alpha:0.5},
+			titleFont:{TitleFont_size:12,TitleFont_color:"#FFFFFF",TitleFont_weight:"normal"},
+			btn:{btn_bgColor:"#FFFFFF",btn_bgHoverColor:"#000000",btn_fontColor:"#000000",btn_fontHoverColor:"#FFFFFF",btn_borderColor:"#cccccc",btn_borderHoverColor:"#000000",btn_borderWidth:1}
+	});
+})
+</script>
 </head>
 <body>
 <jsp:include page="/WEB-INF/pages/front/common/secondHead.jsp"/>
@@ -39,20 +49,12 @@
  <div class="n_one">
   <div class="n_one_l">
    <div class="n_flash">
-    <div id="wrappers">
-	<div id="carousels">
-		<img src="${ctx}/theme/front/investfinance/images/a1.png" width="650" height="200" />
-		<img src="${ctx}/theme/front/investfinance/images/a2.png" width="650" height="200" />
-		<img src="${ctx}/theme/front/investfinance/images/a3.png" width="650" height="200" />
-		<img src="${ctx}/theme/front/investfinance/images/a4.png" width="650" height="200" class="last" />
-        </div>
-	<div id="pagers">
-		<a href="#"><span></span></a>
-		<a href="#"><span></span></a>
-		<a href="#"><span></span></a>
-		<a href="#"><span></span></a>
-	</div>
-</div>
+    <div id="KinSlideshow" style="visibility:hidden;">
+      <a href="#" target="_blank"><img src="${ctx}/theme/front/investfinance/images/a1.png" alt="这是标题一" width="650" height="200" /></a>
+      <a href="#" target="_blank"><img src="${ctx}/theme/front/investfinance/images/a2.png" alt="这是标题二" width="650" height="200" /></a>
+      <a href="#" target="_blank"><img src="${ctx}/theme/front/investfinance/images/a3.png" alt="这是标题二" width="650" height="200" /></a>
+      <a href="#" target="_blank"><img src="${ctx}/theme/front/investfinance/images/a4.png" alt="这是标题二" width="650" height="200" /></a>
+   </div>
    </div>
    <div class="n_new_b">
     <div class="n_n_b_t">
@@ -97,9 +99,18 @@
         为金融机构、企业提供专属服务！</div>
       <div class="trz_login_b">
        <h1>简单一步，轻松注册</h1>
-       <div class="btn_div"><input type="button" class="btn" value="登录" style="cursor: pointer;" onclick="javascript:location.href='${ctx}/front/account/login.html'"/>
-         <input name="input2" type="button" class="btn" value="注册" style="cursor: pointer;" onclick="javascript:location.href='${ctx}/front/account/register.html'"/>
-       </div>
+       <div class="btn_div">
+       <c:choose>
+       	<c:when test="${front_key != null}">
+       		<a href="${ctx}/front/accountCenter/index.html">${front_key}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 		<a href="${ctx}/front/account/accountLogout.html">安全退出</a><br/>
+       	</c:when>
+       	<c:otherwise>
+       		<input type="button" class="btn" value="登录" style="cursor: pointer;" onClick="javascript:location.href='${ctx}/front/account/login.html'"/>
+         	<input name="input2" type="button" class="btn" value="注册" style="cursor: pointer;" onClick="javascript:location.href='${ctx}/front/account/register.html'"/>
+       	</c:otherwise>
+       </c:choose>
+              </div>
       </div>
     </div>
     <div class="n_one_top">

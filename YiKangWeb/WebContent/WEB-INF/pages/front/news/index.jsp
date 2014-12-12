@@ -10,9 +10,15 @@
 <link href="${ctx}/theme/front/default/style/default.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/js/front/news/css/list.css" rel="stylesheet" type="text/css" />
 
+
+
+<link href="../../../../theme/front/default/style/master.css" rel="stylesheet" type="text/css" />
+<link href="../../../../theme/front/default/style/default.css" rel="stylesheet" type="text/css" />
+<link href="../../../../js/front/news/css/list.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${ctx}/js/jquery-1.8.0.min.js"></script>
 <script src="${ctx}/js/front/news/js/flash.js"></script>
 <script src="${ctx}/js/front/news/js/jquery.carouFredSel-6.0.4-packed.js"></script>
+<script src="${ctx}/js/front/news/js/jquery.KinSlideshow-1.2.1.min.js" type="text/javascript"></script>
 <script>
 function jump(id,newWindow){
 	if(newWindow!=null){
@@ -29,6 +35,16 @@ $(function(){
 	});
 });
 </script>
+<script type="text/javascript">
+$(function(){
+	$("#KinSlideshow").KinSlideshow({
+			moveStyle:"right",
+			titleBar:{titleBar_height:30,titleBar_bgColor:"#297b00",titleBar_alpha:0.5},
+			titleFont:{TitleFont_size:12,TitleFont_color:"#FFFFFF",TitleFont_weight:"normal"},
+			btn:{btn_bgColor:"#FFFFFF",btn_bgHoverColor:"#5aa304",btn_fontColor:"#000000",btn_fontHoverColor:"#FFFFFF",btn_borderColor:"#cccccc",btn_borderHoverColor:"#297b00",btn_borderWidth:1}
+	});
+})
+</script>
 </head>
 
 <body>
@@ -38,7 +54,7 @@ $(function(){
   <div class="n_box">
    <div class="new_logo"><img src="${ctx}/js/front/news/images/news_logo.png" /></div>
    <div class="lanren">
-    <a href="${ctx}/front/news/index.html" >首页</a>
+    <a href="${ctx}/front/news/index.html" class="thisclass">首页</a>
     <a href="${ctx}/front/news/list/1.html?cateCode=industryNews" >行业新闻</a>
     <a href="${ctx}/front/news/list/1.html?cateCode=law">法律法规</a>
     <a href="${ctx}/front/news/list/1.html?cateCode=industryFocus">行业焦点</a>
@@ -55,30 +71,10 @@ $(function(){
  <div class="n_one">
   <div class="n_one_l">
    <div class="n_flash">
-    <div id="wrappers">
-	<div id="carousels">
-<%-- 	<c:forEach items="${advert11}" var="p" varStatus="sta">
-	<c:if test="${sta.index==fn:length(advert11)-1}">
-	<a href="${p.Url}" target="_blank"><img src="${ctx}${p.Img}" width="650" height="300" style="cursor:pointer;" class="last"/></a>
-			
-	</c:if>
-	<c:if test="${sta.index!=fn:length(advert11)-1}">
-	<a href="${p.Url}" target="_blank"><img src="${ctx}${p.Img}" width="650" height="300" style="cursor:pointer;" /></a>
-			
-	</c:if>
-	</c:forEach> --%>
-		 <img src="http://demo.lanrenzhijia.com/2014/banner1029/images/cars.jpg" width="650" height="310" />
-		<img src="http://demo.lanrenzhijia.com/2014/banner1029/images/rat.jpg" width="650" height="310" />
-		<img src="http://demo.lanrenzhijia.com/2014/banner1029/images/toystory.jpg" width="650" height="310" />
-		<img src="http://demo.lanrenzhijia.com/2014/banner1029/images/walle.jpg" width="650" height="310"  /> 
-	</div>
-	<div id="pagers">
-		<a href="#"><span></span></a>
-		<a href="#"><span></span></a>
-		<a href="#"><span></span></a>
-		<a href="#"><span></span></a>
-	</div>
-</div>
+    <div class="n_l_o_flash" id="KinSlideshow" style="visibility:hidden;">
+      <a href="#" target="_blank"><img src="${ctx}/js/front/news/images/650x300_a.jpg" alt="这是标题一" width="650" height="300" /></a>
+      <a href="#" target="_blank"><img src="${ctx}/js/front/news/images/650x300_b.jpg" alt="这是标题二" width="650" height="300" /></a>
+   </div>
    </div>
    <div class="n_new_b">
     <div class="n_n_b_t">

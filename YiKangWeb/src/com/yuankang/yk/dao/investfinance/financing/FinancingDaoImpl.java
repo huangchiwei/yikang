@@ -37,7 +37,7 @@ public class FinancingDaoImpl extends BaseDaoImpl<Financing> implements Financin
 
 	@Override
 	public List<Map<String, Object>> getListByPage(Pagination page) {
-		String hql = "select new map(t.id as id,t.title as title,t.industry.mcName as industry,t.amount as amount) from Financing t where t.status = 1 order by t.id desc";
+		String hql = "select new map(t.id as id,t.title as title,t.industry.mcName as industry,t.amount as amount,t.createDate as createDate) from Financing t where t.status = 1 order by t.id desc";
 		 return findByPage(hql, page.getStartRowNumber(), page.getPageSize());
 	}
 

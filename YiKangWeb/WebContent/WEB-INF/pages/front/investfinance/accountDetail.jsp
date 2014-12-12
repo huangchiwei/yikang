@@ -4,7 +4,7 @@
 <html>
   <head>
     
-    <title>亿康在线-行业机构-${entity.company}</title>
+    <title>大健康365-投融资-行业机构-${entity.company}</title>
     <meta http-equiv="pragma" content="no-cache"/>
 	<meta http-equiv="cache-control" content="no-cache"/>
 	<meta http-equiv="expires" content="0"/>
@@ -33,7 +33,7 @@
   <div class="search">
    <div class="n_search_box">
       <input name="search_term" class="keywords" id="search_term" value="请输入关键字"/>
-      <input type="button" onclick="form_search();" value="搜索" class="rssclick" />
+      <input type="button" onClick="form_search();" value="搜索" class="rssclick" />
     </div>
   </div>
  </div>

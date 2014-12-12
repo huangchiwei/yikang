@@ -33,9 +33,9 @@ function changeLeftMenu(url){
  <div class="top_toolbar">
   <div class="top_t_time"  id="showtime"></div>
   <div class="div">
-   <div class="user">${userNo }</div>
+   <div class="user">${session_user.loginName }</div>
   <!--  <div class="home"><a href="content.html" target="mainFrame">首页</a></div> -->
-   <div class="set"><a href="#">设置</a></div>
+   <div class="set"><a href="#">修改密码</a></div>
    <div class="quit"><a href="${ctx}/admin/userLogout.html" target="_blank">退出</a></div>
   </div>
  </div>

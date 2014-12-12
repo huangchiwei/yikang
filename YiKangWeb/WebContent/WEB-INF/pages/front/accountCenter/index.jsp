@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -35,12 +36,17 @@
    <div class="title"><h1>投融资动态</h1></div>
    <div class="m_r_box">
    <ul>
-    <li class="li"><span>2014-12-05</span>[项目投融]<a href="#">江苏某企业资金100万-5亿寻高科技产业</a></li>
-    <li class="li"><span>2014-12-05</span>[项目投融]<a href="#">江苏某企业资金100万-5亿寻高科技产业</a></li>
-    <li class="li"><span>2014-12-05</span>[项目投融]<a href="#">江苏某企业资金100万-5亿寻高科技产业</a></li>
-    <li class="li"><span>2014-12-05</span>[项目投融]<a href="#">江苏某企业资金100万-5亿寻高科技产业</a></li>
-    <li class="li"><span>2014-12-05</span>[项目投融]<a href="#">江苏某企业资金100万-5亿寻高科技产业</a></li>
-    <li class="li"><span>2014-12-05</span>[项目投融]<a href="#">江苏某企业资金100万-5亿寻高科技产业</a></li>
+   <c:forEach items="${investList1}" var="o" begin="0" step="1" end="2">
+   	<li class="li"><span><fmt:formatDate value="${o.createDate}"
+								pattern="yyyy-MM-dd" /></span>[项目投资]<a href="${ctx}/investment/detail/${o.id}.html" target="_blank">
+	${fn:length(o.title)>35?fn:substring(o.title,0,35):o.title}${fn:length(o.title)>35?'...':''}</a></li>
+   </c:forEach>
+    
+    <c:forEach items="${financeList1}" var="o" begin="0" step="1" end="2">
+   	<li class="li"><span><fmt:formatDate value="${o.createDate}"
+								pattern="yyyy-MM-dd" /></span>[项目融资]<a href="${ctx}/financing/detail/${o.id}.html" target="_blank">
+	${fn:length(o.title)>35?fn:substring(o.title,0,35):o.title}${fn:length(o.title)>35?'...':''}</a></li>
+   </c:forEach>
    </ul>
    </div>
   </div>
