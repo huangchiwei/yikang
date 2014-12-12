@@ -44,14 +44,23 @@ public class AccountController extends BaseController {
 		  if(accountNo==null||accountNo.isEmpty()){
 			  return "front/account/login";
 		  }
-		  model.addAttribute("accountNo",accountNo);
-		  model.addAttribute("pwd",pwd);
+		  //
+		 // 
 		  String oldCode = (String) request.getSession().getAttribute(
 					Constants.VERIFY_CODE);
 		  if (oldCode.equalsIgnoreCase(vcode)){
 			  Map<String, Object> ac= accountService.getByAccountNo(accountNo);
-			  if (ac != null && DigestUtils.md5DigestAsHex(pwd.getBytes()).equals(ac.get("Pwd").toString())) {
+			  if(ac==null){
+				  model.addAttribute("accountNo",accountNo);
+				  model.addAttribute("pwd",pwd);
+				  request.setAttribute("msg", "用户名不存在!");
+				  return "front/account/login";
+			  }
+			  if (ac != null && DigestUtils.md5DigestAsHex(pwd.getBytes()).
+					  equals(ac.get("Pwd").toString())) {
 				  if(ac.get("Status").toString()=="0"){
+					  model.addAttribute("accountNo",accountNo);
+					  model.addAttribute("pwd",pwd);
 					  model.addAttribute("msg", "帐号["+accountNo+"]还没激活.");
 					  return "front/account/login";
 				  }
@@ -65,9 +74,13 @@ public class AccountController extends BaseController {
 					//super.setCookie(response, Constants.FRONT_KEY, accountNo);	
 					return "redirect:/index.html";
 			  }else{
+				  model.addAttribute("accountNo",accountNo);
+				  model.addAttribute("pwd",pwd);
 				  request.setAttribute("msg", "密码不正确!");
 			  }
 			  }else{
+				  model.addAttribute("accountNo",accountNo);
+				  model.addAttribute("pwd",pwd);
 				  request.setAttribute("msg", "验证码不正确!");
 				  }
 	    return "front/account/login";

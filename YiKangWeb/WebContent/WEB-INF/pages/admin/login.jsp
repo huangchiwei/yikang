@@ -12,9 +12,9 @@
 	<link href="${ctx}/theme/admin/default/css/font.css" rel="stylesheet" type="text/css" />
 	<link href="${ctx}/theme/admin/default/css/default.css" rel="stylesheet" type="text/css" />
     
-    <link href="../../../theme/admin/default/css/master.css" rel="stylesheet" type="text/css" />
+   <!--  <link href="../../../theme/admin/default/css/master.css" rel="stylesheet" type="text/css" />
 	<link href="../../../theme/admin/default/css/font.css" rel="stylesheet" type="text/css" />
-	<link href="../../../theme/admin/default/css/default.css" rel="stylesheet" type="text/css" />
+	<link href="../../../theme/admin/default/css/default.css" rel="stylesheet" type="text/css" /> -->
  	<script type="text/javascript" src="${ctx}/js/jquery-1.8.0.min.js" ></script>
  	<script type="text/javascript">
  		var flag = true;
@@ -67,9 +67,9 @@
    <div class="login_float">大健康365后台管理系统</div>
     <ul>
      <li style=" margin-top:4px;">
-     	<input id="loginName" name="loginName" type="text" value="admin" style="width:190px;" class="input"/></li>
+     	<input id="loginName" name="loginName" type="text" value="${loginName}" style="width:190px;" class="input"/></li>
      <li style="margin-top:9px;">
-       <input id="password" name="password" type="password" value="123456" style="width:190px;" class="input"/>
+       <input id="password" name="password" type="password" value="" style="width:190px;" class="input"/>
      </li>
      <li style="margin-top:9px;" class="relative">
        <input id="vcode" name="vcode" maxlength="4" style="width:60px;" class="input"/>

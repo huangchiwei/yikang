@@ -57,7 +57,7 @@ public class AdminUserService extends BaseSqlService {
 	}
 	public void updatePwd(Long id ,String newPwd) {
 		String sql="update sys_user set Pwd='"+newPwd
-				+" where ID="+id;
+				+"' where ID="+id;
 
 		up_del(sql);
 	}

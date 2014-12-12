@@ -82,6 +82,7 @@ function checkForm(){
     <input name="Mobile" type="text" value="${user.Mobile}"/>
      </td>
      <c:if test="${loginName=='admin'}">
+     <c:if test="${user.LoginName!='admin'}">
      <th>状态：</th> 
      <td>  <select id="status" name="status"> 
       <option value="1" <c:if test="${user.Status==1}">selected="selected"</c:if>>正常</option>
@@ -89,13 +90,14 @@ function checkForm(){
     
      </select></td>
      </c:if>
+     </c:if>
     
 	   </tr> 
  
 
    </table>
  
-  <p class="div_submit">
+  <p class="div_submit">&nbsp;&nbsp;
   <input type="submit" value="提交"/>
 				   <%--  <input id="sumbit_bt" name="" type="image" src="${ctx}/theme/admin/default/images/submit.png"/> --%>
 				</p>

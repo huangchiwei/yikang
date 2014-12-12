@@ -24,6 +24,11 @@ function changeLeftMenu(url){
 	window.parent.frames["leftFrame"].location.href=url;
 	//$(window.parent.document).find("#leftFrame").attr('src',url);
 }
+function resetPwd(){
+	var url="${ctx}/admin/user/resetPwd.html?id=${session_user.id}";
+	$(window.parent.document).find("#mainFrame").attr('src',url);
+	//$(window.frames['mainFrame'].document).attr('src', "${ctx}/admin/user/resetPwd.html?id=${session_user.id}");
+}
 </script>
 </head>
 
@@ -35,7 +40,7 @@ function changeLeftMenu(url){
   <div class="div">
    <div class="user">${session_user.loginName }</div>
   <!--  <div class="home"><a href="content.html" target="mainFrame">首页</a></div> -->
-   <div class="set"><a href="#">修改密码</a></div>
+   <div class="set"><span style="cursor:pointer;" onclick="resetPwd();">修改密码</span></div>
    <div class="quit"><a href="${ctx}/admin/userLogout.html" target="_blank">退出</a></div>
   </div>
  </div>

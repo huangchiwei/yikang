@@ -10,11 +10,11 @@
 <link href="${ctx}/theme/front/default/style/default.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/js/front/news/css/list.css" rel="stylesheet" type="text/css" />
 
-
+<!-- 
 
 <link href="../../../../theme/front/default/style/master.css" rel="stylesheet" type="text/css" />
 <link href="../../../../theme/front/default/style/default.css" rel="stylesheet" type="text/css" />
-<link href="../../../../js/front/news/css/list.css" rel="stylesheet" type="text/css" />
+<link href="../../../../js/front/news/css/list.css" rel="stylesheet" type="text/css" /> -->
 <script type="text/javascript" src="${ctx}/js/jquery-1.8.0.min.js"></script>
 <script src="${ctx}/js/front/news/js/flash.js"></script>
 <script src="${ctx}/js/front/news/js/jquery.carouFredSel-6.0.4-packed.js"></script>
@@ -72,8 +72,11 @@ $(function(){
   <div class="n_one_l">
    <div class="n_flash">
     <div class="n_l_o_flash" id="KinSlideshow" style="visibility:hidden;">
-      <a href="#" target="_blank"><img src="${ctx}/js/front/news/images/650x300_a.jpg" alt="这是标题一" width="650" height="300" /></a>
-      <a href="#" target="_blank"><img src="${ctx}/js/front/news/images/650x300_b.jpg" alt="这是标题二" width="650" height="300" /></a>
+      <c:forEach items="${advert11}" var="i" varStatus="sta">
+      <a href="${i.Url}" target="_blank"><img src="${ctx}${i.Img}" width="${i.Width}" height="${i.Height }"/></a>
+      
+      </c:forEach>
+     
    </div>
    </div>
    <div class="n_new_b">
@@ -82,14 +85,19 @@ $(function(){
      <div class="more"><a href="${ctx}/front/news/list/1.html?cateCode=industryNews">more</a></div>
     </div>
     <div class="n_b_box">
-     <div class="n_b_box_l"><img src="${ctx}${first_industryNews_pic.src}" width="140" height="105"/></div>
+     <div class="n_b_box_l">
+       <c:if test="${not empty first_industryNews_pic}">
+      <c:if test="${fn:contains(first_industryNews_pic.src, 'userfiles')==true}"><img src="${ctx}${first_industryNews_pic.src}" width="130" height="80"/></c:if>
+      <c:if test="${fn:contains(first_industryNews_pic.src, 'userfiles')==false}"><img src="${ctx}/theme/front/default/images/index_001.png" width="130" height="80"/></c:if>
+      </c:if>
+     </div>
      <div class="n_b_box_r">
      <c:forEach items="${industryNews}" var="i" varStatus="sta">
      <c:if test="${sta.index ==0}">
       <h1><a href="javascript:void(0);" onclick="jump(${i.ID})">${i.Title }</a></h1>
        <p class="p">
-       <c:if test="${fn:length(i.Digest)>75}">${fn:substring(i.Digest, 0, 75)}......</c:if>
-       <c:if test="${fn:length(i.Digest)<75}">${i.Digest}</c:if>
+       <c:if test="${fn:length(i.Digest)>65}">${fn:substring(i.Digest, 0, 65)}......</c:if>
+       <c:if test="${fn:length(i.Digest)<65}">${i.Digest}</c:if>
        </p>
       <p class="p2">[<a href="javascript:void(0);" onclick="jump(${i.ID})">查看详细</a>]</p>
      </c:if>
@@ -113,7 +121,12 @@ $(function(){
      <div class="more"><a href="${ctx}/front/news/list/1.html?cateCode=industryFocus">more</a></div>
     </div>
     <div class="n_b_box">
-     <div class="n_b_box_l"><img src="${ctx}${first_industryFocus_pic.src}" width="140" height="105"/></div>
+     <div class="n_b_box_l">
+     <c:if test="${not empty first_industryFocus_pic}">
+      <c:if test="${fn:contains(first_industryFocus_pic.src, 'userfiles')==true}"><img src="${ctx}${first_industryFocus_pic.src}" width="130" height="80"/></c:if>
+      <c:if test="${fn:contains(first_industryFocus_pic.src, 'userfiles')==false}"><img src="${ctx}/theme/front/default/images/index_001.png" width="130" height="80"/></c:if>
+      </c:if>
+     <%-- <img src="${ctx}${first_industryFocus_pic.src}" width="140" height="105"/> --%></div>
      <div class="n_b_box_r">
      
           <c:forEach items="${industryFocus}" var="f" varStatus="sta">
@@ -204,7 +217,7 @@ $(function(){
      <ul class="n_gj_b">
        <c:forEach items="${countyLaw}" var="f" varStatus="sta">
      <c:if test="${sta.index >0}">
-       <li><a href="javascript:void(0);" onclick="jump(${f.ID})">${fn:substring(f.Title, 0, 18) }</a></li>
+       <li><a href="javascript:void(0);" onclick="jump(${f.ID})">${fn:substring(f.Title, 0, 17) }</a></li>
      </c:if>
           </c:forEach>
      
@@ -218,7 +231,7 @@ $(function(){
      <ul class="n_gj_b">
       <c:forEach items="${localLaw}" var="f" varStatus="sta">
      <c:if test="${sta.index >0}">
-       <li><a  href="javascript:void(0);" onclick="jump(${f.ID})">${fn:substring(f.Title, 0, 18) }</a></li>
+       <li><a  href="javascript:void(0);" onclick="jump(${f.ID})">${fn:substring(f.Title, 0, 17) }</a></li>
      </c:if>
           </c:forEach>
      </ul>

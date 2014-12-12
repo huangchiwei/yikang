@@ -9,7 +9,28 @@
 <link href="${ctx}/theme/admin/default/css/default.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/theme/admin/default/css/font.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${ctx }/js/jquery-1.8.0.min.js"></script>
+<script>
+function checkForm(){
 
+	var oldPwd = $("#oldPwd");
+	var newPwd = $("#newPwd");
+	var msg = "";
+	if($.trim(oldPwd.val()) == ""){
+		msg = "原密码不能为空!";
+		oldPwd.focus();
+	}else if($.trim(newPwd.val()) == ""){
+		msg = "新密码不能为空!";
+		newPwd.focus();
+	}
+
+		if (msg != ""){
+			alert(msg);
+			return false;
+		}else{
+			return true;
+		}
+}
+</script>
 
 </head>
 
@@ -18,8 +39,8 @@
     <div class="btn_box">
   <input type="button" value="返回" class="initial" style="cursor:hand" onclick="javascript:location.href='${ctx}/admin/user/list/1.html'"/>
    </div>
-<form id="add_form" action="${ctx}/admin/user/updatePwd.html"  method="post" >
- 	<input type="hidden" name="id" value="${ID}"/>
+<form id="add_form" action="${ctx}/admin/user/updatePwd.html"  method="post" onsubmit="return checkForm()">
+ 	<input type="hidden" name="id" value="${id}"/>
   <div class="add_info">
 
    <h2>修改密码</h2>
@@ -32,11 +53,11 @@
      </td>
      <th>请输入原密码：</th>
      <td>
-    	<input id="oldPwd" name="oldPwd" type="password" />
+    	<input id="oldPwd" name="oldPwd" type="password" value="${oldPwd}"/>
      </td>
       <th>请输入新密码：</th>
      <td>
-    <input name="newPwd" type="password" />
+    <input name="newPwd" id="newPwd" type="password" />
      </td>
     </tr>
   

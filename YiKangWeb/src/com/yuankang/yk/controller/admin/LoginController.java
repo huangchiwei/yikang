@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -37,6 +38,7 @@ public class LoginController {
 	public void login(HttpServletRequest request, HttpServletResponse res,
 			String loginName, String password, String vcode) {
 		try {
+			request.setAttribute("loginName", loginName);
 			Object obj = request.getSession().getAttribute(Constants.SESSION_USER);
 			if(obj != null){
 				res.sendRedirect(request.getContextPath() + "/admin/index.html");
@@ -47,7 +49,7 @@ public class LoginController {
 			if (vcode.equalsIgnoreCase(oldCode)) {// 
 				User user = userService.findByLoginName(loginName);
 				if (user != null
-						&& EncryptTool.EncryptSHA(password, loginName).equals(user.getPassword())
+						&& DigestUtils.md5DigestAsHex(password.getBytes()).equals(user.getPassword())
 						&& user.getStatus() == 1) {
 					
 					HttpSession sessionOld = request.getSession(false);
@@ -61,7 +63,7 @@ public class LoginController {
 					return;
 				} else {
 					request.setAttribute("msg", "用户名或密码不正确!");
-					request.setAttribute("loginName", loginName);
+					
 				}
 			} else {
 				request.setAttribute("msg", "验证码不正确!");

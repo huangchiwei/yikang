@@ -80,14 +80,14 @@ public class UserController extends BaseController {
 	 @RequestMapping(value = "/updatePwd.html")
 	  public String updatePwd(Long id,String oldPwd,String newPwd, Model model)
 	  {
-		 
+		 model.addAttribute("oldPwd", oldPwd);
 		 Map<String, Object> olduser=adminUserService.getById(id);
 		 if(olduser!=null){
 			 if(!DigestUtils.md5DigestAsHex(oldPwd.getBytes()).equals(olduser.get("Pwd").toString())){
 				 model.addAttribute("msg", "原密码不正确");
 				 return "admin/user/userResetPwd";
 			 }else{
-				 adminUserService.updatePwd(id,newPwd);
+				 adminUserService.updatePwd(id,DigestUtils.md5DigestAsHex(newPwd.getBytes()));
 			 }
 		 }
 		 return "redirect:/admin/user/list/1.html";

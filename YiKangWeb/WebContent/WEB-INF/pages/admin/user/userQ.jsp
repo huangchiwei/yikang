@@ -37,8 +37,9 @@
 <body>
 <form action="${ctx}/admin/user/list/1.html" method="post">
 <div class="content_box">
-<div class="btn_box">
+<div class="btn_box"><c:if test="${session_user.loginName=='admin'}">
 <input onclick="javascript:location.href='${ctx}/admin/user/add/new.html'" type="button" value="添加" class="initial" style="cursor:hand" />
+  </c:if>
    </div>
   <div class="list_info">
     <h2> 用户列表>></h2>
@@ -60,7 +61,12 @@
        <td><c:if test="${o.Status==1}">正常</c:if><c:if test="${o.Status==0}">被锁住</c:if></td>
         <td>
           <a href="${ctx}/admin/user/resetPwd.html?id=${o.ID}">修改密码</a> &nbsp;<a href="${ctx}/admin/user/update/${o.ID}.html"><img src="${ctx}/theme/admin/default/images/edit_icon.png" /></a>&nbsp;
-          <img src="${ctx}/theme/admin/default/images/del_icon.png" onclick="delConfirm(${o.ID})"/></td>
+          <c:if test="${session_user.loginName=='admin'}">
+           <c:if test="${o.LoginName!='admin'}">
+           <img src="${ctx}/theme/admin/default/images/del_icon.png" onclick="delConfirm(${o.ID})"/>
+           </c:if>
+          </c:if>
+          </td>
       </tr>
       </c:forEach>
     </table>

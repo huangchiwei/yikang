@@ -132,7 +132,7 @@ public class AccountService extends BaseSqlService {
 	public Map<String, Object> getByAccountNo(String accountNo) {
 		String sql = "select * from  account  where AccountNo='"+accountNo+"'";		
 		List<Map<String, Object>> an=getQuery(sql);
-		if(an!=null)
+		if(an!=null&&an.size()>0)
 			return an.get(0);
 		else return null;
 	}
