@@ -43,15 +43,15 @@ public class AdPositionController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = PAGE_LIST)
-	public ModelAndView getByPage(@PathVariable int currentPage, String levelPage) {
+	public ModelAndView getByPage(@PathVariable int currentPage) {
 		
 				ModelAndView mv = new ModelAndView("admin/adPosition/list");
 				// 初始化分页实体
 				Pagination page = initPage(currentPage);
 				//page.setPageSize(4);
-				mv.addObject("list", adPositionService.getByPage(page,levelPage));
+				mv.addObject("list", adPositionService.getByPage(page));
 				mv.addObject("page", page);
-				mv.addObject("levelPage", levelPage);
+	
 		return mv;
 	}
 	 @RequestMapping(value = DELETE)

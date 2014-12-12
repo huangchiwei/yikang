@@ -59,7 +59,7 @@ public class User implements Serializable {
 	/**
 	 * 真实姓名（或昵称，依系统而定）
 	 */
-	@Column(name = "UserName", nullable = false, length = 200)
+	@Column(name = "UserName", nullable = true, length = 200)
 	private String userName;
 	/**
 	 * 用户状态（0：禁用；1：启用（默认）; 2:删除）

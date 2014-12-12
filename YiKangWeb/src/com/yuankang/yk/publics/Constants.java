@@ -17,7 +17,8 @@ import org.springframework.core.io.support.PropertiesLoaderUtils;
 public abstract class Constants
 {
 	public final static Properties mailPros = Constants.getProperties("/mail.properties");
-	/**
+	 
+	  /**
 	 * 项目数据库SCHEMA引用
 	 */
 	//public final static String BUY_SHOP = "TEST";

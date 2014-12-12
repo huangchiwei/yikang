@@ -23,17 +23,10 @@ public class AdPositionService extends BaseSqlService {
 	 * @param advert
 	 * @return
 	 */
-	public List<Map<String, Object>> getByPage(Pagination page, String levelPage) {
+	public List<Map<String, Object>> getByPage(Pagination page) {
 		List<Map<String, Object>> list=null;
-		if(levelPage==null||levelPage==""){
-			initCount("select count(*) from ad_position ",page);
-			list=getQuery("select * from ad_position  order by ID desc",page);
-		}else{
-			initCount("select count(*) from ad_position where LevelPage='"+levelPage+"'",page);
-			list=getQuery("select * from ad_position where LevelPage='"+levelPage+"' order by ID desc",page);
-		}
-		
-				
+		initCount("select count(*) from ad_position",page);
+		list=getQuery("select * from ad_position  order by PosName asc",page);	
 		return list;
 	}
 	public void delete(Long id)
@@ -64,8 +57,7 @@ public class AdPositionService extends BaseSqlService {
 		up_del(sql);
 	}
 	public void update(AdPosition adPosition) {
-		String sql="update ad_position set PosName='"+adPosition.getPosName()+"',Width='"+adPosition.getWidth()+
-				"',Height='"+adPosition.getHeight()+"',Des='"+adPosition.getDes()+"',LevelPage='"+adPosition.getLevelPage()+"' where ID="+adPosition.getId();
+		String sql="update ad_position set PosName='"+adPosition.getPosName()+"' where ID="+adPosition.getId();
 		up_del(sql);
 	}
 	

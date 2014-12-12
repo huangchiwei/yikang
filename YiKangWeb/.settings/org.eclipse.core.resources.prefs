@@ -1,5 +1,7 @@
 eclipse.preferences.version=1
 encoding//WebContent/WEB-INF/pages/admin/advert/advertA_U.jsp=UTF-8
+encoding//WebContent/WEB-INF/pages/admin/user/userA_U.jsp=UTF-8
+encoding//WebContent/WEB-INF/pages/admin/user/userQ.jsp=UTF-8
 encoding//WebContent/WEB-INF/pages/front/account/forget.jsp=UTF-8
 encoding//WebContent/WEB-INF/pages/front/account/forgetemail.jsp=UTF-8
 encoding//WebContent/WEB-INF/pages/front/account/forgetsuccess.jsp=UTF-8
