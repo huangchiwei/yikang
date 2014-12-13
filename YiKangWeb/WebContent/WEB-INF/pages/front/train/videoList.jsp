@@ -64,7 +64,7 @@ $(function(){
       <c:forEach items="${list}" var="o" varStatus="sta">
          <dl class="dl">
        <dt><a href="${ctx}/front/train/videoDetail/${o.ID}.html"><img src="${ctx}${o.ThumbPic}" width="160" height="120" /></a></dt>
-       <dd><a href="${ctx}/front/train/videoDetail/${o.ID}.html">${o.Author}</a></dd>
+       <dd><a href="${ctx}/front/train/videoDetail/${o.ID}.html">${o.Author}(${o.Title})</a></dd>
       </dl>
       </c:forEach>
      </form>
