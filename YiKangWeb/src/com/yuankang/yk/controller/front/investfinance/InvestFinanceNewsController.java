@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.yuankang.yk.publics.Constants;
+import com.yuankang.yk.service.advert.AdvertService;
 import com.yuankang.yk.service.news.NewsService;
 
 /**
@@ -26,7 +27,8 @@ import com.yuankang.yk.service.news.NewsService;
 @Controller
 @RequestMapping("investFinanceNews")
 public class InvestFinanceNewsController extends BaseController {
-
+	@Resource
+	private AdvertService advertService;
 	@Resource
 	private NewsService newsService;
 
@@ -38,6 +40,11 @@ public class InvestFinanceNewsController extends BaseController {
 	@RequestMapping(value = DETAIL)
 	public String detail(Model model, @PathVariable Long id) {
 		try {
+			//右上角广告
+			List<Map<String, Object>>  advert12=advertService.getByPosCode("12");
+			if(advert12!=null && advert12.size()>0)
+			model.addAttribute("advert12",advert12.get(0));
+			
 			Map<String, Object> news = newsService.getById(id);
 			model.addAttribute("news", news);
 			// 前10条热文排行
@@ -82,6 +89,11 @@ public class InvestFinanceNewsController extends BaseController {
 	public String list(@PathVariable Integer currentPage, Model model,
 			String cateCode) {
 		try {
+			//右上角广告
+			List<Map<String, Object>>  advert12=advertService.getByPosCode("12");
+			if(advert12!=null && advert12.size()>0)
+			model.addAttribute("advert12",advert12.get(0));
+			
 			Pagination page = initPage(currentPage);
 			page.setPageSize(30);
 			model.addAttribute("list", newsService.getByPage(page, cateCode));

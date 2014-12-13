@@ -1,5 +1,8 @@
 package com.yuankang.yk.controller.front.investfinance;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.armysoft.core.Pagination;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.yuankang.yk.publics.Constants;
 import com.yuankang.yk.service.account.AccountService;
+import com.yuankang.yk.service.advert.AdvertService;
 import com.yuankang.yk.service.sys.McodeService;
 import com.yuankang.yk.service.sys.RegionService;
 
@@ -23,7 +27,8 @@ import com.yuankang.yk.service.sys.RegionService;
 @Controller("investFinanceAccount")
 @RequestMapping("investFinance/account")
 public class AccountController extends BaseController{
-
+	@Resource
+	private AdvertService advertService;
 	@Resource
 	private AccountService accountService;
 	@Resource
@@ -38,6 +43,11 @@ public class AccountController extends BaseController{
 	@RequestMapping(value = DETAIL)
 	public String detail(Model model,@PathVariable Long id) {
 		try {
+			//右上角广告
+			List<Map<String, Object>>  advert12=advertService.getByPosCode("12");
+			if(advert12!=null && advert12.size()>0)
+			model.addAttribute("advert12",advert12.get(0));
+			
 			model.addAttribute("entity", accountService.getById(id));
 			//前10条热文推荐
 			 model.addAttribute("hotRecomInfoList", Constants.indexData.get("hotRecomInfoList"));
@@ -53,6 +63,11 @@ public class AccountController extends BaseController{
 	@RequestMapping(value = PAGE_LIST)
 	public String list(@PathVariable Integer currentPage,Model model,Long industryId,Integer provinceId){
 		try {
+			//右上角广告
+			List<Map<String, Object>>  advert12=advertService.getByPosCode("12");
+			if(advert12!=null && advert12.size()>0)
+			model.addAttribute("advert12",advert12.get(0));
+			
 			Pagination page = initPage(currentPage);
 			page.setPageSize(5);
 			model.addAttribute("list", accountService.getByPage(page, industryId, provinceId));

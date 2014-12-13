@@ -75,7 +75,7 @@
      </c:forEach>
      </ul>
    </div>
-   <div class="ad_280 mt_10"><img src="${ctx}/theme/front/default/images/ad/ad_280.png" /></div>
+   <div class="ad_280 mt_10"><a href="${advert12.Url}" target="_blank"><img src="${ctx}${advert12.Img}" width="${advert12.Width}" height="${advert12.Height }"/></a></div>
    <jsp:include page="/WEB-INF/pages/front/common/hotRecomInfoList.jsp" />
   </div>
 </div>

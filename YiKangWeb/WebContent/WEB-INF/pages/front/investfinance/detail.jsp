@@ -43,7 +43,7 @@
     <div class="n_list_title"><h1><span>时间：<fmt:formatDate value="${entity.createDate}"
 								pattern="yyyy-MM-dd" /></span>${entity.title}</h1></div>
     <div class="n_d_trz">
-     <div class="n_d_trz_img"><img src="${ctx}//theme/front/accountCenter/images/head.png" width="140" height="140" class="img" /></div>
+     <div class="n_d_trz_img"><img src="${ctx}/theme/front/accountCenter/images/head.png" width="140" height="140" class="img" /></div>
      <div class="n_d_trz_txt">
       <ul>
        <li><span>机构/个人名称：</span>${entity.isSelf == 1 ? '亿康' : entity.account.company}</li>
@@ -76,7 +76,7 @@
      </c:forEach>
      </ul>
    </div>
-   <div class="ad_280 mt_10"><img src="${ctx}/theme/front/default/images/ad/ad_280.png" /></div>
+   <div class="ad_280 mt_10"><a href="${advert12.Url}" target="_blank"><img src="${ctx}${advert12.Img}" width="${advert12.Width}" height="${advert12.Height }"/></a></div>
    <jsp:include page="/WEB-INF/pages/front/common/hotRecomInfoList.jsp" />
   </div>
 </div>

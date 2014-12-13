@@ -2,6 +2,8 @@ package com.yuankang.yk.controller.front.investfinance;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.yuankang.yk.pojo.investfinance.Investment;
 import com.yuankang.yk.publics.Constants;
+import com.yuankang.yk.service.advert.AdvertService;
 import com.yuankang.yk.service.investfinance.InvestmentService;
 import com.yuankang.yk.service.sys.McodeService;
 import com.yuankang.yk.service.sys.RegionService;
@@ -27,7 +30,8 @@ import com.yuankang.yk.service.sys.RegionService;
 @Controller
 @RequestMapping("investment")
 public class InvestmentController extends BaseController{
-
+	@Resource
+	private AdvertService advertService;
 	@Resource
 	private InvestmentService investmentService;
 	@Resource
@@ -42,6 +46,11 @@ public class InvestmentController extends BaseController{
 	@RequestMapping(value = DETAIL)
 	public String detail(Model model,@PathVariable Long id) {
 		try {
+			//右上角广告
+			List<Map<String, Object>>  advert12=advertService.getByPosCode("12");
+			if(advert12!=null && advert12.size()>0)
+			model.addAttribute("advert12",advert12.get(0));
+			
 			Investment invest = investmentService.findById(id, Investment.class);
 			if(invest.getStatus() == 0)
 				return "error/404";
@@ -62,6 +71,12 @@ public class InvestmentController extends BaseController{
 	@RequestMapping(value = PAGE_LIST)
 	public String list(@PathVariable Integer currentPage,Model model,Long industryId,Integer provinceId,Integer day){
 		try {
+			
+			//右上角广告
+			List<Map<String, Object>>  advert12=advertService.getByPosCode("12");
+			if(advert12!=null && advert12.size()>0)
+			model.addAttribute("advert12",advert12.get(0));
+			
 			Pagination page = initPage(currentPage);
 			page.setPageSize(22);
 			Date time = null;
