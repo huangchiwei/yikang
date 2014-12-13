@@ -2,6 +2,7 @@ package com.yuankang.yk.controller.admin.advert;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -58,14 +59,14 @@ public class AdvertController extends BaseController {
 	}
 	@RequestMapping(value = SAVE)
 	public String save(HttpServletRequest request,Model model,Advert advert,String viewType,String pictype) {
-		
+		Date d=new Date();
 		 String imgPath="";
 		 String realPath="";  
 	     MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;  
 	        MultipartFile file = multipartRequest.getFile("file");    
 			   if (!file.isEmpty()) {
 				 
-				   imgPath="/userfiles/advert/"+pictype+"/"+file.getOriginalFilename();
+				   imgPath="/userfiles/advert/"+pictype+"/"+d.getTime()+"_"+file.getOriginalFilename();
 					realPath=Constants.BASE_DIR+imgPath;
 				   try {
 							file.transferTo(new File(realPath));
