@@ -50,10 +50,9 @@ $(function(){
   <div class="n_one_l">
    <div class="n_flash">
     <div id="KinSlideshow" style="visibility:hidden;">
-      <a href="#" target="_blank"><img src="${ctx}/theme/front/investfinance/images/a1.png" alt="这是标题一" width="650" height="200" /></a>
-      <a href="#" target="_blank"><img src="${ctx}/theme/front/investfinance/images/a2.png" alt="这是标题二" width="650" height="200" /></a>
-      <a href="#" target="_blank"><img src="${ctx}/theme/front/investfinance/images/a3.png" alt="这是标题二" width="650" height="200" /></a>
-      <a href="#" target="_blank"><img src="${ctx}/theme/front/investfinance/images/a4.png" alt="这是标题二" width="650" height="200" /></a>
+    <c:forEach items="${rollAdverts}" var="o">
+    	<a href="${o.Url}" target="_blank"><img src="${ctx}${o.Img}" alt="${o.AdName}" width="650" height="200" /></a>
+    </c:forEach>
    </div>
    </div>
    <div class="n_new_b">
@@ -145,10 +144,10 @@ $(function(){
  <div class="n_two">
   <div class="n_t_t">
      <h1>行业机构</h1>
-     <div class="more"><a href="#"> more</a></div>
+     <div class="more"><a href="${ctx}/investFinance/account/list/1.html" target="_blank"> more</a></div>
     </div>
     <div class="rzjg_box">
-     <ul class="jg_a">
+     <ul class="jg_a" style="display: none">
       <li><a href="#"><img src="${ctx}/theme/front/investfinance/images/qy_logo.png"  class="img"/></a></li>
       <li><a href="#"><img src="${ctx}/theme/front/investfinance/images/qy_logo.png"  class="img"/></a></li>
       <li><a href="#"><img src="${ctx}/theme/front/investfinance/images/qy_logo.png"  class="img"/></a></li>
@@ -157,16 +156,11 @@ $(function(){
       <li><a href="#"><img src="${ctx}/theme/front/investfinance/images/qy_logo.png"  class="img"/></a></li>
      </ul>
      <div class="jg_b">
-     <a href="#">中国中小企业发展促进中心</a>
-     <a href="#">北京市中小企业服务中心</a>
-     <a href="#">东城区中小企业网</a>
-     <a href="#">西城区中小企业网</a>
-     <a href="#">朝阳区中小企业网</a>
-     <a href="#">海淀区中小企业网</a>
-     <a href="#">石景山区中小企业服务中心</a>
-     <a href="#">丰台区中小企业服务中心</a>
-     <a href="#">房山区中小企业服务中心</a>
-     <a href="#">通州区中小企业服务中心</a>
+     <c:forEach items="${index_account_10}" var="o">
+      	<a href="${ctx}/investFinance/account/detail/${o.ID}.html" target="_blank" title="${o.Company}">
+	${fn:length(o.Company)>10?fn:substring(o.Company,0,10):o.Company}${fn:length(o.Company)>10?'...':''}</a>
+      </c:forEach>
+     
      </div>
     </div>
   </div>

@@ -12,7 +12,7 @@
     <div class="l_nav">
      <h1>管理中心</h1>
      <ul>
-      <li <c:if test="${menu=='addInfo' }">class="select"</c:if>><a href="${ctx}/front/accountCenter/index.html">发布信息</a></li>
+      <li <c:if test="${menu=='addInfo' }">class="select"</c:if>><a href="${ctx}/front/accountCenter/add/new.html">发布信息</a></li>
       <li <c:if test="${menu=='infoList' }">class="select"</c:if>><a href="${ctx}/front/accountCenter/list/1.html?type=invest">已发布的信息</a></li>
      </ul>
      <h1>账户管理</h1>

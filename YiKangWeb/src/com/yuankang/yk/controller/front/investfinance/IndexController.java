@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.yuankang.yk.pojo.investfinance.Financing;
 import com.yuankang.yk.pojo.investfinance.Investment;
 import com.yuankang.yk.publics.Constants;
+import com.yuankang.yk.service.advert.AdvertService;
 import com.yuankang.yk.service.investfinance.FinancingService;
 import com.yuankang.yk.service.investfinance.InvestmentService;
 import com.yuankang.yk.service.news.NewsService;
@@ -36,6 +37,8 @@ public class IndexController {
 	private FinancingService financingService;
 	@Resource
 	private InvestmentService investmentService;
+	@Resource
+	private AdvertService advertService;
 	
 	@RequestMapping("index")
 	public String index(Model model){
@@ -43,6 +46,9 @@ public class IndexController {
 		model.addAttribute("financeList2", Constants.indexData.get("financeList2"));
 		//model.addAttribute("hangyezixun", Constants.indexData.get("hangyezixun"));
 		model.addAttribute("zhengcefagui_6", Constants.indexData.get("zhengcefagui_6"));
+		model.addAttribute("index_account_10", Constants.indexData.get("index_account_10"));
+		//滚动广告
+		model.addAttribute("rollAdverts",advertService.getByPosCode("13"));
 		// 相关推荐，相同类型的其它5条，其中一条是一定带图片的
 		List<String> idList = new ArrayList<String>();
 		List<Map<String, Object>> relatedImageNews = newsService
