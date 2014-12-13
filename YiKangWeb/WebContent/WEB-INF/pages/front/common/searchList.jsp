@@ -5,7 +5,7 @@
 <html>
   <head>
     
-    <title>大健康365-投融资-搜索结果</title>
+    <title>大健康365-搜索结果</title>
     <meta http-equiv="pragma" content="no-cache"/>
 	<meta http-equiv="cache-control" content="no-cache"/>
 	<meta http-equiv="expires" content="0"/>
@@ -13,16 +13,6 @@
 <link href="${ctx}/theme/front/default/style/default.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/theme/front/investfinance/css/list.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${ctx}/js/jquery-1.8.0.min.js"></script>
-<script type="text/javascript">
-$(function(){
-	$("#search_bt").click(function(){
-		if($.trim($("#key").val()) == ''){
-			alert("请输入关键字");
-			return false;
-		}
-	});
-})
-</script>
 
 </head>
 <body>
@@ -33,24 +23,16 @@ $(function(){
   <div class="n_box">
    <div class="new_logo"><img src="${ctx}/theme/front/investfinance/images/news_logo.png" /></div>
    <div class="lanren">
-   <a href="${ctx}/investFinance/index.html">首页</a>
-    <a href='${ctx}/investment/list/1.html'>投资信息</a>
-    <a href='${ctx}/financing/list/1.html'>融资信息</a>
-    <a href='${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceNews'>行业资讯</a>
-    <a href='${ctx}/investFinance/account/list/1.html'>行业机构</a>
-    <a href='${ctx}/investFinanceNews/list/1.html?cateCode=investFinanceLaw'>政策法规</a>
+  <!-- 导航 -->
    </div>
   </div>
   <div class="search">
    <div class="n_search_box">
-   <form action="${ctx}/investFinance/search/1.html" method="post">
-      <input name="key" class="keywords" id="key" value="${key}"/>
-      <input id="search_bt" type="submit" value="搜索" class="rssclick" />
-    </form>
+      <jsp:include page="/WEB-INF/pages/front/common/search.jsp" />
     </div>
   </div>
  </div>
-<div class="location"><a href="${ctx}/">首页</a> &gt; <a href="${ctx}/investFinance/index.html">投融资频道</a> &gt; 搜索结果</div>
+<div class="location"><a href="${ctx}/">首页</a> &gt; 搜索结果</div>
 <div class="n_list">
   <div class="n_fl_670">
     <div class="n_list_title"><h1>搜索"${key}"关键字</h1>
@@ -73,7 +55,12 @@ $(function(){
       </c:forEach>
         
       </ul>
-      <div class="scott"><p:pager /></div>
+      <div class="scott">
+      <form action="${ctx}/search/1.html" method="post">
+	      <input name="key" type="hidden" class="keywords" value="${key}"/>
+	    </form>
+    	<p:pager />
+    </div>
     </div>
   </div>
   <div class="n_fr_280">

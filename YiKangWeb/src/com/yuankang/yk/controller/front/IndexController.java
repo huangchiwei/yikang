@@ -10,6 +10,7 @@ import org.armysoft.core.Pagination;
 import org.armysoft.springmvc.controller.BaseController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.yuankang.yk.publics.Constants;
@@ -192,5 +193,32 @@ public class IndexController extends BaseController{
 		 List<Map<String, Object>> indusList=  industryActiService.getByPage(page, -1);
 		 model.addAttribute("indusList", indusList);
 		return "front/index/index";
+	}
+	
+	/**
+	 * 关键字搜索
+	 * @param currentPage
+	 * @param model
+	 * @param key
+	 * @return
+	 */
+	@RequestMapping("search/{currentPage}")
+	public String searchByKey(@PathVariable Integer currentPage,Model model,String key){
+		Pagination page = initPage(currentPage);
+		page.setPageSize(10);
+		model.addAttribute("newsList", newsService.searchByPage(page,key));
+		model.addAttribute("key", key);
+		model.addAttribute("page", page);
+		//右上角广告
+		List<Map<String, Object>> advert12 = advertService.getByPosCode("12");
+		if(advert12 != null && advert12.size() > 0)
+			model.addAttribute("advert12",advert12.get(0));
+		// 前10条热文排行
+		model.addAttribute("hotOrderInfoList",
+				Constants.indexData.get("hotOrderInfoList"));
+		// 前10条热文推荐
+		model.addAttribute("hotRecomInfoList",
+				Constants.indexData.get("hotRecomInfoList"));
+		return "front/common/searchList";
 	}
 }

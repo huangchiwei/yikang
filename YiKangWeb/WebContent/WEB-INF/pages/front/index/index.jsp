@@ -88,8 +88,8 @@ $(document).ready(function($){
       </c:forEach>
        </ul>
       <div class="search_box2">
-      <input name="search_term" class="keywords" id="search_term" value="请输入关键字"/>
-      <input type="button" onclick="form_search();" value="搜索" class="rssclick" />
+      <jsp:include page="/WEB-INF/pages/front/common/search.jsp" />
+      
     </div>
      </div>
     </div>

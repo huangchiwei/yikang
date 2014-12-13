@@ -390,7 +390,7 @@ public class NewsService extends BaseSqlService {
 		}
 		page.setTotalRowCount(((Long)q1.uniqueResult()).intValue());
 		page.init();
-		return q2.list();
+		return q2.setFirstResult(page.getStartRowNumber()).setMaxResults(page.getPageSize()).list();
 	}
 
 }
