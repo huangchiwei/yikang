@@ -9,8 +9,11 @@ import java.util.UUID;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.armysoft.core.Pagination;
+import org.armysoft.springmvc.controller.BaseController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.yuankang.yk.pojo.investfinance.Financing;
@@ -29,7 +32,7 @@ import com.yuankang.yk.service.news.NewsService;
  */
 @Controller("investFinanceIndexController")
 @RequestMapping("investFinance")
-public class IndexController {
+public class IndexController extends BaseController {
 
 	@Resource
 	private NewsService newsService;
@@ -106,5 +109,25 @@ public class IndexController {
 			e.printStackTrace();
 			return "error/500";
 		}
+	}
+	
+	@RequestMapping("search/{currentPage}")
+	public String searchByKey(@PathVariable Integer currentPage,Model model,String key){
+		Pagination page = initPage(currentPage);
+		page.setPageSize(10);
+		model.addAttribute("newsList", newsService.searchByPage(page,key));
+		model.addAttribute("key", key);
+		model.addAttribute("page", page);
+		//右上角广告
+		List<Map<String, Object>> advert12 = advertService.getByPosCode("12");
+		if(advert12 != null && advert12.size() > 0)
+			model.addAttribute("advert12",advert12.get(0));
+		// 前10条热文排行
+		model.addAttribute("hotOrderInfoList",
+				Constants.indexData.get("hotOrderInfoList"));
+		// 前10条热文推荐
+		model.addAttribute("hotRecomInfoList",
+				Constants.indexData.get("hotRecomInfoList"));
+		return "front/investfinance/searchList";
 	}
 }

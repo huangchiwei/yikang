@@ -7,7 +7,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.armysoft.core.Pagination;
+import org.hibernate.Query;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import com.yuankang.yk.pojo.sys.News;
 import com.yuankang.yk.publics.tools.DateUtil;
@@ -360,6 +362,35 @@ public class NewsService extends BaseSqlService {
 		List<Map<String, Object>> list = getQuery(sql);
 		return list;
 	}
-	
+
+	/**
+	 * 关键字搜索资讯
+	 * @param page
+	 * @param key
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public List<News> searchByPage(Pagination page, String key) {
+		StringBuilder countHql = new StringBuilder("select count(t.id)");
+		StringBuilder getHql = new StringBuilder();
+		StringBuilder hql = new StringBuilder(" from News t where 1 = 1");
+		List<Object> params = new ArrayList<Object>();
+		if(StringUtils.hasText(key)){
+			hql.append(" and t.title like ? ");
+			params.add("%" + key + "%");
+		}
+		countHql.append(hql);
+		getHql.append(hql);
+		getHql.append(" order by t.isRecommend desc, t.id desc");
+		Query q1 = getSession().createQuery(countHql.toString());
+		Query q2 = getSession().createQuery(getHql.toString());
+		for(int i = 0; i < params.size(); i++){
+			q1.setParameter(i, params.get(i));
+			q2.setParameter(i, params.get(i));
+		}
+		page.setTotalRowCount(((Long)q1.uniqueResult()).intValue());
+		page.init();
+		return q2.list();
+	}
 
 }

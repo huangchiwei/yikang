@@ -22,6 +22,13 @@ $(function(){
 			titleFont:{TitleFont_size:12,TitleFont_color:"#FFFFFF",TitleFont_weight:"normal"},
 			btn:{btn_bgColor:"#FFFFFF",btn_bgHoverColor:"#000000",btn_fontColor:"#000000",btn_fontHoverColor:"#FFFFFF",btn_borderColor:"#cccccc",btn_borderHoverColor:"#000000",btn_borderWidth:1}
 	});
+	$("#search_bt").click(function(){
+		if($.trim($("#key").val()) == ''){
+			alert("请输入关键字");
+			return false;
+		}
+		//location.href = "${ctx}/investFinance/search/1.html?key=" + $("#key").val();
+	});
 })
 </script>
 </head>
@@ -41,8 +48,10 @@ $(function(){
   </div>
   <div class="search">
    <div class="n_search_box">
-      <input name="search_term" class="keywords" id="search_term" value="请输入关键字"/>
-      <input type="button" onClick="form_search();" value="搜索" class="rssclick" />
+   <form action="${ctx}/investFinance/search/1.html" method="post">
+      <input name="key" class="keywords" id="key" value="请输入关键字" onfocus="javascript:this.value = '';"/>
+      <input id="search_bt" type="submit" value="搜索" class="rssclick" />
+    </form>
     </div>
   </div>
  </div>

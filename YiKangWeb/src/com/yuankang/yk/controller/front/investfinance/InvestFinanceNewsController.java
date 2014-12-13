@@ -41,9 +41,9 @@ public class InvestFinanceNewsController extends BaseController {
 	public String detail(Model model, @PathVariable Long id) {
 		try {
 			//右上角广告
-			List<Map<String, Object>>  advert12=advertService.getByPosCode("12");
-			if(advert12!=null && advert12.size()>0)
-			model.addAttribute("advert12",advert12.get(0));
+			List<Map<String, Object>> advert12 = advertService.getByPosCode("12");
+			if(advert12 != null && advert12.size() > 0)
+				model.addAttribute("advert12",advert12.get(0));
 			
 			Map<String, Object> news = newsService.getById(id);
 			model.addAttribute("news", news);
