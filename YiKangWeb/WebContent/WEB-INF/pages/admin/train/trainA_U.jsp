@@ -15,8 +15,12 @@
  <script type="text/javascript" >
  function checkForm(){
 	 var msg = "";
+	 var author = $("#author");
 	 var realTime = $("#realTime");
-	 if ($.trim(realTime.val()) == ""){
+	 if ($.trim(author.val()) == ""){
+			msg = "作者不为空!";
+			realTime.focus();
+		}else if ($.trim(realTime.val()) == ""){
 			msg = "文档原始时间不为空!";
 			realTime.focus();
 		}

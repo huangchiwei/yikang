@@ -86,7 +86,7 @@ public class TrainService extends BaseSqlService {
 
 	public void update(Train train) {
 		String sql="";
-		if(train.getThumbPic()!=null){
+		if(train.getThumbPic()!=null&&train.getThumbPic().isEmpty()==false){
 			sql = "update train set CateCode='" + train.getCateCode() + "',"
 					+ "Title='" + train.getTitle() + "'," + "Content='"
 					+ train.getContent() + "'," + "Digest='" + train.getDigest()
@@ -209,7 +209,7 @@ public class TrainService extends BaseSqlService {
 		List<Map<String, Object>> list = null;
 	
 		initCount("select count(*) from train where CateCode='lecture'", page);
-		list = getQuery("select ID,CateCode,Title,ThumbPic from train where CateCode='lecture' order by RealTime desc",
+		list = getQuery("select ID,CateCode,Title,ThumbPic,Author from train where CateCode='lecture' order by RealTime desc",
 				page);
 		
 		return list;
