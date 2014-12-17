@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title></title>
+<title>大健康365---行业资讯</title>
 <link href="${ctx}/theme/front/default/style/master.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/theme/front/default/style/default.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/js/front/news/css/list.css" rel="stylesheet" type="text/css" />
@@ -76,8 +76,8 @@ $(function(){
   <dl class="extend_page_dl">
    <dt class="extend_page_dt"><a href="javascript:void(0);" onclick="jump(${relatedImageNews.ID})">${relatedImageNews.Title}</a></dt>
    <dd class="extend_page_dd">
-   <c:if test="${fn:length(relatedImageNews.Digest)>48}">${fn:substring(relatedImageNews.Digest, 0, 48)}......</c:if>
-       <c:if test="${fn:length(relatedImageNews.Digest)<48}">${relatedImageNews.Digest}</c:if>
+   <c:if test="${fn:length(relatedImageNews.Digest)>40}">${fn:substring(relatedImageNews.Digest, 0, 40)}......</c:if>
+       <c:if test="${fn:length(relatedImageNews.Digest)<40}">${relatedImageNews.Digest}</c:if>
    [<a href="javascript:void(0);" onclick="jump(${relatedImageNews.ID})">详细</a>]</dd>
   </dl>
   </c:if>

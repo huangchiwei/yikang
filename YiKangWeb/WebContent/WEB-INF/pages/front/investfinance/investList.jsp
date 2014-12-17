@@ -90,7 +90,7 @@
       		<li class="li2"><span class="time"><fmt:formatDate value="${o.createDate}"
 								pattern="yyyy-MM-dd" /></span>
 							<span class="scale">${o.amount}万</span><span class="industry">${o.industry}</span>
-							<a href="${ctx}/investment/detail/${o.id}.html" title="${o.title}">${fn:length(o.title)>25?fn:substring(o.title,0,25):o.title}${fn:length(o.title)>25?'...':''}</a></li>
+							<a href="${ctx}/investment/detail/${o.id}.html" title="${o.title}">${fn:length(o.title)>20?fn:substring(o.title,0,25):o.title}${fn:length(o.title)>25?'...':''}</a></li>
       	</c:forEach>
         
       </ul>

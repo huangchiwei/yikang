@@ -75,8 +75,8 @@ $(function(){
   <dl class="extend_page_dl">
    <dt class="extend_page_dt"><a href="javascript:void(0);" onclick="jump(${relatedImageInstance.ID})">${relatedImageInstance.Title}</a></dt>
    <dd class="extend_page_dd">
-   <c:if test="${fn:length(relatedImageInstance.Digest)>55}">${fn:substring(relatedImageInstance.Digest, 0, 55)}......</c:if>
-       <c:if test="${fn:length(relatedImageInstance.Digest)<55}">${relatedImageInstance.Digest}</c:if>
+   <c:if test="${fn:length(relatedImageInstance.Digest)>38}">${fn:substring(relatedImageInstance.Digest, 0, 38)}......</c:if>
+       <c:if test="${fn:length(relatedImageInstance.Digest)<38}">${relatedImageInstance.Digest}</c:if>
    [<a href="javascript:void(0);" onclick="jump(${relatedImageInstance.ID})">详细</a>]</dd>
   </dl>
   </c:if>

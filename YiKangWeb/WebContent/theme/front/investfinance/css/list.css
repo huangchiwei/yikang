@@ -216,7 +216,7 @@
 	width:0px;
 }
 .n .n_one .n_one_l .n_flash {
-	margin-bottom: 15px;
+	margin-bottom: 25px;
 
 }
 .n .n_one .n_one_l .n_new_b {
@@ -669,8 +669,7 @@ line-height: 30px;
 }
 .n .n_list .n_fl_670 .p_20 .li a {
 	font-size: 14px;
-	color: #0F6EB7;
-
+	color: #297b00;
 }
 /*CSS scott style 分页*/
 
@@ -738,6 +737,7 @@ DIV.scott SPAN.disabled {
 }
 .list_r_box{
 	border: 1px solid #d3d3d3;
+	margin-top: 15px;
 }
 .list_r_box_bj {background-image: url(../images/index_bj2.png);background-repeat: repeat-x;height: 30px;background-position: 0px -159px;border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: #d3d3d3;}
 .list_r_box h1 {
@@ -818,12 +818,12 @@ DIV.scott SPAN.disabled {
 }
 .detail_title p a:hover {color: #FF6600;text-decoration: underline;}
 .summary {
-	padding: 15px;
-	border: 1px solid #C4EAFB;
-	text-indent: 2em;
-	font-size: 14px;
-	line-height: 28px;
-	background-color: #EEFAFF;
+padding: 15px;
+border: 1px solid #c9e7a7;
+text-indent: 2em;
+font-size: 14px;
+line-height: 28px;
+background-color: #f3ffe5;
 }
 .art_con {
 	padding-right: 20px;
