@@ -29,7 +29,7 @@ import com.yuankang.yk.service.news.NewsService;
  */
 @Controller("ConsultationFrontController")
 @RequestMapping("front/consultation")
-public class ConsultationFrontController extends BaseController {
+public class ConsultationController extends BaseController {
 	@Resource
 	private ConsultationService consultationService;
 	@Resource

@@ -5,6 +5,7 @@ import java.util.Date;
 public class Consultation {
 private Long id;
 private String creater;
+private String answerUser;
 private Date createTime;
 private String askCotent;
 private String answerContent;
@@ -51,6 +52,12 @@ public Integer getStatus() {
 }
 public void setStatus(Integer status) {
 	this.status = status;
+}
+public String getAnswerUser() {
+	return answerUser;
+}
+public void setAnswerUser(String answerUser) {
+	this.answerUser = answerUser;
 }
 
 }

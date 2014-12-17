@@ -67,6 +67,13 @@ html { overflow:-moz-scrollbars-vertical;}
 		  </ul>
 		</li>
 			<li>
+			<a href="#">咨询管理</a>
+			<ul>
+			  <li><a href="${ctx}/admin/consultation/list/1.html?status=0" target="mainFrame">咨询列表</a></li>
+			    
+		  </ul>
+		</li>
+			<li>
 			<a href="#">用户管理</a>
 			<ul>
 			  <li><a href="${ctx}/admin/user/list/1.html" target="mainFrame">用户列表</a></li>
