@@ -20,6 +20,21 @@
 <script src="${ctx}/js/front/news/js/jquery.carouFredSel-6.0.4-packed.js"></script>
 <script src="${ctx}/js/front/news/js/jquery.KinSlideshow-1.2.1.min.js" type="text/javascript"></script>
 <script>
+function checkForm(){
+	 var msg = "";
+	 var creater = $("#creater");
+	 var askCotent = $("#askCotent");
+	 if ($.trim(creater.val()) == ""){
+			msg = "亲,请先登录!";
+			askCotent.focus();
+		}
+	 if (msg != ""){
+			alert(msg);
+			return false;
+		}else{
+			return true;
+		}
+}
 function jump(id,newWindow){
 	if(newWindow!=null){
 		window.open("${ctx}/front/news/detail/"+id+".html","_blank");
@@ -237,15 +252,18 @@ $(function(){
      </ul>
     </div>
     </div>
+    <form id="add_form" action="${ctx}/front/consultation/save.html" method="post" onsubmit="return checkForm()">
+    <input type="hidden" name="creater" id="creater" value="${front_key}"/>
     <div class="n_t_b_r">
      <div class="advisory">
       <h1>我要咨询</h1>
-      <p class="p1"><textarea name="" cols="" rows="" class="textarea"></textarea></p>
+      <p class="p1"><textarea name="askCotent" id="askCotent" cols="" rows="" class="textarea"></textarea></p>
       <p class="p2">
-        <input name="input" type="button"  class="btn" value="提&nbsp;&nbsp;交"/>
+        <input name="input" type="submit"  class="btn" value="提&nbsp;&nbsp;交"/>
       </p>
      </div>
    </div>
+   </form>
    </div>
   </div>
   <div class="n_three">
