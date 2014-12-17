@@ -47,6 +47,7 @@ public class InvestFinanceNewsController extends BaseController {
 			
 			Map<String, Object> news = newsService.getById(id);
 			model.addAttribute("news", news);
+			newsService.addClicks(id);
 			// 前10条热文排行
 			model.addAttribute("hotOrderInfoList",
 					Constants.indexData.get("hotOrderInfoList"));

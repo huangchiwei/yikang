@@ -65,6 +65,7 @@ public class NewsFrontController extends BaseController {
 		 List<Map<String, Object>> relatedOtherNews=newsService.getByCateCode(news.get("CateCode").toString(),idList,false,4);
 		 model.addAttribute("relatedOtherNews", relatedOtherNews);
 		 model.addAttribute("other_disease_15", Constants.healthData.get("other_disease_15"));
+		 newsService.addClicks(key);
 		 return "front/news/detail";
 	 }
 	@RequestMapping(value =PAGE_LIST)
