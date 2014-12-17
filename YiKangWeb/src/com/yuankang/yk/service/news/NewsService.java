@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 
 import org.armysoft.core.Pagination;
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -365,6 +366,7 @@ public class NewsService extends BaseSqlService {
 
 	/**
 	 * 关键字搜索资讯
+	 * wei
 	 * @param page
 	 * @param key
 	 * @return
@@ -391,6 +393,18 @@ public class NewsService extends BaseSqlService {
 		page.setTotalRowCount(((Long)q1.uniqueResult()).intValue());
 		page.init();
 		return q2.setFirstResult(page.getStartRowNumber()).setMaxResults(page.getPageSize()).list();
+	}
+
+	/**
+	 * 新闻增加点击数
+	 * wei
+	 * @param id
+	 */
+	public void addClicks(Long id) {
+		String sql = "update news set Clicks = Clicks + 1 where ID = ?";
+		SQLQuery query = getSession().createSQLQuery(sql);
+		query.setParameter(0, id);
+		query.executeUpdate();
 	}
 
 }
