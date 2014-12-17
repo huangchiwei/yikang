@@ -114,7 +114,7 @@ public class NewsService extends BaseSqlService {
 					+ "'"
 					+ imageSql
 					+ idSql
-					+ " limit 0,"
+					+ " order by n.RealTime desc limit 0,"
 					+ pageSize;
 			list = getQuery(sql);
 			String des_src = "";
@@ -126,16 +126,22 @@ public class NewsService extends BaseSqlService {
 				}
 			}
 		} else {
-			sql = "select n.ID,n.Title,n.Digest,nc.CateCode from news n,news_category nc where n.CategoryId=nc.ID and nc.CateCode='"
+			sql = "select n.ID,n.Title,n.Digest,n.Content,nc.CateCode from news n,news_category nc where n.CategoryId=nc.ID and nc.CateCode='"
 					+ cateCode
 					+ "'"
 					+ imageSql
 					+ idSql
-					+ " limit 0,"
+					+ " order by n.RealTime desc  limit 0,"
 					+ pageSize;
 			list = getQuery(sql);
 		}
-
+		String des_src="";
+		if (list != null && list.size() > 0) {
+			for (Map<String, Object> h : list) {
+				des_src = StringUtil.getThumb(h.get("Content").toString(), 200);
+				h.put("src", des_src);
+			}
+		}
 		return list;
 	}
 
@@ -234,6 +240,13 @@ public class NewsService extends BaseSqlService {
 	public List<Map<String, Object>> getNews(String categoryName, int pageSize) {
 		String sql = initSql(categoryName, pageSize);
 		List<Map<String, Object>> list = getQuery(sql);
+		String des_src = "";
+		if (list != null && list.size() > 0) {
+			for (Map<String, Object> h : list) {
+				des_src = StringUtil.getThumb(h.get("Content").toString(), 200);
+				h.put("src", des_src);
+			}
+		}
 		return list;
 	}
 

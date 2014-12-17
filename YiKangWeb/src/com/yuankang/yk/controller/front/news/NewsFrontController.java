@@ -52,18 +52,19 @@ public class NewsFrontController extends BaseController {
 		 List<Map<String, Object>> hotRecomInfoList=newsService.getHotRecommendInfo(10);
 		 model.addAttribute("hotRecomInfoList", hotRecomInfoList);
 		 
-		 //相关推荐，相同类型的其它5条，其中一条是一定带图片的
+		 //相关推荐，相同类型的其它5条
 		 List<String> idList=new ArrayList<String>();
 		 idList.add(news.get("ID").toString());
-		 List<Map<String, Object>> relatedImageNews=newsService.getByCateCode(news.get("CateCode").toString(),idList,true,1);
-		
+		 List<Map<String, Object>> relatedNews=newsService.getByCateCode(news.get("CateCode").toString(),idList,false,5);
+		 model.addAttribute("relatedNews", relatedNews);
+		 /*
 		 if(relatedImageNews!=null&&relatedImageNews.size()>0){
 			 model.addAttribute("relatedImageNews", relatedImageNews.get(0));
 			 idList.add(relatedImageNews.get(0).get("ID").toString());
 			 
 		 }
 		 List<Map<String, Object>> relatedOtherNews=newsService.getByCateCode(news.get("CateCode").toString(),idList,false,4);
-		 model.addAttribute("relatedOtherNews", relatedOtherNews);
+		 model.addAttribute("relatedOtherNews", relatedOtherNews);*/
 		 model.addAttribute("other_disease_15", Constants.healthData.get("other_disease_15"));
 		 newsService.addClicks(key);
 		 return "front/news/detail";
@@ -118,7 +119,9 @@ public class NewsFrontController extends BaseController {
 		 List<Map<String, Object>> localLaw=newsService.getLocalLaw();
 		 model.addAttribute("localLaw", localLaw);
 		 //重要活动图片3条，剩下再来6条
-		 List<Map<String, Object>> hasImageList=newsService.getHasImageActi();
+		 List<Map<String, Object>> actiList=newsService.getNews("重要活动",9);
+		 model.addAttribute("actiList", actiList);
+	/*	 List<Map<String, Object>> hasImageList=newsService.getHasImageActi();
 		 if(hasImageList.size()>0){
 			 model.addAttribute("oneImage", hasImageList.get(0));
 			 if(hasImageList.size()>=2)
@@ -129,7 +132,7 @@ public class NewsFrontController extends BaseController {
 	
 		 List<Map<String, Object>> otherSixActList=newsService.getOtherSixActi(hasImageList);
 		 //model.addAttribute("hasImageList", hasImageList);
-		 model.addAttribute("otherSixActList", otherSixActList);
+		 model.addAttribute("otherSixActList", otherSixActList);*/
 		 //头条新闻
 		 List<Map<String, Object>> firstInfo=newsService.getFirstInfo();
 		 model.addAttribute("firstInfo", firstInfo);

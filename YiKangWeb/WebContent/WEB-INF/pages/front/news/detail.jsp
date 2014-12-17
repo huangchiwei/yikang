@@ -71,22 +71,32 @@ $(function(){
  <h3>相关推荐</h3>
  <div class="d_box_tj">
   <div class="sgtj">
-  <c:if test="${not empty relatedImageNews }">
-   <div class="fl"><a href="#"><img src="${ctx}${relatedImageNews.src}" width="150" height="100"/></a></div>
+  <c:if test="${not empty relatedNews && fn:length(relatedNews)>0}">
+   <div class="fl">
+   <a href="javascript:void(0);" onclick="jump(${relatedNews[0].ID})">
+   <c:if test="${fn:contains(relatedNews[0].src, 'userfiles')==false}"><img src="${ctx}/theme/front/default/images/index_001.png" width="130" height="80"/></c:if>
+   <c:if test="${fn:contains(relatedNews[0].src, 'userfiles')==true}"><img src="${ctx}${relatedNews[0].src}" width="150" height="100"/></c:if>
+
+   </a>
+ 
+   </div>
   <dl class="extend_page_dl">
-   <dt class="extend_page_dt"><a href="javascript:void(0);" onclick="jump(${relatedImageNews.ID})">${relatedImageNews.Title}</a></dt>
+   <dt class="extend_page_dt"><a href="javascript:void(0);" onclick="jump(${relatedNews[0].ID})">${relatedNews[0].Title}</a></dt>
    <dd class="extend_page_dd">
-   <c:if test="${fn:length(relatedImageNews.Digest)>40}">${fn:substring(relatedImageNews.Digest, 0, 40)}......</c:if>
-       <c:if test="${fn:length(relatedImageNews.Digest)<40}">${relatedImageNews.Digest}</c:if>
-   [<a href="javascript:void(0);" onclick="jump(${relatedImageNews.ID})">详细</a>]</dd>
+   <c:if test="${fn:length(relatedNews[0].Digest)>35}">${fn:substring(relatedNews[0].Digest, 0, 35)}......</c:if>
+       <c:if test="${fn:length(relatedNews[0].Digest)<35}">${relatedNews[0].Digest}</c:if>
+   [<a href="javascript:void(0);" onclick="jump(${relatedNews[0].ID})">详细</a>]</dd>
   </dl>
   </c:if>
  
   </div>
   <div class="extend_page_d">
      <ul>
-      <c:forEach items="${relatedOtherNews}" var="o" varStatus="sta">
-       <li class="li"><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 15) }</a></li>
+      <c:forEach items="${relatedNews}" var="o" varStatus="sta">
+      <c:if test="${sta.index>0 }">
+        <li class="li"><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 15) }</a></li>
+      </c:if>
+     
       </c:forEach>
       
      </ul>

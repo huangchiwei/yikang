@@ -11,11 +11,10 @@
 </head>
 
 <body>
-  <jsp:include page="${ctx}/pages/front/accountCenter/commonTop.jsp" />
-
+ <jsp:include page="/WEB-INF/pages/front/accountCenter/commonTop.jsp" />
 <div class="m930">
  <div class="m_box">
-  <jsp:include page="${ctx}/pages/front/accountCenter/commonLeft.jsp" />
+  <jsp:include page="/WEB-INF/pages/front/accountCenter/commonLeft.jsp" />
   
   <div class="m_right">
    <div class="title"><h1>快速通道</h1></div>
@@ -52,6 +51,6 @@
   </div>
  </div>
 </div>
-<jsp:include page="${ctx}/pages/front/index/bottom.jsp" />
+<jsp:include page="/WEB-INF/pages/front/index/bottom.jsp" />
 </body>
 </html>

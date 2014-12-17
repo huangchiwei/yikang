@@ -275,38 +275,50 @@ $(function(){
     <div class="n_three_b">
      <div class="l_box">
       <dl>
-       <dt><img src="${ctx }${oneImage.src}" width="200" height="120"/></dt>
-       <dd><a  href="javascript:void(0);" onclick="jump(${oneImage.ID})">${fn:substring(oneImage.Title, 0, 14) }</a></dd>
+      <c:if test="${not empty actiList && fn:length(actiList)>0}">
+       <dt> <a  href="javascript:void(0);" onclick="jump(${actiList[0].ID})"><c:if test="${fn:contains(actiList[0].src, 'userfiles')==true}"><img src="${ctx }${actiList[0].src}" width="200" height="120"/></c:if>
+        <c:if test="${fn:contains(actiList[0].src, 'userfiles')==false}"><img src="${ctx}/theme/front/default/images/index_001.png" width="200" height="120"/></c:if>
+       </a></dt>
+       <dd><a  href="javascript:void(0);" onclick="jump(${actiList[0].ID})">${fn:substring(actiList[0].Title, 0, 14) }</a></dd>
+     </c:if>
       </dl>
       <ul class="ul">
-      <c:forEach items="${otherSixActList}" var="o" varStatus="sta">
-      <c:if test="${sta.index ==0}"><li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
-       <c:if test="${sta.index ==1}"><li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
+      <c:forEach items="${actiList}" var="o" varStatus="sta">
+      <c:if test="${sta.index ==1}"><li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
+       <c:if test="${sta.index ==2}"><li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
       </c:forEach>
       
       </ul>
      </div>
      <div class="l_box">
       <dl>
-       <dt><img src="${ctx }${twoImage.src}" width="200" height="120"/></dt>
-       <dd><a href="javascript:void(0);" onclick="jump(${twoImage.ID})">${fn:substring(twoImage.Title, 0, 14) }</a></dd>
+       <c:if test="${not empty actiList && fn:length(actiList)>3}">
+       <dt><a  href="javascript:void(0);" onclick="jump(${actiList[3].ID})"> <c:if test="${fn:contains(actiList[3].src, 'userfiles')==true}"><img src="${ctx }${actiList[3].src}" width="200" height="120"/></c:if>
+        <c:if test="${fn:contains(actiList[3].src, 'userfiles')==false}"><img src="${ctx}/theme/front/default/images/index_001.png" width="200" height="120"/></c:if>
+       </a></dt>
+       <dd><a  href="javascript:void(0);" onclick="jump(${actiList[3].ID})">${fn:substring(actiList[3].Title, 0, 14) }</a></dd>
+     </c:if>
       </dl>
       <ul class="ul">
-        <c:forEach items="${otherSixActList}" var="o" varStatus="sta">
-      <c:if test="${sta.index ==2}"><li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
-       <c:if test="${sta.index ==3}"><li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
+        <c:forEach items="${actiList}" var="o" varStatus="sta">
+      <c:if test="${sta.index ==4}"><li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
+       <c:if test="${sta.index ==5}"><li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
       </c:forEach>
       </ul>
      </div>
      <div class="l_box">
       <dl>
-       <dt><img src="${ctx }${thirdImage.src}" width="200" height="120"/></dt>
-       <dd><a href="javascript:void(0);" onclick="jump(${thirdImage.ID})">${fn:substring(thirdImage.Title, 0, 14) }</a></dd>
+         <c:if test="${not empty actiList && fn:length(actiList)>6}">
+       <dt> <a  href="javascript:void(0);" onclick="jump(${actiList[5].ID})"><c:if test="${fn:contains(actiList[5].src, 'userfiles')==true}"><img src="${ctx }${actiList[5].src}" width="200" height="120"/></c:if>
+        <c:if test="${fn:contains(actiList[5].src, 'userfiles')==false}"><img src="${ctx}/theme/front/default/images/index_001.png" width="200" height="120"/></c:if>
+       </a></dt>
+       <dd><a  href="javascript:void(0);" onclick="jump(${actiList[5].ID})">${fn:substring(actiList[5].Title, 0, 14) }</a></dd>
+     </c:if>
       </dl>
       <ul class="ul">
-        <c:forEach items="${otherSixActList}" var="o" varStatus="sta">
-      <c:if test="${sta.index ==4}"><li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
-       <c:if test="${sta.index ==5}"><li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
+        <c:forEach items="${actiList}" var="o" varStatus="sta">
+      <c:if test="${sta.index ==7}"><li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
+       <c:if test="${sta.index ==8}"><li><a href="javascript:void(0);" onclick="jump(${o.ID})">${fn:substring(o.Title, 0, 14) }</a></li></c:if>
       </c:forEach>
       </ul>
      </div>
