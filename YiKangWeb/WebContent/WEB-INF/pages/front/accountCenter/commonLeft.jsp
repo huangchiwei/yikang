@@ -3,8 +3,8 @@
   
    <div class="m_left_h">
     <div class="m_b_l relative">
-     <div class="name"><span>${ac.AccountNo}</span>&nbsp;先生</div>
-     <div class="modify"><a href="${ctx}/front/accountCenter/alterAccount.html">修改资料</a><a href="#">头像设置</a></div>
+     <div class="name"><span>${ac.AccountNo}</span>&nbsp;会员</div>
+     <div class="modify"><a href="${ctx}/front/accountCenter/alterAccount.html">修改资料</a><!--<a href="#">头像设置</a>--></div>
      <div class="head"><img src="${ctx}/theme/front/accountCenter/images/head.png" /></div>
     </div>
    </div> 

@@ -60,7 +60,7 @@
   <dl class="extend_page_dl">
    <dt class="extend_page_dt"><a href="${ctx}/investFinanceNews/detail/${relatedImageNews.ID}.html">${relatedImageNews.Title}</a></dt>
    <dd class="extend_page_dd">
-   <c:if test="${fn:length(relatedImageNews.Digest)>55}">${fn:substring(relatedImageNews.Digest, 0, 55)}......</c:if>
+   <c:if test="${fn:length(relatedImageNews.Digest)>55}">${fn:substring(relatedImageNews.Digest, 0, 38)}......</c:if>
        <c:if test="${fn:length(relatedImageNews.Digest)<55}">${relatedImageNews.Digest}</c:if>
    [<a href="${ctx}/investFinanceNews/detail/${relatedImageNews.ID}.html">详细</a>]</dd>
   </dl>

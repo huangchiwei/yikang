@@ -21,7 +21,7 @@
 <div class="n">
 <div class="news_nav">
   <div class="n_box">
-   <div class="new_logo"><img src="${ctx}/theme/front/investfinance/images/news_logo.png" /></div>
+   <div class="new_logo"><img src="${ctx}/theme/front/default/images/search_logo.png" /></div>
    <div class="lanren">
   <!-- 导航 -->
    </div>
