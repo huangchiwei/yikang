@@ -20,6 +20,7 @@ import com.yuankang.yk.pojo.medicalguide.ExpertInfo;
 import com.yuankang.yk.pojo.medicalguide.SpecialInfo;
 import com.yuankang.yk.publics.Constants;
 import com.yuankang.yk.publics.tools.RemoteRequestUtil;
+import com.yuankang.yk.service.advert.AdvertService;
 import com.yuankang.yk.service.medicalguide.ExpertInfoService;
 import com.yuankang.yk.service.medicalguide.SpecialInfoService;
 
@@ -32,7 +33,8 @@ import com.yuankang.yk.service.medicalguide.SpecialInfoService;
 @Controller
 @RequestMapping("healthService")
 public class HealthServiceController extends BaseController{
-
+	@Resource
+	private AdvertService advertService;
 	@Resource
 	private ExpertInfoService expertInfoService;
 	@Resource
@@ -204,6 +206,11 @@ public class HealthServiceController extends BaseController{
 	@RequestMapping("zzDetail/{id}")
 	public String zzDetail(Model model,@PathVariable Long id,Integer flag){
 		try {
+			 //健康服务详细页正下方(670*90)
+			List<Map<String, Object>>  advert15=advertService.getByPosCode("15");
+			if(advert15!=null && advert15.size()>0)
+			model.addAttribute("advert15",advert15.get(0));
+			
 			if(flag == null){
 				flag = 1;
 			}
@@ -228,6 +235,11 @@ public class HealthServiceController extends BaseController{
 	@RequestMapping("jbDetail/{id}")
 	public String jbDetail(Model model,@PathVariable Long id,Integer flag){
 		try {
+			 //健康服务详细页正下方(670*90)
+			List<Map<String, Object>>  advert15=advertService.getByPosCode("15");
+			if(advert15!=null && advert15.size()>0)
+			model.addAttribute("advert15",advert15.get(0));
+			
 			if(flag == null){
 				flag = 1;
 			}

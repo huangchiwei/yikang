@@ -17,6 +17,7 @@ public class NewsComment implements java.io.Serializable{
 	private String newsId;
 	private Date createDate;
 	private String comments;
+	private String Creater;
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "ID", unique = true, nullable = false)
@@ -46,6 +47,12 @@ public class NewsComment implements java.io.Serializable{
 	}
 	public void setComments(String comments) {
 		this.comments = comments;
+	}
+	public String getCreater() {
+		return Creater;
+	}
+	public void setCreater(String creater) {
+		Creater = creater;
 	}
 	
 }

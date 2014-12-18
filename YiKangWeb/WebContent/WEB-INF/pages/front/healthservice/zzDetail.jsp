@@ -65,7 +65,7 @@ $(function(){
              <div class="moduleContent">
 <p>${flag == 1 ? entity.extend.Introduction : (flag == 2 ? entity.extend.Incentives : entity.extend.Diagnosis)}</p></div>
                     </div>
-        <div class="ad_670"><img src="${ctx}/theme/front/healthservice/images/ad_670.png" /></div>
+        <div class="ad_670"><a href="${advert15.Url}" target="_blank"><img src="${ctx}${advert15.Img}" width="${advert15.Width}" height="${advert15.Height }"/></a></div>
        
       </div>
       <div class="sideBar">

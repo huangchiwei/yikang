@@ -14,8 +14,8 @@ public class NewsCommentService extends BaseSqlService{
 
 	public void save(NewsComment newsComment)
 	  {
-		String sql="insert into news_comment(NewsId,CreateDate,Comments) values("+newsComment.getNewsId()+
-				",now(),'"+newsComment.getComments()+"')";
+		String sql="insert into news_comment(NewsId,CreateDate,Comments,Creater) values("+newsComment.getNewsId()+
+				",now(),'"+newsComment.getComments()+"','"+newsComment.getCreater()+"')";
 		       up_del(sql);
 	  }
 	

@@ -13,6 +13,24 @@
 <script src="${ctx}/js/front/news/js/flash.js"></script>
 <script src="${ctx}/js/front/news/js/jquery.carouFredSel-6.0.4-packed.js"></script>
 <script>
+function checkForm(){
+	 var msg = "";
+	 var Comments = $("#Comments");
+	 if ($.trim(Comments.val()) == ""){
+			msg = "评论内容不为空!";
+			Comments.focus();
+		}
+	 else  if ($.trim(Comments.val()).length>100){
+			msg = "评论内容最多100个字符!";
+			Comments.focus();
+		}
+	 if (msg != ""){
+			alert(msg);
+			return false;
+		}else{
+			return true;
+		}
+}
 function jump(id,newWindow){
 	if(newWindow!=null){
 		window.open("${ctx}/front/news/detail/"+id+".html","_blank");
@@ -104,12 +122,13 @@ $(function(){
  </div>
 </div>
 
-<%-- <div class="share">
+ <div class="share">
  <div class="fl_wy"><span class="span">网友评论</span>&nbsp;(共<span class="c_f07700">&nbsp;${news.NumCount}&nbsp;</span>条)</div>
- <div class="fr_ck"><a href="#">查看所有评论>></a></div>
+ <div class="fr_ck"><a href="${ctx}/front/news/commentlist/1.html?newsId=${news.ID}">查看所有评论>></a></div>
 </div>
-<form id="add_form" action="${ctx}/front/news/save.html" method="post">
+<form id="add_form" action="${ctx}/front/news/save.html" method="post" onsubmit="return checkForm()">
 <input type="hidden" name="NewsId" value="${news.ID}"/>
+<input type="hidden" name="Creater" value="${front_key}"/>
 <div class="comment_cn">
  <div class="text"><textarea id="Comments" name="Comments" class="textarea">我来评两句</textarea>
  </div>
@@ -117,7 +136,7 @@ $(function(){
  <input type="submit" id="submitcomment" name="submitcomment" value="提交评论" class="issue"/>
  </div>
  </div>
- </form> --%>
+ </form> 
 </div>
   <div class="n_fr_280">
    <div class="ad_280"><a href="${advert12.Url}" target="_blank"><img src="${ctx}${advert12.Img}" width="${advert12.Width}" height="${advert12.Height }"/></a></div>

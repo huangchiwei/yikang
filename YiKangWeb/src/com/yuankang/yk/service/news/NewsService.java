@@ -419,5 +419,14 @@ public class NewsService extends BaseSqlService {
 		query.setParameter(0, id);
 		query.executeUpdate();
 	}
+	public List<Map<String, Object>> getCommentlist(Pagination page,Long newsId) {
+		List<Map<String, Object>> list = null;
+		initCount(
+				" select count(*) from news n,news_comment nc where n.ID=nc.NewsId and nc.NewsId="+newsId, page);
+		list = getQuery(
+				"select nc.*,n.Title from news  n,news_comment nc where n.ID=nc.NewsId and nc.NewsId="+newsId, page);
+
+		return list;
+	}
 
 }

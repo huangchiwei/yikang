@@ -167,7 +167,7 @@ $(function(){
     
     </ul>
    </div>
-   <div class="ad_650"><img src="${ctx}/theme/front/default/images/ad/ad_650.png" /></div>
+   <div class="ad_650"><a href="${advert14.Url}" target="_blank"><img src="${ctx}${advert14.Img}" width="${advert14.Width}" height="${advert14.Height }"/></a></div>
   </div>
   <div class="n_one_r">
     <div class="n_one_top">

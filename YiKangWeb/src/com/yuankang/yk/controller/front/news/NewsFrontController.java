@@ -102,6 +102,10 @@ public class NewsFrontController extends BaseController {
 		//四张图片,现在换成四张广告
 		 List<Map<String, Object>>  advert11=advertService.getByPosCode("11");
 		 model.addAttribute("advert11", advert11);
+		 //二级页行业焦点正下方(650*100)
+			List<Map<String, Object>>  advert14=advertService.getByPosCode("14");
+			if(advert14!=null && advert14.size()>0)
+			model.addAttribute("advert14",advert14.get(0));
 		 //行业新闻9条
 		 List<Map<String, Object>> industryNews=newsService.getIndustryNews();
 		 model.addAttribute("industryNews", industryNews);
@@ -162,5 +166,33 @@ public class NewsFrontController extends BaseController {
 		 newsCommentService.save(newsComment);
 		 return "redirect:/front/news/detail/"+newsComment.getNewsId()+".html";
 	  }
+	 @RequestMapping(value ="/commentlist/{currentPage}.html")
+	 public String commentlist(@PathVariable int currentPage,Model model,Long newsId)
+	 {
+		
+		//右上角广告
+				List<Map<String, Object>>  advert12=advertService.getByPosCode("12");
+				if(advert12!=null && advert12.size()>0)
+				model.addAttribute("advert12",advert12.get(0));
+		// 初始化分页实体
+				Pagination page = initPage(currentPage);
+				page.setPageSize(30);
+				List<Map<String, Object>> list=newsService.getCommentlist(page,newsId);
+				model.addAttribute("list", list);
+				if(list!=null&&list.size()>0)
+					model.addAttribute("title", list.get(0).get("Title").toString());
+				model.addAttribute("page", page);
+				model.addAttribute("newsId", newsId);
+				//前10条热文排行
+				 List<Map<String, Object>> hotOrderInfoList=newsService.getHotOrderInfo(10);
+				 model.addAttribute("hotOrderInfoList", hotOrderInfoList);
+				//前10条热文推荐
+				 List<Map<String, Object>> hotRecomInfoList=newsService.getHotRecommendInfo(10);
+				 model.addAttribute("hotRecomInfoList", hotRecomInfoList);
+				 model.addAttribute("other_disease_15", Constants.healthData.get("other_disease_15"));
+				//String categoryName=newsService.getByCateCode(cateCode).get(0).get("CategoryName").toString();
+				//model.addAttribute("categoryName", categoryName);
+		 return "front/news/commentlist";
+	 }
 
 }
