@@ -19,7 +19,7 @@ import com.yuankang.yk.publics.Constants;
 import com.yuankang.yk.service.news.ConsultationService;
 
 /**
- * 类说明:资讯controller
+ * 类说明:咨询controller
 
  */
 @Controller("ConsultationAdminController")

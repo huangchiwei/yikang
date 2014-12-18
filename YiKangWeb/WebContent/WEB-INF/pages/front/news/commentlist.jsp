@@ -47,8 +47,8 @@
       </c:forEach>
       
       <div class="scott">
-      <form action="${ctx}/search/1.html" method="post">
-	      <input name="key" type="hidden" class="keywords" value="${key}"/>
+      <form action="${ctx}/front/news/commentlist/1.html" method="post">
+	      <input name="newsId" type="hidden" value="${newsId}"/>
 	    </form>
     	<p:pager />
     </div>

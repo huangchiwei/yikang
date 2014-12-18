@@ -64,8 +64,8 @@
            <th>文档原始时间</th>
         <th>资讯图片</th>
      
-        <th>是否置顶</th>
-        <th>是否推荐</th>
+      <!--   <th>是否置顶</th>
+        <th>是否推荐</th> -->
         <th>阅读次数</th>
         <th>操作</th>
       </tr>
@@ -82,10 +82,10 @@
         <c:if test="${ empty o.HasImage || o.HasImage==0}">无</c:if>
         </td>
         
-        <td>${o.IsTop}</td>
-        <td>${o.IsRecommend}</td>
+        <%-- <td>${o.IsTop}</td>
+        <td>${o.IsRecommend}</td> --%>
         <td>${o.Clicks}</td>
-        <td>
+        <td><a href="${ctx}/admin/newsComment/list/1.html?newsId=${o.ID}">查看评论</a>
            <a href="${ctx}/admin/news/update/${o.ID}.html"><img src="${ctx}/theme/admin/default/images/edit_icon.png" /></a>&nbsp;
           <img  src="${ctx}/theme/admin/default/images/del_icon.png" onclick="delConfirm(${o.ID})"/></td>
       </tr>

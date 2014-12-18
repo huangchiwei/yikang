@@ -176,8 +176,8 @@ public class NewsFrontController extends BaseController {
 				model.addAttribute("advert12",advert12.get(0));
 		// 初始化分页实体
 				Pagination page = initPage(currentPage);
-				page.setPageSize(30);
-				List<Map<String, Object>> list=newsService.getCommentlist(page,newsId);
+				page.setPageSize(10);
+				List<Map<String, Object>> list=newsCommentService.getByPage(page,newsId);
 				model.addAttribute("list", list);
 				if(list!=null&&list.size()>0)
 					model.addAttribute("title", list.get(0).get("Title").toString());
