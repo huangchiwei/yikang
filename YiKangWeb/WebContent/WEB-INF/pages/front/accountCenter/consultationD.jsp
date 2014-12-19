@@ -15,17 +15,17 @@
  <div class="m_box">
  <jsp:include page="/WEB-INF/pages/front/accountCenter/commonLeft.jsp" />
  <form id="loginForm" action="${ctx}/front/accountCenter/submitAlterAccount.html" method="post" >
-  <input type="hidden" name="accountNo" value="${ac.AccountNo}"/>
+  <input type="hidden" name="accountNo" value="${front_key}"/>
   <div class="m_right">
-   <div class="title"><h1>详细</h1></div>
+   <div class="title"><h1>咨询详情</h1></div>
    <div class="info">
     <ul class="ul">
-     <li class="li"><span class="span">咨询内容：</span>${ac.askCotent}</li>
-     <li class="li"><span class="span">时间：</span><fmt:formatDate value="${o.createTime}"
+     <li class="li"><span class="span">咨询内容：</span>${map.askCotent}</li>
+     <li class="li"><span class="span">时间：</span><fmt:formatDate value="${map.createTime}"
 								pattern="yyyy-MM-dd HH:mm:ss" />
      </li>
-     <li class="li"><span class="span">回复内容：</span>${ac.answerContent}</li>
-     <li class="li"><span class="span">回复时间：</span>${ac.answerTime}
+     <li class="li"><span class="span">回复内容：</span>${map.answerContent}</li>
+     <li class="li"><span class="span">回复时间：</span>${map.answerTime}
     </li>
     
     </ul>

@@ -60,7 +60,7 @@
         <div class="consignee-form">
           <div class="list"> <span class="label">请输入登录密码：</span>
             <div class="field">
-             <input type="password" name="pwd" id="pwd" value="${pwd}" class="input" size="37" />
+             <input type="password" name="pwd" id="pwd" value="${pwd}" class="textbox" size="30" />
             </div>
           </div>
           <div class="list"> <span class="label">验证码：</span>

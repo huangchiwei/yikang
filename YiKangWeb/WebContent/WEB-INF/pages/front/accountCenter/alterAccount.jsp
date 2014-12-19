@@ -70,27 +70,25 @@
      <em>区号</em><input name="telAreaCode" value="${ac.TelAreaCode }" type="text" class="input" size="4" /><em>-</em><input name="tel" value="${ac.Tel}" type="text" class="input" size="10" /></li>
      <li class="li"><span class="span">QQ号码：</span><input name="qq" value="${ac.QQ}" type="text" class="input" size="20" /></li>
      <li class="li"><span class="span">联系地址：</span>
-     <select id="province" name="province" onchange="">
-     	<option value="-1">--省份--</option>
-     	<c:forEach items="${provinces}" var="o">
-     		<option value="${o.id}" ${o.id == ac.Province ? 'selected="selected"' : '' }>${o.name}</option>
-     	</c:forEach>
-     </select>
-     <select id="city" name="city">
+       <select id="province" name="province" onchange="" class="select">
+         <option value="-1">--省份--</option>
+         <c:forEach items="${provinces}" var="o">
+           <option value="${o.id}" ${o.id == ac.province ? 'selected="selected"' : '' }>${o.name}</option>
+         </c:forEach>
+       </select>
+       <select id="city" name="city" class="select">
      	<option value="-1">--市--</option>
      	<c:forEach items="${citys}" var="o">
      		<option value="${o.id}" ${o.id == ac.City ? 'selected="selected"' : '' }>${o.name}</option>
      	</c:forEach>
      </select><br/>
-  
-    
      </li>
-   <li class="li">  <span class="span">&nbsp;</span> <select id="area" name="area">
+   <li class="li">  <span class="span">&nbsp;</span> <select id="area" name="area" class="select">
      	<option value="-1">--区/县--</option>
      	<c:forEach items="${areas}" var="o">
      		<option value="${o.id}" ${o.id == ac.Area ? 'selected="selected"' : '' }>${o.name}</option>
      	</c:forEach>
-     </select> <input name="address" value="${ac.Address}" type="text"  size="25" />
+     </select> <input name="address" value="${ac.Address}" type="text" class="input" size="25" />
      </li>
      <li class="xian relative"><div class="x_title">附属资料</div>
      </li>
@@ -99,17 +97,15 @@
     
   
      <li class="li"><span class="span">所属行业：</span>
-     <select id="industry" name="industry">
+     <select id="industry" name="industry" class="select">
 	     	<option value="-1">--选择行业--</option>
 	     	<c:forEach items="${industrys}" var="o">
 	     		<option value="${o.id}" ${o.id == ac.Industry ? 'selected="selected"' : '' }>${o.mcName}</option>
 	     	</c:forEach>
 	     </select>
     </li>
-     <li class="li"><span class="span">去年营业额：</span><input name="turnover" value="${ac.Turnover }"  type="text" class="input" size="10" />&nbsp;&nbsp;万元
-     </li>
-     <li class="li"><span class="span">企业当前净资产：</span><input name="netAsset" value="${ac.NetAsset }" type="text" class="input" size="10" />&nbsp;&nbsp;万元
-     </li>
+     <li class="li"><span class="span">去年营业额：</span><input name="turnover" value="${ac.Turnover }"  type="text" class="input" size="10" />&nbsp;&nbsp;万元     </li>
+     <li class="li"><span class="span">企业当前净资产：</span><input name="netAsset" value="${ac.NetAsset }" type="text" class="input" size="10" />&nbsp;&nbsp;万元     </li>
      <li class="li"><span class="span">公司简介：</span><textarea name="introduce" cols="" rows="" class="textarea">${ac.Introduce }</textarea></li>
      <li class="li"><div class="btn_box"><input type="submit" class="btn" value="确定发布" /></div></li>
     </ul>

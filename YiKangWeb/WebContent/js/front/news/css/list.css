@@ -213,7 +213,7 @@
 	width:0px;
 }
 .n .n_one .n_one_l .n_flash {
-	margin-bottom: 15px;
+	margin-bottom: 25px;
 
 }
 .n .n_one .n_one_l .n_new_b {
@@ -585,13 +585,14 @@ line-height: 30px;
 	width: 220px;
 	height: 80px;
 }
-.n_t_b_r  .advisory  .p2  .btn {
+.n_t_b_r .advisory .p2 .btn {
 	border: 1px none #d1d1d1;
 	width: 100px;
 	height: 40px;
 	background-color: #358902;
 	font-weight: bold;
 	color: #FFFFFF;
+	cursor: pointer;
 }
 .n_t_b_r .advisory .p2 {
 	padding-top: 5px;

@@ -122,7 +122,7 @@ $(function(){
      </dl>
       <ul class="ul3">
       	<c:forEach items="${relatedOtherNews}" var="o">
-      		<li><a href="${ctx}/investFinanceNews/detail/${o.ID}.html" target="_blank" title="${o.Title}">${fn:length(o.Title)>16?fn:substring(o.Title,0,16):o.title}${fn:length(o.Title)>16?'...':''}</a></li>
+      		<li><a href="${ctx}/investFinanceNews/detail/${o.ID}.html" target="_blank" title="${o.Title}">${fn:length(o.Title)>16?fn:substring(o.Title,0,16):o.Title}${fn:length(o.Title)>16?'...':''}</a></li>
       	</c:forEach>
       </ul>
     </div>
@@ -133,7 +133,7 @@ $(function(){
      </div>
       <ul class="ul3">
         <c:forEach items="${zhengcefagui_6}" var="o">
-      		<li><a href="${ctx}/investFinanceNews/detail/${o.ID}.html" target="_blank" title="${o.Title}">${fn:length(o.Title)>16?fn:substring(o.Title,0,16):o.title}${fn:length(o.Title)>16?'...':''}</a></li>
+      		<li><a href="${ctx}/investFinanceNews/detail/${o.ID}.html" target="_blank" title="${o.Title}">${fn:length(o.Title)>16?fn:substring(o.Title,0,16):o.Title}${fn:length(o.Title)>16?'...':''}</a></li>
       	</c:forEach>
       </ul>
     </div>

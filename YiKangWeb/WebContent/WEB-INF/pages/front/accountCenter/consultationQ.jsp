@@ -22,7 +22,8 @@
 
    <form id="searchform" action="${ctx}/front/consultation/list/1.html" method="post">
       
-      <table width="100%"><tr><td>咨询内容</td><td>咨询时间</td><td>状态</td><td>操作</td></tr>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr><th>咨询内容</th><th>咨询时间</th><th>状态</th><th>操作</th></tr>
       <c:forEach items="${list}" var="o"> 
       <tr><td>${o.askCotent}</td>
       <td><fmt:formatDate value="${o.createTime}"

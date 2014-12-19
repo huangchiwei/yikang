@@ -19,13 +19,12 @@
   <div class="m_right">
    <div class="title"><h1>已发布的信息</h1></div>
    <div class="m_list">
-   <span class="span">信息类型：</span>
-   <form id="searchform" action="${ctx}/front/accountCenter/list/1.html" method="post">
-   <select name="type" class="select" onchange="javascript:document.getElementById('searchform').submit();">
+   <div class="m_list_xz"><span class="f14 fl">信息类型：</span><form id="searchform" action="${ctx}/front/accountCenter/list/1.html" method="post">
+     <select name="type" class="select" onchange="javascript:document.getElementById('searchform').submit();">
        <option value="invest" ${type == 'invest' ? 'selected' : ''}>投资信息</option>
        <option value="finance" ${type == 'finance' ? 'selected' : ''}>融资信息</option>
      </select>
-     </form>
+     </form></div>
     <div class="trz_title">
      <span class="name">${typeName}机构/个人名称</span>
      <span class="industry">${typeName}行业</span>

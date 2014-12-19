@@ -59,12 +59,12 @@
         <div class="consignee-form">
           <div class="list"> <span class="label">请输入登录密码：</span>
             <div class="field">
-             <input name="pwd" id="pwd" value="${pwd}" type="password" class="input" size="27" />
+             <input name="pwd" id="pwd" value="${pwd}" type="password" class="textbox" size="27" />
             </div>
           </div>
           <div class="list"><span class="label">确认新密码：</span>
             <div class="field">
-             <input name="pwd2" id="pwd2" value="${pwd}" type="password" class="input" size="27" />
+             <input name="pwd2" id="pwd2" value="${pwd}" type="password" class="textbox" size="27" />
             </div>
           </div>
           <div class="list"> <span class="label">验证码：</span>
