@@ -27,6 +27,9 @@ function checkForm(){
 	 if ($.trim(creater.val()) == ""){
 			msg = "亲,请先登录!";
 			askCotent.focus();
+		}else if ($.trim(askCotent.val()) == ""){
+		msg = "亲,咨询的内容不为空!";
+			askCotent.focus();
 		}
 	 if (msg != ""){
 			alert(msg);

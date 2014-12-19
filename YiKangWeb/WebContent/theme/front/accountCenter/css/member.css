@@ -184,7 +184,7 @@
 .m930 .m_box .m_right .title {
 	height: 35px;
 	line-height: 35px;
-	background-image: url(../../theme/default/images/icon.png);
+	background-image: url(../images/icon2.png);
 	background-repeat: repeat-x;
 	background-position: 0px -554px;
 	overflow: hidden;
@@ -218,7 +218,7 @@
 }
 .m_right  .m_r_box  .li {
 	padding-left: 20px;
-	background-image: url(../../theme/default/images/dian.png);
+	background-image: url(../images/dian.png);
 	background-repeat: no-repeat;
 	background-position: 0px 10px;
 	line-height: 30px;
@@ -274,12 +274,12 @@ line-height: 24px;
 	padding-top: 15px;
 	padding-right: 15px;
 	padding-bottom: 15px;
-	padding-left: 30px;
+	padding-left: 20px;
 }
 .info  .ul  .li  {
 	overflow: hidden;
-	line-height: 40px;
-	padding-bottom: 15px;
+	line-height: 30px;
+	padding-bottom: 10px;
 }
 .m_right  .info  .ul  .xian   {
 	margin-bottom: 30px;
@@ -324,13 +324,14 @@ line-height: 24px;
 	padding-right: 10px;
 
 }
-.info .ul .li .select {
+.info .select,.m_list_xz .select {
 	float: left;
 	border: 1px solid #d1d1d1;
 	padding: 4px;
 	font-size: 14px;
 	color: #333333;
 }
+
 .info .ul .li label {
 	color: #333333;
 	font-size: 14px;
@@ -363,6 +364,13 @@ line-height: 24px;
 	padding: 15px;
 	overflow: hidden;
 }
+.m_right  .m_list  .m_list_xz {
+	margin-right: auto;
+	margin-bottom: 10px;
+	margin-left: auto;
+	line-height: 35px;
+	height:35px;
+}
 .m_list .trz_title {
 	line-height: 28px;
 	height: 28px;
@@ -370,6 +378,26 @@ line-height: 24px;
 	background-color: #f1f1f1;
 	padding: 5px;
 }
+.m_list table {
+	width: 100%;
+}
+.m_list table th {
+	background-color: #F1F1F1;
+	padding: 5px;
+	font-size: 14px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCCCCC;
+}
+.m_list table td {
+	padding: 5px;
+	text-align: center;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #E3E3E3;
+	line-height: 28px;
+}
+
 .m_list .li {
 	padding-left: 15px;
 	line-height: 32px;
@@ -460,7 +488,7 @@ DIV.scott A {
 	PADDING-LEFT: 7px;
 	PADDING-BOTTOM: 5px;
 	BORDER-LEFT: #ddd 1px solid;
-	COLOR: #0F6EB7;
+	COLOR: #297b00;
 	MARGIN-RIGHT: 5px;
 	PADDING-TOP: 5px;
 	BORDER-BOTTOM: #ddd 1px solid;
@@ -469,14 +497,14 @@ DIV.scott A {
 	border-radius:5px;
 }
 DIV.scott A:hover {
-	COLOR: #0F6EB7;
-	BACKGROUND-COLOR: #D7F5FF;
-	border: 1px solid #0F6EB6;
+	COLOR: #297b00;
+	BACKGROUND-COLOR: #eaffe0;
+	border: 1px solid #297b00;
 }
 DIV.scott A:active {
-	COLOR: #0F6EB7;
-	BACKGROUND-COLOR: #D7F5FF;
-	border: 1px solid #0F6EB6;
+	COLOR: #297b00;
+	BACKGROUND-COLOR: #eaffe0;
+	border: 1px solid #297b00;
 	border-radius:5px;
 }
 DIV.scott SPAN.current {
@@ -487,7 +515,7 @@ DIV.scott SPAN.current {
 	COLOR: #fff;
 	MARGIN-RIGHT: 5px;
 	PADDING-TOP: 5px;
-	BACKGROUND-COLOR: #0F6EB7;
+	BACKGROUND-COLOR: #297b00;
 	border: 1px solid #0F6EB7;
 	font-family: Arial, Helvetica, sans-serif;
 	border-radius:5pxm;
