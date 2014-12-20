@@ -98,7 +98,7 @@ public class CompanyController extends BaseController {
 				model.addAttribute("advert12",advert12.get(0));
 		// 初始化分页实体
 				Pagination page = initPage(currentPage);
-				page.setPageSize(5);
+				page.setPageSize(30);
 				List<Map<String, Object>> list=heZuoService.getByPage(page);
 				model.addAttribute("list", list);
 				
