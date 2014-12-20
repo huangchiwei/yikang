@@ -73,6 +73,15 @@ html { overflow:-moz-scrollbars-vertical;}
 			    
 		  </ul>
 		</li>
+		<li>
+			<a href="#">公司相关管理</a>
+			<ul>
+			  <li><a href="${ctx}/admin/company/list/1.html" target="mainFrame">公司动态</a></li>
+			    <li><a href="${ctx}/admin/hezuo/list/1.html" target="mainFrame">合作伙伴</a></li>
+		  <li><a href="${ctx}/admin/zhaoping/list/1.html" target="mainFrame">招聘信息</a></li>
+		  
+		  </ul>
+		</li>
 			<li>
 			<a href="#">用户管理</a>
 			<ul>

@@ -30,20 +30,20 @@ public class CompanyService extends BaseSqlService {
 	 */
 	public List<Map<String, Object>> getByPage(Pagination page) {
 		List<Map<String, Object>> list = null;
-		initCount("select count(*) from hezuo ", page);
-		list = getQuery("select * from hezuo  order by name desc",
+		initCount("select count(*) from company ", page);
+		list = getQuery("select * from company  order by RealTime desc",
 				page);
 		return list;
 	}
 
 	
 	public void delete(Long id) {
-		String sql = "delete from hezuo where Id=" + id;
+		String sql = "delete from company where Id=" + id;
 		up_del(sql);
 	}
 
 	public void save(Company company) {
-		String sql = "insert into hezuo(Name,Url) values('"
+		String sql = "insert into company(Title,Content,Digest,Source,Author,RealTime,LastUpdateUser,LastUpdateTime) values('"
 				+ company.getTitle()
 				+ "','"
 				+ company.getContent()
@@ -53,7 +53,7 @@ public class CompanyService extends BaseSqlService {
 				+ company.getSource()
 				+ "','"
 				+ company.getAuthor()
-				+ ",str_to_date('"
+				+ "',str_to_date('"
 				+ DateUtil.formatDate(company.getRealTime())
 				+ "','%Y-%m-%d %H:%i:%s')"
 				+ ",'"

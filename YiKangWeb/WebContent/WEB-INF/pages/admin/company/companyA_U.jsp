@@ -32,7 +32,7 @@
 <body>
 <div class="content_box">
     <div class="btn_box">
-  <input type="button" value="返回" class="initial" style="cursor:hand" onclick="javascript:location.href='${ctx}/admin/company/list/1.html"/>
+  <input type="button" value="返回" class="initial" style="cursor:hand" onclick="javascript:location.href='${ctx}/admin/company/list/1.html'"/>
    </div>
 <form id="add_form" action="${ctx}/admin/company/save.html" method="post" onsubmit="return checkForm()">
 <input type="hidden" name="id" value="${entity.Id}"/>

@@ -16,10 +16,10 @@
  <script type="text/javascript" >
  function checkForm(){
 	 var msg = "";
-	 var realTime = $("#realTime");
-	 if ($.trim(realTime.val()) == ""){
-			msg = "文档原始时间不为空!";
-			realTime.focus();
+	 var title = $("#title");
+	 if ($.trim(title.val()) == ""){
+			msg = "标题不为空!";
+			title.focus();
 		}
 	 if (msg != ""){
 			alert(msg);
@@ -32,7 +32,7 @@
 <body>
 <div class="content_box">
     <div class="btn_box">
-  <input type="button" value="返回" class="initial" style="cursor:hand" onclick="javascript:location.href='${ctx}/admin/zhaoping/list/1.html"/>
+  <input type="button" value="返回" class="initial" style="cursor:hand" onclick="javascript:location.href='${ctx}/admin/zhaoping/list/1.html'"/>
    </div>
 <form id="add_form" action="${ctx}/admin/zhaoping/save.html" method="post" onsubmit="return checkForm()">
 <input type="hidden" name="id" value="${entity.Id}"/>
@@ -43,10 +43,16 @@
    <h2>${viewType == 'A' ? '添加' : '修改'}招聘信息>></h2>
    <table width="98%" border="0" cellspacing="0" cellpadding="0">
   
-  
+   <tr>
+	    
+     <th>标题：</th>
+     <td ><input id="title" name="title" type="text" value="${entity.Title}" maxlength="30"/></td>
+     
+     </tr>
 	    <tr>
+	    
      <th>内容：</th>
-     <td colspan="6">
+     <td >
      <textarea id="content" name="content" rows="3" cols="100" >${entity.Content }</textarea>
 <br/>
      </td>

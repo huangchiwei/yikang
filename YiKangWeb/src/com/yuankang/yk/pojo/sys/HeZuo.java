@@ -7,8 +7,7 @@ import javax.persistence.Table;
 /**
  * News entity. @author MyEclipse Persistence Tools
  */
-@Entity
-@Table(name = "hezuo", catalog = "yikang")
+
 public class HeZuo implements java.io.Serializable {
 
 	// Fields

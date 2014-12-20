@@ -22,7 +22,7 @@
 		      type : 4,
 		      btn : ['是','否'],
 		      yes : function(){
-		          location.href='${ctx}/admin/hezuo/delete/' + id + '.html';
+		          location.href='${ctx}/admin/zhaoping/delete/' + id + '.html';
 		      },
 		      no : function(index){
 		         layer.close(index);
@@ -39,28 +39,29 @@
 <body>
 <div class="content_box">
   <div class="btn_box">
-<input onclick="javascript:location.href='${ctx}/admin/hezuo/add/new.html'"  type="button" value="添加" class="initial" style="cursor:hand" />
+<input onclick="javascript:location.href='${ctx}/admin/zhaoping/add/new.html'"  type="button" value="添加" class="initial" style="cursor:hand" />
    </div>
   <div class="list_info">
-  	<form id="search_form" action="${ctx}/admin/hezuo/list/1.html" method="post">
+  	<form id="search_form" action="${ctx}/admin/zhaoping/list/1.html" method="post">
   
-    <h2>合作伙伴列表>>&nbsp;&nbsp;&nbsp;&nbsp;
+    <h2>招聘信息列表>>&nbsp;&nbsp;&nbsp;&nbsp;
             </h2>
     <table border="0" cellpadding="0" cellspacing="0" class="table">
 <tr>
         <th>ID</th>
-        <th>公司名称</th>
-        <th>链接地址</th>
+        <th>标题</th>
+        <th>发部时间</th>
         <th>操作</th>
       </tr>
       
       <c:forEach items="${list}" var="o" varStatus="sta">
       	<tr onMouseOver="this.style.background='#ecf6ff'" onMouseOut="this.style.background='#FFFFFF'" >
         <td>${sta.index + 1}</td>
-        <td>${o.Name}</td>
-        <td>${o.Url}</td>
-        
-           <a href="${ctx}/admin/hezuo/update/${o.Id}.html"><img src="${ctx}/theme/admin/default/images/edit_icon.png" /></a>&nbsp;
+        <td>${o.Title}</td>
+        <td><fmt:formatDate value="${o.LastUpdateTime}"
+								pattern="yyyy-MM-dd HH:mm:ss" /></td>
+        <td>
+           <a href="${ctx}/admin/zhaoping/update/${o.Id}.html"><img src="${ctx}/theme/admin/default/images/edit_icon.png" /></a>&nbsp;
           <img  src="${ctx}/theme/admin/default/images/del_icon.png" onclick="delConfirm(${o.Id})"/></td>
       </tr>
       </c:forEach>

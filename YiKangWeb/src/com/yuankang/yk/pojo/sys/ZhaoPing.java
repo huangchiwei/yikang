@@ -7,13 +7,13 @@ import javax.persistence.Table;
 /**
  * News entity. @author MyEclipse Persistence Tools
  */
-@Entity
-@Table(name = "zhaoping", catalog = "yikang")
+
 public class ZhaoPing implements java.io.Serializable {
 
 	// Fields
 
 	private Long id;
+	private String title;
 	private String content;
 	private String lastUpdateUser;
 	private Date lastUpdateTime;
@@ -40,6 +40,12 @@ public class ZhaoPing implements java.io.Serializable {
 	}
 	public void setLastUpdateTime(Date lastUpdateTime) {
 		this.lastUpdateTime = lastUpdateTime;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	
 

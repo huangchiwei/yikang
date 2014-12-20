@@ -16,10 +16,14 @@
  <script type="text/javascript" >
  function checkForm(){
 	 var msg = "";
-	 var realTime = $("#realTime");
-	 if ($.trim(realTime.val()) == ""){
-			msg = "文档原始时间不为空!";
-			realTime.focus();
+	 var name = $("#name");
+	 var url = $("#url");
+	 if ($.trim(name.val()) == ""){
+			msg = "公司名称不为空!";
+			name.focus();
+		}else 	 if ($.trim(url.val()) == ""){
+			msg = "链接地址不为空!";
+			url.focus();
 		}
 	 if (msg != ""){
 			alert(msg);
@@ -32,7 +36,7 @@
 <body>
 <div class="content_box">
     <div class="btn_box">
-  <input type="button" value="返回" class="initial" style="cursor:hand" onclick="javascript:location.href='${ctx}/admin/hezuo/list/1.html"/>
+  <input type="button" value="返回" class="initial" style="cursor:hand" onclick="javascript:location.href='${ctx}/admin/hezuo/list/1.html'"/>
    </div>
 <form id="add_form" action="${ctx}/admin/hezuo/save.html" method="post" onsubmit="return checkForm()">
 <input type="hidden" name="id" value="${entity.Id}"/>

@@ -83,14 +83,14 @@ public class ZhaoPingController extends BaseController {
 	
 	    model.addAttribute("entity", entity);
 	   // model.addAttribute("categoryId", train.get("CategoryId").toString());
-	    return "admin/zhaoping/zhaopingA_U";
+	    return "admin/company/zhaopingA_U";
 	  }
 	  @RequestMapping(value = ADD)
 	  public String toAdd(Model model)
 	  {
 		 
 		  model.addAttribute("viewType", "A");
-		  return "admin/zhaoping/zhaopingA_U";
+		  return "admin/company/zhaopingA_U";
 	  }
 	  /**
 	 * @param model

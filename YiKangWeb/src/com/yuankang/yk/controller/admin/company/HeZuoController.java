@@ -81,14 +81,14 @@ public class HeZuoController extends BaseController {
 	
 	    model.addAttribute("entity", entity);
 	   // model.addAttribute("categoryId", train.get("CategoryId").toString());
-	    return "admin/hezuo/hezuoA_U";
+	    return "admin/company/hezuoA_U";
 	  }
 	  @RequestMapping(value = ADD)
 	  public String toAdd(Model model)
 	  {
 		 
 		  model.addAttribute("viewType", "A");
-		  return "admin/hezuo/hezuoA_U";
+		  return "admin/company/hezuoA_U";
 	  }
 	  /**
 	 * @param model

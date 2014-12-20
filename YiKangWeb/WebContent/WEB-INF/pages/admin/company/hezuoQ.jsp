@@ -59,9 +59,10 @@
         <td>${sta.index + 1}</td>
         <td>${o.Name}</td>
         <td>${o.Url}</td>
-        
+        <td>
            <a href="${ctx}/admin/hezuo/update/${o.Id}.html"><img src="${ctx}/theme/admin/default/images/edit_icon.png" /></a>&nbsp;
           <img  src="${ctx}/theme/admin/default/images/del_icon.png" onclick="delConfirm(${o.Id})"/></td>
+     
       </tr>
       </c:forEach>
       <tr>
