@@ -132,9 +132,9 @@ public class NewsController extends BaseController {
 				String full=Constants.BASE_DIR+src.substring(0, src.lastIndexOf("/")+1);
 				String picName=src.substring( src.lastIndexOf("/")+1);
 				String des_src=full+"thumbs/200/"+picName;
-				String des_src2=full+"thumbs/650/"+picName;
+				//String des_src2=full+"thumbs/650/"+picName;
 				ThumbsUtil.getInstance().init(full+picName, des_src).resizeByWidth(200);
-				ThumbsUtil.getInstance().init(full+picName, des_src2).resizeByWidth(650);
+				//ThumbsUtil.getInstance().init(full+picName, des_src2).resizeByWidth(650);
 			}
 		}catch(Exception e ){
 			e.printStackTrace();
