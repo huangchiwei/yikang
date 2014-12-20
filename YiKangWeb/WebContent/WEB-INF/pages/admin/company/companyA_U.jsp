@@ -59,7 +59,7 @@
 	   <tr>
 	  <th>标题：</th>
      <td>
-     	<input id="title" name="title" type="text" value="${entity.Title}" maxlength="200" size="25"/>
+     	<input id="title" name="title" type="text" value="${entity.Title}" maxlength="200" size="40"/>
      </td>
       <th>文档原始时间：</th>
      <td>

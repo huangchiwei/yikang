@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <div class="bot">
-   <p class="p"><a href="#">关于我们</a> | <a href="#">版权信息</a> | <a href="#">免责声明</a> | <a href="#">公司动态</a> | <a href="#">合作伙伴</a> | <a href="#">招聘信息</a> | <a href="#">联系我们</a><!-- | <a href="#">意见反馈</a>--> | <a href="#">网站帮助</a></p>
+   <p class="p"><a href="#">关于我们</a> | <a href="#">版权信息</a> | <a href="#">免责声明</a> | <a href="${ctx}/front/company/detail/1.html">公司动态</a> | <a href="${ctx}/front/company/hezuoList/1.html">合作伙伴</a> | <a href="${ctx}/front/company/zhaopingDetail.html">招聘信息</a> | <a href="#">联系我们</a><!-- | <a href="#">意见反馈</a>--> | <a href="#">网站帮助</a></p>
    <p class="copyright">版权所有：广东省保健行业协会 <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备11057226号
      </a><br />
      主办： 广东省保健行业协会 承办：广州源康信息技术有限公司

@@ -24,7 +24,7 @@ import com.yuankang.yk.service.industryActi.IndustryActiService;
  */
 @Controller("industryActiFrontController")
 @RequestMapping("front/industryActi")
-public class IndustryActiFrontController extends BaseController {
+public class IndustryActiController extends BaseController {
 	@Resource
 	private AdvertService advertService;
 	@Resource

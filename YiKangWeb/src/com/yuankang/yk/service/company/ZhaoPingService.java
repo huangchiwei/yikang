@@ -53,8 +53,8 @@ public class ZhaoPingService extends BaseSqlService {
 	}
 
 	public void update(ZhaoPing zhaoPing) {
-		String sql = "update zhaoping set"
-				+ "Title='"+zhaoPing.getTitle()+"' Content='" + zhaoPing.getContent()+ "',LastUpdateUser='"
+		String sql = "update zhaoping set "
+				+ "Title='"+zhaoPing.getTitle()+"', Content='" + zhaoPing.getContent()+ "',LastUpdateUser='"
 				+ zhaoPing.getLastUpdateUser() + "',LastUpdateTime=now()"
 				+ " where Id="
 				+ zhaoPing.getId();

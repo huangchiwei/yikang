@@ -46,7 +46,7 @@
    <tr>
 	    
      <th>标题：</th>
-     <td ><input id="title" name="title" type="text" value="${entity.Title}" maxlength="30"/></td>
+     <td ><input id="title" name="title" type="text" value="${entity.Title}" size="40"/></td>
      
      </tr>
 	    <tr>

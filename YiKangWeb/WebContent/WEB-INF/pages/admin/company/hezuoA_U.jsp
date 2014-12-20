@@ -50,11 +50,11 @@
    
         <th>公司名称：</th>
      <td>
-    	<input id="name" name="name" type="text" value="${entity.Name}" maxlength="20"/>
+    	<input id="name" name="name" type="text" value="${entity.Name}" size="40"/>
      </td>
       <th>链接地址：</th>
      <td>
-    	<input id="url" name="url" type="text" value="${entity.Url}" maxlength="20"/>
+    	<input id="url" name="url" type="text" value="${entity.Url}" size="30"/>
      </td>
     
     
