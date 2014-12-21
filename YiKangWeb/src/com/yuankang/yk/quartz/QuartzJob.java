@@ -35,7 +35,7 @@ import com.yuankang.yk.service.news.NewsService;
  */
 @Component
 public class QuartzJob {
-/*
+
 	@Resource
 	private InvestmentService investmentService;
 	@Resource
@@ -344,6 +344,6 @@ public class QuartzJob {
 		page.setPageSize(6);
 		Constants.healthData.put("jyzn_recommend_doc_6", expertInfoService.getByPage(page));
 		System.out.println("健康频道信息...");
-	}*/
+	}
 	
 }
