@@ -14,6 +14,7 @@ public class ZhaoPing implements java.io.Serializable {
 
 	private Long id;
 	private String title;
+	private String jobClass;
 	private String content;
 	private String lastUpdateUser;
 	private Date lastUpdateTime;
@@ -46,6 +47,12 @@ public class ZhaoPing implements java.io.Serializable {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public String getJobClass() {
+		return jobClass;
+	}
+	public void setJobClass(String jobClass) {
+		this.jobClass = jobClass;
 	}
 	
 

@@ -45,14 +45,17 @@
   
    <tr>
 	    
-     <th>标题：</th>
+     <th>职位名称：</th>
      <td ><input id="title" name="title" type="text" value="${entity.Title}" size="40"/></td>
+      <th>职位类别：</th>
+     <td ><input id="jobClass" name="jobClass" type="text" value="${entity.JobClass}" size="40"/></td>
      
      </tr>
+       
 	    <tr>
 	    
      <th>内容：</th>
-     <td >
+     <td colspan="3">
      <textarea id="content" name="content" rows="3" cols="100" >${entity.Content }</textarea>
 <br/>
      </td>

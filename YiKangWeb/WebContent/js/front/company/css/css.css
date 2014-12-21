@@ -1,0 +1,318 @@
+@charset "utf-8";
+/* CSS Document */
+html {overflow-y:scroll;}
+body{font:12px/150% "microsoft yahei",Arial,Verdana;color:#666;_background-image:url(about:blank);_background-attachment:fixed;}
+html,body,div,span,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,address,big,cite,code,del,em,font,img,ins,small,strong,var,b,u,i,center,dl,dt,dd,p,ol,ul,li,fieldset,form,label,legend{margin:0;padding:0;border: 0;}p,ol,ul,li{list-style:none}:focus{outline:0}a img{border:0}img{vertical-align:middle}table{empty-cells:show}ins{text-decoration:none}del{text-decoration:line-through}em{font-style:normal}button::-moz-focus-inner,input[type=reset]::-moz-focus-inner,input[type=button]::-moz-focus-inner,input[type=submit]::-moz-focus-inner,input[type=file]>input[type=button]::-moz-focus-inner{border:0;padding:0}
+li {display: list-item;text-align: -webkit-match-parent;}
+.clearfix{zoom:1;clear:both;}
+.clearfix:after{content:'.';display:block;height:0;clear:both;visibility:hidden;}
+img {border:0;}
+fieldset {border:0;}
+var {font-style:normal;font-weight:normal;}
+th {font-style:normal;font-weight:normal;}
+strong {font-style:normal;font-weight:normal;}
+dfn {font-style:normal;font-weight:normal;}
+code {font-style:normal;font-weight:normal;}
+cite {font-style:normal;font-weight:normal;}
+caption {font-style:normal;font-weight:normal;}
+address {font-style:normal;font-weight:normal;}
+caption {text-align:left;}
+h6 {font-size:100%;font-weight:normal;}
+h5 {font-size:100%;font-weight:normal;}
+h4 {font-size:100%;font-weight:normal;}
+h3 {font-size:100%;font-weight:normal;}
+h2 {font-size:100%;font-weight:normal;}
+h1 {font-size:100%;font-weight:normal;}
+.top {
+	line-height: 40px;
+	height: 40px;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.banner {
+height: 300px;
+background: #d0e8f0 url(images/banner_bg.jpg) no-repeat center top;
+overflow: hidden;
+}
+.banner-main {
+	width: 1000px;
+	margin: 0 auto;
+	height: 300px;
+	background-position: center center;
+	position: relative;
+	background-image: url(../images/ad_1800.png);
+}
+.banner-main img {
+position: absolute;
+left: -405px;
+}
+.top .top_r {
+	margin-left: auto;
+	width: 380px;
+	text-align: right;
+	color: #CCCCCC;
+}
+.top .top_r a {
+	color: #666666;
+	text-decoration: none;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.top .top_r a:hover {
+	color: #0033CC;
+	text-decoration: underline;
+}
+
+.top .top_l {
+	float: left;
+}
+.lan_box {
+	height: 50px;
+	background-color: #1771c1;
+}
+.main {
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 30px;
+}
+.main .m_box {
+	padding: 20px;
+}
+.main .m_box .page {
+	padding-top: 30px;
+	text-align: center;
+	padding-bottom: 30px;
+}
+
+.main .m_box li {
+	height: 35px;
+	padding-left: 20px;
+	background-image: url(../images/dian.png);
+	background-repeat: no-repeat;
+	background-position: 0px 6px;
+}
+.main .m_box li span {
+	float: right;
+	font-size: 14px;
+}
+
+.main .m_box li a {
+	font-size: 14px;
+	color: #666666;
+	text-decoration: none;
+}
+.main .m_box li a:hover {
+	color: #990000;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+
+.bot {
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #1771c4;
+	padding: 30px;
+	text-align: center;
+	color: #FFFFFF;
+}
+.main .m_box p {
+	font-size: 14px;
+	text-indent: 2em;
+	padding-bottom: 15px;
+	line-height: 28px;
+}
+.main .m_box h2 {
+	color: #004e96;
+	line-height: 40px;
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #CCCCCC;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+
+.main .title {
+	background-image: url(../images/t_bj.png);
+	height: 45px;
+}
+.main .title h1 {
+	font-size: 14px;
+	color: #333333;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #1770bb;
+	line-height: 42px;
+	font-weight: bold;
+	float: left;
+	padding-right: 20px;
+	padding-left: 20px;
+}
+
+
+.lan_box .lanren {
+	width: 1000px;
+	height:50px;
+	line-height:32px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.lanren a{
+	height:50px;
+	line-height:50px;
+	color:#fff;
+	text-decoration:none;
+	display:block;
+	float:left;
+	font-size: 14px;
+	padding-top: 0px;
+	padding-right: 40px;
+	padding-bottom: 0px;
+	padding-left: 40px;
+}
+.lanren a:hover{
+	text-decoration:none;
+	background:#025290;
+}
+.lanren a.thisclass{
+	text-decoration:none;
+	background:#025290;
+}
+.main .c_box {
+	padding: 20px;
+	overflow: hidden;
+}
+.main .c_box .c_box_l {
+	float: left;
+	width: 450px;
+}
+.main .c_box .c_box_r {
+	width: 470px;
+	margin-left: auto;
+}
+.main .c_box .c_box_r img {
+	border: 1px solid #CCCCCC;
+}
+
+
+.main .c_box .c_box_l p {
+	line-height: 28px;
+	font-size: 14px;
+	color: #333333;
+}
+.main .n_box {
+	padding-top: 40px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+}
+.main .job {
+	padding: 20px;
+}
+
+.main .n_box a {
+	font-size: 14px;
+	color: #333333;
+	text-decoration: none;
+	padding-right: 15px;
+	padding-left: 15px;
+	display: inline-block;
+	line-height: 35px;
+}
+.main .n_box a:hover {
+	color: #1771C1;
+	text-decoration: underline;
+}
+
+.main .n_box .n_box_b {
+	padding: 20px;
+	line-height: 28px;
+}
+.main .n_box .n_box_b p {
+	text-indent: 2em;
+	padding-bottom: 15px;
+	font-size: 14px;
+}
+.main .n_box h1 {
+	font-size: 16px;
+	text-align: center;
+	padding-bottom: 10px;
+	color: #333333;
+}
+.main .n_box span {
+	text-align: center;
+	padding-bottom: 10px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCCCCC;
+	display: block;
+}
+.main  .job  ul {
+	padding-bottom: 15px;
+	overflow: hidden;
+
+}
+.main .job .job_box {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.main .job .job_box span {
+	padding: 15px;
+	display: block;
+	color: #333333;
+}
+.main .job .job_box p {
+	line-height: 28px;
+	font-size: 14px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+	padding-left: 15px;
+}
+
+.main .job .job_box h1 {
+	font-size: 14px;
+	color: #333333;
+	background-color: #f3f3f3;
+	padding: 10px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #C5C5C5;
+	font-weight: bold;
+}
+.main .job .job_box h2 {
+	font-size: 14px;
+	color: #333333;
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #C5C5C5;
+	padding-top: 20px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
+
+
+.main .job ul li {
+	float: left;
+	width: 180px;
+	padding-left: 12px;
+	background-image: url(../images/dian.png);
+	background-repeat: no-repeat;
+	background-position: 0px 15px;
+}
+.main .job li a {
+	font-size: 14px;
+	color: #333333;
+	text-decoration: none;
+	line-height: 35px;
+	font-weight: bold;
+}
+.main .job li a:hover {
+	color: #1771C1;
+	font-size: 14px;
+	text-decoration: underline;
+}

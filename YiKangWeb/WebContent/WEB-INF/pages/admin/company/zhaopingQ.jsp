@@ -49,7 +49,8 @@
     <table border="0" cellpadding="0" cellspacing="0" class="table">
 <tr>
         <th>ID</th>
-        <th>标题</th>
+        <th>职位名称</th>
+         <th>职位类别</th>
         <th>发部时间</th>
         <th>操作</th>
       </tr>
@@ -58,6 +59,7 @@
       	<tr onMouseOver="this.style.background='#ecf6ff'" onMouseOut="this.style.background='#FFFFFF'" >
         <td>${sta.index + 1}</td>
         <td>${o.Title}</td>
+        <td>${o.JobClass}</td>
         <td><fmt:formatDate value="${o.LastUpdateTime}"
 								pattern="yyyy-MM-dd HH:mm:ss" /></td>
         <td>

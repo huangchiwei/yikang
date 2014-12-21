@@ -33,110 +33,76 @@ public class CompanyController extends BaseController {
 	private ZhaoPingService zhaoPingService;
 	@Resource
 	private HeZuoService heZuoService;
-	@Resource
-	private NewsService newsService;
-	@Resource
-	private AdvertService advertService;
+	
 	@Resource
 	private CompanyService companyService;
 	@RequestMapping(value =DETAIL)
 	 public String detail(@PathVariable("id") Long key,Model model)
 	 {
 
-		//右上角广告
-		List<Map<String, Object>>  advert12=advertService.getByPosCode("12");
-		if(advert12!=null && advert12.size()>0)
-		model.addAttribute("advert12",advert12.get(0));
-// 初始化分页实体
 		Map<String, Object> entity=companyService.getById(key);
 		model.addAttribute("entity",entity);
-		//前10条热文排行
-		 List<Map<String, Object>> hotOrderInfoList=newsService.getHotOrderInfo(10);
-		 model.addAttribute("hotOrderInfoList", hotOrderInfoList);
-		//前10条热文推荐
-		 List<Map<String, Object>> hotRecomInfoList=newsService.getHotRecommendInfo(10);
-		 model.addAttribute("hotRecomInfoList", hotRecomInfoList);
-		 model.addAttribute("other_disease_15", Constants.healthData.get("other_disease_15"));
-	
-		    return "front/company/companyD";
+		model.addAttribute("menu","dyamic");
+				    return "front/company/news_detail";
 	 }
 	
 	 @RequestMapping(value =PAGE_LIST)
 	 public String getByPage(@PathVariable int currentPage,Model model)
 	 {
 		
-		//右上角广告
-				List<Map<String, Object>>  advert12=advertService.getByPosCode("12");
-				if(advert12!=null && advert12.size()>0)
-				model.addAttribute("advert12",advert12.get(0));
-		// 初始化分页实体
-				Pagination page = initPage(currentPage);
-				page.setPageSize(10);
-				List<Map<String, Object>> list=companyService.getByPage(page);
-				model.addAttribute("list", list);
-				if(list!=null&&list.size()>0)
-					model.addAttribute("title", list.get(0).get("Title").toString());
-				model.addAttribute("page", page);
-
-				//前10条热文排行
-				 List<Map<String, Object>> hotOrderInfoList=newsService.getHotOrderInfo(10);
-				 model.addAttribute("hotOrderInfoList", hotOrderInfoList);
-				//前10条热文推荐
-				 List<Map<String, Object>> hotRecomInfoList=newsService.getHotRecommendInfo(10);
-				 model.addAttribute("hotRecomInfoList", hotRecomInfoList);
-				 model.addAttribute("other_disease_15", Constants.healthData.get("other_disease_15"));
-			
-		 return "front/company/companyQ";
+			Pagination page = initPage(currentPage);
+			page.setPageSize(10);
+			List<Map<String, Object>> list=companyService.getByPage(page);
+			model.addAttribute("list", list);
+			/*if(list!=null&&list.size()>0)
+				model.addAttribute("title", list.get(0).get("Title").toString());*/
+			model.addAttribute("page", page);
+			model.addAttribute("menu","dyamic");
+		 return "front/company/news";
 	 }
 	 @RequestMapping(value ="/hezuoList/{currentPage}.html")
 	 public String hezuoList(@PathVariable int currentPage,Model model)
 	 {
 		
-		//右上角广告
-				List<Map<String, Object>>  advert12=advertService.getByPosCode("12");
-				if(advert12!=null && advert12.size()>0)
-				model.addAttribute("advert12",advert12.get(0));
-		// 初始化分页实体
-				Pagination page = initPage(currentPage);
-				page.setPageSize(30);
-				List<Map<String, Object>> list=heZuoService.getByPage(page);
-				model.addAttribute("list", list);
-				
-				model.addAttribute("page", page);
-
-				//前10条热文排行
-				 List<Map<String, Object>> hotOrderInfoList=newsService.getHotOrderInfo(10);
-				 model.addAttribute("hotOrderInfoList", hotOrderInfoList);
-				//前10条热文推荐
-				 List<Map<String, Object>> hotRecomInfoList=newsService.getHotRecommendInfo(10);
-				 model.addAttribute("hotRecomInfoList", hotRecomInfoList);
-				 model.addAttribute("other_disease_15", Constants.healthData.get("other_disease_15"));
+			Pagination page = initPage(currentPage);
+			page.setPageSize(30);
+			List<Map<String, Object>> list=heZuoService.getByPage(page);
+			model.addAttribute("list", list);
 			
-		 return "front/company/hezuoQ";
+			model.addAttribute("page", page);
+			model.addAttribute("menu","hezuo");
+		 return "front/company/links";
 	 }
 	 @RequestMapping(value ="/zhaopingDetail.html")
 	 public String zhaopingDetail(Model model)
 	 {
-		
-		//右上角广告
-				List<Map<String, Object>>  advert12=advertService.getByPosCode("12");
-				if(advert12!=null && advert12.size()>0)
-				model.addAttribute("advert12",advert12.get(0));
-		// 初始化分页实体
-				Pagination page = initPage(1);
-				page.setPageSize(1);
-				List<Map<String, Object>> list=zhaoPingService.getByPage(page);
-				if(list!=null&&list.size()>0)
-				model.addAttribute("entity", list.get(0));
-				
-				//前10条热文排行
-				 List<Map<String, Object>> hotOrderInfoList=newsService.getHotOrderInfo(10);
-				 model.addAttribute("hotOrderInfoList", hotOrderInfoList);
-				//前10条热文推荐
-				 List<Map<String, Object>> hotRecomInfoList=newsService.getHotRecommendInfo(10);
-				 model.addAttribute("hotRecomInfoList", hotRecomInfoList);
-				 model.addAttribute("other_disease_15", Constants.healthData.get("other_disease_15"));
+			Pagination page = initPage(1);
+			page.setPageSize(5);
+			List<Map<String, Object>> list=zhaoPingService.getByPage(page);
+			model.addAttribute("list", list);
 			
-		 return "front/company/zhaopingD";
+			model.addAttribute("menu","zhaoping");
+		 return "front/company/job";
+	 }
+	 @RequestMapping(value ="/aboutUs.html")
+	 public String aboutUs(Model model)
+	 {
+			
+			model.addAttribute("menu","aboutUs");
+		 return "front/company/about_us";
+	 }
+	 @RequestMapping(value ="/contact.html")
+	 public String contact(Model model)
+	 {
+			
+			model.addAttribute("menu","contact");
+		 return "front/company/contact_us";
+	 }
+	 @RequestMapping(value ="/notices.html")
+	 public String notices(Model model)
+	 {
+			
+			model.addAttribute("menu","notices");
+		 return "front/company/notices";
 	 }
 }

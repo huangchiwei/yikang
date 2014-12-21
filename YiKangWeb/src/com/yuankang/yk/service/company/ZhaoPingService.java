@@ -43,10 +43,10 @@ public class ZhaoPingService extends BaseSqlService {
 	}
 
 	public void save(ZhaoPing zhaoPing) {
-		String sql = "insert into zhaoping(Title,Content,LastUpdateUser,LastUpdateTime) values('"
+		String sql = "insert into zhaoping(Title,JobClass,Content,LastUpdateUser,LastUpdateTime) values('"
 				+zhaoPing.getTitle()+"','"
 				+ zhaoPing.getContent()
-				+ "','"
+				+ "','"+zhaoPing.getJobClass()+"','"
 				+ zhaoPing.getLastUpdateUser()
 				+ "',now())";
 		up_del(sql);
@@ -54,7 +54,7 @@ public class ZhaoPingService extends BaseSqlService {
 
 	public void update(ZhaoPing zhaoPing) {
 		String sql = "update zhaoping set "
-				+ "Title='"+zhaoPing.getTitle()+"', Content='" + zhaoPing.getContent()+ "',LastUpdateUser='"
+				+ "Title='"+zhaoPing.getTitle()+"',JobClass='"+zhaoPing.getJobClass()+"', Content='" + zhaoPing.getContent()+ "',LastUpdateUser='"
 				+ zhaoPing.getLastUpdateUser() + "',LastUpdateTime=now()"
 				+ " where Id="
 				+ zhaoPing.getId();
