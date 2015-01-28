@@ -15,7 +15,7 @@ import com.yuankang.yk.publics.tools.RemoteRequestUtil;
  * @version V1.0
  */
 public class GetHtml {
-
+//
 	public static void main(String[] args) {
 		//System.out.println(getHtmlContent("http://zzk.familydoctor.com.cn/"));
 		System.out.println("********-");
